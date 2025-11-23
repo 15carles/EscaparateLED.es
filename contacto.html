@@ -134,7 +134,9 @@
 
                     <div
                         style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md);">
-                        <form id="contact-form">
+                        <form id="contact-form" name="contacto" method="POST" data-netlify="true">
+                            <input type="hidden" name="form-name" value="contacto">
+
                             <div class="form-group">
                                 <label for="name" class="form-label required">Nombre</label>
                                 <input type="text" id="name" name="name" class="form-input"

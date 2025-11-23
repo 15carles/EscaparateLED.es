@@ -114,10 +114,10 @@ function validateQuoteForm(formData) {
 
 /**
  * Handle quote form submission
+ * Validates form and only prevents submission if there are errors
+ * If valid, allows Netlify Forms to handle the submission
  */
 function handleQuoteFormSubmit(event) {
-    event.preventDefault();
-
     const form = event.target;
     const formData = new FormData(form);
 
@@ -125,40 +125,22 @@ function handleQuoteFormSubmit(event) {
     const errors = validateQuoteForm(formData);
 
     if (errors.length > 0) {
+        // Only prevent default if there are validation errors
+        event.preventDefault();
         alert('Por favor, corrige los siguientes errores:\n\n' + errors.join('\n'));
         return;
     }
 
-    // Prepare data for submission
-    const data = {
-        company: formData.get('company'),
-        contact: formData.get('contact'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        location: formData.get('location'),
-        businessType: formData.get('business-type'),
-        showcaseWidth: formData.get('showcase-width'),
-        showcaseHeight: formData.get('showcase-height'),
-        product: formData.get('product'),
-        quantity: formData.get('quantity'),
-        message: formData.get('message')
-    };
-
-    // TODO: Replace with actual backend endpoint
-    // Example: fetch('/api/quote', { method: 'POST', body: JSON.stringify(data) })
-
-    console.log('Quote form data:', data);
-
-    // Simulate submission
-    submitFormData(form, data, 'quote');
+    // If validation passes, allow the form to submit normally to Netlify
+    // No preventDefault() call here - let the browser do its thing
 }
 
 /**
  * Handle contact form submission
+ * Validates form and only prevents submission if there are errors
+ * If valid, allows Netlify Forms to handle the submission
  */
 function handleContactFormSubmit(event) {
-    event.preventDefault();
-
     const form = event.target;
     const formData = new FormData(form);
 
@@ -168,81 +150,19 @@ function handleContactFormSubmit(event) {
     const message = formData.get('message');
 
     if (!name || !email || !message) {
+        event.preventDefault();
         alert('Por favor, completa todos los campos obligatorios');
         return;
     }
 
     if (!window.carpetasLED.validateEmail(email)) {
+        event.preventDefault();
         alert('Por favor, introduce un email válido');
         return;
     }
 
-    const data = { name, email, message };
-
-    // TODO: Replace with actual backend endpoint
-    console.log('Contact form data:', data);
-
-    // Simulate submission
-    submitFormData(form, data, 'contact');
-}
-
-/**
- * Simulate form submission (replace with actual backend call)
- */
-function submitFormData(form, data, formType) {
-    // Show loading state
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    submitButton.disabled = true;
-    submitButton.textContent = 'Enviando...';
-
-    // Simulate API call
-    setTimeout(() => {
-        // Hide form
-        form.style.display = 'none';
-
-        // Show success message
-        const successMessage = document.createElement('div');
-        successMessage.className = 'form-success';
-        successMessage.style.padding = '2rem';
-        successMessage.style.textAlign = 'center';
-        successMessage.innerHTML = `
-      <h3 style="color: var(--color-success); margin-bottom: 1rem;">✓ ¡Mensaje enviado correctamente!</h3>
-      <p>Gracias por tu interés. Te contactaremos en menos de 24 horas.</p>
-      ${formType === 'quote' ? '<p>Recibirás un presupuesto personalizado adaptado a tus necesidades.</p>' : ''}
-      <button class="btn btn-primary mt-3" onclick="location.href='index.html'">Volver al inicio</button>
-    `;
-
-        form.parentNode.insertBefore(successMessage, form);
-
-        // Reset button state
-        submitButton.disabled = false;
-        submitButton.textContent = originalText;
-
-        // Reset form
-        form.reset();
-
-        // TODO: Actual implementation would be:
-        /*
-        fetch('/api/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(result => {
-          // Show success message
-        })
-        .catch(error => {
-          // Show error message
-          alert('Ha ocurrido un error. Por favor, inténtalo de nuevo o contacta por teléfono.');
-          submitButton.disabled = false;
-          submitButton.textContent = originalText;
-        });
-        */
-    }, 1500);
+    // If validation passes, allow the form to submit normally to Netlify
+    // No preventDefault() call here - let the browser do its thing
 }
 
 // ========================================
