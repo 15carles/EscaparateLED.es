@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Solicita presupuesto sin compromiso para carpetas LED retroiluminadas. Asesoramiento personalizado para tu escaparate de inmobiliaria.">
-    <meta name="keywords" content="presupuesto carpetas LED, precio escaparate LED, solicitar presupuesto inmobiliaria">
-    <title>Pedir Presupuesto - Carpetas LED para Escaparates | Sin Compromiso</title>
+    <meta name="keywords"
+        content="LED Escaparate, presupuesto carpetas LED, precio escaparate LED, solicitar presupuesto inmobiliaria">
+    <title>Pedir Presupuesto - LED Escaparate | Sin Compromiso</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +22,7 @@
     <header class="header">
         <nav class="nav container">
             <a href="index.html" class="nav-logo">
-                Carpetas<span>LED</span>
+                LED<span>Escaparate</span>
             </a>
 
             <button class="nav-toggle" aria-label="Toggle navigation">
@@ -55,37 +56,42 @@
     <section class="section">
         <div class="container" style="max-width: 800px;">
 
-            <form id="quote-form" name="presupuesto" method="POST" data-netlify="true">
+            <form id="quote-form" name="presupuesto" method="POST" data-netlify="true" action="/gracias.html"
+                aria-label="Formulario de solicitud de presupuesto">
                 <input type="hidden" name="form-name" value="presupuesto">
 
                 <!-- Company Information -->
-                <div
-                    style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); margin-bottom: var(--spacing-xl);">
-                    <h2 class="mb-4">Datos de la Empresa</h2>
+                <fieldset
+                    style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); margin-bottom: var(--spacing-xl); border: none;">
+                    <legend class="mb-4"
+                        style="font-size: var(--font-size-2xl); font-weight: 600; color: var(--color-text);">Datos de la
+                        Empresa</legend>
 
                     <div class="form-group">
                         <label for="company" class="form-label required">Nombre de la empresa</label>
                         <input type="text" id="company" name="company" class="form-input"
-                            placeholder="Inmobiliaria Ejemplo S.L." required>
+                            placeholder="Inmobiliaria Ejemplo S.L." required autocomplete="organization"
+                            aria-required="true">
                     </div>
 
                     <div class="form-group">
                         <label for="contact" class="form-label required">Persona de contacto</label>
                         <input type="text" id="contact" name="contact" class="form-input"
-                            placeholder="Nombre y apellidos" required>
+                            placeholder="Nombre y apellidos" required autocomplete="name" aria-required="true">
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label for="email" class="form-label required">Email</label>
                             <input type="email" id="email" name="email" class="form-input"
-                                placeholder="email@ejemplo.com" required>
+                                placeholder="email@ejemplo.com" required autocomplete="email" aria-required="true"
+                                aria-describedby="email-help">
                         </div>
 
                         <div class="form-group">
                             <label for="phone" class="form-label required">Teléfono</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+34 666 666 666"
-                                required>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+34 626 612 141"
+                                required autocomplete="tel" aria-required="true">
                         </div>
                     </div>
 
@@ -93,95 +99,106 @@
                         <div class="form-group">
                             <label for="location" class="form-label required">Localidad / Provincia</label>
                             <input type="text" id="location" name="location" class="form-input"
-                                placeholder="Valencia, Madrid, Barcelona..." required>
+                                placeholder="Valencia, Madrid, Barcelona..." required autocomplete="address-level2"
+                                aria-required="true">
                         </div>
 
                         <div class="form-group">
                             <label for="business-type" class="form-label">Tipo de negocio</label>
-                            <select id="business-type" name="business-type" class="form-select">
+                            <select id="business-type" name="business-type" class="form-select"
+                                aria-label="Selecciona el tipo de negocio">
                                 <option value="">Selecciona...</option>
+                                <option value="agencia-seguros">Agencia de seguros</option>
+                                <option value="agencia-viajes">Agencia de viajes</option>
+                                <option value="clinica-estetica">Clínica estética / Salud</option>
+                                <option value="comercio-especializado">Comercio especializado</option>
+                                <option value="constructora-promotora">Constructora / Promotora</option>
                                 <option value="inmobiliaria">Inmobiliaria</option>
-                                <option value="agencia">Agencia inmobiliaria</option>
-                                <option value="franquicia">Franquicia inmobiliaria</option>
-                                <option value="promotora">Promotora</option>
-                                <option value="otro">Otro</option>
+                                <option value="otros">Otros</option>
                             </select>
                         </div>
                     </div>
+        </div>
+
+        <!-- Showcase Configuration -->
+        <fieldset
+            style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); margin-bottom: var(--spacing-xl); border: none;">
+            <legend class="mb-4" style="font-size: var(--font-size-2xl); font-weight: 600; color: var(--color-text);">
+                Configuración del Escaparate</legend>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="quote-showcase-width" class="form-label">Ancho del escaparate (cm)</label>
+                    <input type="number" id="quote-showcase-width" name="showcase-width" class="form-input"
+                        placeholder="Ej: 300" min="0" step="0.1" aria-label="Ancho del escaparate en centímetros">
                 </div>
 
-                <!-- Showcase Configuration -->
-                <div
-                    style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); margin-bottom: var(--spacing-xl);">
-                    <h2 class="mb-4">Configuración del Escaparate</h2>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="quote-showcase-width" class="form-label">Ancho del escaparate (cm)</label>
-                            <input type="number" id="quote-showcase-width" name="showcase-width" class="form-input"
-                                placeholder="Ej: 300" min="0" step="0.1">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="quote-showcase-height" class="form-label">Alto del escaparate (cm)</label>
-                            <input type="number" id="quote-showcase-height" name="showcase-height" class="form-input"
-                                placeholder="Ej: 200" min="0" step="0.1">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="quote-product-selector" class="form-label required">Modelo deseado</label>
-                        <select id="quote-product-selector" name="product" class="form-select" required>
-                            <option value="">Selecciona un modelo...</option>
-                            <!-- Options will be populated by products.js -->
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="quote-quantity" class="form-label">Cantidad estimada</label>
-                        <input type="number" id="quote-quantity" name="quantity" class="form-input"
-                            placeholder="Número de carpetas" min="1">
-                        <small class="text-light" style="font-size: var(--font-size-sm);">
-                            Si no estás seguro, déjalo en blanco y te asesoraremos
-                        </small>
-                    </div>
+                <div class="form-group">
+                    <label for="quote-showcase-height" class="form-label">Alto del escaparate (cm)</label>
+                    <input type="number" id="quote-showcase-height" name="showcase-height" class="form-input"
+                        placeholder="Ej: 200" min="0" step="0.1" aria-label="Alto del escaparate en centímetros">
                 </div>
+            </div>
 
-                <!-- Additional Information -->
-                <div
-                    style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); margin-bottom: var(--spacing-xl);">
-                    <h2 class="mb-4">Información Adicional</h2>
+            <div class="form-group">
+                <label for="quote-product-selector" class="form-label required">Modelo deseado</label>
+                <select id="quote-product-selector" name="product" class="form-select" required aria-required="true"
+                    aria-label="Selecciona el modelo de carpeta LED">
+                    <option value="">Selecciona un modelo...</option>
+                    <!-- Options will be populated by products.js -->
+                </select>
+            </div>
 
-                    <div class="form-group">
-                        <label for="message" class="form-label">Mensaje (opcional)</label>
-                        <textarea id="message" name="message" class="form-textarea"
-                            placeholder="Cuéntanos más sobre tu proyecto, necesidades específicas, plazos, etc."
-                            rows="5"></textarea>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label for="quote-quantity" class="form-label">Cantidad estimada</label>
+                <input type="number" id="quote-quantity" name="quantity" class="form-input"
+                    placeholder="Número de carpetas" min="1" aria-label="Cantidad estimada de carpetas"
+                    aria-describedby="quantity-help">
+                <small id="quantity-help" class="text-light" style="font-size: var(--font-size-sm);">
+                    Si no estás seguro, déjalo en blanco y te asesoraremos
+                </small>
+            </div>
+        </fieldset>
 
-                <!-- RGPD Consent -->
-                <div
-                    style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); margin-bottom: var(--spacing-xl);">
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="rgpd" name="rgpd" required>
-                        <label for="rgpd" style="font-size: var(--font-size-sm);">
-                            He leído y acepto la <a href="legal/politica-privacidad.html" target="_blank">Política de
-                                Privacidad</a> y el tratamiento de mis datos conforme al RGPD. Consiento que mis datos
-                            sean utilizados para el envío de presupuestos y comunicaciones comerciales relacionadas.
-                        </label>
-                    </div>
-                </div>
+        <!-- Additional Information -->
+        <fieldset
+            style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); margin-bottom: var(--spacing-xl); border: none;">
+            <legend class="mb-4" style="font-size: var(--font-size-2xl); font-weight: 600; color: var(--color-text);">
+                Información Adicional</legend>
 
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-primary btn-large btn-block">
-                    Enviar Solicitud de Presupuesto
-                </button>
+            <div class="form-group">
+                <label for="message" class="form-label">Mensaje (opcional)</label>
+                <textarea id="message" name="message" class="form-textarea"
+                    placeholder="Cuéntanos más sobre tu proyecto, necesidades específicas, plazos, etc." rows="5"
+                    aria-label="Mensaje adicional sobre tu proyecto"></textarea>
+            </div>
+        </fieldset>
 
-                <p class="text-center text-light mt-3" style="font-size: var(--font-size-sm);">
-                    Te responderemos en menos de 24 horas laborables
-                </p>
-            </form>
+        <!-- RGPD Consent -->
+        <fieldset
+            style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); margin-bottom: var(--spacing-xl); border: none;">
+            <legend class="visually-hidden">Consentimiento de privacidad</legend>
+            <div class="form-checkbox">
+                <input type="checkbox" id="rgpd" name="rgpd" required aria-required="true"
+                    aria-describedby="rgpd-description">
+                <label for="rgpd" id="rgpd-description" style="font-size: var(--font-size-sm);">
+                    He leído y acepto la <a href="legal/politica-privacidad.html" target="_blank"
+                        rel="noopener noreferrer">Política de
+                        Privacidad</a> y el tratamiento de mis datos conforme al RGPD. Consiento que mis datos
+                    sean utilizados para el envío de presupuestos y comunicaciones comerciales relacionadas.
+                </label>
+            </div>
+        </fieldset>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-large btn-block" aria-label="Enviar solicitud de presupuesto">
+            Enviar Solicitud de Presupuesto
+        </button>
+
+        <p class="text-center text-light mt-3" style="font-size: var(--font-size-sm);">
+            Te responderemos en menos de 24 horas laborables
+        </p>
+        </form>
 
         </div>
     </section>
@@ -211,9 +228,9 @@
                         <h4>Personalizado</h4>
                         <p class="text-light mb-0">Soluciones adaptadas a tus necesidades</p>
                     </div>
+                    </fieldset>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -221,7 +238,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Carpetas<span style="color: var(--color-primary);">LED</span></h4>
+                    <h4>LED<span style="color: var(--color-primary);">Escaparate</span></h4>
                     <p style="color: rgba(255,255,255,0.8);">Soluciones profesionales de iluminación LED para
                         escaparates de inmobiliarias en toda España.</p>
                 </div>
@@ -249,9 +266,9 @@
                 <div class="footer-section">
                     <h4>Contacto</h4>
                     <ul class="footer-links">
-                        <li>📞 +34 666 666 666</li>
-                        <li>📧 info@carpetasled.es</li>
-                        <li>📍 Servicio en toda España</li>
+                        <li>📞 +34 626 612 141</li>
+                        <li>📧 contacto@ledescaparate.es</li>
+                        <li>📍 Valencia, España</li>
                     </ul>
                 </div>
             </div>

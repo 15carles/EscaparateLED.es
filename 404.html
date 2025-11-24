@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página no encontrada - LED Escaparate">
+    <meta name="robots" content="noindex, nofollow">
+    <title>404 - Página No Encontrada | LED Escaparate</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        .error-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-xl);
+        }
+
+        .error-card {
+            background: white;
+            padding: var(--spacing-2xl);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-xl);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .error-number {
+            font-size: 120px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: var(--spacing-md);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .error-title {
+            color: var(--color-text);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-2xl);
+        }
+
+        .error-message {
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-xl);
+            font-size: var(--font-size-lg);
+            line-height: 1.6;
+        }
+
+        .search-box {
+            background: var(--color-background-alt);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 2px solid var(--color-border);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-base);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .popular-links {
+            text-align: left;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .popular-links h3 {
+            color: var(--color-text);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-lg);
+        }
+
+        .popular-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .popular-links li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .popular-links a {
+            color: var(--color-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            transition: all 0.3s ease;
+        }
+
+        .popular-links a:hover {
+            gap: var(--spacing-md);
+            color: var(--color-secondary);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .error-number {
+                font-size: 80px;
+            }
+
+            .error-card {
+                padding: var(--spacing-xl);
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-buttons .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-logo">
+                LED<span>Escaparate</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="productos.html" class="nav-link">Productos</a></li>
+                <li><a href="simulador.html" class="nav-link">Simulador</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="presupuesto.html" class="btn btn-primary">Pedir Presupuesto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Error Message Section -->
+    <section class="error-container">
+        <div class="error-card">
+            <div class="error-number">404</div>
+
+            <h1 class="error-title">Página No Encontrada</h1>
+
+            <p class="error-message">
+                Lo sentimos, la página que buscas no existe o ha sido movida.
+                Puede que el enlace esté roto o que hayas escrito mal la URL.
+            </p>
+
+            <div class="search-box">
+                <input type="text" class="search-input" id="search-input" placeholder="¿Qué estás buscando?"
+                    aria-label="Buscar en el sitio">
+            </div>
+
+            <div class="popular-links">
+                <h3>📌 Páginas Populares</h3>
+                <ul>
+                    <li><a href="index.html">→ Página de Inicio</a></li>
+                    <li><a href="productos.html">→ Ver Nuestros Productos</a></li>
+                    <li><a href="simulador.html">→ Simulador de Escaparates</a></li>
+                    <li><a href="presupuesto.html">→ Solicitar Presupuesto</a></li>
+                    <li><a href="contacto.html">→ Contactar con Nosotros</a></li>
+                </ul>
+            </div>
+
+            <div class="action-buttons">
+                <a href="index.html" class="btn btn-primary">
+                    Volver al Inicio
+                </a>
+                <a href="javascript:history.back()" class="btn btn-secondary">
+                    Página Anterior
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>LED<span style="color: var(--color-primary);">Escaparate</span></h4>
+                    <p style="color: rgba(255,255,255,0.8);">Soluciones profesionales de iluminación LED para
+                        escaparates de inmobiliarias en toda España.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="simulador.html">Simulador</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="legal/aviso-legal.html">Aviso Legal</a></li>
+                        <li><a href="legal/politica-privacidad.html">Política de Privacidad</a></li>
+                        <li><a href="legal/politica-cookies.html">Política de Cookies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul class="footer-links">
+                        <li>📞 +34 626 612 141</li>
+                        <li>📧 contacto@ledescaparate.es</li>
+                        <li>📍 Valencia, España</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Carpetas LED. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Simple search functionality
+        const searchInput = document.getElementById('search-input');
+
+        searchInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const query = this.value.toLowerCase().trim();
+
+                // Simple keyword-based navigation
+                if (query.includes('producto') || query.includes('carpeta')) {
+                    window.location.href = 'productos.html';
+                } else if (query.includes('simulador') || query.includes('calcul')) {
+                    window.location.href = 'simulador.html';
+                } else if (query.includes('presupuesto') || query.includes('precio')) {
+                    window.location.href = 'presupuesto.html';
+                } else if (query.includes('contacto') || query.includes('teléfono') || query.includes('email')) {
+                    window.location.href = 'contacto.html';
+                } else if (query.includes('blog') || query.includes('artículo')) {
+                    window.location.href = 'blog.html';
+                } else if (query) {
+                    // If no match, go to home page
+                    window.location.href = 'index.html';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
