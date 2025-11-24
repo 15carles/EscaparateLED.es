@@ -100,10 +100,6 @@ function validateQuoteForm(formData) {
         errors.push('La localidad/provincia es obligatoria');
     }
 
-    if (!formData.get('product')) {
-        errors.push('Debes seleccionar un modelo');
-    }
-
     // RGPD checkbox
     if (!formData.get('rgpd')) {
         errors.push('Debes aceptar la política de privacidad');
