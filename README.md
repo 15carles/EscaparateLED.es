@@ -1,267 +1,544 @@
-# Carpetas LED - Website Documentation
+# 🌟 LED Escaparate - Website
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://app.netlify.com/sites/your-site/deploys)
+[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
+[![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
+
+> Sitio web profesional para LED Escaparate - Especialistas en carpetas retroiluminadas LED para escaparates inmobiliarios en toda España.
+
+**🌐 Sitio web:** [https://ledescaparate.es](https://ledescaparate.es)  
+**📍 Ubicación:** Valencia, España  
+**📧 Contacto:** contacto@ledescaparate.es  
+**📞 Teléfono:** +34 626 612 141
+
+---
 
 ## 📋 Descripción del Proyecto
 
-Sitio web profesional para la venta de carpetas retroiluminadas LED destinadas a escaparates de inmobiliarias en España. Desarrollado con HTML5, CSS3 y JavaScript vanilla para máxima compatibilidad y facilidad de despliegue.
+Plataforma web completa para la promoción y venta de carpetas retroiluminadas LED destinadas a escaparates de inmobiliarias, agencias, clínicas y comercios especializados en España. Desarrollado con tecnologías web modernas (HTML5, CSS3, JavaScript vanilla) para máxima compatibilidad, rendimiento y facilidad de mantenimiento.
 
-## 🚀 Características Principales
+### 🎯 Objetivos del Sitio
 
+- Mostrar catálogo de productos LED profesionales
+- Proporcionar simulador interactivo de escaparates
+- Facilitar solicitudes de presupuesto personalizadas
+- Ofrecer información técnica y comercial
+- Cumplir con normativa legal española (RGPD, LOPDGDD, LSSI-CE)
+
+---
+
+## ✨ Características Principales
+
+### 🎨 Diseño y UX
 - ✅ Diseño responsive y mobile-first
-- ✅ Simulador interactivo de escaparates
-- ✅ Sistema de gestión de productos modular
-- ✅ Formularios con validación client-side
-- ✅ Optimización SEO para España (Valencia, Madrid, Barcelona, Alicante)
-- ✅ Cumplimiento RGPD/LOPDGDD
-- ✅ Banner de consentimiento de cookies
-- ✅ Páginas legales completas
+- ✅ Interfaz moderna con glassmorphism y animaciones suaves
+- ✅ Paleta de colores profesional y accesible
+- ✅ Tipografía Inter (Google Fonts) para máxima legibilidad
+- ✅ Navegación intuitiva con menú hamburguesa en móviles
+
+### 🛠️ Funcionalidades
+- ✅ **Simulador interactivo** de escaparates con cálculo automático
+- ✅ **Sistema de productos modular** fácilmente actualizable
+- ✅ **Formularios inteligentes** con validación client-side
+- ✅ **Integración Netlify Forms** para gestión de consultas
+- ✅ **Páginas de respuesta** (gracias, 404, error)
+- ✅ **Blog** para contenido SEO
+
+### 🔒 Seguridad y Legal
+- ✅ Cumplimiento **RGPD/LOPDGDD** completo
+- ✅ Política de Privacidad adaptada a Netlify Forms
+- ✅ Política de Cookies (solo técnicas)
+- ✅ Aviso Legal y Condiciones de Uso
+- ✅ Cláusulas legales en formularios
+- ✅ Headers de seguridad configurados
+
+### 🚀 Rendimiento y SEO
+- ✅ Optimización SEO para España (Valencia, Madrid, Barcelona)
+- ✅ Meta tags completos en todas las páginas
+- ✅ Open Graph para redes sociales
+- ✅ Estructura semántica HTML5
+- ✅ Caché optimizado para assets estáticos
+- ✅ Imágenes optimizadas y lazy loading
+
+---
 
 ## 📁 Estructura del Proyecto
 
 ```
-carpetas-led/
-├── index.html              # Página principal
-├── productos.html          # Catálogo de productos
-├── simulador.html          # Simulador de escaparate
-├── presupuesto.html        # Formulario de presupuesto
-├── contacto.html           # Página de contacto
-├── blog.html               # Listado de blog
-├── blog-post.html          # Plantilla de artículo
+led-escaparate/
+├── index.html                 # Página principal
+├── productos.html             # Catálogo de productos
+├── simulador.html             # Simulador de escaparate
+├── presupuesto.html           # Formulario de presupuesto
+├── contacto.html              # Página de contacto
+├── blog.html                  # Listado de blog
+├── blog-post.html             # Plantilla de artículo
+├── gracias.html               # Página de agradecimiento
+├── 404.html                   # Página de error 404
+├── error-formulario.html      # Página de error de formulario
+│
 ├── css/
-│   ├── main.css           # Estilos principales
-│   └── simulator.css      # Estilos del simulador
+│   ├── main.css              # Estilos principales
+│   └── simulator.css         # Estilos del simulador
+│
 ├── js/
-│   ├── main.js            # JavaScript principal
-│   ├── products.js        # Gestión de productos
-│   ├── simulator.js       # Lógica del simulador
-│   └── forms.js           # Manejo de formularios
+│   ├── main.js               # JavaScript principal (navegación, cookies)
+│   ├── products.js           # Gestión de productos y catálogo
+│   ├── simulator.js          # Lógica del simulador
+│   └── forms.js              # Validación y envío de formularios
+│
 ├── images/
-│   ├── products/          # Imágenes de productos
-│   └── icons/             # Iconos SVG
-└── legal/
-    ├── aviso-legal.html
-    ├── politica-privacidad.html
-    └── politica-cookies.html
+│   ├── products/             # Imágenes de productos
+│   └── icons/                # Iconos SVG
+│
+├── legal/
+│   ├── aviso-legal.html      # Aviso Legal
+│   ├── politica-privacidad.html  # Política de Privacidad (RGPD)
+│   ├── politica-cookies.html     # Política de Cookies
+│   └── condiciones-uso.html      # Condiciones de Uso
+│
+├── netlify.toml              # Configuración de Netlify
+├── CHANGELOG.md              # Registro de cambios
+├── VERSION                   # Versión actual (2.1.0)
+└── README.md                 # Este archivo
 ```
 
-## 🛠️ Configuración Inicial
+---
 
-### 1. Datos de la Empresa
+## 🚀 Inicio Rápido
 
-Edita los siguientes archivos y reemplaza los placeholders:
+### Requisitos Previos
 
-**En todas las páginas legales (`legal/*.html`):**
-- `[NOMBRE DE LA EMPRESA]` → Tu nombre comercial
-- `[NÚMERO DE IDENTIFICACIÓN FISCAL]` → Tu NIF/CIF
-- `[DIRECCIÓN COMPLETA]` → Tu dirección fiscal
-- `[CIUDAD]` → Tu ciudad para jurisdicción
-- `[DATOS DE INSCRIPCIÓN]` → Datos del Registro Mercantil
+- Navegador web moderno
+- Editor de código (VS Code recomendado)
+- Git (para control de versiones)
+- Cuenta en Netlify (para despliegue)
 
-**En todas las páginas HTML:**
-- Actualiza el teléfono: `+34 666 666 666`
-- Actualiza el email: `info@carpetasled.es`
+### Instalación Local
 
-### 2. Añadir Productos
+```bash
+# Clonar el repositorio
+git clone https://github.com/15carles/EscaparateLED.es.git
+
+# Navegar al directorio
+cd EscaparateLED.es
+
+# Abrir con un servidor local (opcional)
+# Opción 1: Python
+python -m http.server 8000
+
+# Opción 2: Node.js
+npx serve
+
+# Opción 3: VS Code Live Server
+# Instalar extensión "Live Server" y hacer clic derecho > "Open with Live Server"
+```
+
+Visita `http://localhost:8000` en tu navegador.
+
+---
+
+## ⚙️ Configuración
+
+### 1. Datos de Contacto
+
+Los datos de contacto están centralizados. Actualiza si es necesario:
+
+- **Email general:** contacto@ledescaparate.es
+- **Email IT:** carles@ledescaparate.es
+- **Email comercial:** vicente@ledescaparate.es
+- **Teléfono:** +34 626 612 141
+- **Ubicación:** Valencia, España
+
+### 2. Gestión de Productos
 
 Los productos se gestionan en `js/products.js`. Para añadir un nuevo producto:
 
 ```javascript
 {
-  id: 'id-unico-producto',
-  name: 'Nombre del Producto',
+  id: 'a3-vertical-simple',
+  name: 'A3 Vertical Simple',
   dimensions: {
-    width: 21,    // Ancho en cm
-    height: 29.7  // Alto en cm
+    width: 29.7,
+    height: 42
   },
-  image: 'images/products/nombre-imagen.jpg',
-  description: 'Descripción del producto',
-  usage: 'Uso recomendado',
+  image: 'images/products/a3-vertical-simple.jpg',
+  description: 'Carpeta LED A3 vertical con iluminación simple',
+  usage: 'Ideal para escaparates estándar',
   specs: {
-    lighting: 'Tipo de iluminación',
-    material: 'Material',
-    consumption: 'Consumo en W',
-    installation: 'Sistema de instalación'
+    lighting: 'LED blanco frío 6500K',
+    material: 'Acrílico transparente 3mm',
+    consumption: '12W',
+    installation: 'Adhesivo 3M incluido'
   },
-  featured: true  // true para mostrar en homepage
+  featured: true
 }
 ```
 
-### 3. Configurar Email de Presupuestos
+### 3. Netlify Forms
 
-El formulario de presupuesto está preparado para enviar datos a un backend. Opciones:
+Los formularios están configurados para Netlify Forms:
 
-#### Opción A: PHP Simple
-Crea un archivo `send-email.php`:
+- **Formulario de presupuesto:** `presupuesto.html`
+- **Formulario de contacto:** `contacto.html`
 
-```php
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $data = json_decode(file_get_contents('php://input'), true);
-    
-    $to = "tu@email.com";
-    $subject = "Nueva solicitud de presupuesto - Carpetas LED";
-    $message = "Empresa: " . $data['company'] . "\n";
-    $message .= "Contacto: " . $data['contact'] . "\n";
-    $message .= "Email: " . $data['email'] . "\n";
-    // ... añade más campos
-    
-    $headers = "From: noreply@tupagina.com";
-    
-    if (mail($to, $subject, $message, $headers)) {
-        echo json_encode(['success' => true]);
-    } else {
-        echo json_encode(['success' => false]);
-    }
-}
-?>
+**Configuración automática:**
+- Atributo `data-netlify="true"` en formularios
+- Campo oculto `form-name` para identificación
+- Redirección a `/gracias.html` tras envío exitoso
+
+**Acceso a envíos:**
+1. Ir a Netlify Dashboard
+2. Site Settings → Forms
+3. Ver envíos recibidos
+
+### 4. Configuración de Netlify
+
+El archivo `netlify.toml` incluye:
+
+```toml
+# Redirecciones
+[[redirects]]
+  from = "/404"
+  to = "/404.html"
+  status = 404
+
+# Headers de seguridad
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Caché para assets
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
 ```
 
-Luego actualiza `js/forms.js` en la función `submitFormData()`:
-
-```javascript
-fetch('/send-email.php', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(data)
-})
-.then(response => response.json())
-.then(result => {
-  // Mostrar mensaje de éxito
-})
-```
-
-#### Opción B: Servicio de Email (FormSpree, EmailJS, etc.)
-Puedes usar servicios como FormSpree o EmailJS que no requieren backend.
-
-### 4. Añadir Imágenes
-
-Coloca las imágenes en las siguientes carpetas:
-
-- **Productos:** `images/products/` (nombra los archivos según el ID del producto)
-- **Hero:** `images/hero-bg.jpg` (imagen de fondo del hero)
-- **Iconos:** `images/icons/` (iconos SVG opcionales)
-
-**Placeholder:** Si no tienes imágenes, el sistema mostrará placeholders automáticamente.
+---
 
 ## 🌐 Despliegue
 
-### Hosting Tradicional (cPanel, FTP)
+### Netlify (Recomendado - Actual)
 
-1. Comprime todos los archivos en un ZIP
-2. Sube el contenido a la carpeta `public_html` de tu hosting
-3. Asegúrate de que el archivo `index.html` esté en la raíz
-4. Configura el dominio en tu panel de hosting
+**Despliegue automático configurado:**
 
-### Netlify / Vercel (Recomendado)
+1. Push a GitHub → Deploy automático
+2. URL: https://ledescaparate.es
+3. SSL automático
+4. Formularios gestionados
 
-1. Crea una cuenta en Netlify o Vercel
-2. Conecta tu repositorio Git o arrastra la carpeta del proyecto
-3. El sitio se desplegará automáticamente
-4. Configura tu dominio personalizado
+**Comandos útiles:**
 
-### GitHub Pages
+```bash
+# Ver estado del deploy
+netlify status
 
-1. Sube el proyecto a un repositorio de GitHub
-2. Ve a Settings → Pages
-3. Selecciona la rama `main` y carpeta `/ (root)`
-4. Tu sitio estará disponible en `https://tuusuario.github.io/carpetas-led`
+# Deploy manual
+netlify deploy --prod
 
-## 🎨 Personalización de Estilos
+# Ver logs
+netlify logs
+```
 
-Los colores y estilos se gestionan mediante CSS Custom Properties en `css/main.css`:
+### Otros Servicios
+
+#### Vercel
+```bash
+vercel --prod
+```
+
+#### GitHub Pages
+1. Settings → Pages
+2. Source: main branch
+3. URL: `https://15carles.github.io/EscaparateLED.es`
+
+#### Hosting Tradicional (cPanel/FTP)
+1. Comprimir todos los archivos
+2. Subir a `public_html`
+3. Configurar dominio
+
+---
+
+## 🎨 Personalización
+
+### Colores y Estilos
+
+Los colores se gestionan con CSS Custom Properties en `css/main.css`:
 
 ```css
 :root {
-  --color-primary: #0066FF;        /* Color principal */
-  --color-secondary: #1a1a2e;      /* Color secundario */
-  --color-background: #FFFFFF;     /* Fondo */
+  /* Colores principales */
+  --color-primary: #0066FF;
+  --color-primary-dark: #0052CC;
+  --color-secondary: #1a1a2e;
+  
+  /* Colores de fondo */
+  --color-background: #FFFFFF;
+  --color-background-alt: #F8F9FA;
+  
+  /* Colores de texto */
+  --color-text: #1a1a2e;
+  --color-text-light: #6c757d;
+  
+  /* Tipografía */
   --font-primary: 'Inter', sans-serif;
-  /* ... más variables */
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
 }
 ```
 
-Modifica estas variables para cambiar toda la paleta de colores del sitio.
+### Añadir Imágenes
+
+**Productos:**
+- Ubicación: `images/products/`
+- Formato: JPG/PNG optimizado
+- Tamaño recomendado: 800x800px
+- Nombre: Usar ID del producto (ej: `a3-vertical-simple.jpg`)
+
+**Hero/Banner:**
+- Ubicación: `images/`
+- Formato: JPG optimizado
+- Tamaño: 1920x1080px mínimo
+
+---
 
 ## 📊 SEO
 
 ### Palabras Clave Principales
-- carpetas LED escaparate inmobiliaria
-- marcos LED escaparate
-- escaparates inmobiliarios iluminados
-- carpetas retroiluminadas A3 A4
+
+- carpetas LED escaparate
+- marcos LED inmobiliaria
+- escaparates iluminados
+- carpetas retroiluminadas
+- LED escaparate Valencia
 
 ### Ubicaciones Geográficas
+
 - Valencia (principal)
 - Madrid
 - Barcelona
 - Alicante
-- Islas (Baleares, Canarias)
+- Toda España
 
 ### Optimizaciones Implementadas
-- Meta tags en todas las páginas
-- Estructura semántica HTML5
-- Headings jerárquicos (H1-H6)
-- Alt text en imágenes
-- URLs limpias y descriptivas
-- Sitemap.xml (pendiente de generar)
+
+- ✅ Meta tags en todas las páginas
+- ✅ Open Graph para redes sociales
+- ✅ Estructura semántica HTML5
+- ✅ Headings jerárquicos (H1-H6)
+- ✅ Alt text descriptivo en imágenes
+- ✅ URLs limpias y descriptivas
+- ✅ Sitemap.xml (generar con herramienta online)
+
+---
 
 ## 🔧 Mantenimiento
 
 ### Actualizar Productos
-Edita `js/products.js` y añade/modifica productos en el array `productCatalog`.
+
+1. Editar `js/products.js`
+2. Añadir/modificar productos en `productCatalog`
+3. Añadir imagen en `images/products/`
+4. Commit y push
 
 ### Actualizar Blog
-1. Duplica `blog-post.html`
-2. Modifica el contenido
-3. Añade un enlace en `blog.html`
+
+1. Duplicar `blog-post.html`
+2. Modificar contenido (título, fecha, texto)
+3. Añadir enlace en `blog.html`
+4. Actualizar meta tags
 
 ### Actualizar Textos Legales
-Edita los archivos en la carpeta `legal/` según necesites.
 
-## 📱 Navegadores Soportados
+Editar archivos en `legal/`:
+- `aviso-legal.html`
+- `politica-privacidad.html`
+- `politica-cookies.html`
+- `condiciones-uso.html`
 
-- Chrome (últimas 2 versiones)
-- Firefox (últimas 2 versiones)
-- Safari (últimas 2 versiones)
-- Edge (últimas 2 versiones)
-- Móviles: iOS Safari, Chrome Android
+### Ver Formularios Recibidos
 
-## 🐛 Solución de Problemas
-
-### El simulador no calcula correctamente
-- Verifica que los productos tengan dimensiones definidas en `js/products.js`
-- Comprueba la consola del navegador para errores
-
-### Los formularios no envían
-- Asegúrate de haber configurado el endpoint de email
-- Verifica que el servidor soporte PHP o el servicio que uses
-
-### Las imágenes no se muestran
-- Verifica que las rutas sean correctas
-- Asegúrate de que los archivos existan en `images/products/`
-- El sistema mostrará placeholders si las imágenes no existen
-
-## 📞 Soporte
-
-Para dudas o problemas con el código:
-- Revisa la consola del navegador (F12)
-- Verifica que todos los archivos estén en su lugar
-- Comprueba que las rutas sean correctas
-
-## 📄 Licencia
-
-Este proyecto ha sido desarrollado para uso comercial de [NOMBRE DE LA EMPRESA].
-
-## 🔄 Próximas Mejoras Sugeridas
-
-- [ ] Integración con Google Analytics
-- [ ] Sistema de gestión de contenidos (CMS)
-- [ ] Galería de imágenes de instalaciones
-- [ ] Testimonios de clientes
-- [ ] Chat en vivo
-- [ ] Versión multiidioma (catalán, inglés)
-- [ ] Calculadora de precios en tiempo real
-- [ ] Sistema de pedidos online
+1. Netlify Dashboard
+2. Forms → presupuesto / contacto
+3. Exportar a CSV si necesario
 
 ---
 
-**Desarrollado con ❤️ para el sector inmobiliario español**
+## 🧪 Testing
+
+### Checklist de Pruebas
+
+**Funcionalidad:**
+- [ ] Navegación funciona en todas las páginas
+- [ ] Simulador calcula correctamente
+- [ ] Formularios validan campos
+- [ ] Formularios envían a Netlify
+- [ ] Redirección a /gracias.html funciona
+- [ ] Página 404 se muestra correctamente
+
+**Responsive:**
+- [ ] Mobile (320px - 480px)
+- [ ] Tablet (768px - 1024px)
+- [ ] Desktop (1280px+)
+
+**Navegadores:**
+- [ ] Chrome (últimas 2 versiones)
+- [ ] Firefox (últimas 2 versiones)
+- [ ] Safari (últimas 2 versiones)
+- [ ] Edge (últimas 2 versiones)
+
+**SEO:**
+- [ ] Meta tags presentes
+- [ ] Imágenes con alt text
+- [ ] Headings jerárquicos
+- [ ] URLs descriptivas
+
+---
+
+## 🐛 Solución de Problemas
+
+### El simulador no calcula
+
+**Problema:** El simulador no muestra resultados
+
+**Solución:**
+1. Verificar que los productos tengan `dimensions` en `js/products.js`
+2. Abrir consola del navegador (F12) y buscar errores
+3. Verificar que `simulator.js` esté cargando correctamente
+
+### Los formularios no envían
+
+**Problema:** Formularios no llegan a Netlify
+
+**Solución:**
+1. Verificar atributo `data-netlify="true"` en `<form>`
+2. Verificar campo oculto `<input type="hidden" name="form-name" value="...">`
+3. Verificar que el sitio esté desplegado en Netlify (no funciona en local)
+4. Revisar Netlify Dashboard → Forms
+
+### Las imágenes no se muestran
+
+**Problema:** Imágenes de productos no cargan
+
+**Solución:**
+1. Verificar rutas en `js/products.js`
+2. Verificar que archivos existan en `images/products/`
+3. Verificar nombres de archivo (case-sensitive)
+4. El sistema mostrará placeholders si no encuentra imágenes
+
+### Error 404 en páginas legales
+
+**Problema:** Enlaces a páginas legales dan error
+
+**Solución:**
+1. Verificar que archivos existan en `legal/`
+2. Verificar rutas relativas en enlaces
+3. En páginas dentro de `legal/`, usar rutas relativas correctas
+
+---
+
+## 📈 Analíticas
+
+### Google Analytics (Futuro)
+
+Para añadir Google Analytics:
+
+1. Crear propiedad en Google Analytics
+2. Obtener ID de medición (G-XXXXXXXXXX)
+3. Añadir script en `<head>` de todas las páginas:
+
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+```
+
+4. Actualizar Política de Cookies
+5. Añadir banner de consentimiento
+
+---
+
+## 📞 Soporte y Contacto
+
+### Contacto Técnico
+- **Email IT:** carles@ledescaparate.es
+- **GitHub Issues:** [Crear issue](https://github.com/15carles/EscaparateLED.es/issues)
+
+### Contacto Comercial
+- **Email:** vicente@ledescaparate.es
+- **Teléfono:** +34 626 612 141
+
+---
+
+## 📄 Licencia
+
+© 2025 LED Escaparate. Todos los derechos reservados.
+
+Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de propiedad intelectual españolas.
+
+---
+
+## 🔄 Changelog
+
+Ver [CHANGELOG.md](CHANGELOG.md) para historial completo de cambios.
+
+### Versión Actual: 2.1.0 (2025-11-24)
+
+**Cambios principales:**
+- ✅ Actualización completa de textos legales (RGPD/LOPDGDD)
+- ✅ Integración Netlify Forms
+- ✅ Mejoras de accesibilidad en formularios
+- ✅ Campo "Modelo deseado" ahora opcional
+- ✅ Corrección de estilos en formulario de presupuesto
+- ✅ Cláusulas legales en formularios
+
+---
+
+## 🚀 Roadmap
+
+### v2.2.0 (Próximo)
+- [ ] Integración Google Analytics
+- [ ] Galería de instalaciones
+- [ ] Testimonios de clientes
+- [ ] Calculadora de precios en tiempo real
+
+### v2.3.0 (Futuro)
+- [ ] Sistema de pedidos online
+- [ ] Panel de administración
+- [ ] Blog con CMS
+- [ ] Versión multiidioma (catalán, inglés)
+- [ ] Chat en vivo
+
+---
+
+## 🙏 Agradecimientos
+
+- **Tipografía:** [Inter](https://rsms.me/inter/) por Rasmus Andersson
+- **Hosting:** [Netlify](https://www.netlify.com/)
+- **Iconos:** Diseñados internamente
+
+---
+
+**Desarrollado con ❤️ en Valencia, España**
+
+*LED Escaparate - Iluminando el futuro de los escaparates inmobiliarios*
