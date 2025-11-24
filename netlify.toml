@@ -1,45 +1,52 @@
-# Netlify Configuration File
-# https://docs.netlify.com/configure-builds/file-based-configuration/
+# Netlify Configuration
+# Performance optimizations for LED Escaparate
 
 # Build settings
 [build]
   publish = "."
   
-# Custom 404 page
+# Headers for performance and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Enable Brotli compression
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+# Cache static assets aggressively
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+# HTML pages - shorter cache
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# 404 redirect
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
 
-# Form settings - Custom error page for form submissions
-# Note: Netlify Forms doesn't support custom error pages via netlify.toml
-# Error handling is done through the default Netlify error page or client-side validation
-
-# Headers for security and performance
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-
-# Cache static assets
-[[headers]]
-  for = "/css/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/js/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/img/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Form submission settings
-# Success redirects are handled via the 'action' attribute in the form HTML
-# Example: <form action="/gracias.html" ...>
+# Enable Brotli compression (automatic in Netlify)
+# Netlify automatically serves brotli-compressed assets when supported

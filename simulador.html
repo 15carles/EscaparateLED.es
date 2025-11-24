@@ -10,67 +10,13 @@
         content="simulador escaparate LED, carpetas LED inmobiliarias, calculadora escaparate, diseño escaparate inmobiliaria, portacarteles LED">
     <title>Simulador de Escaparate LED para Inmobiliarias | LEDescaparate</title>
 
-    <!-- Schema.org FAQPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Cuántas carpetas LED necesito para mi escaparate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "El número de carpetas LED depende del tamaño de tu escaparate y del formato elegido (A4 o A3). Nuestro simulador calcula automáticamente la configuración óptima aplicando márgenes de seguridad de 15cm y separación de 10cm entre carpetas. Por ejemplo, un escaparate de 3x2 metros puede alojar entre 6 y 12 carpetas según el formato."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Puedo combinar carpetas LED en formato A4 y A3?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí, puedes combinar diferentes formatos de carpetas LED en tu escaparate. Esto te permite crear composiciones más dinámicas y aprovechar mejor el espacio disponible. Contacta con nosotros para diseñar una configuración personalizada que combine A4 y A3."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Las carpetas LED se pueden reutilizar si cambio de local?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutamente. Las carpetas LED son completamente reutilizables y portátiles. Puedes llevarlas contigo si cambias de local, reorganizarlas según tus necesidades o incluso venderlas. Su sistema de instalación con adhesivo 3M permite montarlas y desmontarlas sin dejar marcas."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué mantenimiento necesitan las carpetas LED?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Las carpetas LED requieren mantenimiento mínimo. Solo necesitas limpiar ocasionalmente el acrílico con un paño suave y cambiar las láminas impresas cuando actualices tus ofertas. Los LEDs tienen una vida útil de más de 50,000 horas (más de 5 años de uso continuo) y consumen muy poca energía."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Sirven solo para inmobiliarias o también para otros negocios?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Aunque están especialmente diseñadas para inmobiliarias, las carpetas LED son perfectas para cualquier negocio que necesite destacar información en escaparates: agencias de viajes, clínicas, concesionarios, tiendas de moda, restaurantes, etc. Cualquier comercio que quiera llamar la atención y ser visible 24/7 puede beneficiarse de ellas."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cómo se instalan las carpetas LED en el escaparate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "La instalación es muy sencilla. Cada carpeta LED incluye adhesivo 3M de alta resistencia que se pega directamente al cristal del escaparate. No necesitas taladrar ni hacer obras. El cable de alimentación es discreto y se puede ocultar fácilmente. La instalación completa de un escaparate medio se realiza en menos de 1 hora."
-          }
-        }
-      ]
-    }
-    </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&display=swap">
+    </noscript>
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/simulator.css">
@@ -611,6 +557,64 @@
     <script src="js/main.js"></script>
     <script src="js/products.js"></script>
     <script src="js/simulator.js"></script>
+
+    <!-- Schema.org FAQPage (moved to end for performance) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuántas carpetas LED necesito para mi escaparate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El número de carpetas LED depende del tamaño de tu escaparate y del formato elegido (A4 o A3). Nuestro simulador calcula automáticamente la configuración óptima aplicando márgenes de seguridad de 15cm y separación de 10cm entre carpetas. Por ejemplo, un escaparate de 3x2 metros puede alojar entre 6 y 12 carpetas según el formato."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo combinar carpetas LED en formato A4 y A3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, puedes combinar diferentes formatos de carpetas LED en tu escaparate. Esto te permite crear composiciones más dinámicas y aprovechar mejor el espacio disponible. Contacta con nosotros para diseñar una configuración personalizada que combine A4 y A3."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Las carpetas LED se pueden reutilizar si cambio de local?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutamente. Las carpetas LED son completamente reutilizables y portátiles. Puedes llevarlas contigo si cambias de local, reorganizarlas según tus necesidades o incluso venderlas. Su sistema de instalación con adhesivo 3M permite montarlas y desmontarlas sin dejar marcas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué mantenimiento necesitan las carpetas LED?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las carpetas LED requieren mantenimiento mínimo. Solo necesitas limpiar ocasionalmente el acrílico con un paño suave y cambiar las láminas impresas cuando actualices tus ofertas. Los LEDs tienen una vida útil de más de 50,000 horas (más de 5 años de uso continuo) y consumen muy poca energía."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Sirven solo para inmobiliarias o también para otros negocios?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aunque están especialmente diseñadas para inmobiliarias, las carpetas LED son perfectas para cualquier negocio que necesite destacar información en escaparates: agencias de viajes, clínicas, concesionarios, tiendas de moda, restaurantes, etc. Cualquier comercio que quiera llamar la atención y ser visible 24/7 puede beneficiarse de ellas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo se instalan las carpetas LED en el escaparate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La instalación es muy sencilla. Cada carpeta LED incluye adhesivo 3M de alta resistencia que se pega directamente al cristal del escaparate. No necesitas taladrar ni hacer obras. El cable de alimentación es discreto y se puede ocultar fácilmente. La instalación completa de un escaparate medio se realiza en menos de 1 hora."
+          }
+        }
+      ]
+    }
+    </script>
 </body>
 
 </html>

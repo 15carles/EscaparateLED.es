@@ -36,16 +36,24 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ========================================
-// Header Scroll Effect
+// Header Scroll Effect (Optimized with throttle)
 // ========================================
+let scrollTicking = false;
+const header = document.querySelector('.header'); // Cache selector
+
 window.addEventListener('scroll', function () {
-    const header = document.querySelector('.header');
-    if (header) {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+    if (!scrollTicking) {
+        window.requestAnimationFrame(function () {
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+            scrollTicking = false;
+        });
+        scrollTicking = true;
     }
 });
 
