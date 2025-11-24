@@ -7,39 +7,69 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ledescaparate.es/simulador.html</loc>
+    <loc>https://ledescaparate.es/simulador</loc>
     <lastmod>2025-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ledescaparate.es/productos.html</loc>
+    <loc>https://ledescaparate.es/productos</loc>
     <lastmod>2025-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ledescaparate.es/presupuesto.html</loc>
+    <loc>https://ledescaparate.es/presupuesto</loc>
     <lastmod>2025-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ledescaparate.es/blog.html</loc>
+    <loc>https://ledescaparate.es/blog</loc>
     <lastmod>2025-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ledescaparate.es/blog-post.html</loc>
+    <loc>https://ledescaparate.es/blog-post</loc>
     <lastmod>2025-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ledescaparate.es/contacto.html</loc>
+    <loc>https://ledescaparate.es/contacto</loc>
     <lastmod>2025-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ledescaparate.es/gracias</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ledescaparate.es/legal/aviso-legal</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ledescaparate.es/legal/politica-privacidad</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ledescaparate.es/legal/politica-cookies</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ledescaparate.es/legal/condiciones-uso</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

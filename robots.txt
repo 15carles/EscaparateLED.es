@@ -1,19 +1,8 @@
 # robots.txt for ledescaparate.es
-# Optimized for SEO - Allow indexing of main pages
+# Technical SEO optimization
 
 User-agent: *
 Allow: /
-Allow: /simulador.html
-Allow: /productos.html
-Allow: /blog.html
-Allow: /presupuesto.html
-Allow: /contacto.html
-
-# Disallow utility and legal pages
-Disallow: /legal/
-Disallow: /gracias.html
-Disallow: /404.html
-Disallow: /error-formulario.html
 
 # Sitemap location
 Sitemap: https://ledescaparate.es/sitemap.xml
