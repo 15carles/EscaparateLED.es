@@ -780,6 +780,7 @@ p {
     font-size: var(--font-size-base);
   }
 }
+
 /* ========================================
    Legal Pages Styling
    ======================================== */
@@ -882,19 +883,19 @@ p {
   .legal-content {
     padding: var(--spacing-lg);
   }
-  
+
   .legal-content h1 {
     font-size: var(--font-size-3xl);
   }
-  
+
   .legal-content h2 {
     font-size: var(--font-size-xl);
   }
-  
+
   .legal-content h3 {
     font-size: var(--font-size-lg);
   }
-  
+
   .legal-content p {
     text-align: left;
   }
@@ -1016,7 +1017,7 @@ p {
   .blog-content h2 {
     font-size: var(--font-size-2xl);
   }
-  
+
   .blog-content h3 {
     font-size: var(--font-size-xl);
   }
