@@ -1,15 +1,12 @@
 # 🌟 LED Escaparate - Website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://app.netlify.com/sites/your-site/deploys)
-[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
+[![Version](https://img.shields.io/badge/version-2.2.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 
 > Sitio web profesional para LED Escaparate - Especialistas en carpetas retroiluminadas LED para escaparates inmobiliarios en toda España.
 
-**🌐 Sitio web:** [https://ledescaparate.es](https://ledescaparate.es)  
-**📍 Ubicación:** Valencia, España  
-**📧 Contacto:** contacto@ledescaparate.es  
-**📞 Teléfono:** +34 626 612 141
+**🌐 Sitio web:** [https://ledescaparate.es](https://ledescaparate.es)
 
 ---
 
@@ -42,7 +39,8 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ **Formularios inteligentes** con validación client-side
 - ✅ **Integración Netlify Forms** para gestión de consultas
 - ✅ **Páginas de respuesta** (gracias, 404, error)
-- ✅ **Blog** para contenido SEO
+- ✅ **Blog escalable** con sistema de plantillas documentado
+- ✅ **Estrategia híbrida de instalación** (Valencia local vs Nacional)
 
 ### 🔒 Seguridad y Legal
 - ✅ Cumplimiento **RGPD/LOPDGDD** completo
@@ -71,8 +69,8 @@ led-escaparate/
 ├── simulador.html             # Simulador de escaparate
 ├── presupuesto.html           # Formulario de presupuesto
 ├── contacto.html              # Página de contacto
-├── blog.html                  # Listado de blog
-├── blog-post.html             # Plantilla de artículo
+├── blog.html                  # Listado de blog (con documentación)
+├── blog-post.html             # Plantilla de artículo (documentada)
 ├── gracias.html               # Página de agradecimiento
 ├── 404.html                   # Página de error 404
 ├── error-formulario.html      # Página de error de formulario
@@ -99,7 +97,7 @@ led-escaparate/
 │
 ├── netlify.toml              # Configuración de Netlify
 ├── CHANGELOG.md              # Registro de cambios
-├── VERSION                   # Versión actual (2.1.0)
+├── VERSION                   # Versión actual (2.2.0)
 └── README.md                 # Este archivo
 ```
 
@@ -140,17 +138,7 @@ Visita `http://localhost:8000` en tu navegador.
 
 ## ⚙️ Configuración
 
-### 1. Datos de Contacto
-
-Los datos de contacto están centralizados. Actualiza si es necesario:
-
-- **Email general:** contacto@ledescaparate.es
-- **Email IT:** carles@ledescaparate.es
-- **Email comercial:** vicente@ledescaparate.es
-- **Teléfono:** +34 626 612 141
-- **Ubicación:** Valencia, España
-
-### 2. Gestión de Productos
+### 1. Gestión de Productos
 
 Los productos se gestionan en `js/products.js`. Para añadir un nuevo producto:
 
@@ -174,6 +162,31 @@ Los productos se gestionan en `js/products.js`. Para añadir un nuevo producto:
   featured: true
 }
 ```
+
+### 2. Sistema de Blog Escalable
+
+El blog está completamente documentado para facilitar la adición de nuevos posts:
+
+#### Añadir un Nuevo Post
+
+1. **Duplicar la plantilla:**
+   ```bash
+   cp blog-post.html blog-nombre-descriptivo.html
+   ```
+
+2. **Editar el nuevo archivo:**
+   - Buscar comentarios `✏️ EDITAR:` en el código
+   - Modificar: título, fecha, tags, contenido
+   - Actualizar meta tags SEO en `<head>`
+
+3. **Añadir al listado:**
+   - Abrir `blog.html`
+   - Copiar un bloque `<article class="product-card">`
+   - Modificar: fecha, título, extracto, enlace
+
+**Documentación completa:**
+- `blog.html`: Comentarios detallados sobre cómo añadir posts al listado
+- `blog-post.html`: Guía completa de uso como plantilla (líneas 2-122)
 
 ### 3. Netlify Forms
 
@@ -358,10 +371,17 @@ Los colores se gestionan con CSS Custom Properties en `css/main.css`:
 
 ### Actualizar Blog
 
-1. Duplicar `blog-post.html`
-2. Modificar contenido (título, fecha, texto)
-3. Añadir enlace en `blog.html`
-4. Actualizar meta tags
+**El sistema de blog está completamente documentado:**
+
+1. Duplicar `blog-post.html` con nombre descriptivo
+2. Seguir las instrucciones en los comentarios `✏️ EDITAR:`
+3. Modificar contenido (título, fecha, texto, meta tags)
+4. Añadir enlace en `blog.html` (copiar bloque `<article>`)
+5. Commit y push
+
+**Ver documentación completa en:**
+- Comentarios en `blog.html` (líneas 82-129)
+- Comentarios en `blog-post.html` (líneas 2-122)
 
 ### Actualizar Textos Legales
 
@@ -478,19 +498,7 @@ Para añadir Google Analytics:
 
 ---
 
-## 📞 Soporte y Contacto
-
-### Contacto Técnico
-- **Email IT:** carles@ledescaparate.es
-- **GitHub Issues:** [Crear issue](https://github.com/15carles/EscaparateLED.es/issues)
-
-### Contacto Comercial
-- **Email:** vicente@ledescaparate.es
-- **Teléfono:** +34 626 612 141
-
----
-
-## 📄 Licencia
+##  Licencia
 
 © 2025 LED Escaparate. Todos los derechos reservados.
 
@@ -502,32 +510,25 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 
 Ver [CHANGELOG.md](CHANGELOG.md) para historial completo de cambios.
 
-### Versión Actual: 2.1.0 (2025-11-24)
+### Versión Actual: 2.2.0 (2025-11-25)
 
 **Cambios principales:**
+- ✅ Sistema de blog escalable con documentación completa
+- ✅ Estrategia híbrida de instalación (Valencia vs Nacional)
+- ✅ Campo ubicación en formulario de presupuesto
+- ✅ Nuevas FAQs sobre instalación
+- ✅ Corrección de estilos en blog-post.html
+- ✅ Documentación inline en blog.html y blog-post.html
+
+### Versión 2.1.0 (2025-11-24)
+
+**Cambios:**
 - ✅ Actualización completa de textos legales (RGPD/LOPDGDD)
 - ✅ Integración Netlify Forms
 - ✅ Mejoras de accesibilidad en formularios
 - ✅ Campo "Modelo deseado" ahora opcional
 - ✅ Corrección de estilos en formulario de presupuesto
 - ✅ Cláusulas legales en formularios
-
----
-
-## 🚀 Roadmap
-
-### v2.2.0 (Próximo)
-- [ ] Integración Google Analytics
-- [ ] Galería de instalaciones
-- [ ] Testimonios de clientes
-- [ ] Calculadora de precios en tiempo real
-
-### v2.3.0 (Futuro)
-- [ ] Sistema de pedidos online
-- [ ] Panel de administración
-- [ ] Blog con CMS
-- [ ] Versión multiidioma (catalán, inglés)
-- [ ] Chat en vivo
 
 ---
 
