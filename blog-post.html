@@ -1,4 +1,126 @@
 <!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+PLANTILLA BASE PARA POSTS DEL BLOG - LEDescaparate
+═══════════════════════════════════════════════════════════════════════════════
+
+Este archivo sirve como plantilla para crear nuevos posts del blog.
+
+CÓMO CREAR UN NUEVO POST:
+
+1. DUPLICAR ESTE ARCHIVO
+   - Haz una copia de blog-post.html
+   - Nómbrala de forma descriptiva usando guiones para separar palabras
+   - Ejemplos de nombres:
+     * blog-visibilidad-nocturna-escaparate.html
+     * blog-tendencias-diseno-2024.html
+     * blog-roi-iluminacion-led.html
+     * blog-guia-instalacion-carpetas.html
+
+2. MODIFICAR EL <head> (SEO Y METADATOS) - Líneas 5-38
+   
+   a) <title> (línea 27):
+      - Formato: "Título del Post | Blog LED Escaparate"
+      - Máximo 60 caracteres
+      - Ejemplo: "Guía de Instalación de Carpetas LED | Blog LED Escaparate"
+   
+   b) <meta name="description"> (líneas 7-8):
+      - Escribe un resumen atractivo de 150-160 caracteres
+      - Debe incluir palabras clave relevantes
+      - Ejemplo: "Aprende a instalar carpetas LED en tu escaparate paso a paso. Consejos profesionales y errores comunes a evitar."
+   
+   c) <meta name="keywords"> (línea 9):
+      - Añade 3-5 palabras clave separadas por comas
+      - Ejemplo: "instalación carpetas LED, guía escaparate, montaje LED"
+   
+   d) Open Graph tags (líneas 12-16):
+      - og:title: Mismo título que <title> pero sin "| Blog LED Escaparate"
+      - og:description: Misma descripción que meta description
+      - og:url: Cambia "blog-post" por el nombre de tu archivo (sin .html)
+   
+   e) <link rel="canonical"> (línea 18):
+      - Cambia "blog-post" por el nombre de tu archivo (sin .html)
+
+3. MODIFICAR EL CONTENIDO DEL POST - Líneas 65-200
+   
+   a) BREADCRUMB (línea 69):
+      - Ya está configurado para volver a blog.html, no cambiar
+   
+   b) FECHA (líneas 72-75):
+      - Cambia "15 de Noviembre de 2024" por la fecha de publicación
+      - Formato: "DD de Mes de YYYY"
+   
+   c) TÍTULO PRINCIPAL - H1 (línea 77):
+      - Cambia el título del post
+      - Debe ser el mismo que usaste en <title> (sin "| Blog LED Escaparate")
+      - Solo debe haber UN <h1> por página
+   
+   d) TAGS/ETIQUETAS (líneas 79-87):
+      - Modifica o añade tags relevantes
+      - Mantén 2-4 tags máximo
+      - Ejemplos: "Escaparates", "Iluminación LED", "Inmobiliarias", "Diseño"
+   
+   e) IMAGEN DESTACADA (líneas 95-99):
+      - Puedes cambiar el emoji del gradiente
+      - O reemplazar todo el div con una imagen real:
+        <img src="images/blog/nombre-imagen.jpg" alt="Descripción de la imagen" 
+             style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--border-radius-lg);">
+   
+   f) CONTENIDO DEL ARTÍCULO (líneas 101-200):
+      - TODO el contenido debe estar dentro de <div class="blog-content">
+      - Usa esta estructura de encabezados:
+        * <h2> para secciones principales
+        * <h3> para subsecciones
+        * <p> para párrafos
+        * <ul> o <ol> para listas
+        * <strong> para texto en negrita
+      - Los estilos se aplicarán automáticamente gracias a .blog-content
+   
+   g) CTA FINAL (líneas 196-200):
+      - Ya está configurado, no necesita cambios
+      - Enlaza al simulador como llamada a la acción
+
+4. ACTUALIZAR EL LISTADO EN blog.html
+   - Abre blog.html
+   - Copia uno de los bloques <article class="product-card">
+   - Modifica:
+     * La fecha
+     * El título (debe coincidir con el H1 del post)
+     * El extracto (2-3 líneas)
+     * El href para que apunte a tu nuevo archivo: href="blog-nombre-del-post.html"
+
+ESTRUCTURA RECOMENDADA DEL CONTENIDO:
+
+<div class="blog-content">
+    <h2>Introducción</h2>
+    <p>Párrafo introductorio...</p>
+
+    <h2>Sección Principal 1</h2>
+    <p>Contenido...</p>
+    
+    <h3>Subsección 1.1</h3>
+    <p>Contenido...</p>
+    <ul>
+        <li>Punto 1</li>
+        <li>Punto 2</li>
+    </ul>
+
+    <h2>Sección Principal 2</h2>
+    <p>Contenido...</p>
+
+    <h2>Conclusión</h2>
+    <p>Resumen final...</p>
+</div>
+
+IMPORTANTE:
+- Mantén UN SOLO <h1> por página (el título del post)
+- No elimines el header ni el footer globales
+- No modifiques las clases CSS existentes
+- El contenido debe estar dentro de <div class="blog-content"> para mantener estilos
+- Verifica que todos los enlaces internos funcionen correctamente
+
+═══════════════════════════════════════════════════════════════════════════════
+-->
 <html lang="es">
 
 <head>
@@ -69,13 +191,16 @@
                 <a href="blog.html" style="color: var(--color-primary); font-weight: 600;">← Volver al blog</a>
             </div>
 
+            <!-- ✏️ EDITAR: Fecha de publicación del post -->
             <div
                 style="font-size: var(--font-size-sm); color: var(--color-text-light); margin-bottom: var(--spacing-sm);">
                 15 de Noviembre de 2024
             </div>
 
+            <!-- ✏️ EDITAR: Título principal del post (H1) - Debe coincidir con el <title> del <head> -->
             <h1>Cómo mejorar la visibilidad nocturna de tu escaparate inmobiliario</h1>
 
+            <!-- ✏️ EDITAR: Tags/Etiquetas del post (2-4 tags recomendados) -->
             <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-md);">
                 <span
                     style="background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: var(--font-size-sm);">Escaparates</span>
@@ -92,12 +217,29 @@
     <article class="section">
         <div class="container" style="max-width: 800px;">
 
-            <!-- Featured Image Placeholder -->
+            <!-- ✏️ EDITAR: Imagen destacada del post (puedes cambiar el emoji o usar una imagen real) -->
             <div
                 style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); border-radius: var(--border-radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-size: var(--font-size-4xl); margin-bottom: var(--spacing-xl);">
                 🌙
             </div>
 
+            <!-- 
+            ═══════════════════════════════════════════════════════════════════════════════
+            ✏️ EDITAR: CONTENIDO DEL ARTÍCULO
+            ═══════════════════════════════════════════════════════════════════════════════
+            
+            Reemplaza todo el contenido dentro de este <div class="blog-content"> con tu artículo.
+            
+            Estructura recomendada:
+            - <h2> para secciones principales
+            - <h3> para subsecciones
+            - <p> para párrafos
+            - <ul> o <ol> para listas
+            - <strong> para texto en negrita
+            
+            Los estilos se aplicarán automáticamente gracias a la clase .blog-content
+            ═══════════════════════════════════════════════════════════════════════════════
+            -->
             <div class="blog-content"
                 style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md);">
 

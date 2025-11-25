@@ -18,12 +18,12 @@
 
     <link rel="canonical" href="https://ledescaparate.es/blog">
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="/images/icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="/images/icons/site.webmanifest">
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/images/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/images/icons/site.webmanifest">
 
     <title>Blog sobre Escaparates LED para Inmobiliarias | LEDescaparate</title>
 
@@ -79,7 +79,54 @@
             <div
                 style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: var(--spacing-xl);">
 
-                <!-- Blog Post 1 -->
+                <!-- 
+                ═══════════════════════════════════════════════════════════════════════════════
+                CÓMO AÑADIR UN NUEVO POST AL BLOG
+                ═══════════════════════════════════════════════════════════════════════════════
+
+                Para añadir un nuevo post al listado del blog:
+
+                1. Copia el bloque <article class="product-card"> de ejemplo (líneas 110-125 aproximadamente)
+                2. Pégalo en la posición deseada dentro de este grid (antes o después de otros posts)
+                3. Modifica los siguientes campos:
+                   
+                   a) GRADIENTE/ICONO:
+                      - Cambia el emoji (🌙, ✨, 📊, etc.)
+                      - O modifica los colores del gradiente:
+                        Ejemplos de gradientes:
+                        * linear-gradient(135deg, var(--color-primary), var(--color-primary-light))
+                        * linear-gradient(135deg, #667eea, #764ba2)
+                        * linear-gradient(135deg, #f093fb, #f5576c)
+                        * linear-gradient(135deg, #4facfe, #00f2fe)
+                   
+                   b) FECHA:
+                      - Cambia "15 Nov 2024" por la fecha del post
+                   
+                   c) TÍTULO:
+                      - Cambia el texto dentro de <h3 class="product-title">
+                      - Mantén el título conciso (máximo 60-70 caracteres)
+                   
+                   d) EXTRACTO:
+                      - Cambia el texto dentro de <p class="product-description">
+                      - Escribe 2-3 líneas que resuman el contenido del post
+                   
+                   e) ENLACE:
+                      - Cambia href="blog-post.html" por href="blog-nombre-descriptivo.html"
+                      - Usa nombres descriptivos separados por guiones
+                      - Ejemplos: blog-visibilidad-nocturna.html, blog-tendencias-2024.html
+                      - Asegúrate de cambiar el href en AMBOS enlaces (título y botón "Leer más")
+
+                IMPORTANTE:
+                - Usa H3 para los títulos de las tarjetas (el H1 ya está usado en el título de la página)
+                - Mantén el extracto breve (2-3 líneas máximo)
+                - El archivo del post debe existir (usa blog-post.html como plantilla)
+                - Mantén la clase "product-card" para heredar los estilos correctos
+
+                ═══════════════════════════════════════════════════════════════════════════════
+                -->
+
+                <!-- Blog Post 1 - EJEMPLO REAL -->
+
                 <article class="product-card">
                     <div
                         style="width: 100%; height: 200px; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); display: flex; align-items: center; justify-content: center; color: white; font-size: var(--font-size-3xl);">
