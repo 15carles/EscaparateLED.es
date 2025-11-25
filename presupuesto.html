@@ -113,29 +113,33 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="location" class="form-label required">Localidad / Provincia</label>
-                            <input type="text" id="location" name="location" class="form-input"
-                                placeholder="Valencia, Madrid, Barcelona..." required autocomplete="address-level2"
-                                aria-required="true">
-                        </div>
 
-                        <div class="form-group">
-                            <label for="business-type" class="form-label">Tipo de negocio</label>
-                            <select id="business-type" name="business-type" class="form-select"
-                                aria-label="Selecciona el tipo de negocio">
-                                <option value="">Selecciona...</option>
-                                <option value="agencia-seguros">Agencia de seguros</option>
-                                <option value="agencia-viajes">Agencia de viajes</option>
-                                <option value="clinica-estetica">Clínica estética / Salud</option>
-                                <option value="comercio-especializado">Comercio especializado</option>
-                                <option value="constructora-promotora">Constructora / Promotora</option>
-                                <option value="inmobiliaria">Inmobiliaria</option>
-                                <option value="otros">Otros</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label for="business-type" class="form-label">Tipo de negocio</label>
+                        <select id="business-type" name="business-type" class="form-select"
+                            aria-label="Selecciona el tipo de negocio">
+                            <option value="">Selecciona...</option>
+                            <option value="agencia-seguros">Agencia de seguros</option>
+                            <option value="agencia-viajes">Agencia de viajes</option>
+                            <option value="clinica-estetica">Clínica estética / Salud</option>
+                            <option value="comercio-especializado">Comercio especializado</option>
+                            <option value="constructora-promotora">Constructora / Promotora</option>
+                            <option value="inmobiliaria">Inmobiliaria</option>
+                            <option value="otros">Otros</option>
+                        </select>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ubicacion" class="form-label required">Provincia o código postal</label>
+                    <input type="text" id="ubicacion" name="ubicacion" class="form-input"
+                        placeholder="Ej. Valencia o 46001" required autocomplete="postal-code" aria-required="true"
+                        aria-describedby="ubicacion-help">
+                    <p id="ubicacion-help" class="text-light"
+                        style="font-size: var(--font-size-sm); margin-top: var(--spacing-xs);">
+                        Indícanos tu provincia o código postal para ofrecerte la opción adecuada (instalación en
+                        Valencia o envío pre-montado al resto de España).
+                    </p>
                 </div>
 
                 <!-- Showcase Configuration -->
@@ -256,6 +260,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
