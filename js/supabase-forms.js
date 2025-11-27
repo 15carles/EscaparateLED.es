@@ -23,7 +23,7 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 function attachSupabaseFormHandler(formId, statusId, formType) {
     const form = document.getElementById(formId);
     if (!form) {
-        console.warn(`Form with ID "${formId}" not found`);
+        // Exit silently if form doesn't exist on this page
         return;
     }
 
