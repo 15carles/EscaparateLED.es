@@ -9,7 +9,7 @@
 
 // Supabase configuration
 const SUPABASE_URL = 'https://xiorgsacjevmpwihfcbx.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhpb3Jnc2FjamV2bXB3aWhmY2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI3MjU2NjAsImV4cCI6MjA0ODMwMTY2MH0.zXfL3R-nGIZCYAOJHNVyHA_liozm2M-';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhpb3Jnc2FjamV2bXB3aWhmY2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQyNTY2NjcsImV4cCI6MjA3OTgzMjY2N30.A9JBX-SI5xf7zvy8kVHI878mg4keNcr-QitkNt_GliQ';
 
 // Initialize Supabase client
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
