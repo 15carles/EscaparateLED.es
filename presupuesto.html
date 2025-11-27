@@ -77,9 +77,7 @@
     <section class="section">
         <div class="container" style="max-width: 800px;">
 
-            <form id="quote-form" name="presupuesto" method="POST" data-netlify="true" action="/gracias.html"
-                aria-label="Formulario de solicitud de presupuesto">
-                <input type="hidden" name="form-name" value="presupuesto">
+            <form id="budget-form" aria-label="Formulario de solicitud de presupuesto">
 
                 <!-- Company Information -->
                 <div class="form-section">
@@ -87,15 +85,15 @@
 
                     <div class="form-group">
                         <label for="company" class="form-label required">Nombre de la empresa</label>
-                        <input type="text" id="company" name="company" class="form-input"
+                        <input type="text" id="company" name="company_name" class="form-input"
                             placeholder="Inmobiliaria Ejemplo S.L." required autocomplete="organization"
                             aria-required="true">
                     </div>
 
                     <div class="form-group">
                         <label for="contact" class="form-label required">Persona de contacto</label>
-                        <input type="text" id="contact" name="contact" class="form-input"
-                            placeholder="Nombre y apellidos" required autocomplete="name" aria-required="true">
+                        <input type="text" id="contact" name="name" class="form-input" placeholder="Nombre y apellidos"
+                            required autocomplete="name" aria-required="true">
                     </div>
 
                     <div class="form-row">
@@ -116,7 +114,7 @@
 
                     <div class="form-group">
                         <label for="business-type" class="form-label">Tipo de negocio</label>
-                        <select id="business-type" name="business-type" class="form-select"
+                        <select id="business-type" name="business_type" class="form-select"
                             aria-label="Selecciona el tipo de negocio">
                             <option value="">Selecciona...</option>
                             <option value="agencia-seguros">Agencia de seguros</option>
@@ -132,7 +130,7 @@
 
                 <div class="form-group">
                     <label for="ubicacion" class="form-label required">Provincia o código postal</label>
-                    <input type="text" id="ubicacion" name="ubicacion" class="form-input"
+                    <input type="text" id="ubicacion" name="province_or_postal" class="form-input"
                         placeholder="Ej. Valencia o 46001" required autocomplete="postal-code" aria-required="true"
                         aria-describedby="ubicacion-help">
                     <p id="ubicacion-help" class="text-light"
@@ -148,19 +146,19 @@
 
                     <div class="form-group">
                         <label for="quote-showcase-width" class="form-label">Ancho del escaparate (cm)</label>
-                        <input type="number" id="quote-showcase-width" name="showcase-width" class="form-input"
+                        <input type="number" id="quote-showcase-width" name="shop_width_cm" class="form-input"
                             placeholder="Ej: 300" min="0" step="0.1" aria-label="Ancho del escaparate en centímetros">
                     </div>
 
                     <div class="form-group">
                         <label for="quote-showcase-height" class="form-label">Alto del escaparate (cm)</label>
-                        <input type="number" id="quote-showcase-height" name="showcase-height" class="form-input"
+                        <input type="number" id="quote-showcase-height" name="shop_height_cm" class="form-input"
                             placeholder="Ej: 200" min="0" step="0.1" aria-label="Alto del escaparate en centímetros">
                     </div>
 
                     <div class="form-group">
                         <label for="quote-product-selector" class="form-label">Modelo deseado</label>
-                        <select id="quote-product-selector" name="product" class="form-select"
+                        <select id="quote-product-selector" name="model" class="form-select"
                             aria-label="Selecciona el modelo de carpeta LED">
                             <option value="">Selecciona un modelo...</option>
                             <!-- Options will be populated by products.js -->
@@ -169,7 +167,7 @@
 
                     <div class="form-group">
                         <label for="quote-quantity" class="form-label">Cantidad estimada</label>
-                        <input type="number" id="quote-quantity" name="quantity" class="form-input"
+                        <input type="number" id="quote-quantity" name="quantity_estimated" class="form-input"
                             placeholder="Número de carpetas" min="1" aria-label="Cantidad estimada de carpetas"
                             aria-describedby="quantity-help">
                         <small id="quantity-help" class="text-light" style="font-size: var(--font-size-sm);">
@@ -194,7 +192,7 @@
                 <div class="form-section">
                     <div class="visually-hidden">Consentimiento de privacidad</div>
                     <div class="form-checkbox">
-                        <input type="checkbox" id="rgpd" name="rgpd" required aria-required="true"
+                        <input type="checkbox" id="rgpd" name="accepted_privacy" required aria-required="true"
                             aria-describedby="rgpd-description">
                         <label for="rgpd" id="rgpd-description" style="font-size: var(--font-size-sm);">
                             He leído y acepto la <a href="legal/politica-privacidad.html" target="_blank"
@@ -213,7 +211,8 @@
                     <strong>Información sobre protección de datos:</strong><br>
                     <strong>Responsable:</strong> LED Escaparate | <strong>Finalidad:</strong> Gestionar la consulta
                     enviada mediante este formulario | <strong>Legitimación:</strong> Consentimiento del interesado |
-                    <strong>Destinatarios:</strong> Netlify (procesamiento del formulario). No se realizan cesiones
+                    <strong>Destinatarios:</strong> Los datos se almacenan de forma segura y no se ceden a terceros. No
+                    se realizan cesiones
                     adicionales | <strong>Derechos:</strong> Puedes ejercer tus derechos en contacto@ledescaparate.es |
                     <strong>Información adicional:</strong> Disponible en la <a href="legal/politica-privacidad.html"
                         target="_blank" rel="noopener noreferrer">Política de Privacidad</a>
@@ -224,6 +223,10 @@
                     aria-label="Enviar solicitud de presupuesto">
                     Enviar Solicitud de Presupuesto
                 </button>
+
+                <!-- Status message -->
+                <p id="budget-status" aria-live="polite"
+                    style="margin-top: var(--spacing-md); font-weight: 600; text-align: center;"></p>
 
                 <p class="text-center text-light mt-3" style="font-size: var(--font-size-sm);">
                     Te responderemos en menos de 24 horas laborables
@@ -314,7 +317,8 @@
     <!-- Scripts -->
     <script src="js/main.js" defer></script>
     <script src="js/products.js" defer></script>
-    <script src="js/forms.js" defer></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-forms.js"></script>
 </body>
 
 </html>

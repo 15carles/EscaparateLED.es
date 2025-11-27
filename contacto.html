@@ -156,10 +156,7 @@
 
                     <div
                         style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md);">
-                        <form id="contact-form" name="contacto" method="POST" data-netlify="true"
-                            action="/gracias.html">
-                            <input type="hidden" name="form-name" value="contacto">
-
+                        <form id="contact-form">
                             <div class="form-group">
                                 <label for="name" class="form-label required">Nombre</label>
                                 <input type="text" id="name" name="name" class="form-input"
@@ -178,14 +175,22 @@
                                     placeholder="¿En qué podemos ayudarte?" rows="6" required></textarea>
                             </div>
 
+                            <div class="form-group">
+                                <label class="form-checkbox">
+                                    <input type="checkbox" name="accepted_privacy" required>
+                                    <span>He leído y acepto la <a href="legal/politica-privacidad.html" target="_blank"
+                                            rel="noopener noreferrer">Política de Privacidad</a></span>
+                                </label>
+                            </div>
+
                             <!-- Legal Clause -->
                             <p
                                 style="font-size: var(--font-size-sm); color: var(--color-text-light); margin-top: var(--spacing-md); padding: var(--spacing-sm); background: var(--color-background-alt); border-radius: var(--border-radius-sm);">
                                 <strong>Información sobre protección de datos:</strong><br>
                                 <strong>Responsable:</strong> LED Escaparate | <strong>Finalidad:</strong> Gestionar la
                                 consulta enviada mediante este formulario | <strong>Legitimación:</strong>
-                                Consentimiento del interesado | <strong>Destinatarios:</strong> Netlify (procesamiento
-                                del formulario). No se realizan cesiones adicionales | <strong>Derechos:</strong> Puedes
+                                Consentimiento del interesado | <strong>Destinatarios:</strong> Los datos se almacenan
+                                de forma segura y no se ceden a terceros | <strong>Derechos:</strong> Puedes
                                 ejercer tus derechos en contacto@ledescaparate.es | <strong>Información
                                     adicional:</strong> Disponible en la <a href="legal/politica-privacidad.html"
                                     target="_blank" rel="noopener noreferrer">Política de Privacidad</a>
@@ -194,6 +199,10 @@
                             <button type="submit" class="btn btn-primary btn-large btn-block">
                                 Enviar Mensaje
                             </button>
+
+                            <!-- Status message -->
+                            <p id="contact-status" aria-live="polite"
+                                style="margin-top: var(--spacing-md); font-weight: 600;"></p>
                         </form>
                     </div>
                 </div>
@@ -267,7 +276,8 @@
 
     <!-- Scripts -->
     <script src="js/main.js" defer></script>
-    <script src="js/forms.js" defer></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-forms.js"></script>
 </body>
 
 </html>
