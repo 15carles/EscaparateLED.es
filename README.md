@@ -37,14 +37,14 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ **Simulador interactivo** de escaparates con cálculo automático
 - ✅ **Sistema de productos modular** fácilmente actualizable
 - ✅ **Formularios inteligentes** con validación client-side
-- ✅ **Integración Netlify Forms** para gestión de consultas
+- ✅ **Integración Supabase** para gestión de formularios
 - ✅ **Páginas de respuesta** (gracias, 404, error)
 - ✅ **Blog escalable** con sistema de plantillas documentado
 - ✅ **Estrategia híbrida de instalación** (Valencia local vs Nacional)
 
 ### 🔒 Seguridad y Legal
 - ✅ Cumplimiento **RGPD/LOPDGDD** completo
-- ✅ Política de Privacidad adaptada a Netlify Forms
+- ✅ Política de Privacidad adaptada a Supabase
 - ✅ Política de Cookies (solo técnicas)
 - ✅ Aviso Legal y Condiciones de Uso
 - ✅ Cláusulas legales en formularios
@@ -83,7 +83,8 @@ led-escaparate/
 │   ├── main.js               # JavaScript principal (navegación, cookies)
 │   ├── products.js           # Gestión de productos y catálogo
 │   ├── simulator.js          # Lógica del simulador
-│   └── forms.js              # Validación y envío de formularios
+│   ├── forms.js              # Validación de formularios (legacy)
+│   └── supabase-forms.js     # Integración con Supabase
 │
 ├── images/
 │   ├── products/             # Imágenes de productos
@@ -188,22 +189,32 @@ El blog está completamente documentado para facilitar la adición de nuevos pos
 - `blog.html`: Comentarios detallados sobre cómo añadir posts al listado
 - `blog-post.html`: Guía completa de uso como plantilla (líneas 2-122)
 
-### 3. Netlify Forms
+### 3. Supabase Forms
 
-Los formularios están configurados para Netlify Forms:
+Los formularios están integrados con Supabase:
 
 - **Formulario de presupuesto:** `presupuesto.html`
 - **Formulario de contacto:** `contacto.html`
 
-**Configuración automática:**
-- Atributo `data-netlify="true"` en formularios
-- Campo oculto `form-name` para identificación
+**Configuración:**
+- Script de integración: `js/supabase-forms.js`
+- Cliente Supabase cargado desde CDN: `@supabase/supabase-js@2`
+- Tabla destino: `public.form_submissions`
+- Validación client-side de campos obligatorios
 - Redirección a `/gracias.html` tras envío exitoso
 
 **Acceso a envíos:**
-1. Ir a Netlify Dashboard
-2. Site Settings → Forms
-3. Ver envíos recibidos
+1. Ir a Supabase Dashboard: https://supabase.com/dashboard
+2. Seleccionar proyecto
+3. Table Editor → `form_submissions`
+4. Ver, filtrar y exportar datos
+
+**Campos de la tabla:**
+- `form_type`: 'contact' o 'budget'
+- `name`, `email`, `phone`, `message`
+- `company_name`, `business_type`, `province_or_postal`
+- `shop_width_cm`, `shop_height_cm`, `model`, `quantity_estimated`
+- `accepted_privacy`, `page_url`, `user_agent`
 
 ### 4. Configuración de Netlify
 
@@ -524,7 +535,7 @@ Ver [CHANGELOG.md](CHANGELOG.md) para historial completo de cambios.
 
 **Cambios:**
 - ✅ Actualización completa de textos legales (RGPD/LOPDGDD)
-- ✅ Integración Netlify Forms
+- ✅ Integración Supabase Forms
 - ✅ Mejoras de accesibilidad en formularios
 - ✅ Campo "Modelo deseado" ahora opcional
 - ✅ Corrección de estilos en formulario de presupuesto
