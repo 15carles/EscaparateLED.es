@@ -364,6 +364,10 @@ p {
   animation: fadeInUp 0.8s ease-out;
 }
 
+.hero h2 {
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
 .hero p {
   font-size: var(--font-size-xl);
   margin-bottom: var(--spacing-xl);
@@ -371,8 +375,12 @@ p {
   animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
-.hero-cta {
+.hero ul {
   animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+.hero-cta {
+  animation: fadeInUp 0.8s ease-out 0.6s backwards;
 }
 
 /* ========================================
