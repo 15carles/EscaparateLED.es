@@ -56,6 +56,45 @@
   }
   </script>
 
+  <!-- Schema JSON-LD para LocalBusiness - Optimización para agentes de IA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "LED Escaparate",
+    "description": "Especialistas en carpetas LED retroiluminadas para escaparates de inmobiliarias. Instalación en Valencia y envío de kits pre-montados a toda España.",
+    "url": "https://ledescaparate.es",
+    "telephone": "+34626612141",
+    "email": "contacto@ledescaparate.es",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Valencia",
+      "addressCountry": "ES"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "España"
+    },
+    "priceRange": "€€",
+    "potentialAction": {
+      "@type": "QuoteAction",
+      "name": "Solicitar Presupuesto de Carpetas LED",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://ledescaparate.es/presupuesto.html",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      },
+      "result": {
+        "@type": "Order",
+        "description": "Presupuesto personalizado de carpetas LED para escaparate"
+      }
+    }
+  }
+  </script>
+
   <!-- Fonts - Optimized Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -94,225 +133,234 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Haz que tu inmobiliaria destaque día y noche con escaparates LED profesionales</h1>
-        <h2
-          style="font-size: var(--font-size-xl); font-weight: 500; margin-bottom: var(--spacing-lg); color: rgba(255,255,255,0.95);">
-          Carpetas LED retroiluminadas con instalación en Valencia o kit profesional pre-montado para toda España</h2>
-        <ul style="list-style: none; padding: 0; margin-bottom: var(--spacing-xl);">
-          <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: var(--spacing-md);">
-            <span style="color: var(--color-primary); font-size: 1.5rem; line-height: 1;">✓</span>
-            <span style="color: rgba(255,255,255,0.9);">Sin complicaciones técnicas: opciones claras según tu
-              ubicación.</span>
-          </li>
-          <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: var(--spacing-md);">
-            <span style="color: var(--color-primary); font-size: 1.5rem; line-height: 1;">✓</span>
-            <span style="color: rgba(255,255,255,0.9);">Sin miedo a la instalación: nosotros la hacemos por ti o te
-              enviamos todo pre-montado.</span>
-          </li>
-          <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: var(--spacing-md);">
-            <span style="color: var(--color-primary); font-size: 1.5rem; line-height: 1;">✓</span>
-            <span style="color: rgba(255,255,255,0.9);">Sin obras ni interrupciones: instalación limpia y discreta,
-              pensada para no afectar tu negocio.</span>
-          </li>
-        </ul>
-        <div class="hero-cta">
-          <a href="presupuesto.html" class="btn btn-primary btn-large">Pedir Presupuesto Gratis</a>
-          <a href="simulador.html" class="btn btn-secondary btn-large">Probar Simulador</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Benefits Section -->
-  <section class="section">
-    <div class="container">
-      <h2 class="text-center">¿Por qué elegir nuestras Carpetas LED?</h2>
-      <p class="text-center text-light mb-5">Soluciones profesionales para inmobiliarias que buscan destacar</p>
-
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon">🌙</div>
-          <h3>Visibilidad 24/7</h3>
-          <p>Tus inmuebles destacan día y noche. La iluminación LED perimetral garantiza máxima visibilidad incluso en
-            horario nocturno.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">✨</div>
-          <h3>Estética Premium</h3>
-          <p>Diseño moderno y elegante que transmite profesionalidad. Acabados de alta calidad en aluminio y
-            metacrilato.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">⚡</div>
-          <h3>Bajo Consumo</h3>
-          <p>Tecnología LED de última generación con consumo mínimo. Ahorra en tu factura eléctrica sin renunciar a la
-            iluminación.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">🔧</div>
-          <h3>Fácil Instalación</h3>
-          <p>Sistema de suspensión por cables sencillo y versátil. Instalación rápida sin obras ni complicaciones.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Products Section -->
-  <section class="section section-alt">
-    <div class="container">
-      <h2 class="text-center">Nuestros Modelos Destacados</h2>
-      <p class="text-center text-light mb-5">Formatos A3 y A4 en vertical y horizontal para adaptarse a tus necesidades
-      </p>
-
-      <div class="products-grid" id="products-grid-featured">
-        <!-- Products will be loaded dynamically by products.js -->
-      </div>
-
-      <div class="text-center mt-5">
-        <a href="productos.html" class="btn btn-primary btn-large">Ver Todos los Modelos</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="section">
-    <div class="container">
-      <div
-        style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); padding: 4rem 2rem; border-radius: var(--border-radius-xl); text-align: center; color: white;">
-        <h2 style="color: white; margin-bottom: 1rem;">¿Cuántas carpetas necesitas?</h2>
-        <p style="font-size: var(--font-size-xl); margin-bottom: 2rem; opacity: 0.95;">Usa nuestro simulador gratuito
-          para calcular la configuración perfecta de tu escaparate</p>
-        <a href="simulador.html" class="btn btn-large" style="background: white; color: var(--color-primary);">Probar
-          Simulador Gratis</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Installation Services Section -->
-  <section class="section section-alt">
-    <div class="container">
-      <h2 class="text-center" style="margin-bottom: var(--spacing-md);">Opciones de Instalación según tu Ubicación</h2>
-      <p class="text-center text-light mb-5" style="max-width: 700px; margin: 0 auto 3rem;">
-        Ofrecemos dos soluciones adaptadas a tus necesidades, para que tengas la mejor experiencia sin importar dónde
-        estés
-      </p>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl);">
-        <!-- Valencia y alrededores -->
-        <div
-          style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md);">
-          <div style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
-            <span style="font-size: 2.5rem;">📍</span>
-            <h2 style="font-size: var(--font-size-2xl); margin: 0; color: var(--color-primary);">Instalación en Valencia
-              y alrededores por nuestro equipo</h2>
+  <!-- Contenido principal de la página -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Haz que tu inmobiliaria destaque día y noche con escaparates LED profesionales</h1>
+          <h2
+            style="font-size: var(--font-size-xl); font-weight: 500; margin-bottom: var(--spacing-lg); color: rgba(255,255,255,0.95);">
+            Carpetas LED retroiluminadas con instalación en Valencia o kit profesional pre-montado para toda España</h2>
+          <ul style="list-style: none; padding: 0; margin-bottom: var(--spacing-xl);">
+            <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: var(--spacing-md);">
+              <span style="color: var(--color-primary); font-size: 1.5rem; line-height: 1;">✓</span>
+              <span style="color: rgba(255,255,255,0.9);">Sin complicaciones técnicas: opciones claras según tu
+                ubicación.</span>
+            </li>
+            <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: var(--spacing-md);">
+              <span style="color: var(--color-primary); font-size: 1.5rem; line-height: 1;">✓</span>
+              <span style="color: rgba(255,255,255,0.9);">Sin miedo a la instalación: nosotros la hacemos por ti o te
+                enviamos todo pre-montado.</span>
+            </li>
+            <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: var(--spacing-md);">
+              <span style="color: var(--color-primary); font-size: 1.5rem; line-height: 1;">✓</span>
+              <span style="color: rgba(255,255,255,0.9);">Sin obras ni interrupciones: instalación limpia y discreta,
+                pensada para no afectar tu negocio.</span>
+            </li>
+          </ul>
+          <div class="hero-cta">
+            <a href="presupuesto.html" class="btn btn-primary btn-large">Pedir Presupuesto Gratis</a>
+            <a href="simulador.html" class="btn btn-secondary btn-large">Probar Simulador</a>
           </div>
-          <p style="color: var(--color-text); line-height: 1.7; margin: 0;">
-            Si tu inmobiliaria está en Valencia o alrededores, nos encargamos absolutamente de todo. Medimos tu
-            escaparate, te asesoramos en la configuración ideal y realizamos la instalación completa con nuestras
-            propias manos. Es un servicio limpio y discreto: no hay obras, no hay polvo y no tendrás que cerrar tu
-            negocio. Tú solo eliges cuántas carpetas LED quieres y nosotros lo dejamos funcionando.
-          </p>
         </div>
+      </div>
+    </section>
 
-        <!-- Resto de España -->
-        <div
-          style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md);">
-          <div style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
-            <span style="font-size: 2.5rem;">📦</span>
-            <h2 style="font-size: var(--font-size-2xl); margin: 0; color: var(--color-primary);">Envío pre-montado a
-              toda España con soporte incluido</h2>
+    <!-- Benefits Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="text-center">¿Por qué elegir nuestras Carpetas LED?</h2>
+        <p class="text-center text-light mb-5">Soluciones profesionales para inmobiliarias que buscan destacar</p>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">🌙</div>
+            <h3>Visibilidad 24/7</h3>
+            <p>Tus inmuebles destacan día y noche. La iluminación LED perimetral garantiza máxima visibilidad incluso en
+              horario nocturno.</p>
           </div>
-          <p style="color: var(--color-text); line-height: 1.7; margin: 0;">
-            Si estás fuera de Valencia, te enviamos tu sistema de carpetas LED completamente preparado para una
-            instalación sencilla por cualquier profesional o electricista de confianza. Incluimos cables, conectores y
-            fuente de alimentación organizados, junto con instrucciones claras y soporte por videollamada si tu
-            instalador tiene alguna duda. Así garantizamos un montaje limpio, ordenado y sin complicaciones técnicas
-            para ti.
-          </p>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">✨</div>
+            <h3>Estética Premium</h3>
+            <p>Diseño moderno y elegante que transmite profesionalidad. Acabados de alta calidad en aluminio y
+              metacrilato.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">⚡</div>
+            <h3>Bajo Consumo</h3>
+            <p>Tecnología LED de última generación con consumo mínimo. Ahorra en tu factura eléctrica sin renunciar a la
+              iluminación.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🔧</div>
+            <h3>Fácil Instalación</h3>
+            <p>Sistema de suspensión por cables sencillo y versátil. Instalación rápida sin obras ni complicaciones.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Trust Section -->
-  <section class="section section-alt">
-    <div class="container">
-      <h2 class="text-center">Servicio en Toda España</h2>
-      <p class="text-center text-light mb-5">Especialistas en escaparates para inmobiliarias en Valencia, Madrid,
-        Barcelona, Alicante y todas las islas</p>
+    <!-- Featured Products Section -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="text-center">Nuestros Modelos Destacados</h2>
+        <p class="text-center text-light mb-5">Formatos A3 y A4 en vertical y horizontal para adaptarse a tus
+          necesidades
+        </p>
 
-      <div
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; margin-top: 3rem;">
-        <div>
-          <h3 class="text-primary" style="font-size: var(--font-size-4xl); margin-bottom: 0.5rem;">24h</h3>
-          <p class="text-light">Respuesta en menos de 24 horas</p>
+        <div class="products-grid" id="products-grid-featured">
+          <!-- Products will be loaded dynamically by products.js -->
         </div>
-        <div>
-          <h3 class="text-primary" style="font-size: var(--font-size-4xl); margin-bottom: 0.5rem;">100%</h3>
-          <p class="text-light">Productos profesionales</p>
-        </div>
-        <div>
-          <h3 class="text-primary" style="font-size: var(--font-size-4xl); margin-bottom: 0.5rem;">LED</h3>
-          <p class="text-light">Tecnología de última generación</p>
-        </div>
-        <div>
-          <h3 class="text-primary" style="font-size: var(--font-size-4xl); margin-bottom: 0.5rem;">∞</h3>
-          <p class="text-light">Configuraciones personalizadas</p>
+
+        <div class="text-center mt-5">
+          <a href="productos.html" class="btn btn-primary btn-large">Ver Todos los Modelos</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Final CTA -->
-  <section class="section">
-    <div class="container text-center">
-      <h2>¿Listo para mejorar tu escaparate?</h2>
-      <p class="text-light mb-4" style="font-size: var(--font-size-lg);">Solicita un presupuesto sin compromiso y
-        descubre cómo podemos ayudarte</p>
-      <a href="presupuesto.html" class="btn btn-primary btn-large">Pedir Presupuesto Gratis</a>
-      <p class="mt-3 text-light" style="font-size: var(--font-size-sm);">O llámanos al <strong
-          style="color: var(--color-primary);">+34 626 612 141</strong></p>
-    </div>
-  </section>
+    <!-- CTA Section -->
+    <section class="section">
+      <div class="container">
+        <div
+          style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); padding: 4rem 2rem; border-radius: var(--border-radius-xl); text-align: center; color: white;">
+          <h2 style="color: white; margin-bottom: 1rem;">¿Cuántas carpetas necesitas?</h2>
+          <p style="font-size: var(--font-size-xl); margin-bottom: 2rem; opacity: 0.95;">Usa nuestro simulador gratuito
+            para calcular la configuración perfecta de tu escaparate</p>
+          <a href="simulador.html" class="btn btn-large" style="background: white; color: var(--color-primary);">Probar
+            Simulador Gratis</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- SEO Extra Content -->
-  <section class="section">
-    <div class="container" style="max-width: 900px;">
-      <h2 style="text-align: center; margin-bottom: var(--spacing-xl);">¿Qué son las carpetas LED y por qué funcionan?
-      </h2>
-      <p style="margin-bottom: var(--spacing-lg);">
-        Las carpetas LED para escaparates son sistemas de exhibición iluminados que permiten mostrar anuncios
-        inmobiliarios con una claridad excepcional, incluso en condiciones de poca luz. La iluminación LED realza cada
-        ficha y aporta un toque moderno y profesional a cualquier negocio que quiera destacar frente a la competencia.
-      </p>
+    <!-- Installation Services Section -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="text-center" style="margin-bottom: var(--spacing-md);">Opciones de Instalación según tu Ubicación
+        </h2>
+        <p class="text-center text-light mb-5" style="max-width: 700px; margin: 0 auto 3rem;">
+          Ofrecemos dos soluciones adaptadas a tus necesidades, para que tengas la mejor experiencia sin importar dónde
+          estés
+        </p>
 
-      <h2 style="text-align: center; margin-bottom: var(--spacing-xl);">Ventajas de utilizar carpetas LED en tu
-        inmobiliaria</h2>
-      <p style="margin-bottom: var(--spacing-lg);">
-        Este tipo de escaparates llama la atención de los peatones y mejora la percepción de calidad del negocio.
-        Aumenta la visibilidad de las propiedades, facilita la lectura y ofrece un aspecto ordenado y atractivo. Además,
-        su bajo consumo energético y larga durabilidad convierten a las carpetas LED en una inversión rentable para
-        cualquier inmobiliaria o comercio que dependa de la visibilidad a pie de calle.
-      </p>
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl);">
+          <!-- Valencia y alrededores -->
+          <div
+            style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md);">
+            <div style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
+              <span style="font-size: 2.5rem;">📍</span>
+              <h2 style="font-size: var(--font-size-2xl); margin: 0; color: var(--color-primary);">Instalación en
+                Valencia
+                y alrededores por nuestro equipo</h2>
+            </div>
+            <p style="color: var(--color-text); line-height: 1.7; margin: 0;">
+              Si tu inmobiliaria está en Valencia o alrededores, nos encargamos absolutamente de todo. Medimos tu
+              escaparate, te asesoramos en la configuración ideal y realizamos la instalación completa con nuestras
+              propias manos. Es un servicio limpio y discreto: no hay obras, no hay polvo y no tendrás que cerrar tu
+              negocio. Tú solo eliges cuántas carpetas LED quieres y nosotros lo dejamos funcionando.
+            </p>
+          </div>
 
-      <h2 style="text-align: center; margin-bottom: var(--spacing-xl);">Elige la configuración ideal con nuestro
-        simulador</h2>
-      <p style="margin-bottom: var(--spacing-lg);">
-        Para ayudarte a encontrar la distribución perfecta, hemos creado un simulador interactivo que te permite
-        visualizar cómo quedará tu escaparate antes de comprar. Podrás ajustar columnas, filas, distancias y tipos de
-        carpetas para obtener un diseño completamente adaptado a tu espacio.
-      </p>
-    </div>
-  </section>
+          <!-- Resto de España -->
+          <div
+            style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md);">
+            <div style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
+              <span style="font-size: 2.5rem;">📦</span>
+              <h2 style="font-size: var(--font-size-2xl); margin: 0; color: var(--color-primary);">Envío pre-montado a
+                toda España con soporte incluido</h2>
+            </div>
+            <p style="color: var(--color-text); line-height: 1.7; margin: 0;">
+              Si estás fuera de Valencia, te enviamos tu sistema de carpetas LED completamente preparado para una
+              instalación sencilla por cualquier profesional o electricista de confianza. Incluimos cables, conectores y
+              fuente de alimentación organizados, junto con instrucciones claras y soporte por videollamada si tu
+              instalador tiene alguna duda. Así garantizamos un montaje limpio, ordenado y sin complicaciones técnicas
+              para ti.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Footer -->
+    <!-- Trust Section -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="text-center">Servicio en Toda España</h2>
+        <p class="text-center text-light mb-5">Especialistas en escaparates para inmobiliarias en Valencia, Madrid,
+          Barcelona, Alicante y todas las islas</p>
+
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; margin-top: 3rem;">
+          <div>
+            <h3 class="text-primary" style="font-size: var(--font-size-4xl); margin-bottom: 0.5rem;">24h</h3>
+            <p class="text-light">Respuesta en menos de 24 horas</p>
+          </div>
+          <div>
+            <h3 class="text-primary" style="font-size: var(--font-size-4xl); margin-bottom: 0.5rem;">100%</h3>
+            <p class="text-light">Productos profesionales</p>
+          </div>
+          <div>
+            <h3 class="text-primary" style="font-size: var(--font-size-4xl); margin-bottom: 0.5rem;">LED</h3>
+            <p class="text-light">Tecnología de última generación</p>
+          </div>
+          <div>
+            <h3 class="text-primary" style="font-size: var(--font-size-4xl); margin-bottom: 0.5rem;">∞</h3>
+            <p class="text-light">Configuraciones personalizadas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section">
+      <div class="container text-center">
+        <h2>¿Listo para mejorar tu escaparate?</h2>
+        <p class="text-light mb-4" style="font-size: var(--font-size-lg);">Solicita un presupuesto sin compromiso y
+          descubre cómo podemos ayudarte</p>
+        <a href="presupuesto.html" class="btn btn-primary btn-large">Pedir Presupuesto Gratis</a>
+        <p class="mt-3 text-light" style="font-size: var(--font-size-sm);">O llámanos al <strong
+            style="color: var(--color-primary);">+34 626 612 141</strong></p>
+      </div>
+    </section>
+
+    <!-- SEO Extra Content -->
+    <section class="section">
+      <div class="container" style="max-width: 900px;">
+        <h2 style="text-align: center; margin-bottom: var(--spacing-xl);">¿Qué son las carpetas LED y por qué funcionan?
+        </h2>
+        <p style="margin-bottom: var(--spacing-lg);">
+          Las carpetas LED para escaparates son sistemas de exhibición iluminados que permiten mostrar anuncios
+          inmobiliarios con una claridad excepcional, incluso en condiciones de poca luz. La iluminación LED realza cada
+          ficha y aporta un toque moderno y profesional a cualquier negocio que quiera destacar frente a la competencia.
+        </p>
+
+        <h2 style="text-align: center; margin-bottom: var(--spacing-xl);">Ventajas de utilizar carpetas LED en tu
+          inmobiliaria</h2>
+        <p style="margin-bottom: var(--spacing-lg);">
+          Este tipo de escaparates llama la atención de los peatones y mejora la percepción de calidad del negocio.
+          Aumenta la visibilidad de las propiedades, facilita la lectura y ofrece un aspecto ordenado y atractivo.
+          Además,
+          su bajo consumo energético y larga durabilidad convierten a las carpetas LED en una inversión rentable para
+          cualquier inmobiliaria o comercio que dependa de la visibilidad a pie de calle.
+        </p>
+
+        <h2 style="text-align: center; margin-bottom: var(--spacing-xl);">Elige la configuración ideal con nuestro
+          simulador</h2>
+        <p style="margin-bottom: var(--spacing-lg);">
+          Para ayudarte a encontrar la distribución perfecta, hemos creado un simulador interactivo que te permite
+          visualizar cómo quedará tu escaparate antes de comprar. Podrás ajustar columnas, filas, distancias y tipos de
+          carpetas para obtener un diseño completamente adaptado a tu espacio.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-content">

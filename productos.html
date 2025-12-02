@@ -35,6 +35,48 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     </noscript>
 
+    <!-- Schema JSON-LD para Product - Optimización para agentes de IA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Carpeta LED Retroiluminada para Escaparate",
+      "description": "Carpetas LED profesionales para escaparates de inmobiliarias. Iluminación LED de alta calidad, estructura de aluminio y metacrilato transparente.",
+      "brand": {
+        "@type": "Brand",
+        "name": "LED Escaparate"
+      },
+      "category": "Iluminación LED Comercial",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Lúmenes",
+          "value": "Alto brillo LED"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Consumo",
+          "value": "12W por carpeta"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Medidas disponibles",
+          "value": "A3 (29.7 x 42 cm) y A4 (21 x 29.7 cm)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Material",
+          "value": "Aluminio y metacrilato transparente"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Temperatura de color",
+          "value": "6500K (blanco frío)"
+        }
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -63,74 +105,83 @@
         </nav>
     </header>
 
-    <!-- Page Header -->
-    <section class="section section-alt">
-        <div class="container">
-            <h1 class="text-center">Nuestros Productos</h1>
-            <p class="text-center text-light" style="font-size: var(--font-size-lg); max-width: 700px; margin: 0 auto;">
-                Carpetas LED retroiluminadas profesionales en formatos A3 y A4. Diseñadas específicamente para
-                escaparates de inmobiliarias.
-            </p>
-        </div>
-    </section>
-
-    <!-- Products Grid -->
-    <section class="section">
-        <div class="container">
-            <div class="products-grid" id="products-grid-all">
-                <!-- Products will be loaded dynamically by products.js -->
+    <!-- Contenido principal de la página -->
+    <main>
+        <!-- Page Header -->
+        <section class="section section-alt">
+            <div class="container">
+                <h1 class="text-center">Nuestros Productos</h1>
+                <p class="text-center text-light"
+                    style="font-size: var(--font-size-lg); max-width: 700px; margin: 0 auto;">
+                    Carpetas LED retroiluminadas profesionales en formatos A3 y A4. Diseñadas específicamente para
+                    escaparates de inmobiliarias.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Info Section -->
-    <section class="section section-alt">
-        <div class="container">
-            <div style="max-width: 800px; margin: 0 auto;">
-                <h2 class="text-center mb-4">Características Comunes</h2>
+        <!-- Products Grid -->
+        <section class="section">
+            <div class="container">
+                <div class="products-grid" id="products-grid-all">
+                    <!-- Products will be loaded dynamically by products.js -->
+                </div>
+            </div>
+        </section>
 
-                <div style="display: grid; gap: 1.5rem;">
-                    <div
-                        style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
-                        <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">💡 Iluminación LED</h3>
-                        <p class="mb-0">Tecnología LED perimetral de última generación con luz blanca fría. Distribución
-                            uniforme de la luz para máxima visibilidad.</p>
-                    </div>
+        <!-- Info Section -->
+        <section class="section section-alt">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <h2 class="text-center mb-4">Características Comunes</h2>
 
-                    <div
-                        style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
-                        <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">🔧 Sistema de Instalación</h3>
-                        <p class="mb-0">Todas las carpetas se instalan mediante sistema de suspensión por cables de
-                            acero. Fácil montaje y desmontaje para cambio de fichas.</p>
-                    </div>
+                    <div style="display: grid; gap: 1.5rem;">
+                        <div
+                            style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
+                            <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">💡 Iluminación LED</h3>
+                            <p class="mb-0">Tecnología LED perimetral de última generación con luz blanca fría.
+                                Distribución
+                                uniforme de la luz para máxima visibilidad.</p>
+                        </div>
 
-                    <div
-                        style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
-                        <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">🏗️ Materiales Premium</h3>
-                        <p class="mb-0">Estructura de aluminio de alta calidad y metacrilato transparente. Resistentes y
-                            de larga duración.</p>
-                    </div>
+                        <div
+                            style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
+                            <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">🔧 Sistema de Instalación
+                            </h3>
+                            <p class="mb-0">Todas las carpetas se instalan mediante sistema de suspensión por cables de
+                                acero. Fácil montaje y desmontaje para cambio de fichas.</p>
+                        </div>
 
-                    <div
-                        style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
-                        <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">⚡ Eficiencia Energética</h3>
-                        <p class="mb-0">Bajo consumo eléctrico gracias a la tecnología LED. Funcionamiento continuo sin
-                            incremento significativo en la factura.</p>
+                        <div
+                            style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
+                            <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">🏗️ Materiales Premium</h3>
+                            <p class="mb-0">Estructura de aluminio de alta calidad y metacrilato transparente.
+                                Resistentes y
+                                de larga duración.</p>
+                        </div>
+
+                        <div
+                            style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
+                            <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">⚡ Eficiencia Energética</h3>
+                            <p class="mb-0">Bajo consumo eléctrico gracias a la tecnología LED. Funcionamiento continuo
+                                sin
+                                incremento significativo en la factura.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="section">
-        <div class="container text-center">
-            <h2>¿No sabes cuántas carpetas necesitas?</h2>
-            <p class="text-light mb-4" style="font-size: var(--font-size-lg);">Prueba nuestro simulador gratuito y
-                calcula la configuración perfecta para tu escaparate</p>
-            <a href="simulador.html" class="btn btn-primary btn-large">Usar Simulador</a>
-        </div>
-    </section>
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container text-center">
+                <h2>¿No sabes cuántas carpetas necesitas?</h2>
+                <p class="text-light mb-4" style="font-size: var(--font-size-lg);">Prueba nuestro simulador gratuito y
+                    calcula la configuración perfecta para tu escaparate</p>
+                <a href="simulador.html" class="btn btn-primary btn-large">Usar Simulador</a>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
