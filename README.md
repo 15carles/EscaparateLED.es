@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website
 
-[![Version](https://img.shields.io/badge/version-2.3.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
+[![Version](https://img.shields.io/badge/version-2.3.1-blue.svg)](https://github.com/15carles/EscaparateLED.es)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 
 > Sitio web profesional para LED Escaparate - Especialistas en carpetas retroiluminadas LED para escaparates inmobiliarios en toda España.
@@ -108,7 +108,7 @@ led-escaparate/
 │   └── condiciones-uso.html      # Condiciones de Uso
 │
 ├── CHANGELOG.md              # Registro de cambios
-├── VERSION                   # Versión actual (2.3.0)
+├── VERSION                   # Versión actual (2.3.1)
 └── README.md                 # Este archivo
 ```
 
@@ -121,7 +121,8 @@ led-escaparate/
 - Navegador web moderno
 - Editor de código (VS Code recomendado)
 - Git (para control de versiones)
-- Cuenta en Netlify (para despliegue)
+- Cuenta en GitHub (para repositorio)
+- Cuenta en Cloudflare Pages (para despliegue)
 
 ### Instalación Local
 
@@ -232,57 +233,63 @@ Los formularios están integrados con Supabase:
 - `shop_width_cm`, `shop_height_cm`, `model`, `quantity_estimated`
 - `accepted_privacy`, `page_url`, `user_agent`
 
-### 4. Configuración de Netlify
+### 4. Configuración de Cloudflare Pages
 
-El archivo `netlify.toml` incluye:
+El archivo `_headers` incluye:
 
-```toml
-# Redirecciones
-[[redirects]]
-  from = "/404"
-  to = "/404.html"
-  status = 404
+```
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
 
-# Headers de seguridad
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    X-XSS-Protection = "1; mode=block"
-    Referrer-Policy = "strict-origin-when-cross-origin"
+/css/*
+  Cache-Control: public, max-age=31536000
 
-# Caché para assets
-[[headers]]
-  for = "/css/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+/js/*
+  Cache-Control: public, max-age=31536000
+
+/images/*
+  Cache-Control: public, max-age=31536000
+```
+
+El archivo `_redirects` incluye:
+
+```
+/404 /404.html 404
 ```
 
 ---
 
 ## 🌐 Despliegue
 
-### Netlify (Recomendado - Actual)
+### Cloudflare Pages (Actual)
 
 **Despliegue automático configurado:**
 
-1. Push a GitHub → Deploy automático
+1. Push a GitHub → Deploy automático en Cloudflare Pages
 2. URL: https://ledescaparate.es
 3. SSL automático
-4. Formularios gestionados
+4. CDN global de Cloudflare
+5. Formularios gestionados por Supabase
 
-**Comandos útiles:**
+**Acceso al dashboard:**
+- Cloudflare Pages: https://dash.cloudflare.com/
+- Supabase Dashboard: https://supabase.com/dashboard
+- GitHub Repository: https://github.com/15carles/EscaparateLED.es
 
+**Proceso de despliegue:**
 ```bash
-# Ver estado del deploy
-netlify status
+# 1. Hacer cambios localmente
+git add .
+git commit -m "descripción del cambio"
 
-# Deploy manual
-netlify deploy --prod
+# 2. Subir a GitHub
+git push origin main
 
-# Ver logs
-netlify logs
+# 3. Cloudflare Pages despliega automáticamente
+# Ver progreso en: https://dash.cloudflare.com/
 ```
 
 ### Otros Servicios
@@ -420,9 +427,11 @@ Editar archivos en `legal/`:
 
 ### Ver Formularios Recibidos
 
-1. Netlify Dashboard
-2. Forms → presupuesto / contacto
-3. Exportar a CSV si necesario
+1. Supabase Dashboard: https://supabase.com/dashboard
+2. Seleccionar proyecto LED Escaparate
+3. Table Editor → `form_submissions`
+4. Filtrar por `form_type` ('contact' o 'budget')
+5. Exportar a CSV si necesario
 
 ---
 
@@ -434,7 +443,7 @@ Editar archivos en `legal/`:
 - [ ] Navegación funciona en todas las páginas
 - [ ] Simulador calcula correctamente
 - [ ] Formularios validan campos
-- [ ] Formularios envían a Netlify
+- [ ] Formularios envían a Supabase
 - [ ] Redirección a /gracias.html funciona
 - [ ] Página 404 se muestra correctamente
 
@@ -470,13 +479,14 @@ Editar archivos en `legal/`:
 
 ### Los formularios no envían
 
-**Problema:** Formularios no llegan a Netlify
+**Problema:** Formularios no llegan a Supabase
 
 **Solución:**
-1. Verificar atributo `data-netlify="true"` en `<form>`
-2. Verificar campo oculto `<input type="hidden" name="form-name" value="...">`
-3. Verificar que el sitio esté desplegado en Netlify (no funciona en local)
-4. Revisar Netlify Dashboard → Forms
+1. Verificar que Supabase client esté cargado: abrir consola y buscar "Supabase client initialized"
+2. Verificar RLS en Supabase: debe estar desactivado para `form_submissions`
+3. Verificar que el sitio esté desplegado en Cloudflare Pages
+4. Revisar Supabase Dashboard → Table Editor → `form_submissions`
+5. Revisar consola del navegador para errores de JavaScript
 
 ### Las imágenes no se muestran
 
@@ -562,7 +572,9 @@ Ver [CHANGELOG.md](CHANGELOG.md) para historial completo de cambios.
 ## 🙏 Agradecimientos
 
 - **Tipografía:** [Inter](https://rsms.me/inter/) por Rasmus Andersson
-- **Hosting:** [Netlify](https://www.netlify.com/)
+- **Hosting:** [Cloudflare Pages](https://pages.cloudflare.com/)
+- **Backend:** [Supabase](https://supabase.com/)
+- **Repositorio:** [GitHub](https://github.com/)
 - **Iconos:** Diseñados internamente
 
 ---
