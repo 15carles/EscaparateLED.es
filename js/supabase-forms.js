@@ -1,22 +1,22 @@
 /**
  * Supabase Forms Integration - FIXED VERSION
- * Handles form submissions to Supabase for LED Escaparate website
+  * Maneja envíos de formularios a Supabase para el sitio web LED Escaparate
  * 
- * Forms supported:
- * - Contact form (contact-form)
- * - Budget/Quote form (budget-form)
+  * Formularios soportados:
+  * - Formulario de contacto (contact-form)
+  * - Formulario de presupuesto (budget-form)
  */
 
-// Supabase configuration
+// Configuración de Supabase
 const SUPABASE_URL = 'https://xiorgsacjevmpwihfcbx.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhpb3Jnc2FjamV2bXB3aWhmY2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQyNTY2NjcsImV4cCI6MjA3OTgzMjY2N30.A9JBX-SI5xf7zvy8kVHI878mg4keNcr-QitkNt_GliQ';
 
-// Wait for Supabase library to load
+// Esperar a que se cargue la librería de Supabase
 if (typeof supabase === 'undefined') {
     console.error('Supabase library not loaded! Make sure the CDN script is included before this file.');
 }
 
-// Initialize Supabase client
+// Inicializar cliente de Supabase
 let supabaseClient;
 try {
     supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -27,14 +27,14 @@ try {
 
 /**
  * Attach form submission handler to a form
- * @param {string} formId - The ID of the form element
- * @param {string} statusId - The ID of the status message element
- * @param {string} formType - Type of form ('contact' or 'budget')
+ * @param {string} formId - El ID del elemento del formulario
+ * @param {string} statusId - El ID del elemento de mensaje de estado
+ * @param {string} formType - Tipo de formulario ('contact' o 'budget')
  */
 function attachSupabaseFormHandler(formId, statusId, formType) {
     const form = document.getElementById(formId);
     if (!form) {
-        // Exit silently if form doesn't exist on this page
+        // Salir silenciosamente si el formulario no existe en esta página
         return;
     }
 
@@ -43,7 +43,7 @@ function attachSupabaseFormHandler(formId, statusId, formType) {
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        // Show loading state
+        // Mostrar estado de carga
         if (statusEl) {
             statusEl.textContent = 'Enviando...';
             statusEl.style.color = 'var(--color-text-light)';
@@ -52,7 +52,7 @@ function attachSupabaseFormHandler(formId, statusId, formType) {
         // Get form data
         const formData = new FormData(form);
 
-        // Build payload matching Supabase table structure
+        // Construir payload matching Supabase table structure
         const payload = {
             form_type: formType,
             name: formData.get('name') || null,
@@ -73,7 +73,7 @@ function attachSupabaseFormHandler(formId, statusId, formType) {
 
         console.log('Submitting payload:', payload);
 
-        // Basic validation
+        // Validación básica
         if (!payload.email) {
             if (statusEl) {
                 statusEl.textContent = 'Por favor, introduce tu email.';
@@ -93,7 +93,7 @@ function attachSupabaseFormHandler(formId, statusId, formType) {
         try {
             console.log('Attempting to insert into Supabase...');
 
-            // Insert into Supabase
+            // Insertar en Supabase
             const { data, error } = await supabaseClient
                 .from('form_submissions')
                 .insert([payload])
@@ -122,7 +122,7 @@ function attachSupabaseFormHandler(formId, statusId, formType) {
                 return;
             }
 
-            // Success!
+            // Éxito!
             console.log('Form submitted successfully:', data);
             form.reset();
 

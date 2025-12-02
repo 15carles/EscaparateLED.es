@@ -1,10 +1,10 @@
 /**
  * CARPETAS LED - Showcase Simulator
- * Interactive calculator for LED frame placement in showcases
+  * Calculadora interactiva para colocación de carpetas LED en escaparates
  */
 
 // ========================================
-// Simulator State
+// Estado del Simulador
 // ========================================
 let simulatorState = {
     showcaseWidth: 0,
@@ -17,27 +17,27 @@ let simulatorState = {
     usableHeight: 0
 };
 
-const PERIMETER_MARGIN = 15; // cm - Fixed perimeter margin from showcase edges
-const FRAME_SPACING = 10; // cm - Spacing between frames
+const PERIMETER_MARGIN = 15; // cm - Margen perimetral fijo desde los bordes del escaparate
+const FRAME_SPACING = 10; // cm - Espaciado entre carpetas
 
 // ========================================
-// Calculation Functions
+// Funciones de Cálculo
 // ========================================
 
 /**
  * Calculate how many frames fit in the showcase
- * Takes into account:
- * - 15cm perimeter margin on all sides
- * - 10cm spacing between frames
+  * Tiene en cuenta:
+  * - Margen perimetral de 15cm en todos los lados
+  * - Espaciado de 10cm entre carpetas
  */
 function calculateFrames(showcaseWidth, showcaseHeight, frameWidth, frameHeight) {
-    // Apply 15cm margin on all sides
+    // Aplicar margen de 15cm en todos los lados
     const usableWidth = showcaseWidth - (PERIMETER_MARGIN * 2);
     const usableHeight = showcaseHeight - (PERIMETER_MARGIN * 2);
 
-    // Calculate how many frames fit with spacing between them
-    // Formula: (usableSpace + spacing) / (frameSize + spacing)
-    // The +spacing accounts for the fact that the last frame doesn't need spacing after it
+    // Calcular cuántas carpetas caben con espaciado entre ellas
+    // Fórmula: (usableSpace + spacing) / (frameSize + spacing)
+    // El +espaciado tiene en cuenta que la última carpeta no necesita espaciado después
     const framesHorizontal = Math.floor((usableWidth + FRAME_SPACING) / (frameWidth + FRAME_SPACING));
     const framesVertical = Math.floor((usableHeight + FRAME_SPACING) / (frameHeight + FRAME_SPACING));
     const totalFrames = framesHorizontal * framesVertical;
@@ -58,14 +58,14 @@ function renderGridPreview(framesHorizontal, framesVertical, frameWidth, frameHe
     const gridContainer = document.getElementById('showcase-grid');
     if (!gridContainer) return;
 
-    // Clear existing grid
+    // Limpiar cuadrícula existente
     gridContainer.innerHTML = '';
 
-    // Set grid template
+    // Establecer plantilla de cuadrícula
     gridContainer.style.gridTemplateColumns = `repeat(${framesHorizontal}, ${frameWidth}px)`;
     gridContainer.style.gridTemplateRows = `repeat(${framesVertical}, ${frameHeight}px)`;
 
-    // Create frame items
+    // Crear elementos de carpeta
     const totalFrames = framesHorizontal * framesVertical;
     for (let i = 0; i < totalFrames; i++) {
         const frameItem = document.createElement('div');
@@ -84,23 +84,23 @@ function updateResults(results, productName) {
     const resultsContainer = document.getElementById('simulator-results');
     if (!resultsContainer) return;
 
-    // Update result values
+    // Actualizar valores de resultado
     document.getElementById('result-horizontal').textContent = results.framesHorizontal;
     document.getElementById('result-vertical').textContent = results.framesVertical;
     document.getElementById('result-total').textContent = results.totalFrames;
 
-    // Update grid info
+    // Actualizar información de cuadrícula
     document.getElementById('grid-product-name').textContent = productName;
 
-    // Show results
+    // Mostrar resultados
     resultsContainer.classList.add('active');
 
-    // Scroll to results
+    // Desplazar a resultados
     resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 // ========================================
-// Event Handlers
+// Manejadores de Eventos
 // ========================================
 
 /**
@@ -109,13 +109,13 @@ function updateResults(results, productName) {
 function handleSimulatorSubmit(event) {
     event.preventDefault();
 
-    // Get form values
+    // Obtener valores del formulario
     const showcaseWidth = parseFloat(document.getElementById('showcase-width').value);
     const showcaseHeight = parseFloat(document.getElementById('showcase-height').value);
     const productSelect = document.getElementById('product-selector');
     const selectedOption = productSelect.options[productSelect.selectedIndex];
 
-    // Validate inputs
+    // Validar entradas
     if (!showcaseWidth || showcaseWidth <= 0) {
         alert('Por favor, introduce un ancho válido para el escaparate');
         return;
@@ -131,22 +131,22 @@ function handleSimulatorSubmit(event) {
         return;
     }
 
-    // Get product dimensions
+    // Obtener dimensiones del producto
     const frameWidth = parseFloat(selectedOption.dataset.width);
     const frameHeight = parseFloat(selectedOption.dataset.height);
     const productId = selectedOption.value;
     const productName = selectedOption.textContent;
 
-    // Check if showcase is large enough
+    // Comprobar si el escaparate es suficientemente grande
     if (showcaseWidth < (frameWidth + PERIMETER_MARGIN * 2) || showcaseHeight < (frameHeight + PERIMETER_MARGIN * 2)) {
         alert(`El escaparate es demasiado pequeño para este modelo. Necesitas al menos ${frameWidth + PERIMETER_MARGIN * 2}cm de ancho y ${frameHeight + PERIMETER_MARGIN * 2}cm de alto (incluyendo márgenes de 15cm).`);
         return;
     }
 
-    // Calculate frames
+    // Calcular carpetas
     const results = calculateFrames(showcaseWidth, showcaseHeight, frameWidth, frameHeight);
 
-    // Update state
+    // Actualizar estado
     simulatorState = {
         showcaseWidth,
         showcaseHeight,
@@ -159,7 +159,7 @@ function handleSimulatorSubmit(event) {
         ...results
     };
 
-    // Render grid preview (scale down for display)
+    // Renderizar vista previa de cuadrícula (escalar para visualización)
     const scale = Math.min(600 / (results.usableWidth), 400 / (results.usableHeight), 3);
     renderGridPreview(
         results.framesHorizontal,
@@ -168,7 +168,7 @@ function handleSimulatorSubmit(event) {
         frameHeight * scale
     );
 
-    // Update results display
+    // Actualizar visualización de resultados
     updateResults(results, productName);
 }
 
@@ -181,7 +181,7 @@ function sendToQuoteForm() {
         return;
     }
 
-    // Store simulator data in localStorage
+    // Almacenar datos del simulador en localStorage
     localStorage.setItem('simulatorData', JSON.stringify({
         showcaseWidth: simulatorState.showcaseWidth,
         showcaseHeight: simulatorState.showcaseHeight,
@@ -192,7 +192,7 @@ function sendToQuoteForm() {
         framesVertical: simulatorState.framesVertical
     }));
 
-    // Redirect to quote form
+    // Redirigir al formulario de presupuesto
     window.location.href = 'presupuesto.html';
 }
 
@@ -200,10 +200,10 @@ function sendToQuoteForm() {
  * Reset simulator
  */
 function resetSimulator() {
-    // Reset form
+    // Reiniciar formulario
     document.getElementById('simulator-form').reset();
 
-    // Reset state
+    // Reiniciar estado
     simulatorState = {
         showcaseWidth: 0,
         showcaseHeight: 0,
@@ -215,7 +215,7 @@ function resetSimulator() {
         usableHeight: 0
     };
 
-    // Hide results
+    // Ocultar resultados
     const resultsContainer = document.getElementById('simulator-results');
     if (resultsContainer) {
         resultsContainer.classList.remove('active');
@@ -223,7 +223,7 @@ function resetSimulator() {
 }
 
 // ========================================
-// Initialize
+// Inicializar
 // ========================================
 document.addEventListener('DOMContentLoaded', function () {
     const simulatorForm = document.getElementById('simulator-form');
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Export functions for global use
+// Exportar funciones para uso global
 window.simulator = {
     calculateFrames,
     sendToQuoteForm,
