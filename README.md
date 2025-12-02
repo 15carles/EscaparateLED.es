@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website
 
-[![Version](https://img.shields.io/badge/version-2.2.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
+[![Version](https://img.shields.io/badge/version-2.3.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 
 > Sitio web profesional para LED Escaparate - Especialistas en carpetas retroiluminadas LED para escaparates inmobiliarios en toda España.
@@ -35,8 +35,10 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 ### 🛠️ Funcionalidades
 - ✅ **Simulador interactivo** de escaparates con cálculo automático
 - ✅ **Sistema de productos modular** fácilmente actualizable
-- ✅ **Formularios inteligentes** con validación client-side
+- ✅ **Formularios inteligentes** con validación client-side y autocomplete
 - ✅ **Integración Supabase** para gestión de formularios
+- ✅ **Optimización para agentes de IA** (ChatGPT, Gemini, SGE)
+- ✅ **Schema JSON-LD** para comprensión de negocio por IA
 - ✅ **Páginas de respuesta** (gracias, 404, error)
 - ✅ **Blog escalable** con sistema de plantillas documentado
 - ✅ **Estrategia híbrida de instalación** (Valencia local vs Nacional)
@@ -53,9 +55,18 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ Optimización SEO para España (Valencia, Madrid, Barcelona)
 - ✅ Meta tags completos en todas las páginas
 - ✅ Open Graph para redes sociales
-- ✅ Estructura semántica HTML5
+- ✅ Estructura semántica HTML5 con elementos `<main>`
+- ✅ Schema.org JSON-LD (LocalBusiness, Product)
 - ✅ Caché optimizado para assets estáticos
 - ✅ Imágenes optimizadas y lazy loading
+
+### 🤖 Compatibilidad con Agentes de IA
+- ✅ **Atributos autocomplete** en formularios para autocompletado de IA
+- ✅ **Schema LocalBusiness** con QuoteAction para solicitar presupuestos
+- ✅ **Schema Product** con especificaciones técnicas estructuradas
+- ✅ **Elementos semánticos** (`<main>`, `<header>`, `<nav>`) para navegación de IA
+- ✅ **Aria-labels** descriptivos en campos de formulario
+- ✅ Optimizado para ChatGPT, Google Gemini y SGE
 - ✅ GEO optimizado para la navegación de agentes IA por la web
 
 ---
@@ -97,7 +108,7 @@ led-escaparate/
 │   └── condiciones-uso.html      # Condiciones de Uso
 │
 ├── CHANGELOG.md              # Registro de cambios
-├── VERSION                   # Versión actual (2.2.0)
+├── VERSION                   # Versión actual (2.3.0)
 └── README.md                 # Este archivo
 ```
 
@@ -197,10 +208,16 @@ Los formularios están integrados con Supabase:
 
 **Configuración:**
 - Script de integración: `js/supabase-forms.js`
-- Cliente Supabase cargado desde CDN: `@supabase/supabase-js@2`
+- Cliente Supabase: `@supabase/supabase-js@2.39.0` (CDN jsdelivr UMD)
 - Tabla destino: `public.form_submissions`
+- RLS (Row Level Security): Desactivado para formularios públicos
 - Validación client-side de campos obligatorios
 - Redirección a `/gracias.html` tras envío exitoso
+
+**Optimizaciones para IA:**
+- Atributos `autocomplete` en todos los campos
+- `aria-label` descriptivos para campos sin label visible
+- Tipos de input correctos (`email`, `tel`, `number`)
 
 **Acceso a envíos:**
 1. Ir a Supabase Dashboard: https://supabase.com/dashboard
