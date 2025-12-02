@@ -1,6 +1,5 @@
 # 🌟 LED Escaparate - Website
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://app.netlify.com/sites/your-site/deploys)
 [![Version](https://img.shields.io/badge/version-2.2.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 
@@ -57,6 +56,7 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ Estructura semántica HTML5
 - ✅ Caché optimizado para assets estáticos
 - ✅ Imágenes optimizadas y lazy loading
+- ✅ GEO optimizado para la navegación de agentes IA por la web
 
 ---
 
@@ -96,7 +96,6 @@ led-escaparate/
 │   ├── politica-cookies.html     # Política de Cookies
 │   └── condiciones-uso.html      # Condiciones de Uso
 │
-├── netlify.toml              # Configuración de Netlify
 ├── CHANGELOG.md              # Registro de cambios
 ├── VERSION                   # Versión actual (2.2.0)
 └── README.md                 # Este archivo
