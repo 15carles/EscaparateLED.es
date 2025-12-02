@@ -1,10 +1,10 @@
 /**
- * CARPETAS LED - Main JavaScript
- * Core functionality for navigation, animations, and interactions
+ * CARPETAS LED - JavaScript Principal
+ * Funcionalidad principal para navegación, animaciones e interacciones
  */
 
 // ========================================
-// Mobile Navigation Toggle
+// Menú de Navegación Móvil
 // ========================================
 document.addEventListener('DOMContentLoaded', function () {
     const navToggle = document.querySelector('.nav-toggle');
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             navMenu.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link
+        // Cerrar menú al hacer clic en un enlace
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', function () {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        // Close menu when clicking outside
+        // Cerrar menú al hacer clic fuera
         document.addEventListener('click', function (event) {
             if (!event.target.closest('.nav') && navMenu.classList.contains('active')) {
                 navToggle.classList.remove('active');
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ========================================
-// Header Scroll Effect (Optimized with throttle)
+// Efecto de Scroll en Header (Optimizado con throttle)
 // ========================================
 let scrollTicking = false;
-const header = document.querySelector('.header'); // Cache selector
+const header = document.querySelector('.header'); // Cachear selector
 
 window.addEventListener('scroll', function () {
     if (!scrollTicking) {
@@ -58,7 +58,7 @@ window.addEventListener('scroll', function () {
 });
 
 // ========================================
-// Smooth Scroll for Anchor Links
+// Scroll Suave para Enlaces de Ancla
 // ========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -77,7 +77,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ========================================
-// Intersection Observer for Animations
+// Intersection Observer para Animaciones
 // ========================================
 const observerOptions = {
     threshold: 0.1,
@@ -93,7 +93,7 @@ const observer = new IntersectionObserver(function (entries) {
     });
 }, observerOptions);
 
-// Observe elements with animation class
+// Observar elementos con clase de animación
 document.addEventListener('DOMContentLoaded', function () {
     const animatedElements = document.querySelectorAll('.benefit-card, .product-card');
     animatedElements.forEach(el => {
@@ -102,15 +102,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ========================================
-// Cookie Consent Banner
+// Banner de Consentimiento de Cookies
 // ========================================
 function initCookieConsent() {
-    // Check if user has already accepted cookies
+    // Comprobar si el usuario ya ha aceptado las cookies
     if (localStorage.getItem('cookiesAccepted')) {
         return;
     }
 
-    // Create cookie banner
+    // Crear banner de cookies
     const banner = document.createElement('div');
     banner.className = 'cookie-banner';
     banner.innerHTML = `
@@ -121,7 +121,7 @@ function initCookieConsent() {
     </div>
   `;
 
-    // Add styles
+    // Añadir estilos
     const style = document.createElement('style');
     style.textContent = `
     .cookie-banner {
@@ -172,7 +172,7 @@ function initCookieConsent() {
     document.head.appendChild(style);
     document.body.appendChild(banner);
 
-    // Handle accept button
+    // Manejar botón de aceptar
     document.getElementById('acceptCookies').addEventListener('click', function () {
         localStorage.setItem('cookiesAccepted', 'true');
         banner.style.animation = 'slideUp 0.3s ease-out reverse';
@@ -180,11 +180,11 @@ function initCookieConsent() {
     });
 }
 
-// Initialize cookie consent on page load
+// Inicializar consentimiento de cookies al cargar la página
 document.addEventListener('DOMContentLoaded', initCookieConsent);
 
 // ========================================
-// Active Navigation Link
+// Enlace de Navegación Activo
 // ========================================
 function setActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -201,7 +201,7 @@ function setActiveNavLink() {
 document.addEventListener('DOMContentLoaded', setActiveNavLink);
 
 // ========================================
-// Form Validation Helper
+// Funciones de Ayuda para Validación de Formularios
 // ========================================
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -238,7 +238,7 @@ function clearError(input) {
     input.style.borderColor = '';
 }
 
-// Export functions for use in other scripts
+// Exportar funciones para uso en otros scripts
 window.carpetasLED = {
     validateEmail,
     validatePhone,

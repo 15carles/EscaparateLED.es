@@ -1,10 +1,10 @@
 /**
  * CARPETAS LED - Product Data Management
- * Centralized product catalog and rendering
+  * Catálogo centralizado de productos y renderizado
  */
 
 // ========================================
-// Product Data Structure
+// Estructura de Datos de Productos
 // ========================================
 const productCatalog = [
     {
@@ -79,11 +79,11 @@ const productCatalog = [
         },
         featured: false
     }
-    // Add more products here as needed
+    // Añadir más productos aquí según sea necesario
 ];
 
 // ========================================
-// Product Rendering Functions
+// Funciones de Renderizado de Productos
 // ========================================
 
 /**
@@ -168,14 +168,14 @@ function addToQuote(productId) {
     const product = getProductById(productId);
     if (!product) return;
 
-    // Store selected product in localStorage
+    // Almacenar producto seleccionado en localStorage
     localStorage.setItem('selectedProduct', JSON.stringify({
         id: product.id,
         name: product.name,
         dimensions: product.dimensions
     }));
 
-    // Redirect to quote form
+    // Redirigir al formulario de presupuesto
     window.location.href = 'presupuesto.html';
 }
 
@@ -186,14 +186,14 @@ function populateProductSelector(selectElementId) {
     const select = document.getElementById(selectElementId);
     if (!select) return;
 
-    // Clear existing options except the first (placeholder)
+    // Limpiar opciones existentes excepto la primera (placeholder)
     const firstOption = select.options[0];
     select.innerHTML = '';
     if (firstOption) {
         select.appendChild(firstOption);
     }
 
-    // Add product options
+    // Añadir opciones de productos
     productCatalog.forEach(product => {
         const option = document.createElement('option');
         option.value = product.id;
@@ -205,19 +205,19 @@ function populateProductSelector(selectElementId) {
 }
 
 // ========================================
-// Initialize on page load
+// Inicializar al cargar la página
 // ========================================
 document.addEventListener('DOMContentLoaded', function () {
-    // Render product grids if containers exist
+    // Renderizar cuadrículas de productos si existen los contenedores
     renderProductGrid('products-grid-all', false);
     renderProductGrid('products-grid-featured', true);
 
-    // Populate product selectors
+    // Rellenar selectores de productos
     populateProductSelector('product-selector');
     populateProductSelector('quote-product-selector');
 });
 
-// Export functions for global use
+// Exportar funciones para uso global
 window.productManager = {
     getAllProducts,
     getProductById,
