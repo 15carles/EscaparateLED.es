@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website
 
-[![Version](https://img.shields.io/badge/version-2.3.1-blue.svg)](https://github.com/15carles/EscaparateLED.es)
+[![Version](https://img.shields.io/badge/version-2.4.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 
 > Sitio web profesional para LED Escaparate - Especialistas en carpetas retroiluminadas LED para escaparates inmobiliarios en toda España.
@@ -37,6 +37,7 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ **Sistema de productos modular** fácilmente actualizable
 - ✅ **Formularios inteligentes** con validación client-side y autocomplete
 - ✅ **Integración Supabase** para gestión de formularios y almacenamiento
+- ✅ **Widget flotante de WhatsApp** con estética Soft Green y diseño responsivo
 - ✅ **Optimización para agentes de IA** (ChatGPT, Gemini, SGE)
 - ✅ **Schema JSON-LD** para comprensión de negocio por IA
 - ✅ **Páginas de respuesta** (gracias, 404, error)
@@ -530,14 +531,14 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 
 Ver [CHANGELOG.md](CHANGELOG.md) para historial completo de cambios.
 
-### Versión Actual: 2.3.1 (2025-12-03)
+### Versión Actual: 2.4.0 (2025-12-03)
 
 **Cambios principales:**
-- ✅ Actualización de README.md y CHANGELOG.md
-- ✅ Corrección de información desfasada sobre plataforma de despliegue
-- ✅ Documentación actualizada sobre integración Supabase
-- ✅ Schemas avanzados para SEO (FAQPage, BreadcrumbList, Article, HowTo)
-- ✅ Optimización para agentes de IA (ChatGPT, Gemini, SGE)
+- ✅ **Widget flotante de WhatsApp** con estética Soft Green implementado
+- ✅ Diseño responsivo: pill-shaped en desktop, circular en móvil
+- ✅ Etiquetas semánticas para AIO (`<aside role="complementary">`)
+- ✅ Presente en 5 páginas principales (index, productos, simulador, contacto, presupuesto)
+- ✅ Mensaje pre-rellenado para mejor conversión
 
 Ver [CHANGELOG.md](CHANGELOG.md) para historial completo de versiones anteriores.
 

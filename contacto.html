@@ -285,6 +285,75 @@
         </div>
     </footer>
 
+
+    <!-- Widget flotante de WhatsApp - Estética Soft Green -->
+    <style>
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .whatsapp-widget a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #f0fdf4;
+            color: #166534;
+            padding: 14px 24px;
+            border: 1px solid #bbf7d0;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-widget a:hover {
+            background-color: #dcfce7;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-icon {
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .whatsapp-text {
+            white-space: nowrap;
+        }
+
+        /* Versión móvil: solo icono circular */
+        @media (max-width: 768px) {
+            .whatsapp-widget a {
+                width: 50px;
+                height: 50px;
+                padding: 0;
+                justify-content: center;
+                border-radius: 50%;
+            }
+
+            .whatsapp-text {
+                display: none;
+            }
+
+            .whatsapp-icon {
+                font-size: 26px;
+            }
+        }
+    </style>
+
+    <aside role="complementary" aria-label="Contacto rápido por WhatsApp" class="whatsapp-widget">
+        <a href="https://wa.me/34626612141?text=Hola,%20estoy%20viendo%20la%20web%20y%20tengo%20una%20duda%20sobre%20las%20carpetas%20LED."
+            target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp - ¿Te ayudamos?">
+            <span class="whatsapp-icon">💬</span>
+            <span class="whatsapp-text">¿Te ayudamos?</span>
+        </a>
+    </aside>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.js"></script>
     <script src="js/supabase-forms.js"></script>
