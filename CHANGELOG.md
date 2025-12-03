@@ -1,5 +1,45 @@
 # 📋 CHANGELOG - LED Escaparate Website
 
+## [2.3.1] - 2025-12-03
+
+### 📚 Actualización de Documentación
+- Corrección de versión actual en README.md (2.2.0 → 2.3.1)
+- Eliminación de referencias a Netlify Forms (reemplazadas por Supabase)
+- Corrección de información sobre archivos de configuración (_headers/_redirects → netlify.toml)
+- Actualización de CHANGELOG.md con versiones faltantes
+- Confirmación de Cloudflare Pages como plataforma de despliegue
+
+## [2.3.0] - 2025-11-26
+
+### 🤖 Optimización Avanzada para Agentes de IA
+- Implementación de Schema.org FAQPage en páginas relevantes
+- Implementación de Schema.org BreadcrumbList para navegación
+- Implementación de Schema.org Article en posts de blog
+- Implementación de Schema.org HowTo para contenido instructivo
+- Mejoras en metadatos semánticos para ChatGPT, Gemini y SGE
+- Optimización de atributos autocomplete en formularios
+
+## [2.2.0] - 2025-11-25
+
+### 📝 Sistema de Blog y Estrategia de Instalación
+- Sistema de blog escalable con documentación completa
+- Estrategia híbrida de instalación (Valencia local vs Nacional)
+- Campo ubicación en formulario de presupuesto
+- Nuevas FAQs sobre instalación
+- Corrección de estilos en blog-post.html
+- Documentación inline en blog.html y blog-post.html
+
+## [2.1.0] - 2025-11-24
+
+### ⚖️ Actualización Legal y Mejoras de Formularios
+- Actualización completa de textos legales (RGPD/LOPDGDD)
+- Integración completa con Supabase Forms
+- Mejoras de accesibilidad en formularios (WCAG 2.1 Level AA)
+- Campo "Modelo deseado" ahora opcional
+- Corrección de estilos en formulario de presupuesto
+- Cláusulas legales detalladas en formularios
+- Política de Privacidad adaptada a Supabase
+
 ## [2.0.0] - 2025-11-24
 
 ### 🏷️ BREAKING CHANGES - Rebranding

@@ -36,7 +36,7 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ **Simulador interactivo** de escaparates con cálculo automático
 - ✅ **Sistema de productos modular** fácilmente actualizable
 - ✅ **Formularios inteligentes** con validación client-side y autocomplete
-- ✅ **Integración Supabase** para gestión de formularios
+- ✅ **Integración Supabase** para gestión de formularios y almacenamiento
 - ✅ **Optimización para agentes de IA** (ChatGPT, Gemini, SGE)
 - ✅ **Schema JSON-LD** para comprensión de negocio por IA
 - ✅ **Páginas de respuesta** (gracias, 404, error)
@@ -235,30 +235,13 @@ Los formularios están integrados con Supabase:
 
 ### 4. Configuración de Cloudflare Pages
 
-El archivo `_headers` incluye:
+El archivo `netlify.toml` incluye configuración de headers de seguridad y cache:
 
-```
-/*
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
-  Referrer-Policy: strict-origin-when-cross-origin
-
-/css/*
-  Cache-Control: public, max-age=31536000
-
-/js/*
-  Cache-Control: public, max-age=31536000
-
-/images/*
-  Cache-Control: public, max-age=31536000
-```
-
-El archivo `_redirects` incluye:
-
-```
-/404 /404.html 404
-```
+- Headers de seguridad (X-Frame-Options, X-Content-Type-Options, etc.)
+- Cache agresivo para assets estáticos (CSS, JS, imágenes): 1 año
+- Cache corto para HTML: 1 hora con revalidación
+- Redirect 404 a `/404.html`
+- Compresión Brotli automática
 
 ---
 
@@ -547,25 +530,16 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 
 Ver [CHANGELOG.md](CHANGELOG.md) para historial completo de cambios.
 
-### Versión Actual: 2.2.0 (2025-11-25)
+### Versión Actual: 2.3.1 (2025-12-03)
 
 **Cambios principales:**
-- ✅ Sistema de blog escalable con documentación completa
-- ✅ Estrategia híbrida de instalación (Valencia vs Nacional)
-- ✅ Campo ubicación en formulario de presupuesto
-- ✅ Nuevas FAQs sobre instalación
-- ✅ Corrección de estilos en blog-post.html
-- ✅ Documentación inline en blog.html y blog-post.html
+- ✅ Actualización de README.md y CHANGELOG.md
+- ✅ Corrección de información desfasada sobre plataforma de despliegue
+- ✅ Documentación actualizada sobre integración Supabase
+- ✅ Schemas avanzados para SEO (FAQPage, BreadcrumbList, Article, HowTo)
+- ✅ Optimización para agentes de IA (ChatGPT, Gemini, SGE)
 
-### Versión 2.1.0 (2025-11-24)
-
-**Cambios:**
-- ✅ Actualización completa de textos legales (RGPD/LOPDGDD)
-- ✅ Integración Supabase Forms
-- ✅ Mejoras de accesibilidad en formularios
-- ✅ Campo "Modelo deseado" ahora opcional
-- ✅ Corrección de estilos en formulario de presupuesto
-- ✅ Cláusulas legales en formularios
+Ver [CHANGELOG.md](CHANGELOG.md) para historial completo de versiones anteriores.
 
 ---
 
