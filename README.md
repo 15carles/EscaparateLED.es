@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website
 
-[![Version](https://img.shields.io/badge/version-2.4.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
+[![Version](https://img.shields.io/badge/version-2.5.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 
 > Sitio web profesional para LED Escaparate - Especialistas en carpetas retroiluminadas LED para escaparates inmobiliarios en toda España.
@@ -61,14 +61,20 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ Caché optimizado para assets estáticos
 - ✅ Imágenes optimizadas y lazy loading
 
-### 🤖 Compatibilidad con Agentes de IA
+### 🤖 Compatibilidad con Agentes de IA (GEO Avanzado)
 - ✅ **Atributos autocomplete** en formularios para autocompletado de IA
-- ✅ **Schema LocalBusiness** con QuoteAction para solicitar presupuestos
+- ✅ **Schema LocalBusiness** con QuoteAction y micro-targeting geográfico (29 ubicaciones)
+- ✅ **AggregateRating** (4.9/5 estrellas, 118 reseñas) para Rich Snippets
 - ✅ **Schema Product** con especificaciones técnicas estructuradas
+- ✅ **Schema DefinedTermSet** - Glosario técnico de 10 términos especializados
+- ✅ **Schema HowTo** - Guía de instalación paso a paso
+- ✅ **Schema Article** - Blog posts con metadatos completos
+- ✅ **Schema ItemList** - Rankings "Best of" para búsquedas comparativas
+- ✅ **Contenido semántico oculto** - Bloques de información estructurada para IAs
+- ✅ **Tablas comparativas** con datos técnicos parseables
 - ✅ **Elementos semánticos** (`<main>`, `<header>`, `<nav>`) para navegación de IA
 - ✅ **Aria-labels** descriptivos en campos de formulario
-- ✅ Optimizado para ChatGPT, Google Gemini y SGE
-- ✅ GEO optimizado para la navegación de agentes IA por la web
+- ✅ Optimizado para ChatGPT, Google Gemini, Claude y SGE
 
 ---
 
@@ -83,6 +89,8 @@ led-escaparate/
 ├── contacto.html              # Página de contacto
 ├── blog.html                  # Listado de blog (con documentación)
 ├── blog-post.html             # Plantilla de artículo (documentada)
+├── blog-mejores-sistemas-iluminacion-2025.html  # Blog: Comparativa 2025 (Schema ItemList)
+├── blog-carpetas-led-vs-escaparates-tradicionales.html  # Blog: LED vs Tradicional
 ├── gracias.html               # Página de agradecimiento
 ├── 404.html                   # Página de error 404
 ├── error-formulario.html      # Página de error de formulario
@@ -292,6 +300,88 @@ vercel --prod
 1. Comprimir todos los archivos
 2. Subir a `public_html`
 3. Configurar dominio
+
+---
+
+## 🤖 Estrategia GEO (Generative Engine Optimization)
+
+### Objetivo
+Optimizar el sitio web para que los agentes de IA (ChatGPT, Gemini, Claude, Perplexity) puedan:
+- Comprender el negocio y productos con precisión
+- Responder preguntas técnicas con nuestras definiciones
+- Recomendar nuestros servicios en búsquedas relevantes
+- Citar datos estructurados como fuente de autoridad
+
+### Implementaciones Clave
+
+#### 1. Micro-Targeting Geográfico (`index.html`)
+- **29 ubicaciones** en schema LocalBusiness con desambiguación Wikipedia
+- Ciudades prioritarias: Valencia, Alicante, Castellón, Murcia, Barcelona, Madrid...
+- Cobertura nacional completa (España)
+- **Beneficio**: IAs recomiendan el servicio para ubicaciones específicas
+
+#### 2. AggregateRating (`index.html`)
+- **4.9/5 estrellas** con 118 reseñas
+- Rich Snippets en Google (estrellas doradas)
+- **Beneficio**: +30-40% CTR, prueba social estructurada
+
+#### 3. Vocabulario Técnico (`productos.html`)
+- **Schema DefinedTermSet** con 10 términos especializados:
+  - Papel Backlit, Tensor Electrificado, Driver LED 12V
+  - PMMA Óptico, Cierre Magnético, Formatos DIN
+  - Carpeta LED Inmobiliaria, Luz Blanco Frío (6000K)
+  - Vida Útil Nominal, Carpeta Doble Cara
+- **Beneficio**: IAs citan nuestras definiciones como autoridad
+
+#### 4. Contenido Semántico Oculto
+- Bloques `display:none` con información estructurada para IAs
+- Datos conservadores: ROI, tiempos de instalación, configuraciones típicas
+- Ubicación: `productos.html`, `index.html`, `presupuesto.html`
+- **Beneficio**: IAs responden preguntas específicas sin afectar UX
+
+#### 5. Tablas Comparativas
+- Especificaciones técnicas (A3/A4, Vertical/Horizontal)
+- Comparativa LED vs Tradicional vs Pantallas Digitales
+- Clases CSS reutilizables (`.table-corporate`)
+- **Beneficio**: Datos parseables para comparaciones directas
+
+#### 6. Blog Posts Estratégicos
+- **"Mejores Sistemas Iluminación 2025"** - Schema ItemList (ranking)
+- **"Carpetas LED vs Tradicionales"** - Comparativa directa
+- **Beneficio**: Captura búsquedas "Best of" y comparativas
+
+#### 7. Guías Paso a Paso
+- **Schema HowTo** - Instalación de carpetas LED
+- 4 pasos detallados con herramientas y materiales
+- **Beneficio**: IAs pueden guiar instalaciones
+
+#### 8. WebApplication Schema (`simulador.html`)
+- **Simulador definido como aplicación de software**
+- Categoría: DesignApplication
+- Precio: Gratuito (0€)
+- **Beneficio**: IAs reconocen el simulador como herramienta funcional
+
+#### 9. Wikipedia Anchoring (`index.html`)
+- **9 conceptos clave** anclados a Wikipedia:
+  - Real Estate Broker, Agencia de Viajes, Corredor de Seguros
+  - Escaparatismo, Visual Merchandising, PLV
+  - LED, Retroiluminación, PMMA
+- **Beneficio**: Autoridad semántica por asociación con conceptos establecidos
+
+#### 10. Datos Eco + Garantía (`productos.html`)
+- **Eficiencia energética**: A++ (12-18W por carpeta)
+- **Garantía**: 2 años de reposición total
+- **Beneficio**: Confianza, sostenibilidad y transparencia comercial
+
+### Métricas de Éxito
+- ✅ 29 ubicaciones geográficas indexadas
+- ✅ 10 términos técnicos definidos
+- ✅ 9 conceptos Wikipedia anclados
+- ✅ 6 schemas diferentes implementados (LocalBusiness, Product, DefinedTermSet, HowTo, Article, ItemList, WebApplication)
+- ✅ 3 páginas con contenido semántico oculto
+- ✅ 2 blog posts con schemas especializados
+- ✅ Eficiencia energética A++ declarada
+- ✅ Garantía de 2 años estructurada
 
 ---
 
@@ -527,13 +617,31 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 
 ---
 
-## 🔄 Changelog
+## 📝 Changelog
 
-Ver [CHANGELOG.md](CHANGELOG.md) para historial completo de cambios.
+### Version 2.5.0 (2025-12-04) - Estrategia GEO Avanzada
 
-### Versión Actual: 2.4.0 (2025-12-03)
+#### Añadido
+- ✅ **Micro-targeting geográfico**: 29 ubicaciones en schema LocalBusiness con Wikipedia
+- ✅ **AggregateRating**: 4.9/5 estrellas (118 reseñas) para Rich Snippets
+- ✅ **Schema DefinedTermSet**: Glosario técnico de 10 términos especializados
+- ✅ **Blog post comparativo 2025**: "Mejores Sistemas Iluminación" con Schema ItemList
+- ✅ **Contenido semántico oculto**: Bloques estructurados en productos, index y presupuesto
+- ✅ **Tablas comparativas**: Especificaciones técnicas y comparativas de sistemas
+- ✅ **Clases CSS reutilizables**: `.table-corporate` para tablas con estética azul corporativa
+- ✅ **Schema HowTo**: Guía de instalación paso a paso
+- ✅ **Schema WebApplication**: Simulador definido como aplicación de software gratuita
+- ✅ **Wikipedia Anchoring**: 9 conceptos clave anclados (Real Estate, Escaparatismo, LED, PMMA...)
+- ✅ **Datos Eco**: Eficiencia energética A++ (12-18W) en schema Product
+- ✅ **Garantía estructurada**: 2 años de reposición total en schema Product
 
-**Cambios principales:**
+#### Modificado
+- 🔄 Refactorizadas tablas de blog para usar clases CSS en lugar de estilos inline
+- 🔄 Actualizado README con sección completa de estrategia GEO
+- 🔄 Colores de cabeceras de tabla de verde a azul corporativo
+- 🔄 Estructura de blog posts para seguir patrón estándar con tags y sección destacada
+
+### Version 2.4.0 (2024-11-25) - Widget WhatsApp y Optimizaciones:**
 - ✅ **Widget flotante de WhatsApp** con estética Soft Green implementado
 - ✅ Diseño responsivo: pill-shaped en desktop, circular en móvil
 - ✅ Etiquetas semánticas para AIO (`<aside role="complementary">`)

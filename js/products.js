@@ -92,7 +92,7 @@ const productCatalog = [
 function renderProductCard(product) {
     return `
     <div class="product-card" data-product-id="${product.id}">
-      <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='images/products/placeholder.jpg'">
+      <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='images/products/placeholder.webp'">
       <div class="product-content">
         <h3 class="product-title">${product.name}</h3>
         <p class="product-description">${product.description}</p>

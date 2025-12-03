@@ -568,6 +568,124 @@ p {
   margin-bottom: var(--spacing-md);
 }
 
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-lg) 0;
+}
+
+.blog-content th,
+.blog-content td {
+  padding: var(--spacing-sm);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.blog-content th {
+  background-color: var(--color-background-alt);
+  font-weight: 600;
+}
+
+/* ========================================
+   Tablas Comparativas (Estilo Corporativo)
+   ======================================== */
+
+/* Contenedor con scroll horizontal para móviles */
+.table-wrapper {
+  overflow-x: auto;
+  margin: var(--spacing-xl) 0;
+}
+
+/* Tabla base con estilo corporativo */
+.table-corporate {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  min-width: 600px;
+}
+
+/* Cabecera de tabla con azul corporativo */
+.table-corporate thead tr {
+  background: #E6F2FF;
+  border-bottom: 2px solid #99CCFF;
+}
+
+.table-corporate th {
+  padding: 1rem;
+  font-weight: 700;
+  color: #0052CC;
+  border-right: 1px solid #e5e7eb;
+}
+
+.table-corporate th:last-child {
+  border-right: none;
+}
+
+/* Alineación de cabeceras */
+.table-corporate th.text-left {
+  text-align: left;
+}
+
+.table-corporate th.text-center {
+  text-align: center;
+}
+
+/* Primera columna (encabezados de fila) */
+.table-corporate tbody th {
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  border-right: 1px solid #e5e7eb;
+  text-align: left;
+  background: white;
+}
+
+/* Celdas de datos */
+.table-corporate td {
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-text);
+  border-right: 1px solid #e5e7eb;
+}
+
+.table-corporate td:last-child,
+.table-corporate th:last-child {
+  border-right: none;
+}
+
+/* Filas alternadas para mejor legibilidad */
+.table-corporate tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-corporate tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.table-corporate tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Celdas destacadas (valores importantes) */
+.table-corporate td.highlight {
+  font-weight: 500;
+}
+
+/* Responsive: ajustar padding en móviles */
+@media (max-width: 768px) {
+  .table-corporate th,
+  .table-corporate td {
+    padding: 0.75rem;
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ========================================
+   Cookie Banner
+   ======================================== */
 /* ========================================
    Footer
    ======================================== */

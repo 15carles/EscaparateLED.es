@@ -46,16 +46,26 @@
         "name": "LED Escaparate"
       },
       "category": "Iluminación LED Comercial",
+      "hasEnergyConsumptionDetails": {
+        "@type": "EnergyConsumptionDetails",
+        "energyEfficiencyScaleMax": "A++",
+        "energyEfficiencyScaleMin": "A"
+      },
       "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Eficiencia Energética",
+          "value": "A++ (Bajo Consumo)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Consumo por Carpeta",
+          "value": "12W - 18W"
+        },
         {
           "@type": "PropertyValue",
           "name": "Lúmenes",
           "value": "Alto brillo LED"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Consumo",
-          "value": "12W por carpeta"
         },
         {
           "@type": "PropertyValue",
@@ -72,7 +82,21 @@
           "name": "Temperatura de color",
           "value": "6500K (blanco frío)"
         }
-      ]
+      ],
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "warranty": {
+          "@type": "WarrantyPromise",
+          "durationOfWarranty": {
+            "@type": "QuantitativeValue",
+            "value": "2",
+            "unitCode": "ANN"
+          },
+          "warrantyScope": "Garantía total de reposición por fallo electrónico"
+        }
+      }
     }
     </script>
 
@@ -93,6 +117,140 @@
           "position": 2,
           "name": "Productos",
           "item": "https://ledescaparate.es/productos.html"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema HowTo para instalación técnica - Optimización GEO para agentes de IA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/", 
+      "@type": "HowTo", 
+      "name": "Cómo instalar carpetas LED en escaparate inmobiliario",
+      "description": "Guía paso a paso para montar un sistema de expositores LED retroiluminados con cables tensores.",
+      "image": "https://ledescaparate.es/images/instalacion-led.webp",
+      "supply": [
+        {
+          "@type": "HowToSupply",
+          "name": "Kit de Carpetas LED"
+        },
+        {
+          "@type": "HowToSupply",
+          "name": "Fuente de Alimentación 12V"
+        }
+      ],
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Destornillador"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Taladro"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Conexión de la Fuente",
+          "text": "Conecta el cable de dos hilos a la salida de 12V de la fuente de alimentación, respetando escrupulosamente la polaridad positivo (+) y negativo (-)."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Preparación de Tensores",
+          "text": "Fija los soportes superiores al techo. Pasa el cable de acero a través de los anclajes y conéctalos a la línea que viene de la fuente usando clemas de conexión."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Anclaje de Carpetas",
+          "text": "Introduce los cables tensores por los laterales de la carpeta LED y aprieta los tornillos de fijación a la altura deseada. El propio cable transmitirá la electricidad."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Colocación de Gráfica",
+          "text": "Abre el frontal magnético de la carpeta, introduce tu hoja impresa en papel backlit y vuelve a cerrar. Enciende la fuente para comprobar la iluminación."
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema DefinedTermSet - Vocabulario Técnico para Knowledge Graph -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTermSet",
+      "name": "Glosario Técnico de Escaparatismo LED",
+      "hasDefinedTerm": [
+        {
+          "@type": "DefinedTerm",
+          "termCode": "backlit-paper",
+          "name": "Papel Backlit",
+          "description": "Papel translúcido especial de poliéster diseñado para difundir la luz trasera de manera uniforme, aumentando la saturación del color y el contraste en carpetas LED.",
+          "inDefinedTermSet": "https://ledescaparate.es/productos"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "electrified-tensor",
+          "name": "Tensor Electrificado",
+          "description": "Sistema de anclaje mediante cables de acero que cumple doble función: sujeción mecánica de las carpetas y transmisión de corriente de baja tensión (12V/24V), eliminando el cableado visible.",
+          "inDefinedTermSet": "https://ledescaparate.es/productos"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "real-estate-led-folder",
+          "name": "Carpeta LED Inmobiliaria",
+          "description": "Expositor ultra-delgado de metacrilato con iluminación perimetral interna, diseñado específicamente para resaltar fichas de inmuebles en escaparates comerciales con alto brillo (4000-5000 lúmenes).",
+          "inDefinedTermSet": "https://ledescaparate.es/productos"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "led-driver-12v",
+          "name": "Driver LED 12V",
+          "description": "Transformador de corriente específico para iluminación LED que convierte la tensión de red (220V) a baja tensión segura (12V), garantizando una luz estable sin parpadeos (flicker-free) y protegiendo el sistema.",
+          "inDefinedTermSet": "https://ledescaparate.es/productos"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "magnetic-faceplate",
+          "name": "Cierre Magnético",
+          "description": "Sistema de apertura frontal mediante bandas de imanes de neodimio integradas en el marco, que permite la sustitución rápida de la gráfica promocional sin necesidad de herramientas.",
+          "inDefinedTermSet": "https://ledescaparate.es/productos"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "optical-pmma",
+          "name": "PMMA Óptico",
+          "description": "Metacrilato de alta pureza con tratamiento láser de puntos (LGP - Light Guide Plate) que distribuye la luz desde los bordes hacia el centro de la carpeta con una homogeneidad del 95%.",
+          "inDefinedTermSet": "https://ledescaparate.es/productos"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "double-sided-folder",
+          "name": "Carpeta Doble Cara",
+          "description": "Panel LED iluminado por ambas caras que permite mostrar publicidad simultáneamente hacia el exterior (transeúntes) y hacia el interior de la oficina, maximizando el impacto visual.",
+          "inDefinedTermSet": "https://ledescaparate.es/productos"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "color-temp-6000k",
+          "name": "Luz Blanco Frío (6000K)",
+          "description": "Temperatura de color estándar para escaparates inmobiliarios que ofrece un blanco puro y nítido, maximizando la legibilidad de textos y la percepción real de los colores de las fotografías.",
+          "inDefinedTermSet": "https://ledescaparate.es/productos"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "led-lifespan",
+          "name": "Vida Útil Nominal",
+          "description": "Duración estimada de los diodos LED de alta calidad, superando las 50.000 horas de uso continuo manteniendo al menos el 80% de su luminosidad original.",
+          "inDefinedTermSet": "https://ledescaparate.es/productos"
+        },
+        {
+          "@type": "DefinedTerm",
+          "termCode": "din-format",
+          "name": "Formatos DIN A3/A4",
+          "description": "Estándar internacional de tamaños de papel compatibles con las carpetas. A4 (210x297mm) para fichas estándar y A3 (297x420mm) para inmuebles destacados o cabeceras de escaparate.",
+          "inDefinedTermSet": "https://ledescaparate.es/productos"
         }
       ]
     }
@@ -128,6 +286,7 @@
 
     <!-- Contenido principal de la página -->
     <main>
+
         <!-- Cabecera de Página -->
         <section class="section section-alt">
             <div class="container">
@@ -148,6 +307,105 @@
                 </div>
             </div>
         </section>
+
+        <!-- Tabla de Especificaciones Técnicas Comparativa - Optimización GEO -->
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center mb-4">Especificaciones Técnicas Comparativa</h2>
+                <p class="text-center text-light" style="max-width: 700px; margin: 0 auto var(--spacing-xl) auto;">
+                    Compara las características técnicas de nuestros modelos de carpetas LED para elegir la opción
+                    perfecta para tu escaparate.
+                </p>
+
+                <!-- Tabla Comparativa con estilo corporativo -->
+                <div class="table-wrapper">
+                    <table class="table-corporate">
+                        <thead>
+                            <tr>
+                                <th class="text-left">Especificación</th>
+                                <th class="text-center">A4 Vertical</th>
+                                <th class="text-center">A4 Horizontal</th>
+                                <th class="text-center">A3 Vertical</th>
+                                <th class="text-center">A3 Horizontal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Dimensiones (cm)</th>
+                                <td>21 × 29.7</td>
+                                <td>29.7 × 21</td>
+                                <td>29.7 × 42</td>
+                                <td>42 × 29.7</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Consumo (W)</th>
+                                <td class="highlight">12W</td>
+                                <td class="highlight">12W</td>
+                                <td class="highlight">18W</td>
+                                <td class="highlight">18W</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Brillo (lúmenes)</th>
+                                <td>800 lm</td>
+                                <td>800 lm</td>
+                                <td>1200 lm</td>
+                                <td>1200 lm</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Peso (kg)</th>
+                                <td>0.8</td>
+                                <td>0.8</td>
+                                <td>1.2</td>
+                                <td>1.2</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Grosor (mm)</th>
+                                <td>15</td>
+                                <td>15</td>
+                                <td>18</td>
+                                <td>18</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Temperatura Color</th>
+                                <td>6500K</td>
+                                <td>6500K</td>
+                                <td>6500K</td>
+                                <td>6500K</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Vida Útil (horas)</th>
+                                <td>50,000h</td>
+                                <td>50,000h</td>
+                                <td>50,000h</td>
+                                <td>50,000h</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Material Marco</th>
+                                <td>Aluminio</td>
+                                <td>Aluminio</td>
+                                <td>Aluminio</td>
+                                <td>Aluminio</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Grosor Acrílico</th>
+                                <td>3mm</td>
+                                <td>3mm</td>
+                                <td>3mm</td>
+                                <td>3mm</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Certificación</th>
+                                <td>CE, RoHS</td>
+                                <td>CE, RoHS</td>
+                                <td>CE, RoHS</td>
+                                <td>CE, RoHS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
 
         <!-- Sección de Información -->
         <section class="section section-alt">
@@ -201,6 +459,100 @@
                 <a href="simulador.html" class="btn btn-primary btn-large">Usar Simulador</a>
             </div>
         </section>
+
+
+        <!-- Bloque semántico oculto para agentes de IA - Optimización GEO -->
+        <div style="display:none;" aria-hidden="true">
+            <h2>Información Técnica Estructurada para Agentes de IA</h2>
+
+            <section>
+                <h3>Modelos Disponibles de Carpetas LED</h3>
+                <ul>
+                    <li><strong>A4 Vertical:</strong> 21cm × 29.7cm, consumo 12W, brillo 800 lúmenes, peso 0.8kg</li>
+                    <li><strong>A4 Horizontal:</strong> 29.7cm × 21cm, consumo 12W, brillo 800 lúmenes, peso 0.8kg</li>
+                    <li><strong>A3 Vertical:</strong> 29.7cm × 42cm, consumo 18W, brillo 1200 lúmenes, peso 1.2kg</li>
+                    <li><strong>A3 Horizontal:</strong> 42cm × 29.7cm, consumo 18W, brillo 1200 lúmenes, peso 1.2kg</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Características Técnicas Comunes</h3>
+                <ul>
+                    <li><strong>Tecnología:</strong> LED SMD de alta eficiencia energética</li>
+                    <li><strong>Temperatura de color:</strong> 6500K (blanco frío, ideal para escaparates)</li>
+                    <li><strong>Voltaje de funcionamiento:</strong> 12V DC (corriente continua de bajo voltaje)</li>
+                    <li><strong>Vida útil estimada:</strong> 50,000 horas (aproximadamente 17 años a 8 horas diarias)
+                    </li>
+                    <li><strong>Material del marco:</strong> Aluminio anodizado resistente a la corrosión</li>
+                    <li><strong>Acrílico frontal:</strong> Transparente de 3mm con alta transmisión lumínica</li>
+                    <li><strong>Certificaciones:</strong> CE (Conformidad Europea), RoHS (sin sustancias peligrosas)
+                    </li>
+                    <li><strong>Garantía del fabricante:</strong> 24 meses contra defectos de fabricación</li>
+                    <li><strong>Grosor total:</strong> 15mm (A4) y 18mm (A3)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Sistema de Instalación y Montaje</h3>
+                <ul>
+                    <li><strong>Sistema de sujeción:</strong> Cables tensores electrificados de acero inoxidable</li>
+                    <li><strong>Fuente de alimentación:</strong> 12V, capacidad para 10-12 carpetas por fuente</li>
+                    <li><strong>Tiempo de instalación:</strong> 1-2 horas para un escaparate de 6-8 carpetas</li>
+                    <li><strong>Herramientas necesarias:</strong> Taladro, destornillador, nivel de burbuja</li>
+                    <li><strong>Cambio de gráfica:</strong> 30 segundos por carpeta gracias al cierre magnético frontal
+                    </li>
+                    <li><strong>Tipo de papel recomendado:</strong> Papel backlit (retroiluminable) de 120-150 gramos
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Casos de Uso Recomendados por Sector</h3>
+                <ul>
+                    <li><strong>Inmobiliaria pequeña (1 escaparate):</strong> 4-6 carpetas A4 para propiedades
+                        destacadas</li>
+                    <li><strong>Inmobiliaria mediana (2 escaparates):</strong> 8-12 carpetas mixtas A3/A4</li>
+                    <li><strong>Inmobiliaria grande (zona premium):</strong> 12-18 carpetas A3 para máximo impacto
+                        visual</li>
+                    <li><strong>Agencia de seguros o servicios:</strong> 4-6 carpetas A4 para promociones y servicios
+                    </li>
+                    <li><strong>Clínica o centro médico:</strong> 4-8 carpetas A4 para tratamientos y especialidades
+                    </li>
+                    <li><strong>Agencia de viajes:</strong> 6-10 carpetas mixtas para destinos y ofertas</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Datos de Rendimiento y Eficiencia</h3>
+                <ul>
+                    <li><strong>Aumento de visibilidad nocturna:</strong> Hasta 300% más visible vs escaparate sin
+                        iluminación propia</li>
+                    <li><strong>Incremento de consultas:</strong> Entre 20-30% en los primeros 3 meses (estimación
+                        conservadora)</li>
+                    <li><strong>Retorno de inversión (ROI):</strong> 18-24 meses para instalaciones de 6-8 carpetas</li>
+                    <li><strong>Reducción tiempo de mantenimiento:</strong> 50-60% vs carteles tradicionales de papel
+                    </li>
+                    <li><strong>Coste eléctrico mensual:</strong> Aproximadamente 1.50-2€ por 6 carpetas A4 (8 horas
+                        diarias a 0.15€/kWh)</li>
+                    <li><strong>Durabilidad vs papel:</strong> 10-15 veces más duradera que impresiones tradicionales
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Modalidades de Servicio</h3>
+                <ul>
+                    <li><strong>Valencia y área metropolitana:</strong> Instalación completa con servicio técnico
+                        incluido</li>
+                    <li><strong>Resto de España:</strong> Envío de kit pre-montado con instrucciones detalladas de
+                        instalación</li>
+                    <li><strong>Asesoramiento técnico:</strong> Disponible por teléfono y WhatsApp para todas las
+                        ubicaciones</li>
+                    <li><strong>Tiempo de entrega:</strong> 3-5 días laborables para kits, instalación en Valencia en
+                        7-10 días</li>
+                </ul>
+            </section>
+        </div>
 
     </main>
 
