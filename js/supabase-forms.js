@@ -149,6 +149,119 @@ function attachSupabaseFormHandler(formId, statusId, formType) {
     });
 }
 
+/**
+ * Load simulator data from localStorage and populate budget form
+ * Esta función recupera los datos guardados por el simulador y rellena el formulario de presupuesto
+ */
+function loadSimulatorData() {
+    // Solo ejecutar en la página de presupuesto
+    const budgetForm = document.getElementById('budget-form');
+    if (!budgetForm) {
+        return;
+    }
+
+    try {
+        // Intentar recuperar datos del simulador
+        const simulatorDataStr = localStorage.getItem('simulatorData');
+
+        if (!simulatorDataStr) {
+            console.log('No simulator data found in localStorage');
+            return;
+        }
+
+        const simulatorData = JSON.parse(simulatorDataStr);
+        console.log('Simulator data loaded:', simulatorData);
+
+        // Rellenar campos del formulario
+        if (simulatorData.showcaseWidth) {
+            const widthInput = document.getElementById('quote-showcase-width');
+            if (widthInput) {
+                widthInput.value = simulatorData.showcaseWidth;
+            }
+        }
+
+        if (simulatorData.showcaseHeight) {
+            const heightInput = document.getElementById('quote-showcase-height');
+            if (heightInput) {
+                heightInput.value = simulatorData.showcaseHeight;
+            }
+        }
+
+        if (simulatorData.productId) {
+            const productSelect = document.getElementById('quote-product-selector');
+            if (productSelect) {
+                productSelect.value = simulatorData.productId;
+            }
+        }
+
+        if (simulatorData.quantity) {
+            const quantityInput = document.getElementById('quote-quantity');
+            if (quantityInput) {
+                quantityInput.value = simulatorData.quantity;
+            }
+        }
+
+        // Mostrar mensaje de confirmación
+        showSimulatorDataLoadedMessage(simulatorData);
+
+        // Limpiar localStorage después de cargar los datos
+        localStorage.removeItem('simulatorData');
+        console.log('Simulator data loaded successfully and localStorage cleared');
+
+    } catch (error) {
+        console.error('Error loading simulator data:', error);
+        // Si hay error, limpiar localStorage para evitar problemas futuros
+        localStorage.removeItem('simulatorData');
+    }
+}
+
+/**
+ * Show a confirmation message when simulator data is loaded
+ * @param {Object} simulatorData - Los datos del simulador
+ */
+function showSimulatorDataLoadedMessage(simulatorData) {
+    // Crear elemento de mensaje si no existe
+    let messageEl = document.getElementById('simulator-data-loaded-message');
+
+    if (!messageEl) {
+        messageEl = document.createElement('div');
+        messageEl.id = 'simulator-data-loaded-message';
+        messageEl.style.cssText = `
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius-md);
+            border-left: 4px solid #28a745;
+            margin-bottom: 1.5rem;
+            font-size: var(--font-size-sm);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        `;
+
+        // Insertar antes del formulario
+        const budgetForm = document.getElementById('budget-form');
+        if (budgetForm && budgetForm.parentNode) {
+            budgetForm.parentNode.insertBefore(messageEl, budgetForm);
+        }
+    }
+
+    // Construir mensaje con detalles
+    const details = [];
+    if (simulatorData.showcaseWidth && simulatorData.showcaseHeight) {
+        details.push(`${simulatorData.showcaseWidth}×${simulatorData.showcaseHeight} cm`);
+    }
+    if (simulatorData.productName) {
+        details.push(simulatorData.productName);
+    }
+    if (simulatorData.quantity) {
+        details.push(`${simulatorData.quantity} carpetas`);
+    }
+
+    messageEl.innerHTML = `
+        <strong>✓ Configuración del simulador cargada automáticamente</strong><br>
+        <span style="opacity: 0.9;">${details.join(' • ')}</span>
+    `;
+}
+
 // Initialize forms when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, initializing forms...');
@@ -158,6 +271,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Supabase client not initialized! Forms will not work.');
         return;
     }
+
+    // Cargar datos del simulador si existen
+    loadSimulatorData();
 
     // Attach handlers to both forms
     attachSupabaseFormHandler('contact-form', 'contact-status', 'contact');
