@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website
 
-[![Version](https://img.shields.io/badge/version-2.7.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
+[![Version](https://img.shields.io/badge/version-2.8.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 
 > Sitio web profesional para LED Escaparate - Especialistas en carpetas retroiluminadas LED para escaparates inmobiliarios en toda España.
@@ -620,6 +620,36 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 ---
 
 ## 📝 Changelog
+
+### Versión 2.8.0 (Diciembre 2024)
+
+#### Añadido
+- ✅ **Post Estratégico: 5 Ideas para Escaparates Inmobiliarios** (10 Dic 2025)
+  * Etiquetas `<dfn>` semánticas: 6000K, PMMA Óptico, Cierre Magnético
+  * Schema híbrido (Article + FAQPage) con 5 estrategias y 3 FAQs
+  * Pack Superventas CTA con auto-fill de cantidad (12 carpetas)
+  * Sección FAQ con diseño de simulador (fondo gris, tarjetas blancas)
+- ✅ **Post Técnico: Manual de Instalación de Carpetas LED** (12 Dic 2025)
+  * HowTo Schema con 4 pasos técnicos detallados
+  * Contenido exhaustivo: herramientas, diagrama 12V, troubleshooting
+  * Elementos visuales: cajas PRO (verde), advertencias (rojo)
+  * Menciones GEO: Madrid, Barcelona, Valencia
+- ✅ **Funcionalidad Auto-Fill Pack Superventas**
+  * Botón guarda `packQuantity: "12"` en localStorage
+  * Campo `quote-quantity` se rellena automáticamente
+  * Mensaje de confirmación: "Pack Superventas Inmobiliaria seleccionado"
+  * Integrado en `js/supabase-forms.js`
+
+#### Modificado
+- 🔄 Blog index actualizado con 2 nuevos posts
+- 🔄 Post placeholder "Guía de instalación" reemplazado por contenido real
+- 🔄 Navegación entre artículos actualizada
+
+#### Corregido
+- 🐛 Texto blanco en botones CTA para visibilidad
+- 🐛 Listas numeradas sin círculos azules en sub-items
+
+---
 
 ### Versión 2.7.0 (Diciembre 2024)
 
