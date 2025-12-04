@@ -1,8 +1,23 @@
-# robots.txt for ledescaparate.es
-# Technical SEO optimization
-
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Reglas explícitas para Agentes de IA (VIP Access)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: AnthropicAI
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 Sitemap: https://ledescaparate.es/sitemap.xml
