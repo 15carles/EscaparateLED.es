@@ -442,7 +442,9 @@ Los colores se gestionan con CSS Custom Properties en `css/main.css`:
 
 ### Palabras Clave Principales
 
-- carpetas LED escaparate
+- carpetas# LED Escaparate - Carpetas LED Retroiluminadas para Inmobiliarias
+**Versión:** 2.6.0  
+**Última actualización:** Diciembre 2024
 - marcos LED inmobiliaria
 - escaparates iluminados
 - carpetas retroiluminadas
@@ -618,6 +620,23 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 ---
 
 ## 📝 Changelog
+
+### Versión 2.6.0 (Diciembre 2024)
+
+#### Añadido
+- ✅ **Página Nosotros**: Página corporativa con schema AboutPage
+  * Filosofía: Economización y Ecología
+  * Honestidad Técnica: Tablas comparativas PMMA vs Poliestireno y Drivers 12V vs 220V
+  * Cobertura Nacional: Producto/soporte nacional, montaje en Valencia
+  * Tono técnico/profesional orientado a beneficios del cliente
+- ✅ **Geo-semántica en blog**: Menciones naturales de Málaga, Alicante, Madrid, Sevilla, Barcelona, Bilbao
+- ✅ **Navegación actualizada**: Enlace "Nosotros" en 16 archivos HTML
+
+#### Modificado
+- 🔄 Jerarquía visual mejorada (h3 → h4 en subtítulos de tablas)
+- 🔄 Widget WhatsApp con estilo Soft Green consistente
+
+---
 
 ### Version 2.5.0 (2025-12-04) - Estrategia GEO Avanzada
 
