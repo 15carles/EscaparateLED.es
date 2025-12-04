@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website
 
-[![Version](https://img.shields.io/badge/version-2.5.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
+[![Version](https://img.shields.io/badge/version-2.7.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 
 > Sitio web profesional para LED Escaparate - Especialistas en carpetas retroiluminadas LED para escaparates inmobiliarios en toda España.
@@ -620,6 +620,24 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 ---
 
 ## 📝 Changelog
+
+### Versión 2.7.0 (Diciembre 2024)
+
+#### Añadido
+- ✅ **Efectos hover sutiles en botones blancos**: Nueva clase `.btn-white` en CSS
+  * Mantiene estética original (fondo blanco, texto azul)
+  * Añade elevación de 2px y sombra mejorada en hover
+  * Aplicado a 4 botones CTA en index, simulador, blog y nosotros
+- ✅ **Transferencia de datos simulador → presupuesto**: Funcionalidad restaurada
+  * Datos del simulador se cargan automáticamente en formulario de presupuesto
+  * Mensaje de confirmación visual con detalles de configuración
+  * Limpieza automática de localStorage después de cargar
+
+#### Modificado
+- 🔄 Reemplazados estilos inline por clase `.btn-white` para consistencia
+- 🔄 Mejorada UX con feedback visual en botones CTA
+
+---
 
 ### Versión 2.6.0 (Diciembre 2024)
 
