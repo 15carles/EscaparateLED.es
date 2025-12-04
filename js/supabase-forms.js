@@ -163,55 +163,78 @@ function loadSimulatorData() {
     try {
         // Intentar recuperar datos del simulador
         const simulatorDataStr = localStorage.getItem('simulatorData');
+        const packQuantity = localStorage.getItem('packQuantity');
 
-        if (!simulatorDataStr) {
-            console.log('No simulator data found in localStorage');
+        if (!simulatorDataStr && !packQuantity) {
+            console.log('No simulator data or pack quantity found in localStorage');
             return;
         }
 
-        const simulatorData = JSON.parse(simulatorDataStr);
-        console.log('Simulator data loaded:', simulatorData);
+        let simulatorData = null;
 
-        // Rellenar campos del formulario
-        if (simulatorData.showcaseWidth) {
-            const widthInput = document.getElementById('quote-showcase-width');
-            if (widthInput) {
-                widthInput.value = simulatorData.showcaseWidth;
+        if (simulatorDataStr) {
+            simulatorData = JSON.parse(simulatorDataStr);
+            console.log('Simulator data loaded:', simulatorData);
+
+            // Rellenar campos del formulario con datos del simulador
+            if (simulatorData.showcaseWidth) {
+                const widthInput = document.getElementById('quote-showcase-width');
+                if (widthInput) {
+                    widthInput.value = simulatorData.showcaseWidth;
+                }
             }
+
+            if (simulatorData.showcaseHeight) {
+                const heightInput = document.getElementById('quote-showcase-height');
+                if (heightInput) {
+                    heightInput.value = simulatorData.showcaseHeight;
+                }
+            }
+
+            if (simulatorData.productId) {
+                const productSelect = document.getElementById('quote-product-selector');
+                if (productSelect) {
+                    productSelect.value = simulatorData.productId;
+                }
+            }
+
+            if (simulatorData.quantity) {
+                const quantityInput = document.getElementById('quote-quantity');
+                if (quantityInput) {
+                    quantityInput.value = simulatorData.quantity;
+                }
+            }
+
+            // Mostrar mensaje de confirmación
+            showSimulatorDataLoadedMessage(simulatorData);
+
+            // Limpiar localStorage después de cargar los datos
+            localStorage.removeItem('simulatorData');
+            console.log('Simulator data loaded successfully and localStorage cleared');
         }
 
-        if (simulatorData.showcaseHeight) {
-            const heightInput = document.getElementById('quote-showcase-height');
-            if (heightInput) {
-                heightInput.value = simulatorData.showcaseHeight;
-            }
-        }
-
-        if (simulatorData.productId) {
-            const productSelect = document.getElementById('quote-product-selector');
-            if (productSelect) {
-                productSelect.value = simulatorData.productId;
-            }
-        }
-
-        if (simulatorData.quantity) {
+        // Si viene del Pack Superventas, solo rellenar la cantidad
+        if (packQuantity) {
             const quantityInput = document.getElementById('quote-quantity');
             if (quantityInput) {
-                quantityInput.value = simulatorData.quantity;
+                quantityInput.value = packQuantity;
+                console.log('Pack quantity loaded:', packQuantity);
             }
+
+            // Si no hay datos del simulador, mostrar mensaje específico del Pack
+            if (!simulatorData) {
+                showPackDataLoadedMessage(packQuantity);
+            }
+
+            // Limpiar localStorage
+            localStorage.removeItem('packQuantity');
         }
-
-        // Mostrar mensaje de confirmación
-        showSimulatorDataLoadedMessage(simulatorData);
-
-        // Limpiar localStorage después de cargar los datos
-        localStorage.removeItem('simulatorData');
-        console.log('Simulator data loaded successfully and localStorage cleared');
 
     } catch (error) {
         console.error('Error loading simulator data:', error);
         // Si hay error, limpiar localStorage para evitar problemas futuros
         localStorage.removeItem('simulatorData');
+        localStorage.removeItem('packQuantity');
     }
 }
 
@@ -259,6 +282,41 @@ function showSimulatorDataLoadedMessage(simulatorData) {
     messageEl.innerHTML = `
         <strong>✓ Configuración del simulador cargada automáticamente</strong><br>
         <span style="opacity: 0.9;">${details.join(' • ')}</span>
+    `;
+}
+
+/**
+ * Show a confirmation message when Pack Superventas quantity is loaded
+ * @param {string} quantity - La cantidad del pack
+ */
+function showPackDataLoadedMessage(quantity) {
+    // Crear elemento de mensaje si no existe
+    let messageEl = document.getElementById('simulator-data-loaded-message');
+
+    if (!messageEl) {
+        messageEl = document.createElement('div');
+        messageEl.id = 'simulator-data-loaded-message';
+        messageEl.style.cssText = `
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius-md);
+            border-left: 4px solid #28a745;
+            margin-bottom: 1.5rem;
+            font-size: var(--font-size-sm);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        `;
+
+        // Insertar antes del formulario
+        const budgetForm = document.getElementById('budget-form');
+        if (budgetForm && budgetForm.parentNode) {
+            budgetForm.parentNode.insertBefore(messageEl, budgetForm);
+        }
+    }
+
+    messageEl.innerHTML = `
+        <strong>✓ Pack Superventas Inmobiliaria seleccionado</strong><br>
+        <span style="opacity: 0.9;">🏆 ${quantity} Carpetas LED A4 (distribución 3x4)</span>
     `;
 }
 
