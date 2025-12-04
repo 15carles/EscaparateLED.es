@@ -37,55 +37,43 @@
     <!-- Schema JSON-LD para Product - Optimización para agentes de IA -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
+      "@context": "https://schema.org/",
       "@type": "Product",
-      "name": "Carpeta LED Retroiluminada para Escaparate",
-      "description": "Carpetas LED profesionales para escaparates de inmobiliarias. Iluminación LED de alta calidad, estructura de aluminio y metacrilato transparente.",
+      "name": "Carpeta LED Inmobiliaria A4/A3",
+      "image": [
+        "https://ledescaparate.es/images/carpeta-led-a4.webp",
+        "https://ledescaparate.es/images/escaparate-ejemplo.webp"
+      ],
+      "description": "Sistema de carpetas LED retroiluminadas de alto brillo (4000-5000 lúmenes) con tensores electrificados para escaparates inmobiliarios.",
       "brand": {
         "@type": "Brand",
-        "name": "LED Escaparate"
+        "name": "LEDEscaparate"
       },
-      "category": "Iluminación LED Comercial",
+      "sku": "LED-A4-A3-KIT",
+      "mpn": "LEDA4A3",
       "hasEnergyConsumptionDetails": {
         "@type": "EnergyConsumptionDetails",
-        "energyEfficiencyScaleMax": "A++",
-        "energyEfficiencyScaleMin": "A"
+        "hasEnergyEfficiencyCategory": "https://schema.org/EUEnergyEfficiencyCategoryA2Plus"
       },
       "additionalProperty": [
         {
           "@type": "PropertyValue",
           "name": "Eficiencia Energética",
-          "value": "A++ (Bajo Consumo)"
+          "value": "A++"
         },
         {
           "@type": "PropertyValue",
-          "name": "Consumo por Carpeta",
-          "value": "12W - 18W"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Lúmenes",
-          "value": "Alto brillo LED"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Medidas disponibles",
-          "value": "A3 (29.7 x 42 cm) y A4 (21 x 29.7 cm)"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Material",
-          "value": "Aluminio y metacrilato transparente"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Temperatura de color",
-          "value": "6500K (blanco frío)"
+          "name": "Luminosidad",
+          "value": "5000 lm"
         }
       ],
       "offers": {
         "@type": "Offer",
+        "url": "https://ledescaparate.es/presupuesto.html",
         "priceCurrency": "EUR",
+        "price": "0",
+        "priceValidUntil": "2025-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
         "availability": "https://schema.org/InStock",
         "warranty": {
           "@type": "WarrantyPromise",
@@ -94,7 +82,26 @@
             "value": "2",
             "unitCode": "ANN"
           },
-          "warrantyScope": "Garantía total de reposición por fallo electrónico"
+          "warrantyScope": "Garantía de reposición"
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "ES",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 14,
+          "returnMethod": "https://schema.org/ReturnByMail"
+        },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "EUR"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "ES"
+          }
         }
       }
     }
