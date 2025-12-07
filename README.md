@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website
 
-[![Version](https://img.shields.io/badge/version-2.8.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
+[![Version](https://img.shields.io/badge/version-2.8.1-blue.svg)](https://github.com/15carles/EscaparateLED.es)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 
 > Sitio web profesional para LED Escaparate - Especialistas en carpetas retroiluminadas LED para escaparates inmobiliarios en toda España.
@@ -369,7 +369,7 @@ Optimizar el sitio web para que los agentes de IA (ChatGPT, Gemini, Claude, Perp
 - **Beneficio**: Autoridad semántica por asociación con conceptos establecidos
 
 #### 10. Datos Eco + Garantía (`productos.html`)
-- **Eficiencia energética**: A++ (12-18W por carpeta)
+- **Eficiencia energética**: A++ (12-16W por carpeta)
 - **Garantía**: 2 años de reposición total
 - **Beneficio**: Confianza, sostenibilidad y transparencia comercial
 
@@ -699,7 +699,7 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 - ✅ **Schema HowTo**: Guía de instalación paso a paso
 - ✅ **Schema WebApplication**: Simulador definido como aplicación de software gratuita
 - ✅ **Wikipedia Anchoring**: 9 conceptos clave anclados (Real Estate, Escaparatismo, LED, PMMA...)
-- ✅ **Datos Eco**: Eficiencia energética A++ (12-18W) en schema Product
+- ✅ **Datos Eco**: Eficiencia energética A++ (12-16W) en schema Product
 - ✅ **Garantía estructurada**: 2 años de reposición total en schema Product
 
 #### Modificado

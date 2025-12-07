@@ -1,5 +1,15 @@
 # 📋 CHANGELOG - LED Escaparate Website
 
+## [2.8.1] - 2025-12-07
+
+### 🔢 Actualización de Ejemplos del Simulador
+- ✅ **Ejemplos recalculados con datos realistas** en `simulador.html`
+  * Escaparate Pequeño (2.5m × 2m): 7×4 = 28 carpetas A4 Vertical
+  * Escaparate Mediano (4m × 2.5m): 9×4 = 36 carpetas A3 Vertical
+  * Escaparate Grande (6m × 3m): 14×5 = 70 carpetas A3 Vertical
+- ✅ Cálculos basados en lógica real del simulador (márgenes 15cm, separación 10cm)
+- ✅ Ejemplos verificados con pruebas funcionales del simulador
+
 ## [2.3.1] - 2025-12-03
 
 ### 📚 Actualización de Documentación

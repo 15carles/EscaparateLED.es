@@ -18,8 +18,8 @@ const productCatalog = [
         description: 'Carpeta retroiluminada LED formato A4 en orientación vertical. Ideal para escaparates de inmobiliarias.',
         usage: 'Escaparates inmobiliarios, agencias, oficinas',
         specs: {
-            lighting: 'LED perimetral blanco frío',
-            material: 'Aluminio y metacrilato',
+            lighting: 'LED perimetral blanco frío 10.000K',
+            material: 'Metacrilato Termoplástico',
             consumption: '12W',
             installation: 'Suspendida por cables'
         },
@@ -36,8 +36,8 @@ const productCatalog = [
         description: 'Carpeta retroiluminada LED formato A4 en orientación horizontal. Perfecta para fichas de inmuebles.',
         usage: 'Escaparates inmobiliarios, puntos de venta',
         specs: {
-            lighting: 'LED perimetral blanco frío',
-            material: 'Aluminio y metacrilato',
+            lighting: 'LED perimetral blanco frío 10.000K',
+            material: 'Metacrilato Termoplástico',
             consumption: '12W',
             installation: 'Suspendida por cables'
         },
@@ -54,9 +54,9 @@ const productCatalog = [
         description: 'Carpeta retroiluminada LED formato A3 en orientación vertical. Mayor impacto visual para inmuebles destacados.',
         usage: 'Escaparates premium, inmuebles destacados',
         specs: {
-            lighting: 'LED perimetral blanco frío',
-            material: 'Aluminio y metacrilato',
-            consumption: '18W',
+            lighting: 'LED perimetral blanco frío 10.000K',
+            material: 'Metacrilato Termoplástico',
+            consumption: '16W',
             installation: 'Suspendida por cables'
         },
         featured: true
@@ -72,9 +72,9 @@ const productCatalog = [
         description: 'Carpeta retroiluminada LED formato A3 en orientación horizontal. Máxima visibilidad nocturna.',
         usage: 'Escaparates principales, zonas premium',
         specs: {
-            lighting: 'LED perimetral blanco frío',
-            material: 'Aluminio y metacrilato',
-            consumption: '18W',
+            lighting: 'LED perimetral blanco frío 10.000K',
+            material: 'Metacrilato Termoplástico',
+            consumption: '16W',
             installation: 'Suspendida por cables'
         },
         featured: false
