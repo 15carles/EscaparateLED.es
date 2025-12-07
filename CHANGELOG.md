@@ -1,5 +1,22 @@
 # 📋 CHANGELOG - LED Escaparate Website
 
+## [2.9.0] - 2025-12-07
+
+### 🎨 Mejoras Visuales del Simulador
+- ✅ **Diseño minimalista limpio** con fondo gris cemento arquitectónico (#aab2b7)
+- ✅ **Efecto LED realista** con resplandor blanco puro en carpetas
+- ✅ **Funcionalidad interactiva** click-to-toggle para encender/apagar carpetas
+- ✅ **Contador dinámico** actualización en tiempo real del total de carpetas activas
+- ✅ **Contenedor unificado** eliminado efecto "caja dentro de caja"
+- ✅ **Contraste mejorado** entre estados encendido/apagado con scale(0.95) y sombra interna
+- ✅ **Borde punteado elegante** (#6c757d) sobre fondo gris cemento
+
+#### Cambios Técnicos
+- Actualizado `css/simulator.css` con diseño minimalista
+- Actualizado `js/simulator.js` con funcionalidad de toggle interactivo
+- Eliminados cables tensores para diseño más limpio
+- Unificados contenedores `.grid-wrapper` y `.showcase-grid`
+
 ## [2.8.1] - 2025-12-07
 
 ### 🔢 Actualización de Ejemplos del Simulador

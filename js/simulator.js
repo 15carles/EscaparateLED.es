@@ -73,9 +73,38 @@ function renderGridPreview(framesHorizontal, framesVertical, frameWidth, frameHe
         frameItem.style.width = `${frameWidth}px`;
         frameItem.style.height = `${frameHeight}px`;
         frameItem.textContent = i + 1;
+        frameItem.dataset.index = i;
+
+        // Añadir evento click para toggle on/off
+        frameItem.addEventListener('click', function () {
+            this.classList.toggle('is-disabled');
+            updateActiveFramesCount();
+        });
+
         gridContainer.appendChild(frameItem);
     }
 }
+
+/**
+ * Update active frames count (excluding disabled ones)
+ */
+function updateActiveFramesCount() {
+    const allFrames = document.querySelectorAll('.frame-item');
+    const activeFrames = document.querySelectorAll('.frame-item:not(.is-disabled)');
+    const activeCount = activeFrames.length;
+
+    // Actualizar el total en la UI
+    const totalElement = document.getElementById('result-total');
+    if (totalElement) {
+        totalElement.textContent = activeCount;
+    }
+
+    // Actualizar el estado del simulador
+    if (simulatorState.totalFrames > 0) {
+        simulatorState.totalFrames = activeCount;
+    }
+}
+
 
 /**
  * Update results display

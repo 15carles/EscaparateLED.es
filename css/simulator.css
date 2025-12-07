@@ -84,8 +84,9 @@
 
 .grid-wrapper {
     position: relative;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    border: 3px dashed var(--color-border);
+    /* Fondo gris cemento unificado */
+    background: #aab2b7;
+    border: 3px dashed #6c757d;
     border-radius: var(--border-radius);
     padding: 20px;
     overflow: auto;
@@ -97,37 +98,49 @@
     gap: 8px;
     margin: 0 auto;
     width: fit-content;
+    /* Contenedor transparente - sin caja anidada */
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 
 .frame-item {
-    background: white;
-    border: 2px solid var(--color-primary);
+    /* Rectángulo de luz blanca pura */
+    background: #ffffff;
+    border: none;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 10px;
-    color: var(--color-primary);
+    color: #ccc;
     font-weight: 600;
-    box-shadow: 0 2px 4px rgba(0, 102, 255, 0.2);
-    transition: all var(--transition-fast);
+    /* Resplandor LED fuerte */
+    box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.9), 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
-}
-
-.frame-item::before {
-    content: '';
-    position: absolute;
-    inset: 4px;
-    border: 1px solid var(--color-primary-light);
-    border-radius: 2px;
-    opacity: 0.5;
+    cursor: pointer;
 }
 
 .frame-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 102, 255, 0.3);
+    box-shadow: 0 0 20px 3px rgba(255, 255, 255, 1), 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 10;
+}
+
+/* Estado deshabilitado (apagado) - Contraste mejorado */
+.frame-item.is-disabled {
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    opacity: 0.4;
+    transform: scale(0.95);
+    cursor: pointer;
+}
+
+.frame-item.is-disabled:hover {
+    opacity: 0.5;
+    transform: scale(0.97);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
 /* Margin indicators */
