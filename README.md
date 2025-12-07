@@ -1,6 +1,7 @@
-# 🌟 LED Escaparate - Website
+# 🌟 LED Escaparate - Website Oficial
 
-[![Version](https://img.shields.io/badge/version-2.9.0-blue.svg)](https://github.com/15carles/EscaparateLED.es)
+![Version](https://img.shields.io/badge/version-2.10.0-blue)
+![Status](https://img.shields.io/badge/status-production-success)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 
 > Sitio web profesional para LED Escaparate - Especialistas en carpetas retroiluminadas LED para escaparates inmobiliarios en toda España.
@@ -178,7 +179,7 @@ Los productos se gestionan en `js/products.js`. Para añadir un nuevo producto:
     lighting: 'LED blanco frío 6500K',
     material: 'Acrílico transparente 3mm',
     consumption: '12W',
-    installation: 'Adhesivo 3M incluido'
+    installation: 'Suspendida por cables'
   },
   featured: true
 }

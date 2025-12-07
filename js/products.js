@@ -14,7 +14,7 @@ const productCatalog = [
             width: 21,  // cm
             height: 29.7  // cm
         },
-        image: 'images/products/a4-vertical.jpg',
+        image: 'images/products/a4-vertical.webp',
         description: 'Carpeta retroiluminada LED formato A4 en orientación vertical. Ideal para escaparates de inmobiliarias.',
         usage: 'Escaparates inmobiliarios, agencias, oficinas',
         specs: {
@@ -32,7 +32,7 @@ const productCatalog = [
             width: 29.7,  // cm
             height: 21  // cm
         },
-        image: 'images/products/a4-horizontal.jpg',
+        image: 'images/products/a4-horizontal.webp',
         description: 'Carpeta retroiluminada LED formato A4 en orientación horizontal. Perfecta para fichas de inmuebles.',
         usage: 'Escaparates inmobiliarios, puntos de venta',
         specs: {
@@ -50,7 +50,7 @@ const productCatalog = [
             width: 29.7,  // cm
             height: 42  // cm
         },
-        image: 'images/products/a3-vertical.jpg',
+        image: 'images/products/a3-vertical-1.webp',
         description: 'Carpeta retroiluminada LED formato A3 en orientación vertical. Mayor impacto visual para inmuebles destacados.',
         usage: 'Escaparates premium, inmuebles destacados',
         specs: {
@@ -68,7 +68,7 @@ const productCatalog = [
             width: 42,  // cm
             height: 29.7  // cm
         },
-        image: 'images/products/a3-horizontal.jpg',
+        image: 'images/products/a3-horizontal-1.webp',
         description: 'Carpeta retroiluminada LED formato A3 en orientación horizontal. Máxima visibilidad nocturna.',
         usage: 'Escaparates principales, zonas premium',
         specs: {
@@ -83,8 +83,87 @@ const productCatalog = [
 ];
 
 // ========================================
+// Funciones de Utilidad
+// ========================================
+
+/**
+ * Obtener array de imágenes para un producto
+ * Convención de nombres compartidos:
+ * - Imagen 1: Específica del producto (ej: a4-vertical-1.webp)
+ * - Imagen 2: Compartida por formato+orientación (ej: a3-y-a4-vertical.webp)
+ * - Imagen 3: Compartida por TODOS los productos (a3-y-a4-vertical-y-horizontal.webp)
+ */
+function getProductImages(product) {
+    // Si el producto ya tiene un array de imágenes, usarlo
+    if (product.images && Array.isArray(product.images)) {
+        return product.images;
+    }
+
+    const baseId = product.id.replace('led-', ''); // a4-vertical, a3-horizontal, etc.
+    const images = [];
+
+    // Imagen 1: Específica del producto
+    images.push(`images/products/${baseId}-1.webp`);
+
+    // Imagen 2: Compartida por formato + orientación
+    // Determinar si es vertical u horizontal
+    const isVertical = baseId.includes('vertical');
+    const orientation = isVertical ? 'vertical' : 'horizontal';
+    images.push(`images/products/a3-y-a4-${orientation}.webp`);
+
+    // Imagen 3: Compartida por TODOS los productos
+    images.push(`images/products/a3-y-a4-vertical-y-horizontal.webp`);
+
+    return images;
+}
+
+// ========================================
 // Funciones de Renderizado de Productos
 // ========================================
+
+/**
+ * Renderizar galería de imágenes del producto
+ */
+function renderProductGallery(product) {
+    const images = getProductImages(product);
+    const isSingleImage = images.length === 1;
+
+    const imagesHTML = images.map((img, index) =>
+        `<img src="${img}" 
+              alt="${product.name} - Imagen ${index + 1}" 
+              class="gallery-image ${index === 0 ? 'active' : ''}"
+              onerror="this.src='images/products/placeholder.webp'">`
+    ).join('');
+
+    const indicatorsHTML = images.map((_, index) =>
+        `<button class="indicator ${index === 0 ? 'active' : ''}" 
+                 data-index="${index}" 
+                 aria-label="Ver imagen ${index + 1}"></button>`
+    ).join('');
+
+    return `
+        <div class="product-gallery ${isSingleImage ? 'single-image' : ''}" 
+             data-product-id="${product.id}">
+            <div class="gallery-images">
+                ${imagesHTML}
+            </div>
+            
+            ${!isSingleImage ? `
+                <button class="gallery-nav gallery-prev" aria-label="Imagen anterior">
+                    ‹
+                </button>
+                <button class="gallery-nav gallery-next" aria-label="Imagen siguiente">
+                    ›
+                </button>
+                
+                <div class="gallery-indicators">
+                    ${indicatorsHTML}
+                </div>
+            ` : ''}
+        </div>
+    `;
+}
+
 
 /**
  * Render a single product card
@@ -92,7 +171,7 @@ const productCatalog = [
 function renderProductCard(product) {
     return `
     <div class="product-card" data-product-id="${product.id}">
-      <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='images/products/placeholder.webp'">
+      ${renderProductGallery(product)}
       <div class="product-content">
         <h3 class="product-title">${product.name}</h3>
         <p class="product-description">${product.description}</p>
@@ -215,6 +294,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Rellenar selectores de productos
     populateProductSelector('product-selector');
     populateProductSelector('quote-product-selector');
+
+    // Inicializar galerías después de renderizar productos
+    initializeGalleries();
 });
 
 // Exportar funciones para uso global
@@ -225,3 +307,57 @@ window.productManager = {
     populateProductSelector,
     renderProductGrid
 };
+/**
+ * Inicializar galerías de productos con navegación
+ */
+function initializeGalleries() {
+    document.querySelectorAll('.product-gallery').forEach(gallery => {
+        const images = gallery.querySelectorAll('.gallery-image');
+        const indicators = gallery.querySelectorAll('.indicator');
+        const prevBtn = gallery.querySelector('.gallery-prev');
+        const nextBtn = gallery.querySelector('.gallery-next');
+
+        if (images.length <= 1) return;
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            images.forEach(img => img.classList.remove('active'));
+            indicators.forEach(ind => ind.classList.remove('active'));
+
+            images[index].classList.add('active');
+            indicators[index].classList.add('active');
+            currentIndex = index;
+        }
+
+        // Navegación con flechas
+        prevBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            const newIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(newIndex);
+        });
+
+        nextBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            const newIndex = (currentIndex + 1) % images.length;
+            showImage(newIndex);
+        });
+
+        // Navegación con indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', (e) => {
+                e.preventDefault();
+                showImage(index);
+            });
+        });
+
+        // Navegación con teclado (accesibilidad)
+        gallery.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevBtn?.click();
+            } else if (e.key === 'ArrowRight') {
+                nextBtn?.click();
+            }
+        });
+    });
+}

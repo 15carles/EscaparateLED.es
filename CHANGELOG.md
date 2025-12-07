@@ -1,5 +1,37 @@
 # 📋 CHANGELOG - LED Escaparate Website
 
+## [2.10.0] - 2025-12-07
+
+### 🖼️ Sistema de Galería Multi-Imagen
+- ✅ **Carrusel de imágenes** en tarjetas de productos con navegación suave
+- ✅ **Imágenes compartidas inteligentes** - 7 archivos para 12 imágenes totales
+  * Imagen 1: Específica de cada producto
+  * Imagen 2: Compartida por orientación (vertical/horizontal)
+  * Imagen 3: Universal para todos los productos
+- ✅ **Navegación completa** con flechas (hover), indicadores de puntos y teclado (← →)
+- ✅ **Transiciones suaves** con efecto fade entre imágenes
+- ✅ **Retrocompatible** funciona con 1 o múltiples imágenes
+- ✅ **Responsive** mantiene altura de 250px en todos los dispositivos
+
+### 🔧 Correcciones de Información Técnica
+- ✅ **Información de instalación actualizada** en 6 archivos
+  * Reemplazado "adhesivo 3M" por sistema correcto de riel electrificado
+  * Actualizado FAQ en `simulador.html` (visible y Schema.org)
+  * Corregido blog y README con información técnica precisa
+- ✅ **SEO mejorado** con Schema.org FAQPage actualizado
+
+#### Cambios Técnicos
+- Actualizado `js/products.js` con lógica de imágenes compartidas
+- Añadido `css/main.css` con estilos completos del carrusel
+- Corregido timing de inicialización de galerías (DOMContentLoaded)
+- Actualizado `simulador.html`, `blog-carpetas-led-vs-escaparates-tradicionales.html`, `README.md`
+
+#### Archivos de Imágenes
+- `a4-vertical-1.webp`, `a4-horizontal-1.webp`
+- `a3-vertical-1.webp`, `a3-horizontal-1.webp`
+- `a3-y-a4-vertical.webp`, `a3-y-a4-horizontal.webp`
+- `a3-y-a4-vertical-y-horizontal.webp`
+
 ## [2.9.0] - 2025-12-07
 
 ### 🎨 Mejoras Visuales del Simulador
