@@ -1,5 +1,33 @@
 # 📋 CHANGELOG - LED Escaparate Website
 
+## [2.12.0] - 2025-12-08
+
+### 🎯 Simplificación de Formulario de Presupuesto (Progressive Disclosure)
+- ✅ **Campo "Nombre de la empresa" eliminado** - Reducción de fricción
+  * Solo "Persona de contacto" como identificador principal
+  * 44% menos campos visibles inicialmente (de 9 a 5)
+- ✅ **Progressive Disclosure implementado** - Detalles técnicos opcionales
+  * Checkbox trigger: "🔘 Tengo las medidas o sé qué modelos necesito"
+  * Campos técnicos ocultos por defecto (ancho, alto, modelo, cantidad)
+  * Transiciones suaves fade in/out (300ms)
+  * Auto-expand para usuarios del simulador
+- ✅ **Fix crítico: Transferencia de modelo desde simulador**
+  * Implementado retry logic en `supabase-forms.js`
+  * Espera a que `products.js` pueble el selector antes de establecer valor
+  * Ahora TODOS los datos del simulador se transfieren correctamente
+
+#### Cambios Técnicos
+- Modificado `presupuesto.html` con estructura de progressive disclosure
+- Actualizado `js/supabase-forms.js` con retry logic para selector de modelo
+- JavaScript detecta parámetros GET y datos en localStorage
+- Auto-marca checkbox y expande detalles si viene del simulador
+
+#### Beneficios UX
+- Reducción de carga cognitiva: 44% menos campos iniciales
+- Mejor tasa de conversión esperada
+- Experiencia fluida para usuarios del simulador
+- Flexibilidad para usuarios avanzados con detalles técnicos
+
 ## [2.11.0] - 2025-12-08
 
 ### 📱 Mejoras de Responsividad Móvil
