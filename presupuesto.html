@@ -93,7 +93,7 @@
                 <h1 class="text-center">Solicitar Presupuesto</h1>
                 <p class="text-center text-light"
                     style="font-size: var(--font-size-lg); max-width: 700px; margin: 0 auto;">
-                    Completa el formulario y te enviaremos un presupuesto personalizado en menos de 24 horas
+                    Completa el formulario y te enviaremos un presupuesto personalizado en menos de 24 horas.
                 </p>
             </div>
         </section>
@@ -104,16 +104,9 @@
 
                 <form id="budget-form" aria-label="Formulario de solicitud de presupuesto">
 
-                    <!-- Información de la Empresa -->
+                    <!-- Información de Contacto -->
                     <div class="form-section">
-                        <h3>Datos de la Empresa</h3>
-
-                        <div class="form-group">
-                            <label for="company" class="form-label required">Nombre de la empresa</label>
-                            <input type="text" id="company" name="company_name" class="form-input"
-                                placeholder="Inmobiliaria Ejemplo S.L." required autocomplete="organization"
-                                aria-required="true">
-                        </div>
+                        <h3>Datos de Contacto</h3>
 
                         <div class="form-group">
                             <label for="contact" class="form-label required">Persona de contacto</label>
@@ -165,41 +158,52 @@
                         </p>
                     </div>
 
-                    <!-- Configuración del Escaparate -->
+                    <!-- Checkbox Trigger para Detalles Técnicos -->
                     <div class="form-section">
-                        <h3>Configuración del Escaparate</h3>
-
-                        <div class="form-group">
-                            <label for="quote-showcase-width" class="form-label">Ancho del escaparate (cm)</label>
-                            <input type="number" id="quote-showcase-width" name="shop_width_cm" class="form-input"
-                                placeholder="Ej: 300" min="0" step="0.1"
-                                aria-label="Ancho del escaparate en centímetros">
+                        <div class="form-checkbox" style="margin-bottom: var(--spacing-md);">
+                            <input type="checkbox" id="toggle-technical-details" aria-controls="detalles-tecnicos">
+                            <label for="toggle-technical-details"
+                                style="font-size: var(--font-size-md); font-weight: 500; cursor: pointer;">
+                                Tengo las medidas o sé qué modelos necesito
+                            </label>
                         </div>
 
-                        <div class="form-group">
-                            <label for="quote-showcase-height" class="form-label">Alto del escaparate (cm)</label>
-                            <input type="number" id="quote-showcase-height" name="shop_height_cm" class="form-input"
-                                placeholder="Ej: 200" min="0" step="0.1"
-                                aria-label="Alto del escaparate en centímetros">
-                        </div>
+                        <!-- Contenedor Colapsable de Detalles Técnicos -->
+                        <div id="detalles-tecnicos" style="display: none; transition: all 0.3s ease;">
+                            <h3 style="margin-top: var(--spacing-md);">Configuración del Escaparate</h3>
 
-                        <div class="form-group">
-                            <label for="quote-product-selector" class="form-label">Modelo deseado</label>
-                            <select id="quote-product-selector" name="model" class="form-select"
-                                aria-label="Selecciona el modelo de carpeta LED">
-                                <option value="">Selecciona un modelo...</option>
-                                <!-- Las opciones se rellenarán por products.js -->
-                            </select>
-                        </div>
+                            <div class="form-group">
+                                <label for="quote-showcase-width" class="form-label">Ancho del escaparate (cm)</label>
+                                <input type="number" id="quote-showcase-width" name="shop_width_cm" class="form-input"
+                                    placeholder="Ej: 300" min="0" step="0.1"
+                                    aria-label="Ancho del escaparate en centímetros">
+                            </div>
 
-                        <div class="form-group">
-                            <label for="quote-quantity" class="form-label">Cantidad estimada</label>
-                            <input type="number" id="quote-quantity" name="quantity_estimated" class="form-input"
-                                placeholder="Número de carpetas" min="1" aria-label="Cantidad estimada de carpetas"
-                                aria-describedby="quantity-help">
-                            <small id="quantity-help" class="text-light" style="font-size: var(--font-size-sm);">
-                                Si no estás seguro, déjalo en blanco y te asesoraremos
-                            </small>
+                            <div class="form-group">
+                                <label for="quote-showcase-height" class="form-label">Alto del escaparate (cm)</label>
+                                <input type="number" id="quote-showcase-height" name="shop_height_cm" class="form-input"
+                                    placeholder="Ej: 200" min="0" step="0.1"
+                                    aria-label="Alto del escaparate en centímetros">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quote-product-selector" class="form-label">Modelo deseado</label>
+                                <select id="quote-product-selector" name="model" class="form-select"
+                                    aria-label="Selecciona el modelo de carpeta LED">
+                                    <option value="">Selecciona un modelo...</option>
+                                    <!-- Las opciones se rellenarán por products.js -->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quote-quantity" class="form-label">Cantidad estimada</label>
+                                <input type="number" id="quote-quantity" name="quantity_estimated" class="form-input"
+                                    placeholder="Número de carpetas" min="1" aria-label="Cantidad estimada de carpetas"
+                                    aria-describedby="quantity-help">
+                                <small id="quantity-help" class="text-light" style="font-size: var(--font-size-sm);">
+                                    Si no estás seguro, déjalo en blanco y te asesoraremos
+                                </small>
+                            </div>
                         </div>
                     </div>
 
@@ -486,6 +490,51 @@
     <script src="js/supabase-forms.js"></script>
     <script src="js/main.js"></script>
     <script src="js/products.js"></script>
+
+    <!-- Progressive Disclosure Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkbox = document.getElementById('toggle-technical-details');
+            const technicalDetails = document.getElementById('detalles-tecnicos');
+
+            // Toggle accordion on checkbox change
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    technicalDetails.style.display = 'block';
+                    // Smooth fade-in
+                    setTimeout(() => {
+                        technicalDetails.style.opacity = '1';
+                    }, 10);
+                } else {
+                    technicalDetails.style.opacity = '0';
+                    setTimeout(() => {
+                        technicalDetails.style.display = 'none';
+                    }, 300);
+                }
+            });
+
+            // Check for URL parameters (from simulator or direct link)
+            const urlParams = new URLSearchParams(window.location.search);
+            const hasSimulatorData = urlParams.has('ancho') ||
+                urlParams.has('alto') ||
+                urlParams.has('modelo') ||
+                urlParams.has('cantidad') ||
+                document.getElementById('quote-showcase-width').value ||
+                document.getElementById('quote-showcase-height').value ||
+                document.getElementById('quote-product-selector').value ||
+                document.getElementById('quote-quantity').value;
+
+            // Auto-expand if coming from simulator
+            if (hasSimulatorData) {
+                checkbox.checked = true;
+                technicalDetails.style.display = 'block';
+                technicalDetails.style.opacity = '1';
+            }
+
+            // Initialize opacity for smooth transitions
+            technicalDetails.style.opacity = checkbox.checked ? '1' : '0';
+        });
+    </script>
 </body>
 
 </html>

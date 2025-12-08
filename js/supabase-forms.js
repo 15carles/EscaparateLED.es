@@ -194,7 +194,19 @@ function loadSimulatorData() {
             if (simulatorData.productId) {
                 const productSelect = document.getElementById('quote-product-selector');
                 if (productSelect) {
-                    productSelect.value = simulatorData.productId;
+                    // Esperar a que products.js haya poblado el selector
+                    // Intentar establecer el valor inmediatamente y con retry
+                    const setProductValue = () => {
+                        if (productSelect.options.length > 1) {
+                            // El selector ya está poblado
+                            productSelect.value = simulatorData.productId;
+                            console.log('Product selector set to:', simulatorData.productId);
+                        } else {
+                            // Reintentar después de un breve delay
+                            setTimeout(setProductValue, 100);
+                        }
+                    };
+                    setProductValue();
                 }
             }
 
