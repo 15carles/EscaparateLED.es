@@ -319,10 +319,13 @@
         <!-- Tabla de Especificaciones Técnicas Comparativa - Optimización GEO -->
         <section class="section">
             <div class="container">
-                <h2 class="text-center mb-4">Especificaciones Técnicas Comparativa</h2>
-                <p class="text-center text-light" style="max-width: 700px; margin: 0 auto var(--spacing-xl) auto;">
-                    Compara las características técnicas de nuestros modelos de carpetas LED para elegir la opción
-                    perfecta para tu escaparate.
+                <h2>Comparativa Técnica de Especificaciones</h2>
+                <p>Todas nuestras carpetas LED utilizan tecnología de última generación con iluminación perimetral
+                    uniforme.</p>
+
+                <!-- Hint para scroll horizontal en móvil -->
+                <p class="mobile-scroll-hint">
+                    <small>← Desliza para ver todas las especificaciones →</small>
                 </p>
 
                 <!-- Tabla Comparativa con estilo corporativo -->
@@ -684,6 +687,22 @@
     <!-- Scripts -->
     <script src="js/main.js" defer></script>
     <script src="js/products.js" defer></script>
+
+    <!-- Script para detectar scroll completo en tablas -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.table-wrapper').forEach(wrapper => {
+                function checkScroll() {
+                    const isScrolledToEnd = wrapper.scrollLeft + wrapper.clientWidth >= wrapper.scrollWidth - 5;
+                    wrapper.classList.toggle('scrolled-to-end', isScrolledToEnd);
+                }
+
+                wrapper.addEventListener('scroll', checkScroll);
+                // Check inicial
+                checkScroll();
+            });
+        });
+    </script>
 </body>
 
 </html>

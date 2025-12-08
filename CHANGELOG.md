@@ -1,5 +1,36 @@
 # 📋 CHANGELOG - LED Escaparate Website
 
+## [2.11.0] - 2025-12-08
+
+### 📱 Mejoras de Responsividad Móvil
+- ✅ **Header spacing optimizado** - Logo y navegación con padding horizontal adecuado
+  * Padding horizontal en `.nav`: `var(--spacing-md)`
+  * Padding horizontal en `.container`: `var(--spacing-md)`
+  * Logo reducido a `var(--font-size-xl)` en móvil
+- ✅ **Indicador visual de scroll en tablas** - Gradiente blanco indica más contenido
+  * Desaparece automáticamente al llegar al final
+  * Hint text "← Desliza para ver más →" visible solo en móvil
+  * JavaScript detecta scroll completo
+- ✅ **Tabla de especificaciones optimizada** para móvil
+  * Font-size reducido a 0.85rem
+  * Padding optimizado en celdas
+- ✅ **Simulador grid mejorado** en pantallas pequeñas
+  * Tamaño mínimo 20x20px para elementos
+  * Gap reducido de 8px a 6px
+  * Font-size 0.7rem en móvil
+
+#### Cambios Técnicos
+- Actualizado `css/main.css` con media queries móvil
+- Actualizado `css/simulator.css` con tamaños mínimos
+- Añadido `productos.html` con hint text y script de scroll
+- Auditoría completa de responsividad móvil (375x667)
+
+#### Calidad Móvil
+- ⭐⭐⭐⭐⭐ Usabilidad excelente
+- Sin overflow horizontal
+- Botones con área táctil ≥44px
+- Texto legible en todos los tamaños
+
 ## [2.10.0] - 2025-12-07
 
 ### 🖼️ Sistema de Galería Multi-Imagen

@@ -219,4 +219,16 @@
     .grid-wrapper {
         padding: 10px;
     }
+
+    /* Tamaño mínimo para elementos del grid en móvil */
+    .frame-item {
+        min-width: 20px;
+        min-height: 20px;
+        font-size: 0.7rem;
+    }
+
+    /* Ajustar gap para pantallas pequeñas */
+    .showcase-grid {
+        gap: 6px;
+    }
 }
