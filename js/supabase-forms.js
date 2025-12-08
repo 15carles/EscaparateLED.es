@@ -161,12 +161,13 @@ function loadSimulatorData() {
     }
 
     try {
-        // Intentar recuperar datos del simulador
+        // Intentar recuperar datos del simulador, pack, o producto seleccionado
         const simulatorDataStr = localStorage.getItem('simulatorData');
         const packQuantity = localStorage.getItem('packQuantity');
+        const selectedProductStr = localStorage.getItem('selectedProduct');
 
-        if (!simulatorDataStr && !packQuantity) {
-            console.log('No simulator data or pack quantity found in localStorage');
+        if (!simulatorDataStr && !packQuantity && !selectedProductStr) {
+            console.log('No simulator data, pack quantity, or selected product found in localStorage');
             return;
         }
 
@@ -242,11 +243,42 @@ function loadSimulatorData() {
             localStorage.removeItem('packQuantity');
         }
 
+        // Si viene de un botón "Incluir en presupuesto" de una ficha de producto
+        if (selectedProductStr) {
+            const selectedProduct = JSON.parse(selectedProductStr);
+            console.log('Selected product loaded:', selectedProduct);
+
+            const productSelect = document.getElementById('quote-product-selector');
+            if (productSelect && selectedProduct.id) {
+                // Esperar a que products.js haya poblado el selector
+                const setProductValue = () => {
+                    if (productSelect.options.length > 1) {
+                        // El selector ya está poblado
+                        productSelect.value = selectedProduct.id;
+                        console.log('Product selector set to:', selectedProduct.id);
+                    } else {
+                        // Reintentar después de un breve delay
+                        setTimeout(setProductValue, 100);
+                    }
+                };
+                setProductValue();
+            }
+
+            // Mostrar mensaje de confirmación
+            if (!simulatorData) {
+                showProductSelectedMessage(selectedProduct);
+            }
+
+            // Limpiar localStorage
+            localStorage.removeItem('selectedProduct');
+        }
+
     } catch (error) {
         console.error('Error loading simulator data:', error);
         // Si hay error, limpiar localStorage para evitar problemas futuros
         localStorage.removeItem('simulatorData');
         localStorage.removeItem('packQuantity');
+        localStorage.removeItem('selectedProduct');
     }
 }
 
@@ -329,6 +361,41 @@ function showPackDataLoadedMessage(quantity) {
     messageEl.innerHTML = `
         <strong>✓ Pack Superventas Inmobiliaria seleccionado</strong><br>
         <span style="opacity: 0.9;">🏆 ${quantity} Carpetas LED A4 (distribución 3x4)</span>
+    `;
+}
+
+/**
+ * Show a confirmation message when a product is selected from product cards
+ * @param {Object} selectedProduct - El producto seleccionado
+ */
+function showProductSelectedMessage(selectedProduct) {
+    // Crear elemento de mensaje si no existe
+    let messageEl = document.getElementById('simulator-data-loaded-message');
+
+    if (!messageEl) {
+        messageEl = document.createElement('div');
+        messageEl.id = 'simulator-data-loaded-message';
+        messageEl.style.cssText = `
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius-md);
+            border-left: 4px solid #28a745;
+            margin-bottom: 1.5rem;
+            font-size: var(--font-size-sm);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        `;
+
+        // Insertar antes del formulario
+        const budgetForm = document.getElementById('budget-form');
+        if (budgetForm && budgetForm.parentNode) {
+            budgetForm.parentNode.insertBefore(messageEl, budgetForm);
+        }
+    }
+
+    messageEl.innerHTML = `
+        <strong>✓ Producto seleccionado</strong><br>
+        <span style="opacity: 0.9;">📦 ${selectedProduct.name}</span>
     `;
 }
 

@@ -1362,3 +1362,81 @@ p {
     font-size: var(--font-size-xl);
   }
 }
+
+/* ========================================
+   Galería Semántica de Proyectos Reales
+   ======================================== */
+
+/* Grid container para galería */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 40px 0;
+  padding: 0;
+  /* Reseteo de figure */
+}
+
+/* Item individual de galería (figure element) */
+.gallery-item {
+  margin: 0;
+  /* Reseteo default de figure */
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 4/3;
+  /* Mantener proporción consistente */
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Imágenes responsive */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Elimina espacio fantasma inferior */
+}
+
+/* Caption con degradado para mejor legibilidad */
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  /* Degradado para mejor lectura */
+  color: white;
+  padding: 15px 10px 10px;
+  /* Más padding arriba por el degradado */
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Responsive: 2 columnas en tablets */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+
+  .gallery-caption {
+    font-size: 0.875rem;
+    padding: 12px 8px 8px;
+  }
+}
+
+/* Responsive: 1 columna en móviles */
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
