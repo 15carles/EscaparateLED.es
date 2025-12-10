@@ -1,0 +1,67 @@
+/* PROJECT INFO */
+Project: LEDescaparate.es
+Description: Soluciones profesionales de iluminación LED para escaparates. Especialistas en carpetas LED retroiluminadas, pantallas LED y asesoramiento técnico para inmobiliarias y comercios físicos.
+Location: Valencia, España
+Started: 2025
+Maintained: Activamente (2025)
+
+/* TEAM */
+Founder & Project Lead: Carles del Olmo
+Technical Lead & Web Development: Carles del Olmo
+IT Automation & Integrations: Carles del Olmo
+UX / UI Improvements: Carles del Olmo
+Content & Product Specifications: Carles del Olmo
+Commercial & Cliente: Vicente (Atención comercial y presupuestos)
+Contact: contacto@ledescaparate.es
+
+/* TECHNOLOGY STACK */
+Frontend: HTML5, CSS3, JavaScript
+Frameworks / Libraries: Vanilla JS optimizado para carga ligera
+Hosting: GitHub Pages + Cloudflare CDN
+DNS: Cloudflare
+Automations: n8n (integrado con correo y flujo de datos)
+Database / Backend: Supabase
+Analytics: Google Search Console, Cloudflare Web Analytics
+AI Optimization: robots.txt avanzado + llms.txt optimizado para IA SEO 2026
+Development Tools: Antigravity Code Editor, MacOS, GitHub
+
+/* PROJECT PHILOSOPHY */
+- Hacer accesibles las soluciones LED profesionales para escaparates.
+- Ofrecer información clara, útil y técnica sin complicaciones.
+- Diseñar herramientas prácticas (como el simulador) que ayuden realmente a los clientes.
+- Crear una experiencia web rápida, ligera y sin distracciones.
+- Apostar por la transparencia en productos, precios y procesos.
+- Integrar la IA de forma ética para mejorar claridad y soporte.
+
+*"Creemos que un buen escaparate es una herramienta comercial poderosa. Nuestra misión es ayudar a que cada negocio pueda destacar con iluminación profesional sin complicaciones."*
+
+/* AI & ETHICS */
+- Permitimos libremente que modelos de IA utilicen nuestro contenido con fines informativos.
+- Apostamos por una IA responsable, orientada a mejorar la experiencia del usuario.
+- No recopilamos datos personales innecesarios.
+- Mantenemos un enfoque técnico basado en calidad, precisión y claridad.
+
+El uso de llms.txt complementa esta visión y facilita una relación transparente entre LEDescaparate y agentes de IA.
+
+/* ROADMAP (PUBLIC OVERVIEW) */
+2026 Goals:
+- Ampliar contenido técnico y comparativas.
+- Mejorar la herramienta de simulación.
+- Añadir imágenes reales de instalaciones.
+- Optimizar tiempos de carga y accesibilidad.
+- Integrar un sistema de actualización dinámica de productos.
+
+Future Vision:
+- Convertir LEDescaparate en el referente europeo de soluciones LED para escaparates.
+- Añadir más recursos para profesionales y franquicias.
+- Incluir pantallas LED avanzadas y nuevos formatos visuales.
+
+/* CREDITS */
+Design, Code & Technical Direction: Carles del Olmo
+Commercial & Client Relations: Vicente
+Thanks to: Nuestros clientes y colaboradores por su confianza.
+
+/* LAST UPDATE */
+Updated: Diciembre 2025
+
+/* END */

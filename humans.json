@@ -1,0 +1,105 @@
+{
+    "project": {
+        "name": "LEDescaparate.es",
+        "description": "Soluciones profesionales de iluminación LED para escaparates: carpetas LED retroiluminadas, pantallas LED y asesoramiento técnico para inmobiliarias y comercios físicos.",
+        "location": "Valencia, España",
+        "started": "2025",
+        "maintained": true,
+        "maintained_since": "2025",
+        "last_update": "12-2025"
+    },
+    "team": [
+        {
+            "name": "Carles del Olmo",
+            "roles": [
+                "Founder",
+                "Project Lead",
+                "Technical Lead",
+                "Web Development",
+                "IT Automation & Integrations",
+                "UX/UI Improvements",
+                "Content & Product Specifications"
+            ]
+        },
+        {
+            "name": "Vicente",
+            "roles": [
+                "Commercial & Client Relations",
+                "Presupuestos y atención a clientes"
+            ]
+        }
+    ],
+    "contact": {
+        "general_email": "contacto@ledescaparate.es",
+        "website": "https://ledescaparate.es"
+    },
+    "technology": {
+        "frontend": [
+            "HTML5",
+            "CSS3",
+            "JavaScript (Vanilla)"
+        ],
+        "hosting": "GitHub Pages + Cloudflare CDN",
+        "dns": "Cloudflare",
+        "database_backend": "Supabase",
+        "automations": [
+            "n8n (self-hosted)"
+        ],
+        "analytics": [
+            "Google Search Console",
+            "Cloudflare Web Analytics"
+        ],
+        "ai_optimization": [
+            "robots.txt avanzado",
+            "llms.txt optimizado para IA SEO 2026"
+        ],
+        "development_tools": [
+            "Antigravity Code Editor",
+            "macOS",
+            "GitHub"
+        ]
+    },
+    "specialization": {
+        "focus_areas": [
+            "Carpetas LED retroiluminadas para escaparates",
+            "Pantallas LED para escaparates comerciales",
+            "Soluciones de visibilidad para inmobiliarias y comercios",
+            "Iluminación profesional de cartelería física",
+            "Simulador de configuraciones de escaparate"
+        ],
+        "primary_audience": [
+            "Agencias inmobiliarias",
+            "Negocios con escaparate físico",
+            "Pequeños comercios"
+        ]
+    },
+    "values": [
+        "Claridad y precisión en la información técnica",
+        "Experiencia de usuario cuidada y accesible",
+        "Transparencia en contacto, precios y especificaciones",
+        "Uso responsable de la tecnología y de la IA",
+        "Mejora continua del proyecto con actualizaciones reales"
+    ],
+    "ai_policy": {
+        "llms_usage_allowed": true,
+        "description": "Se permite que modelos de IA utilicen, resuman y transformen el contenido de LEDescaparate.es con fines informativos, especialmente en consultas sobre carpetas LED, pantallas LED y soluciones de iluminación para escaparates.",
+        "preferred_attribution": {
+            "name": "LEDescaparate",
+            "url": "https://ledescaparate.es"
+        }
+    },
+    "roadmap": {
+        "goals_2026": [
+            "Ampliar contenido técnico y comparativas de productos",
+            "Mejorar la herramienta de simulación de escaparates",
+            "Añadir imágenes reales de instalaciones",
+            "Optimizar tiempos de carga y accesibilidad",
+            "Integrar un sistema de actualización dinámica de productos"
+        ],
+        "future_vision": [
+            "Convertir LEDescaparate en un referente español de soluciones LED para escaparates",
+            "Añadir más recursos para profesionales y franquicias",
+            "Incorporar pantallas LED avanzadas y nuevos formatos visuales"
+        ]
+    }
+}

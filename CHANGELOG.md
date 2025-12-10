@@ -1,5 +1,46 @@
 # 📋 CHANGELOG - LED Escaparate Website
 
+## [2.12.1] - 2025-12-10
+
+### 🤖 Implementación de Archivos Meta (SEO + IA SEO 2026)
+- ✅ **robots.txt actualizado** - Optimización completa para SEO e IA
+  * Permite todos los bots principales (Google, Bing, DuckDuckGo, Yandex)
+  * Permite bots de IA (GPTBot, ClaudeBot, Google-Extended, PerplexityBot, Applebot, Meta AI, CCBot, Bytespider)
+  * Sitemap y host canónico configurados
+  * Notas de mantenimiento y próxima revisión (01-06-2026)
+
+- ✅ **humans.md** - Información del equipo en formato Markdown
+  * Equipo: Carles del Olmo (Founder/Tech Lead) + Vicente (Commercial)
+  * Stack tecnológico completo
+  * Filosofía del proyecto y valores
+  * Roadmap público 2026
+  
+- ✅ **humans.html** - Versión web navegable
+  * Estilos adaptados a identidad corporativa (Inter font, colores azules)
+  * Diseño responsive con cards
+  * Contenido completo sobre equipo, tecnología y visión
+
+- ✅ **humans.json** - Datos estructurados machine-readable
+  * JSON válido con toda la información del proyecto
+  * Incluye ai_policy con llms_usage_allowed: true
+  * Roadmap y valores estructurados
+
+- ✅ **humans.txt** - Formato estándar humanstxt.org
+  * Secciones: PROJECT INFO, TEAM, TECHNOLOGY STACK, PHILOSOPHY, AI & ETHICS, ROADMAP, CREDITS
+  * Compatible con estándar humanstxt.org
+
+- ✅ **llms.txt** - Optimización IA SEO 2026
+  * Política de uso abierta para modelos de IA
+  * Señales de relevancia para agentes de IA
+  * Atribución sugerida y secciones principales
+  * Recomendaciones para exploración y análisis
+
+#### Beneficios
+- Mejora indexación en buscadores tradicionales y con IA
+- Transparencia total sobre equipo y tecnología
+- Facilita descubrimiento por asistentes de IA (ChatGPT, Claude, Gemini, Perplexity)
+- Múltiples formatos para diferentes consumidores (humanos, máquinas, IA)
+
 ## [2.12.0] - 2025-12-08
 
 ### 🎯 Simplificación de Formulario de Presupuesto (Progressive Disclosure)
