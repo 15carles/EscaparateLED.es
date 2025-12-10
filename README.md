@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website Oficial
 
-![Version](https://img.shields.io/badge/version-2.12.0-blue)
+![Version](https://img.shields.io/badge/version-2.12.1-blue)
 ![Status](https://img.shields.io/badge/status-production-success)
 ![Mobile](https://img.shields.io/badge/mobile-optimized-green)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -62,6 +62,21 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ Schema.org JSON-LD (LocalBusiness, Product)
 - ✅ Caché optimizado para assets estáticos
 - ✅ Imágenes optimizadas y lazy loading
+
+### 🤖 Meta Files (SEO + IA SEO 2026)
+- ✅ **robots.txt** - Optimización completa para bots tradicionales y de IA
+  - Permite todos los bots principales (Google, Bing, DuckDuckGo, Yandex)
+  - Permite bots de IA (GPTBot, ClaudeBot, Google-Extended, PerplexityBot, Applebot, Meta AI)
+  - Sitemap y host canónico configurados
+- ✅ **llms.txt** - Política de uso para modelos de IA
+  - Autorización abierta para uso de contenido
+  - Señales de relevancia para agentes de IA
+  - Atribución sugerida y secciones principales
+- ✅ **humans.md** - Información del equipo en Markdown
+- ✅ **humans.html** - Versión web navegable con estilos corporativos
+- ✅ **humans.json** - Datos estructurados machine-readable
+- ✅ **humans.txt** - Formato estándar humanstxt.org
+- ✅ **sitemap.xml** - Actualizado con todos los archivos meta
 
 ### 🤖 Compatibilidad con Agentes de IA (GEO Avanzado)
 - ✅ **Atributos autocomplete** en formularios para autocompletado de IA
