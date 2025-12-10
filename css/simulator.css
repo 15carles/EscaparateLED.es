@@ -65,7 +65,7 @@
     letter-spacing: 0.05em;
 }
 
-/* Grid Preview */
+/* Vista previa de la cuadrícula */
 .grid-preview-container {
     background: white;
     padding: var(--spacing-lg);

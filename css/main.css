@@ -79,7 +79,7 @@
 }
 
 /* ========================================
-   Reset & Base Styles
+   Reseteo y Estilos Base
    ======================================== */
 * {
   margin: 0;
@@ -509,7 +509,7 @@ p {
   pointer-events: auto;
 }
 
-/* Navigation Arrows */
+/* Flechas de navegación */
 .gallery-nav {
   position: absolute;
   top: 50%;
@@ -555,7 +555,7 @@ p {
   transform: translateY(-50%) scale(1.05);
 }
 
-/* Dot Indicators */
+/* Indicadores de puntos */
 .gallery-indicators {
   position: absolute;
   bottom: 15px;
@@ -589,7 +589,7 @@ p {
   transform: scale(1.2);
 }
 
-/* Hide controls for single image */
+/* Ocultar controles para imagen única */
 .product-gallery.single-image .gallery-nav,
 .product-gallery.single-image .gallery-indicators {
   display: none;
@@ -983,7 +983,7 @@ p {
   color: var(--color-secondary);
 }
 
-/* Visually hidden but accessible to screen readers */
+/* Visualmente oculto pero accesible para lectores de pantalla */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -1374,20 +1374,20 @@ p {
   gap: 20px;
   margin: 40px 0;
   padding: 0;
-  /* Reseteo de figure */
+  /* Reseteo de elemento figure */
 }
 
 /* Item individual de galería (figure element) */
 .gallery-item {
   margin: 0;
-  /* Reseteo default de figure */
+  /* Reseteo predeterminado de figure */
   position: relative;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   aspect-ratio: 4/3;
-  /* Mantener proporción consistente */
+  /* Mantiene proporción consistente */
 }
 
 .gallery-item:hover {
@@ -1401,7 +1401,7 @@ p {
   height: 100%;
   object-fit: cover;
   display: block;
-  /* Elimina espacio fantasma inferior */
+  /* Elimina el espacio fantasma inferior */
 }
 
 /* Caption con degradado para mejor legibilidad */
@@ -1411,16 +1411,16 @@ p {
   left: 0;
   right: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-  /* Degradado para mejor lectura */
+  /* Degradado para mejor legibilidad */
   color: white;
   padding: 15px 10px 10px;
-  /* Más padding arriba por el degradado */
+  /* Mayor padding arriba por el degradado */
   font-size: 0.95rem;
   font-weight: 500;
   text-align: center;
 }
 
-/* Responsive: 2 columnas en tablets */
+/* Responsivo: 2 columnas en tablets */
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1433,7 +1433,7 @@ p {
   }
 }
 
-/* Responsive: 1 columna en móviles */
+/* Responsivo: 1 columna en móviles */
 @media (max-width: 480px) {
   .gallery-grid {
     grid-template-columns: 1fr;
