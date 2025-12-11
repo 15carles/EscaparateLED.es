@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website Oficial
 
-![Version](https://img.shields.io/badge/version-2.12.2-blue)
+![Version](https://img.shields.io/badge/version-2.12.3-blue)
 ![Status](https://img.shields.io/badge/status-production-success)
 ![Mobile](https://img.shields.io/badge/mobile-optimized-green)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -185,8 +185,8 @@ Los productos se gestionan en `js/products.js`. Para añadir un nuevo producto:
   id: 'a3-vertical-simple',
   name: 'A3 Vertical Simple',
   dimensions: {
-    width: 29.7,
-    height: 42
+    width: 46,
+    height: 33
   },
   image: 'images/products/a3-vertical-simple.jpg',
   description: 'Carpeta LED A3 vertical con iluminación simple',
