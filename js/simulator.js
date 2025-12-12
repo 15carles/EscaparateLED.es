@@ -747,9 +747,32 @@ function sendToQuoteForm() {
         return;
     }
 
-    // Generar URL con configuración
+    // Obtener el producto más común para el nombre
+    const breakdown = generateFrameBreakdown();
+    const breakdownEntries = Object.entries(breakdown);
+    const productName = breakdownEntries.length > 0 ? breakdownEntries[0][0] : 'Configuración Mixta';
+
+    // Obtener el primer producto con ID para compatibilidad
+    const firstActiveColumn = simulatorState.columns.find(col => col.productId);
+    const productId = firstActiveColumn ? firstActiveColumn.productId : '';
+
+    // Almacenar datos del simulador en localStorage (método original)
+    localStorage.setItem('simulatorData', JSON.stringify({
+        showcaseWidth: simulatorState.showcaseWidth,
+        showcaseHeight: simulatorState.showcaseHeight,
+        productId: productId,
+        productName: productName,
+        quantity: simulatorState.totalActiveFrames,
+        framesHorizontal: simulatorState.columns.length,
+        framesVertical: simulatorState.columns.length > 0 ? simulatorState.columns[0].rows : 0
+    }));
+
+    // También generar URL con configuración para compartir (opcional)
     const configString = encodeConfiguration();
-    window.location.href = `presupuesto.html?cfg=${configString}`;
+
+    // Redirigir al formulario de presupuesto
+    // Usar solo localStorage, no URL, para mantener compatibilidad con presupuesto.html
+    window.location.href = 'presupuesto.html';
 }
 
 /**
