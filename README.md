@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website Oficial
 
-![Version](https://img.shields.io/badge/version-2.12.3-blue)
+![Version](https://img.shields.io/badge/version-2.13.0-blue)
 ![Status](https://img.shields.io/badge/status-production-success)
 ![Mobile](https://img.shields.io/badge/mobile-optimized-green)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -18,7 +18,7 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 ### 🎯 Objetivos del Sitio
 
 - Mostrar catálogo de productos LED profesionales
-- Proporcionar simulador interactivo de escaparates
+- Proporcionar simulador interactivo híbrido con columnas independientes
 - Facilitar solicitudes de presupuesto personalizadas
 - Ofrecer información técnica y comercial
 - Cumplir con normativa legal española (RGPD, LOPDGDD, LSSI-CE)
@@ -35,7 +35,12 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ Navegación intuitiva con menú hamburguesa en móviles
 
 ### 🛠️ Funcionalidades
-- ✅ **Simulador interactivo** de escaparates con cálculo automático
+- ✅ **Simulador Híbrido V2** con sistema de columnas independientes
+  - Configuración automática inicial + personalización por columna
+  - Modo Noche con fondo personalizado (100% client-side)
+  - Cálculos técnicos en tiempo real (consumo, fuente de alimentación)
+  - Integración stateless via URL para comerciales
+  - Selectores desktop + Bottom Sheet móvil (botones 44px+)
 - ✅ **Sistema de productos modular** fácilmente actualizable
 - ✅ **Formularios inteligentes** con validación client-side y autocomplete
 - ✅ **Integración Supabase** para gestión de formularios y almacenamiento
@@ -119,7 +124,7 @@ led-escaparate/
 ├── js/
 │   ├── main.js               # JavaScript principal (navegación, cookies)
 │   ├── products.js           # Gestión de productos y catálogo
-│   ├── simulator.js          # Lógica del simulador
+│   ├── simulator.js          # Lógica del simulador V2 (columnas independientes, modo noche)
 │   ├── forms.js              # Validación de formularios (legacy)
 │   └── supabase-forms.js     # Integración con Supabase
 │
