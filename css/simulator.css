@@ -91,6 +91,11 @@
     padding: 20px;
     overflow: auto;
     max-height: 600px;
+    /* Relación de aspecto 16:9 para coincidir con fotos típicas */
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .showcase-grid {
