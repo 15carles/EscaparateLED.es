@@ -240,6 +240,7 @@
 
 .simulator-column {
     position: relative;
+    align-items: center;
 }
 
 .column-selector {
