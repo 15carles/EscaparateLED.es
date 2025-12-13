@@ -203,16 +203,31 @@
     /* Para posicionar cables relativos a la columna */
 }
 
-/* Cable vertical que atraviesa toda la columna */
+/* Cable vertical izquierdo (aproximadamente 22% del ancho) */
 .simulator-column::before {
     content: '';
     position: absolute;
-    left: 50%;
+    left: 22%;
     transform: translateX(-50%);
     top: -100px;
     /* Desde arriba de la columna hasta la guía */
     bottom: -100px;
     /* Hasta abajo del contenedor */
+    width: var(--cable-width, 1px);
+    background: linear-gradient(90deg, #888 0%, #aaa 50%, #888 100%);
+    box-shadow: 1px 0 1px rgba(0, 0, 0, 0.2);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Cable vertical derecho (aproximadamente 78% del ancho) */
+.simulator-column::after {
+    content: '';
+    position: absolute;
+    left: 78%;
+    transform: translateX(-50%);
+    top: -100px;
+    bottom: -100px;
     width: var(--cable-width, 1px);
     background: linear-gradient(90deg, #888 0%, #aaa 50%, #888 100%);
     box-shadow: 1px 0 1px rgba(0, 0, 0, 0.2);
