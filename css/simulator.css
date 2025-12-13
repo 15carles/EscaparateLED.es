@@ -361,75 +361,146 @@
 }
 
 /* ========================================
-   MODO NOCHE
+   MODO NOCHE - VERSIÓN COMPACTA
    ======================================== */
 
-.night-mode-section {
+.night-mode-section-compact {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
     margin-bottom: var(--spacing-lg);
     color: white;
 }
 
-.section-subtitle {
-    color: white;
+.night-mode-header {
     margin-bottom: var(--spacing-sm);
-    font-size: var(--font-size-lg);
 }
 
-.night-mode-controls {
+.section-subtitle-compact {
+    color: white;
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+}
+
+.night-mode-description {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.4;
+}
+
+.night-mode-controls-compact {
     background: rgba(255, 255, 255, 0.1);
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
     border-radius: var(--border-radius);
     backdrop-filter: blur(10px);
 }
 
-.night-mode-controls .form-label {
-    color: white;
-    font-weight: 500;
+.controls-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--spacing-md);
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
 }
 
-.night-mode-controls input[type="checkbox"] {
-    margin-right: 8px;
-    cursor: pointer;
-}
-
-.image-controls {
-    margin-top: var(--spacing-md);
-    padding-top: var(--spacing-md);
+.image-controls-compact {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.form-range {
+.control-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.compact-label {
+    color: white;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    margin: 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.form-input-compact {
+    font-size: var(--font-size-sm);
+    padding: 6px 8px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.form-input-compact::file-selector-button {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    margin-right: 8px;
+}
+
+.form-range-compact {
     width: 100%;
-    height: 6px;
-    border-radius: 3px;
+    height: 4px;
+    border-radius: 2px;
     background: rgba(255, 255, 255, 0.2);
     outline: none;
     -webkit-appearance: none;
+    appearance: none;
 }
 
-.form-range::-webkit-slider-thumb {
+.form-range-compact::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: var(--color-primary);
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.form-range::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+.form-range-compact::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: var(--color-primary);
     cursor: pointer;
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* Responsive: stack en móvil */
+@media (max-width: 768px) {
+    .controls-row {
+        grid-template-columns: 1fr;
+    }
+
+    .image-controls-compact {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mantener estilos del grid wrapper con night mode */
 
 .grid-wrapper.night-mode {
     background-size: cover;

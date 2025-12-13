@@ -203,56 +203,53 @@
                     </div>
                 </div>
 
-                <!-- Modo Noche - Visualización con Fondo Personalizado -->
-                <div class="night-mode-section">
-                    <h3 class="section-subtitle">🌙 Modo Noche - Visualiza sobre tu Escaparate</h3>
-                    <p class="text-light mb-3" style="font-size: var(--font-size-sm);">
-                        Sube una foto de tu escaparate para ver cómo quedarán las carpetas LED sobre él.
-                        <strong>100% privado:</strong> la imagen se procesa en tu navegador, no se envía a ningún
-                        servidor.
-                    </p>
 
-                    <div class="night-mode-controls">
-                        <div class="form-group">
-                            <label for="background-upload" class="form-label">
-                                📸 Subir foto de tu escaparate
-                            </label>
-                            <input type="file" id="background-upload" class="form-input" accept="image/*"
-                                aria-label="Subir imagen de fondo del escaparate">
-                        </div>
+                <!-- Modo Noche - Visualización con Fondo Personalizado (Compacto) -->
+                <div class="night-mode-section-compact">
+                    <div class="night-mode-header">
+                        <h3 class="section-subtitle-compact">🌙 Modo Noche</h3>
+                        <p class="night-mode-description">
+                            Visualiza sobre tu escaparate. <strong>100% privado</strong> - procesado en tu navegador.
+                        </p>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="night-mode-toggle" class="form-label">
-                                <input type="checkbox" id="night-mode-toggle" aria-label="Activar modo noche">
-                                Activar Modo Noche
-                            </label>
-                        </div>
-
-                        <div class="image-controls" id="image-controls" style="display: none;">
-                            <div class="form-group">
-                                <label for="zoom-control" class="form-label">
-                                    🔍 Zoom: <span id="zoom-value">100</span>%
-                                </label>
-                                <input type="range" id="zoom-control" class="form-range" min="50" max="200" value="100"
-                                    aria-label="Ajustar zoom de la imagen">
+                    <div class="night-mode-controls-compact">
+                        <!-- Fila 1: Upload y Toggle -->
+                        <div class="controls-row">
+                            <div class="control-item">
+                                <label for="background-upload" class="compact-label">📸 Subir foto</label>
+                                <input type="file" id="background-upload" class="form-input-compact" accept="image/*"
+                                    aria-label="Subir imagen de fondo del escaparate">
                             </div>
 
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="pan-x" class="form-label">
-                                        ↔️ Posición Horizontal
-                                    </label>
-                                    <input type="range" id="pan-x" class="form-range" min="-100" max="100" value="0"
-                                        aria-label="Ajustar posición horizontal">
-                                </div>
+                            <div class="control-item">
+                                <label for="night-mode-toggle" class="compact-label checkbox-label">
+                                    <input type="checkbox" id="night-mode-toggle" aria-label="Activar modo noche">
+                                    Activar
+                                </label>
+                            </div>
+                        </div>
 
-                                <div class="form-group">
-                                    <label for="pan-y" class="form-label">
-                                        ↕️ Posición Vertical
-                                    </label>
-                                    <input type="range" id="pan-y" class="form-range" min="-100" max="100" value="0"
-                                        aria-label="Ajustar posición vertical">
-                                </div>
+                        <!-- Fila 2: Controles de imagen (ocultos por defecto) -->
+                        <div class="image-controls-compact" id="image-controls" style="display: none;">
+                            <div class="control-item">
+                                <label for="zoom-control" class="compact-label">
+                                    🔍 <span id="zoom-value">100</span>%
+                                </label>
+                                <input type="range" id="zoom-control" class="form-range-compact" min="50" max="200"
+                                    value="100" aria-label="Ajustar zoom de la imagen">
+                            </div>
+
+                            <div class="control-item">
+                                <label for="pan-x" class="compact-label">↔️ Horizontal</label>
+                                <input type="range" id="pan-x" class="form-range-compact" min="-100" max="100" value="0"
+                                    aria-label="Ajustar posición horizontal">
+                            </div>
+
+                            <div class="control-item">
+                                <label for="pan-y" class="compact-label">↕️ Vertical</label>
+                                <input type="range" id="pan-y" class="form-range-compact" min="-100" max="100" value="0"
+                                    aria-label="Ajustar posición vertical">
                             </div>
                         </div>
                     </div>
