@@ -532,7 +532,7 @@
 /* Desktop: asegurar que los controles de imagen estén en una línea */
 @media (min-width: 769px) {
     .image-controls-compact {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr) !important;
         gap: var(--spacing-md);
     }
 }

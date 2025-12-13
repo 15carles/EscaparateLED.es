@@ -207,8 +207,11 @@ function renderColumnGrid() {
     }
 
     // Crear contenedor de columnas
+    const columnGapControl = document.getElementById('column-gap');
+    const gapPx = columnGapControl ? parseInt(columnGapControl.value) : 8; // Usar valor del control o 8px por defecto
+
     gridContainer.style.display = 'flex';
-    gridContainer.style.gap = '8px';
+    gridContainer.style.gap = `${gapPx}px`;
     gridContainer.style.justifyContent = 'center';
 
     // Calcular el ancho y alto total del grid en cm (dimensiones reales)
@@ -239,7 +242,7 @@ function renderColumnGrid() {
     }
 
     // Añadir espaciado entre carpetas al cálculo (en cm)
-    const gapPx = 8; // Gap en píxeles
+    // Usar el valor dinámico de gapPx ya definido
     const gapsBetweenColumns = totalColumns - 1;
     const gapsBetweenRows = maxRows - 1;
 
