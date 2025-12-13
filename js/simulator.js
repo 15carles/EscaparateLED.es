@@ -967,6 +967,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    const columnGapControl = document.getElementById('column-gap');
+    if (columnGapControl) {
+        columnGapControl.addEventListener('input', (e) => {
+            const gapValue = e.target.value;
+
+            // Actualizar valor mostrado
+            const gapValueSpan = document.getElementById('gap-value');
+            if (gapValueSpan) {
+                gapValueSpan.textContent = gapValue;
+            }
+
+            // Re-renderizar para aplicar nuevo gap y recalcular scale
+            renderColumnGrid();
+        });
+    }
+
     // Responsive: recrear grid al cambiar tamaño de ventana
     let resizeTimeout;
     window.addEventListener('resize', () => {
