@@ -209,13 +209,14 @@
     position: absolute;
     left: 22%;
     transform: translateX(-50%);
-    top: -100px;
-    /* Desde arriba de la columna hasta la guía */
+    top: 28px;
+    /* Desde el final de la guía (20px + 8px altura) */
     bottom: -100px;
     /* Hasta abajo del contenedor */
     width: var(--cable-width, 1px);
-    background: linear-gradient(90deg, #888 0%, #aaa 50%, #888 100%);
-    box-shadow: 1px 0 1px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, #555 0%, #777 50%, #555 100%);
+    /* Más oscuro para modo día */
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.4);
     z-index: -1;
     /* Detrás de todo */
     pointer-events: none;
@@ -227,11 +228,13 @@
     position: absolute;
     left: 78%;
     transform: translateX(-50%);
-    top: -100px;
+    top: 28px;
+    /* Desde el final de la guía (20px + 8px altura) */
     bottom: -100px;
     width: var(--cable-width, 1px);
-    background: linear-gradient(90deg, #888 0%, #aaa 50%, #888 100%);
-    box-shadow: 1px 0 1px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, #555 0%, #777 50%, #555 100%);
+    /* Más oscuro para modo día */
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.4);
     z-index: -1;
     /* Detrás de todo */
     pointer-events: none;
