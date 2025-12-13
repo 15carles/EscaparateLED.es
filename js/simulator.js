@@ -19,7 +19,6 @@ let simulatorState = {
     totalActiveFrames: 0,
     totalConsumption: 0,
     recommendedPowerSupply: '',
-    columnGap: 8, // Separación entre columnas en píxeles
     nightMode: {
         enabled: false,
         backgroundImage: null,
@@ -208,9 +207,8 @@ function renderColumnGrid() {
     }
 
     // Crear contenedor de columnas
-    const gapPx = simulatorState.columnGap; // Usar valor del estado
-
-    console.log('Gap value from state:', gapPx); // Debug
+    const columnGapControl = document.getElementById('column-gap');
+    const gapPx = columnGapControl ? parseInt(columnGapControl.value) : 8; // Usar valor del control o 8px por defecto
 
     gridContainer.style.display = 'flex';
     gridContainer.style.gap = `${gapPx}px`;
@@ -244,7 +242,7 @@ function renderColumnGrid() {
     }
 
     // Añadir espaciado entre carpetas al cálculo (en cm)
-    const gapPx = simulatorState.columnGap; // Usar valor del estado
+    // Usar el valor dinámico de gapPx ya definido
     const gapsBetweenColumns = totalColumns - 1;
     const gapsBetweenRows = maxRows - 1;
 
@@ -972,10 +970,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const columnGapControl = document.getElementById('column-gap');
     if (columnGapControl) {
         columnGapControl.addEventListener('input', (e) => {
-            const gapValue = parseInt(e.target.value);
-
-            // Actualizar estado
-            simulatorState.columnGap = gapValue;
+            const gapValue = e.target.value;
 
             // Actualizar valor mostrado
             const gapValueSpan = document.getElementById('gap-value');
