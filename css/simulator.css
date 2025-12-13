@@ -413,33 +413,33 @@
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.image-controls-header {
-    position: relative;
-    padding-top: var(--spacing-xs);
+.control-item-with-reset {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
 }
 
-.reset-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
+.reset-btn-centered {
     background: rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 4px 8px;
+    padding: 4px 12px;
     border-radius: var(--border-radius);
     cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 12px;
+    font-weight: 500;
     transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
-.reset-btn:hover {
+.reset-btn-centered:hover {
     background: rgba(255, 255, 255, 0.2);
     color: white;
     border-color: rgba(255, 255, 255, 0.4);
 }
 
-.reset-btn:focus {
+.reset-btn-centered:focus {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }

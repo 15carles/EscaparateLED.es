@@ -577,11 +577,7 @@ function loadBackgroundImage(file) {
         }
 
         // Mostrar controles de imagen inmediatamente
-        const imageControls = document.getElementById('image-controls');
         const imageControlsSliders = document.getElementById('image-controls-sliders');
-        if (imageControls) {
-            imageControls.style.display = 'block';
-        }
         if (imageControlsSliders) {
             imageControlsSliders.style.display = 'grid';
         }
