@@ -353,47 +353,43 @@ function renderSuspensionSystem(scale) {
     rail.className = 'suspension-rail';
     gridWrapper.appendChild(rail);
 
-    // Obtener posición del grid container
-    const gridRect = gridContainer.getBoundingClientRect();
-    const wrapperRect = gridWrapper.getBoundingClientRect();
+    const railTop = 20; // Posición de la guía desde arriba
+    const railHeight = 8;
 
     // Calcular grosor de cable escalado (mínimo 1px, escala con el tamaño)
     const cableWidth = Math.max(1, Math.round(scale * 0.5));
 
     // Crear cables para cada columna
-    simulatorState.columns.forEach((column, colIndex) => {
-        if (!column.productId || column.rows === 0) return;
+    const columnDivs = gridContainer.querySelectorAll('.simulator-column');
 
-        const product = window.productManager?.getProductById(column.productId);
-        if (!product) return;
+    columnDivs.forEach((columnDiv, colIndex) => {
+        const frames = columnDiv.querySelectorAll('.frame-item');
+        if (frames.length === 0) return;
 
         // Contenedor de cables de la columna
         const cableContainer = document.createElement('div');
         cableContainer.className = 'column-cables';
 
-        // Obtener todas las carpetas de esta columna
-        const columnFrames = Array.from(gridContainer.querySelectorAll(`.frame-item[data-column-id="${column.id}"]`));
-        if (columnFrames.length === 0) return;
-
-        // Calcular posición X del cable (centro de la columna)
-        const firstFrame = columnFrames[0];
+        // Calcular posición X del cable (centro de la primera carpeta de la columna)
+        const firstFrame = frames[0];
         const frameRect = firstFrame.getBoundingClientRect();
+        const wrapperRect = gridWrapper.getBoundingClientRect();
         const cableX = frameRect.left - wrapperRect.left + (frameRect.width / 2) - (cableWidth / 2);
 
         // Cable desde la guía hasta la primera carpeta
         const topCable = document.createElement('div');
         topCable.className = 'vertical-cable';
         topCable.style.left = `${cableX}px`;
-        topCable.style.top = '8px'; // Después de la guía
+        topCable.style.top = `${railTop + railHeight}px`;
         topCable.style.width = `${cableWidth}px`;
         const firstFrameTop = frameRect.top - wrapperRect.top;
-        topCable.style.height = `${firstFrameTop - 8}px`;
+        topCable.style.height = `${firstFrameTop - (railTop + railHeight)}px`;
         cableContainer.appendChild(topCable);
 
         // Cables entre carpetas
-        for (let i = 0; i < columnFrames.length - 1; i++) {
-            const currentFrame = columnFrames[i];
-            const nextFrame = columnFrames[i + 1];
+        for (let i = 0; i < frames.length - 1; i++) {
+            const currentFrame = frames[i];
+            const nextFrame = frames[i + 1];
 
             const currentRect = currentFrame.getBoundingClientRect();
             const nextRect = nextFrame.getBoundingClientRect();
@@ -408,7 +404,7 @@ function renderSuspensionSystem(scale) {
         }
 
         // Cable desde la última carpeta hasta el final del contenedor
-        const lastFrame = columnFrames[columnFrames.length - 1];
+        const lastFrame = frames[frames.length - 1];
         const lastRect = lastFrame.getBoundingClientRect();
         const bottomCable = document.createElement('div');
         bottomCable.className = 'vertical-cable';
