@@ -114,21 +114,52 @@
 }
 
 .frame-item {
-    /* Rectángulo de luz blanca pura */
-    background: #ffffff;
-    border: none;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    border: 3px solid #fff;
     border-radius: 4px;
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.8),
+        0 0 30px rgba(255, 255, 255, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 10px;
-    color: #ccc;
-    font-weight: 600;
-    /* Resplandor LED fuerte */
-    box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.9), 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    color: #666;
+    font-weight: 500;
     position: relative;
+    overflow: hidden;
+    /* Imagen de fondo - se aplicará dinámicamente según orientación */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
     cursor: pointer;
+}
+
+/* Overlay semi-transparente para mantener efecto luminoso */
+.frame-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(240, 240, 240, 0.3) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Texto del número de carpeta sobre el overlay */
+.frame-item::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: 4px;
+    right: 6px;
+    font-size: 10px;
+    color: #666;
+    font-weight: 500;
+    z-index: 2;
 }
 
 .frame-item:hover {

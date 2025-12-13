@@ -299,7 +299,18 @@ function renderColumnGrid() {
                     // Usar el scale calculado dinámicamente
                     frameItem.style.width = `${product.dimensions.width * scale}px`;
                     frameItem.style.height = `${product.dimensions.height * scale}px`;
-                    frameItem.textContent = `${colIndex + 1}-${row + 1}`;
+
+                    // Aplicar imagen de fondo según orientación
+                    const isVertical = product.dimensions.height > product.dimensions.width;
+                    const imagePath = isVertical
+                        ? 'images/simulador/anuncio_carpeta_led_ledescaparate_a4_a3_vertical_simulador.jpg'
+                        : 'images/simulador/anuncio_carpeta_led_ledescaparate_a4_a3_horizontal_simulador.jpg';
+
+                    frameItem.style.backgroundImage = `url(${imagePath})`;
+
+                    // Usar data attribute para el label
+                    frameItem.setAttribute('data-label', `${colIndex + 1}-${row + 1}`);
+
                     frameItem.dataset.columnId = column.id;
                     frameItem.dataset.row = row;
 
