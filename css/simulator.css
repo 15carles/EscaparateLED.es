@@ -164,7 +164,7 @@
 
 /* Modo noche: reducir overlay para ver mejor las imágenes */
 .grid-wrapper.night-mode .frame-item::before {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(240, 240, 240, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(240, 240, 240, 0.2) 100%);
 }
 
 /* Modo noche: hacer el label más visible */
