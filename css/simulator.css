@@ -162,6 +162,17 @@
     z-index: 2;
 }
 
+/* Modo noche: reducir overlay para ver mejor las imágenes */
+.grid-wrapper.night-mode .frame-item::before {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(240, 240, 240, 0.1) 100%);
+}
+
+/* Modo noche: hacer el label más visible */
+.grid-wrapper.night-mode .frame-item::after {
+    color: #fff;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
 .frame-item:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px 3px rgba(255, 255, 255, 1), 0 4px 8px rgba(0, 0, 0, 0.3);
