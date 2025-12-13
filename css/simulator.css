@@ -134,8 +134,8 @@
     background-repeat: no-repeat;
     transition: all 0.3s ease;
     cursor: pointer;
-    z-index: 1;
-    /* Por encima de los cables */
+    z-index: 2;
+    /* Por encima de los cables (z:1) */
 }
 
 /* Overlay semi-transparente para mantener efecto luminoso */
@@ -190,12 +190,12 @@
     /* Para posicionar cables relativos a la columna */
 }
 
-/* Cable vertical izquierdo (aproximadamente 22% del ancho) */
+/* Cable vertical izquierdo (distancia fija desde borde izquierdo) */
 .simulator-column::before {
     content: '';
     position: absolute;
-    left: var(--cable-left-pos, 22%);
-    /* Usa posición calculada o 22% por defecto */
+    left: var(--cable-left-pos, 10px);
+    /* Usa posición calculada o fallback */
     transform: translateX(-50%);
     top: 0;
     /* Desde el inicio del contenedor */
@@ -205,17 +205,17 @@
     background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
     /* Casi negro para modo día */
     box-shadow: 1px 0 3px rgba(0, 0, 0, 0.6);
-    z-index: -1;
-    /* Detrás de todo */
+    z-index: 1;
+    /* Por encima del fondo, detrás de las carpetas */
     pointer-events: none;
 }
 
-/* Cable vertical derecho (aproximadamente 78% del ancho) */
+/* Cable vertical derecho (distancia fija desde borde derecho) */
 .simulator-column::after {
     content: '';
     position: absolute;
-    left: var(--cable-right-pos, 78%);
-    /* Usa posición calculada o 78% por defecto */
+    left: var(--cable-right-pos, calc(100% - 10px));
+    /* Usa posición calculada o fallback */
     transform: translateX(-50%);
     top: 0;
     /* Desde el inicio del contenedor */
@@ -224,8 +224,8 @@
     background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
     /* Casi negro para modo día */
     box-shadow: 1px 0 3px rgba(0, 0, 0, 0.6);
-    z-index: -1;
-    /* Detrás de todo */
+    z-index: 1;
+    /* Por encima del fondo, detrás de las carpetas */
     pointer-events: none;
 }
 
