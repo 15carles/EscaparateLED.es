@@ -573,31 +573,35 @@ function loadBackgroundImage(file) {
             gridWrapper.style.backgroundRepeat = 'no-repeat';
         }
 
-        // Si el modo noche ya está activo, actualizar el fondo con zoom/pan
-        if (simulatorState.nightMode.enabled) {
-            updateNightModeBackground();
+        // Mostrar controles de imagen inmediatamente
+        const imageControls = document.getElementById('image-controls');
+        if (imageControls) {
+            imageControls.style.display = 'grid';
         }
+
+        // Aplicar zoom/pan inicial
+        updateNightModeBackground();
     };
 
     reader.readAsDataURL(file);
 }
 
 /**
- * Actualizar fondo del modo noche
+ * Actualizar fondo con zoom y pan
  */
 function updateNightModeBackground() {
     const gridWrapper = document.querySelector('.grid-wrapper');
-    if (!gridWrapper || !simulatorState.nightMode.enabled) return;
+    if (!gridWrapper || !simulatorState.nightMode.backgroundImage) return;
 
-    const { backgroundImage, zoom, panX, panY } = simulatorState.nightMode;
+    const zoom = simulatorState.nightMode.zoom;
+    const panX = simulatorState.nightMode.panX;
+    const panY = simulatorState.nightMode.panY;
 
-    if (backgroundImage) {
-        gridWrapper.style.backgroundImage = `url(${backgroundImage})`;
-        gridWrapper.style.backgroundSize = `${zoom}%`;
-        gridWrapper.style.backgroundPosition = `${50 + panX}% ${50 + panY}%`;
-    }
+    // Aplicar transformaciones
+    gridWrapper.style.backgroundImage = `url(${simulatorState.nightMode.backgroundImage})`;
+    gridWrapper.style.backgroundSize = `${zoom}%`;
+    gridWrapper.style.backgroundPosition = `${50 + panX}% ${50 + panY}%`;
 }
-
 /**
  * Actualizar controles de modo noche
  */
@@ -929,14 +933,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 nightModeToggleBtn.innerHTML = '🌙 Modo noche';
             }
 
-            // Activar/desactivar modo noche
+            // Activar/desactivar modo noche (overlay oscuro)
             toggleNightMode(newState);
-
-            // Mostrar/ocultar controles de imagen
-            const imageControls = document.getElementById('image-controls');
-            if (imageControls) {
-                imageControls.style.display = newState ? 'grid' : 'none';
-            }
         });
     }
 
