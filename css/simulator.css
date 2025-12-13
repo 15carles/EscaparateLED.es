@@ -353,6 +353,10 @@
 
 .column-selector {
     margin-bottom: 8px;
+    position: relative;
+    /* Necesario para z-index */
+    z-index: 3;
+    /* Por encima de cables (z:1) y carpetas (z:2) */
 }
 
 .column-selector select {
