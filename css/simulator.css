@@ -500,6 +500,14 @@
     }
 }
 
+/* Desktop: asegurar que los controles de imagen estén en una línea */
+@media (min-width: 769px) {
+    .image-controls-compact {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+    }
+}
+
 /* Mantener estilos del grid wrapper con night mode */
 
 .grid-wrapper.night-mode {
