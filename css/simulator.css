@@ -150,7 +150,7 @@
     z-index: 1;
 }
 
-/* Texto del número de carpeta sobre el overlay */
+/* Texto del número de carpeta sobre el overlay - OCULTO ya que ahora tenemos logos */
 .frame-item::after {
     content: attr(data-label);
     position: absolute;
@@ -160,6 +160,8 @@
     color: #666;
     font-weight: 500;
     z-index: 2;
+    display: none;
+    /* Ocultar el label */
 }
 
 /* Modo noche: reducir overlay para ver mejor las imágenes */
