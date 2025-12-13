@@ -194,9 +194,10 @@
 .simulator-column::before {
     content: '';
     position: absolute;
-    left: var(--cable-left-pos, 10px);
-    /* Usa posición calculada o fallback */
-    transform: translateX(-50%);
+    left: 50%;
+    /* Centrar en la columna */
+    transform: translateX(calc(-50% - var(--cable-offset-from-center, 0px)));
+    /* Desplazar desde el centro */
     top: 0;
     /* Desde el inicio del contenedor */
     bottom: -100px;
@@ -214,9 +215,10 @@
 .simulator-column::after {
     content: '';
     position: absolute;
-    left: var(--cable-right-pos, calc(100% - 10px));
-    /* Usa posición calculada o fallback */
-    transform: translateX(-50%);
+    left: 50%;
+    /* Centrar en la columna */
+    transform: translateX(calc(-50% + var(--cable-offset-from-center, 0px)));
+    /* Desplazar desde el centro */
     top: 0;
     /* Desde el inicio del contenedor */
     bottom: -100px;

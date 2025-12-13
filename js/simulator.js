@@ -358,12 +358,11 @@ function renderSuspensionSystem(scale) {
         if (firstFrame) {
             const frameWidth = firstFrame.offsetWidth;
 
-            // Cables a distancia fija desde los bordes
-            const leftCablePos = edgeDistancePx;
-            const rightCablePos = frameWidth - edgeDistancePx;
+            // Calcular offset desde el centro de la carpeta
+            // La mitad del ancho menos la distancia desde el borde
+            const offsetFromCenter = (frameWidth / 2) - edgeDistancePx;
 
-            columnDiv.style.setProperty('--cable-left-pos', `${leftCablePos}px`);
-            columnDiv.style.setProperty('--cable-right-pos', `${rightCablePos}px`);
+            columnDiv.style.setProperty('--cable-offset-from-center', `${offsetFromCenter}px`);
         }
     });
 }
