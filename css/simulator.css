@@ -216,7 +216,8 @@
     width: var(--cable-width, 1px);
     background: linear-gradient(90deg, #888 0%, #aaa 50%, #888 100%);
     box-shadow: 1px 0 1px rgba(0, 0, 0, 0.2);
-    z-index: 0;
+    z-index: -1;
+    /* Detrás de todo */
     pointer-events: none;
 }
 
@@ -231,7 +232,8 @@
     width: var(--cable-width, 1px);
     background: linear-gradient(90deg, #888 0%, #aaa 50%, #888 100%);
     box-shadow: 1px 0 1px rgba(0, 0, 0, 0.2);
-    z-index: 0;
+    z-index: -1;
+    /* Detrás de todo */
     pointer-events: none;
 }
 
