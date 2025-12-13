@@ -83,10 +83,7 @@
 }
 
 .grid-wrapper {
-    position: relative;
-    /* Fondo gris cemento unificado */
-    background: #aab2b7;
-    border: 3px dashed #6c757d;
+    background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
     border-radius: var(--border-radius);
     padding: 20px;
     overflow: hidden;
@@ -99,6 +96,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    /* Crear contexto de apilamiento para z-index */
 }
 
 .showcase-grid {
@@ -206,8 +205,8 @@
     background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
     /* Casi negro para modo día */
     box-shadow: 1px 0 3px rgba(0, 0, 0, 0.6);
-    z-index: 0;
-    /* Visible pero detrás de las carpetas */
+    z-index: -1;
+    /* Detrás de todo */
     pointer-events: none;
 }
 
@@ -225,8 +224,8 @@
     background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
     /* Casi negro para modo día */
     box-shadow: 1px 0 3px rgba(0, 0, 0, 0.6);
-    z-index: 0;
-    /* Visible pero detrás de las carpetas */
+    z-index: -1;
+    /* Detrás de todo */
     pointer-events: none;
 }
 
