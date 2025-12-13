@@ -238,21 +238,31 @@ function renderColumnGrid() {
         }
     }
 
-    // Añadir espaciado entre carpetas al cálculo
-    const gapCm = 0.8; // 8px gap aproximadamente 0.8cm
-    totalWidthCm += gapCm * (totalColumns - 1);
-    totalHeightCm += gapCm * (maxRows - 1);
+    // Añadir espaciado entre carpetas al cálculo (en cm)
+    const gapPx = 8; // Gap en píxeles
+    const gapsBetweenColumns = totalColumns - 1;
+    const gapsBetweenRows = maxRows - 1;
 
     // Obtener dimensiones del contenedor 16:9
     const gridWrapper = document.querySelector('.grid-wrapper');
-    const containerWidth = gridWrapper ? gridWrapper.clientWidth - 40 : 760; // Restar padding
+    const containerWidth = gridWrapper ? gridWrapper.clientWidth - 40 : 760; // Restar padding (20px cada lado)
     const containerHeight = gridWrapper ? gridWrapper.clientHeight - 40 : 427.5; // Restar padding
 
+    // Espacio reservado para selectores (desktop) - aproximadamente 35px por selector
+    const isMobile = window.innerWidth < 768;
+    const selectorHeightPx = isMobile ? 0 : 35;
+    const availableHeightForGrid = containerHeight - selectorHeightPx;
+
+    // Calcular espacio disponible restando gaps
+    const availableWidthForFolders = containerWidth - (gapPx * gapsBetweenColumns);
+    const availableHeightForFolders = availableHeightForGrid - (gapPx * gapsBetweenRows);
+
     // Calcular factor de escala para llenar el contenedor manteniendo proporciones
-    // Queremos que el grid se ajuste al contenedor, usando el factor limitante
-    const scaleByWidth = containerWidth / totalWidthCm;
-    const scaleByHeight = containerHeight / totalHeightCm;
-    const scale = Math.min(scaleByWidth, scaleByHeight, 3); // Máximo 3x para no hacer carpetas demasiado grandes
+    // Usamos el factor limitante (el que da menor escala)
+    const scaleByWidth = availableWidthForFolders / totalWidthCm;
+    const scaleByHeight = availableHeightForFolders / totalHeightCm;
+    const scale = Math.min(scaleByWidth, scaleByHeight, 2.5); // Máximo 2.5x para no hacer carpetas demasiado grandes
+
 
     simulatorState.columns.forEach((column, colIndex) => {
         const columnDiv = document.createElement('div');
