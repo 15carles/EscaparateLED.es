@@ -335,21 +335,11 @@ function renderColumnGrid() {
 }
 
 /**
- * Renderizar sistema de suspensión (guía y cables)
+ * Renderizar sistema de suspensión (cables)
  */
 function renderSuspensionSystem(scale) {
-    const gridWrapper = document.querySelector('.grid-wrapper');
     const gridContainer = document.getElementById('showcase-grid');
-    if (!gridWrapper || !gridContainer) return;
-
-    // Eliminar guía anterior si existe
-    const oldRail = gridWrapper.querySelector('.suspension-rail');
-    if (oldRail) oldRail.remove();
-
-    // Crear guía horizontal superior
-    const rail = document.createElement('div');
-    rail.className = 'suspension-rail';
-    gridWrapper.appendChild(rail);
+    if (!gridContainer) return;
 
     // Calcular grosor de cable escalado (mínimo 1px, escala con el tamaño)
     const cableWidth = Math.max(1, Math.round(scale * 0.5));

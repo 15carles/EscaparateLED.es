@@ -179,20 +179,6 @@
    SISTEMA DE SUSPENSIÓN
    ======================================== */
 
-/* Guía horizontal superior */
-.suspension-rail {
-    position: absolute;
-    top: 20px;
-    /* Separada del borde superior */
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: linear-gradient(180deg, #6b6b6b 0%, #4a4a4a 100%);
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    z-index: 1;
-}
-
 /* Contenedor de columna con cables */
 .simulator-column {
     display: flex;
@@ -209,14 +195,14 @@
     position: absolute;
     left: 22%;
     transform: translateX(-50%);
-    top: 28px;
-    /* Desde el final de la guía (20px + 8px altura) */
+    top: 0;
+    /* Desde el inicio del contenedor */
     bottom: -100px;
     /* Hasta abajo del contenedor */
     width: var(--cable-width, 1px);
-    background: linear-gradient(90deg, #555 0%, #777 50%, #555 100%);
+    background: linear-gradient(90deg, #333 0%, #555 50%, #333 100%);
     /* Más oscuro para modo día */
-    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.5);
     z-index: -1;
     /* Detrás de todo */
     pointer-events: none;
@@ -228,13 +214,13 @@
     position: absolute;
     left: 78%;
     transform: translateX(-50%);
-    top: 28px;
-    /* Desde el final de la guía (20px + 8px altura) */
+    top: 0;
+    /* Desde el inicio del contenedor */
     bottom: -100px;
     width: var(--cable-width, 1px);
-    background: linear-gradient(90deg, #555 0%, #777 50%, #555 100%);
+    background: linear-gradient(90deg, #333 0%, #555 50%, #333 100%);
     /* Más oscuro para modo día */
-    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.5);
     z-index: -1;
     /* Detrás de todo */
     pointer-events: none;
