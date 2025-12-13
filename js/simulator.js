@@ -778,6 +778,12 @@ function handleSimulatorSubmit(event) {
     const resultsContainer = document.getElementById('simulator-results');
     if (resultsContainer) {
         resultsContainer.classList.add('active');
+
+        // Re-renderizar después de que el contenedor tenga sus dimensiones finales
+        // El aspect-ratio CSS necesita un frame para calcular dimensiones correctas
+        setTimeout(() => {
+            renderColumnGrid();
+        }, 50);
         resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 }
