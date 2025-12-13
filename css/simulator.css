@@ -195,7 +195,8 @@
 .simulator-column::before {
     content: '';
     position: absolute;
-    left: 22%;
+    left: var(--cable-left-pos, 22%);
+    /* Usa posición calculada o 22% por defecto */
     transform: translateX(-50%);
     top: 0;
     /* Desde el inicio del contenedor */
@@ -214,7 +215,8 @@
 .simulator-column::after {
     content: '';
     position: absolute;
-    left: 78%;
+    left: var(--cable-right-pos, 78%);
+    /* Usa posición calculada o 78% por defecto */
     transform: translateX(-50%);
     top: 0;
     /* Desde el inicio del contenedor */

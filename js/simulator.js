@@ -344,10 +344,22 @@ function renderSuspensionSystem(scale) {
     // Calcular grosor de cable escalado (mínimo 1px, escala con el tamaño)
     const cableWidth = Math.max(1, Math.round(scale * 0.5));
 
-    // Aplicar ancho de cable a todas las columnas mediante CSS variable
+    // Aplicar ancho de cable y posiciones a todas las columnas
     const columnDivs = gridContainer.querySelectorAll('.simulator-column');
     columnDivs.forEach(columnDiv => {
         columnDiv.style.setProperty('--cable-width', `${cableWidth}px`);
+
+        // Obtener el ancho real de la primera carpeta para calcular posiciones de cables
+        const firstFrame = columnDiv.querySelector('.frame-item');
+        if (firstFrame) {
+            const frameWidth = firstFrame.offsetWidth;
+            // Cables al 22% y 78% del ancho de la carpeta
+            const leftCablePos = frameWidth * 0.22;
+            const rightCablePos = frameWidth * 0.78;
+
+            columnDiv.style.setProperty('--cable-left-pos', `${leftCablePos}px`);
+            columnDiv.style.setProperty('--cable-right-pos', `${rightCablePos}px`);
+        }
     });
 }
 
