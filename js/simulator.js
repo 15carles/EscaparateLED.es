@@ -342,80 +342,22 @@ function renderSuspensionSystem(scale) {
     const gridContainer = document.getElementById('showcase-grid');
     if (!gridWrapper || !gridContainer) return;
 
-    // Eliminar sistema de suspensión anterior si existe
+    // Eliminar guía anterior si existe
     const oldRail = gridWrapper.querySelector('.suspension-rail');
-    const oldCables = gridWrapper.querySelectorAll('.column-cables');
     if (oldRail) oldRail.remove();
-    oldCables.forEach(cable => cable.remove());
 
     // Crear guía horizontal superior
     const rail = document.createElement('div');
     rail.className = 'suspension-rail';
     gridWrapper.appendChild(rail);
 
-    const railTop = 20; // Posición de la guía desde arriba
-    const railHeight = 8;
-
     // Calcular grosor de cable escalado (mínimo 1px, escala con el tamaño)
     const cableWidth = Math.max(1, Math.round(scale * 0.5));
 
-    // Crear cables para cada columna
+    // Aplicar ancho de cable a todas las columnas mediante CSS variable
     const columnDivs = gridContainer.querySelectorAll('.simulator-column');
-
-    columnDivs.forEach((columnDiv, colIndex) => {
-        const frames = columnDiv.querySelectorAll('.frame-item');
-        if (frames.length === 0) return;
-
-        // Contenedor de cables de la columna
-        const cableContainer = document.createElement('div');
-        cableContainer.className = 'column-cables';
-
-        // Calcular posición X del cable (centro de la primera carpeta de la columna)
-        const firstFrame = frames[0];
-        const frameRect = firstFrame.getBoundingClientRect();
-        const wrapperRect = gridWrapper.getBoundingClientRect();
-        const cableX = frameRect.left - wrapperRect.left + (frameRect.width / 2) - (cableWidth / 2);
-
-        // Cable desde la guía hasta la primera carpeta
-        const topCable = document.createElement('div');
-        topCable.className = 'vertical-cable';
-        topCable.style.left = `${cableX}px`;
-        topCable.style.top = `${railTop + railHeight}px`;
-        topCable.style.width = `${cableWidth}px`;
-        const firstFrameTop = frameRect.top - wrapperRect.top;
-        topCable.style.height = `${firstFrameTop - (railTop + railHeight)}px`;
-        cableContainer.appendChild(topCable);
-
-        // Cables entre carpetas
-        for (let i = 0; i < frames.length - 1; i++) {
-            const currentFrame = frames[i];
-            const nextFrame = frames[i + 1];
-
-            const currentRect = currentFrame.getBoundingClientRect();
-            const nextRect = nextFrame.getBoundingClientRect();
-
-            const cable = document.createElement('div');
-            cable.className = 'vertical-cable';
-            cable.style.left = `${cableX}px`;
-            cable.style.top = `${currentRect.bottom - wrapperRect.top}px`;
-            cable.style.width = `${cableWidth}px`;
-            cable.style.height = `${nextRect.top - currentRect.bottom}px`;
-            cableContainer.appendChild(cable);
-        }
-
-        // Cable desde la última carpeta hasta el final del contenedor
-        const lastFrame = frames[frames.length - 1];
-        const lastRect = lastFrame.getBoundingClientRect();
-        const bottomCable = document.createElement('div');
-        bottomCable.className = 'vertical-cable';
-        bottomCable.style.left = `${cableX}px`;
-        bottomCable.style.top = `${lastRect.bottom - wrapperRect.top}px`;
-        bottomCable.style.width = `${cableWidth}px`;
-        const remainingHeight = wrapperRect.height - (lastRect.bottom - wrapperRect.top);
-        bottomCable.style.height = `${remainingHeight}px`;
-        cableContainer.appendChild(bottomCable);
-
-        gridWrapper.appendChild(cableContainer);
+    columnDivs.forEach(columnDiv => {
+        columnDiv.style.setProperty('--cable-width', `${cableWidth}px`);
     });
 }
 

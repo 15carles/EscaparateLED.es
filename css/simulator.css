@@ -193,20 +193,31 @@
     z-index: 1;
 }
 
-/* Contenedor de cables por columna */
-.column-cables {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 0;
+/* Contenedor de columna con cables */
+.simulator-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    position: relative;
+    /* Para posicionar cables relativos a la columna */
 }
 
-/* Cable vertical */
-.vertical-cable {
+/* Cable vertical que atraviesa toda la columna */
+.simulator-column::before {
+    content: '';
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -100px;
+    /* Desde arriba de la columna hasta la guía */
+    bottom: -100px;
+    /* Hasta abajo del contenedor */
+    width: var(--cable-width, 1px);
     background: linear-gradient(90deg, #888 0%, #aaa 50%, #888 100%);
     box-shadow: 1px 0 1px rgba(0, 0, 0, 0.2);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .frame-item:hover {
