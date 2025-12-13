@@ -559,16 +559,26 @@ function toggleNightMode(enabled) {
  * Cargar imagen de fondo (client-side)
  */
 function loadBackgroundImage(file) {
-    if (!file || !file.type.startsWith('image/')) {
-        alert('Por favor, selecciona un archivo de imagen válido');
-        return;
-    }
-
     const reader = new FileReader();
+
     reader.onload = (e) => {
         simulatorState.nightMode.backgroundImage = e.target.result;
-        updateNightModeBackground();
+
+        // Aplicar imagen inmediatamente al grid wrapper
+        const gridWrapper = document.querySelector('.grid-wrapper');
+        if (gridWrapper) {
+            gridWrapper.style.backgroundImage = `url(${e.target.result})`;
+            gridWrapper.style.backgroundSize = 'cover';
+            gridWrapper.style.backgroundPosition = 'center';
+            gridWrapper.style.backgroundRepeat = 'no-repeat';
+        }
+
+        // Si el modo noche ya está activo, actualizar el fondo con zoom/pan
+        if (simulatorState.nightMode.enabled) {
+            updateNightModeBackground();
+        }
     };
+
     reader.readAsDataURL(file);
 }
 
@@ -891,24 +901,41 @@ document.addEventListener('DOMContentLoaded', function () {
         resetButton.addEventListener('click', resetSimulator);
     }
 
-    // Event listeners de modo noche
+    // Event listener para subir imagen de fondo
     const backgroundUpload = document.getElementById('background-upload');
     if (backgroundUpload) {
         backgroundUpload.addEventListener('change', (e) => {
-            if (e.target.files && e.target.files[0]) {
-                loadBackgroundImage(e.target.files[0]);
+            const file = e.target.files[0];
+            if (file) {
+                loadBackgroundImage(file);
             }
         });
     }
 
-    const nightModeToggle = document.getElementById('night-mode-toggle');
-    if (nightModeToggle) {
-        nightModeToggle.addEventListener('change', (e) => {
-            toggleNightMode(e.target.checked);
+    // Event listener para toggle de modo noche (ahora es un botón)
+    const nightModeToggleBtn = document.getElementById('night-mode-toggle-btn');
+    if (nightModeToggleBtn) {
+        nightModeToggleBtn.addEventListener('click', () => {
+            const isActive = nightModeToggleBtn.classList.contains('active');
+            const newState = !isActive;
+
+            // Actualizar botón
+            nightModeToggleBtn.classList.toggle('active');
+            nightModeToggleBtn.setAttribute('aria-pressed', newState);
+
+            if (newState) {
+                nightModeToggleBtn.innerHTML = '☀️ Modo día';
+            } else {
+                nightModeToggleBtn.innerHTML = '🌙 Modo noche';
+            }
+
+            // Activar/desactivar modo noche
+            toggleNightMode(newState);
+
             // Mostrar/ocultar controles de imagen
             const imageControls = document.getElementById('image-controls');
             if (imageControls) {
-                imageControls.style.display = e.target.checked ? 'block' : 'none';
+                imageControls.style.display = newState ? 'grid' : 'none';
             }
         });
     }

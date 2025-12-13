@@ -207,7 +207,7 @@
                 <!-- Modo Noche - Visualización con Fondo Personalizado (Compacto) -->
                 <div class="night-mode-section-compact">
                     <div class="night-mode-header">
-                        <h3 class="section-subtitle-compact">🌙 Modo Noche</h3>
+                        <h3 class="section-subtitle-compact">📸 Añade una foto de tu escaparate</h3>
                         <p class="night-mode-description">
                             Visualiza sobre tu escaparate. <strong>100% privado</strong> - procesado en tu navegador.
                         </p>
@@ -217,16 +217,16 @@
                         <!-- Fila 1: Upload y Toggle -->
                         <div class="controls-row">
                             <div class="control-item">
-                                <label for="background-upload" class="compact-label">📸 Subir foto</label>
+                                <label for="background-upload" class="compact-label">Subir foto</label>
                                 <input type="file" id="background-upload" class="form-input-compact" accept="image/*"
                                     aria-label="Subir imagen de fondo del escaparate">
                             </div>
 
                             <div class="control-item">
-                                <label for="night-mode-toggle" class="compact-label checkbox-label">
-                                    <input type="checkbox" id="night-mode-toggle" aria-label="Activar modo noche">
-                                    Activar
-                                </label>
+                                <button type="button" id="night-mode-toggle-btn" class="night-mode-toggle-btn"
+                                    aria-pressed="false" aria-label="Activar modo noche">
+                                    🌙 Modo noche
+                                </button>
                             </div>
                         </div>
 
