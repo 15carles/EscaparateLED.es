@@ -115,6 +115,10 @@ function updateColumn(columnId, newProductId) {
 
     // Recalcular totales
     recalculateTotals();
+
+    // Re-renderizar grid con nuevo scale dinámico
+    renderColumnGrid();
+
     return true;
 }
 
