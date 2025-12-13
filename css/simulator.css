@@ -89,13 +89,16 @@
     border: 3px dashed #6c757d;
     border-radius: var(--border-radius);
     padding: 20px;
-    overflow: auto;
-    max-height: 600px;
+    overflow: hidden;
+    /* Sin scroll - todo debe caber en el contenedor */
     /* Relación de aspecto 16:9 para coincidir con fotos típicas */
     aspect-ratio: 16 / 9;
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .showcase-grid {
