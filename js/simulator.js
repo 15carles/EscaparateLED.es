@@ -207,6 +207,49 @@ function renderColumnGrid() {
     gridContainer.style.gap = '8px';
     gridContainer.style.justifyContent = 'center';
 
+    // Calcular el ancho y alto total del grid en cm (dimensiones reales)
+    let maxRows = 0;
+    let totalWidthCm = 0;
+
+    simulatorState.columns.forEach(column => {
+        if (column.productId && column.rows > 0) {
+            const product = window.productManager?.getProductById(column.productId);
+            if (product) {
+                totalWidthCm += product.dimensions.width;
+                maxRows = Math.max(maxRows, column.rows);
+            }
+        }
+    });
+
+    // Calcular altura total basada en la columna más alta
+    let totalHeightCm = 0;
+    if (maxRows > 0) {
+        // Buscar el primer producto activo para obtener la altura
+        const firstActiveColumn = simulatorState.columns.find(col => col.productId && col.rows > 0);
+        if (firstActiveColumn) {
+            const product = window.productManager?.getProductById(firstActiveColumn.productId);
+            if (product) {
+                totalHeightCm = product.dimensions.height * maxRows;
+            }
+        }
+    }
+
+    // Añadir espaciado entre carpetas al cálculo
+    const gapCm = 0.8; // 8px gap aproximadamente 0.8cm
+    totalWidthCm += gapCm * (totalColumns - 1);
+    totalHeightCm += gapCm * (maxRows - 1);
+
+    // Obtener dimensiones del contenedor 16:9
+    const gridWrapper = document.querySelector('.grid-wrapper');
+    const containerWidth = gridWrapper ? gridWrapper.clientWidth - 40 : 760; // Restar padding
+    const containerHeight = gridWrapper ? gridWrapper.clientHeight - 40 : 427.5; // Restar padding
+
+    // Calcular factor de escala para llenar el contenedor manteniendo proporciones
+    // Queremos que el grid se ajuste al contenedor, usando el factor limitante
+    const scaleByWidth = containerWidth / totalWidthCm;
+    const scaleByHeight = containerHeight / totalHeightCm;
+    const scale = Math.min(scaleByWidth, scaleByHeight, 3); // Máximo 3x para no hacer carpetas demasiado grandes
+
     simulatorState.columns.forEach((column, colIndex) => {
         const columnDiv = document.createElement('div');
         columnDiv.className = 'simulator-column';
@@ -233,13 +276,10 @@ function renderColumnGrid() {
         if (column.productId && column.rows > 0) {
             const product = window.productManager?.getProductById(column.productId);
             if (product) {
-                const scale = Math.min(600 / (simulatorState.showcaseWidth - PERIMETER_MARGIN * 2),
-                    400 / (simulatorState.showcaseHeight - PERIMETER_MARGIN * 2),
-                    2);
-
                 for (let row = 0; row < column.rows; row++) {
                     const frameItem = document.createElement('div');
                     frameItem.className = 'frame-item';
+                    // Usar el scale calculado dinámicamente
                     frameItem.style.width = `${product.dimensions.width * scale}px`;
                     frameItem.style.height = `${product.dimensions.height * scale}px`;
                     frameItem.textContent = `${colIndex + 1}-${row + 1}`;
