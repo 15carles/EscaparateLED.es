@@ -200,9 +200,9 @@
     bottom: -100px;
     /* Hasta abajo del contenedor */
     width: var(--cable-width, 1px);
-    background: linear-gradient(90deg, #333 0%, #555 50%, #333 100%);
-    /* Más oscuro para modo día */
-    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+    /* Casi negro para modo día */
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.6);
     z-index: -1;
     /* Detrás de todo */
     pointer-events: none;
@@ -218,9 +218,9 @@
     /* Desde el inicio del contenedor */
     bottom: -100px;
     width: var(--cable-width, 1px);
-    background: linear-gradient(90deg, #333 0%, #555 50%, #333 100%);
-    /* Más oscuro para modo día */
-    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+    /* Casi negro para modo día */
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.6);
     z-index: -1;
     /* Detrás de todo */
     pointer-events: none;
