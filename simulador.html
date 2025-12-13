@@ -231,7 +231,13 @@
                         </div>
 
                         <!-- Fila 2: Controles de imagen (ocultos por defecto) -->
-                        <div class="image-controls-compact" id="image-controls" style="display: none;">
+                        <div class="image-controls-header" id="image-controls" style="display: none;">
+                            <button type="button" id="reset-adjustments" class="reset-btn"
+                                aria-label="Restablecer ajustes" title="Restablecer ajustes">
+                                ↺
+                            </button>
+                        </div>
+                        <div class="image-controls-compact" id="image-controls-sliders" style="display: none;">
                             <div class="control-item">
                                 <label for="zoom-control" class="compact-label">
                                     🔍 <span id="zoom-value">100</span>%

@@ -578,8 +578,12 @@ function loadBackgroundImage(file) {
 
         // Mostrar controles de imagen inmediatamente
         const imageControls = document.getElementById('image-controls');
+        const imageControlsSliders = document.getElementById('image-controls-sliders');
         if (imageControls) {
-            imageControls.style.display = 'grid';
+            imageControls.style.display = 'block';
+        }
+        if (imageControlsSliders) {
+            imageControlsSliders.style.display = 'grid';
         }
 
         // Aplicar zoom/pan inicial
@@ -587,6 +591,43 @@ function loadBackgroundImage(file) {
     };
 
     reader.readAsDataURL(file);
+}
+
+/**
+ * Restablecer ajustes de imagen a valores por defecto
+ */
+function resetImageAdjustments() {
+    // Restablecer valores en el estado
+    simulatorState.nightMode.zoom = 100;
+    simulatorState.nightMode.panX = 0;
+    simulatorState.nightMode.panY = 0;
+
+    // Actualizar controles
+    const zoomControl = document.getElementById('zoom-control');
+    const panXControl = document.getElementById('pan-x');
+    const panYControl = document.getElementById('pan-y');
+    const columnGapControl = document.getElementById('column-gap');
+
+    if (zoomControl) zoomControl.value = 100;
+    if (panXControl) panXControl.value = 0;
+    if (panYControl) panYControl.value = 0;
+    if (columnGapControl) columnGapControl.value = 8;
+
+    // Actualizar valores mostrados
+    const zoomValue = document.getElementById('zoom-value');
+    const gapValue = document.getElementById('gap-value');
+
+    if (zoomValue) zoomValue.textContent = '100';
+    if (gapValue) gapValue.textContent = '8';
+
+    // Aplicar cambios visuales
+    updateNightModeBackground();
+
+    // Re-renderizar grid con gap por defecto
+    const gridContainer = document.getElementById('showcase-grid');
+    if (gridContainer) {
+        gridContainer.style.gap = '8px';
+    }
 }
 
 /**
@@ -981,6 +1022,12 @@ document.addEventListener('DOMContentLoaded', function () {
             // Re-renderizar para aplicar nuevo gap y recalcular scale
             renderColumnGrid();
         });
+    }
+
+    // Event listener para botón de restablecer ajustes
+    const resetBtn = document.getElementById('reset-adjustments');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetImageAdjustments);
     }
 
     // Responsive: recrear grid al cambiar tamaño de ventana
