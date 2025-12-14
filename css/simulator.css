@@ -203,9 +203,9 @@
     bottom: -100px;
     /* Hasta abajo del contenedor */
     width: var(--cable-width, 1px);
-    background: linear-gradient(90deg, #666 0%, #888 50%, #666 100%);
-    /* Gris medio */
-    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(90deg, #999 0%, #bbb 50%, #999 100%);
+    /* Gris claro */
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
     z-index: 1;
     /* Por encima del fondo, detrás de las carpetas */
     pointer-events: none;
@@ -223,9 +223,9 @@
     /* Desde el inicio del contenedor */
     bottom: -100px;
     width: var(--cable-width, 1px);
-    background: linear-gradient(90deg, #666 0%, #888 50%, #666 100%);
-    /* Gris medio */
-    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(90deg, #999 0%, #bbb 50%, #999 100%);
+    /* Gris claro */
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
     z-index: 1;
     /* Por encima del fondo, detrás de las carpetas */
     pointer-events: none;
