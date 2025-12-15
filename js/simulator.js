@@ -17,8 +17,6 @@ let simulatorState = {
     showcaseHeight: 0,
     columns: [], // Array de objetos: { id, productId, rows, frames }
     totalActiveFrames: 0,
-    totalConsumption: 0,
-    recommendedPowerSupply: '',
     nightMode: {
         enabled: false,
         backgroundImage: null,
@@ -123,47 +121,21 @@ function updateColumn(columnId, newProductId) {
 }
 
 /**
- * Recalcular totales y datos técnicos
+ * Recalcular totales
  */
 function recalculateTotals() {
     let totalFrames = 0;
-    let totalConsumption = 0;
 
     simulatorState.columns.forEach(column => {
         if (column.productId && column.frames > 0) {
             totalFrames += column.frames;
-
-            // Obtener consumo del producto
-            const product = window.productManager?.getProductById(column.productId);
-            if (product && product.specs.consumption) {
-                const watts = parseFloat(product.specs.consumption.replace('W', ''));
-                totalConsumption += watts * column.frames;
-            }
         }
     });
 
     simulatorState.totalActiveFrames = totalFrames;
-    simulatorState.totalConsumption = totalConsumption;
-    simulatorState.recommendedPowerSupply = calculatePowerSupply(totalConsumption);
-
-    // Actualizar UI de datos técnicos
-    updateTechnicalDataDisplay();
 }
 
-/**
- * Calcular fuente de alimentación recomendada
- * Aplica margen de seguridad del 20%
- */
-function calculatePowerSupply(totalWatts) {
-    const withMargin = totalWatts * 1.2; // 20% de margen
 
-    if (withMargin <= 60) return '60W';
-    if (withMargin <= 100) return '100W';
-    if (withMargin <= 150) return '150W';
-    if (withMargin <= 200) return '200W';
-    if (withMargin <= 300) return '300W';
-    return 'Personalizada (>300W)';
-}
 
 /**
  * Generar desglose de carpetas por tipo
@@ -475,32 +447,7 @@ function updateResultsDisplay() {
     }
 }
 
-/**
- * Actualizar visualización de datos técnicos
- */
-function updateTechnicalDataDisplay() {
-    const techTotal = document.getElementById('tech-total');
-    const techConsumption = document.getElementById('tech-consumption');
-    const techPowerSupply = document.getElementById('tech-power-supply');
-    const techBreakdown = document.getElementById('tech-breakdown');
 
-    if (techTotal) techTotal.textContent = simulatorState.totalActiveFrames;
-    if (techConsumption) techConsumption.textContent = `${simulatorState.totalConsumption.toFixed(1)}W`;
-    if (techPowerSupply) techPowerSupply.textContent = simulatorState.recommendedPowerSupply;
-
-    if (techBreakdown) {
-        const breakdown = generateFrameBreakdown();
-        const breakdownHTML = Object.entries(breakdown)
-            .map(([name, count]) => {
-                const product = window.productManager?.getAllProducts().find(p => p.name === name);
-                const watts = product ? parseFloat(product.specs.consumption.replace('W', '')) : 0;
-                const subtotal = watts * count;
-                return `<p><strong>${name}:</strong> ${count} unidades × ${watts}W = ${subtotal}W</p>`;
-            })
-            .join('');
-        techBreakdown.innerHTML = breakdownHTML || '<p>No hay carpetas configuradas</p>';
-    }
-}
 
 // ========================================
 // Bottom Sheet (Mobile)
@@ -982,8 +929,6 @@ function resetSimulator() {
         showcaseHeight: 0,
         columns: [],
         totalActiveFrames: 0,
-        totalConsumption: 0,
-        recommendedPowerSupply: '',
         nightMode: {
             enabled: false,
             backgroundImage: null,
