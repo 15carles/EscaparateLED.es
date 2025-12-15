@@ -474,9 +474,22 @@
    MODO NOCHE - VERSIÓN COMPACTA
    ======================================== */
 
+/* Sección de controles del simulador */
+.simulator-controls-section {
+    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    margin-bottom: var(--spacing-md);
+    color: white;
+}
+
+.section-header {
+    margin-bottom: 10px;
+}
+
 .night-mode-section-compact {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    padding: var(--spacing-md);
+    padding: 12px;
     border-radius: var(--border-radius);
     margin-bottom: var(--spacing-lg);
     color: white;
@@ -492,6 +505,7 @@
     font-size: var(--font-size-base);
     font-weight: 600;
 }
+
 
 .night-mode-description {
     margin: 0;
