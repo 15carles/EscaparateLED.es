@@ -1163,18 +1163,7 @@ p {
   }
 }
 
-@media (max-width: 480px) {
-  .btn-large {
-    padding: var(--spacing-sm) var(--spacing-lg);
-    font-size: var(--font-size-base);
-  }
 
-  /* Forzar 1 columna en móviles muy pequeños */
-  .benefits-grid,
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ========================================
    Legal Pages Styling
