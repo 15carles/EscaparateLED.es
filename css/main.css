@@ -328,7 +328,7 @@ p {
 }
 
 .btn-white:hover {
-  background-color: white;
+  background-color: rgb(237, 236, 236);
   color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
@@ -1144,6 +1144,8 @@ p {
   /* Reducir altura de botones en hero para móvil */
   .hero-cta .btn {
     padding: 0.5rem 1rem;
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .benefits-grid {
