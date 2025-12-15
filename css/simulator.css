@@ -519,10 +519,14 @@
 .controls-buttons-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
-    padding-bottom: var(--spacing-sm);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    gap: 8px;
+    /* Reducido */
+    margin-bottom: 6px;
+    /* Reducido */
+    padding-bottom: 6px;
+    /* Reducido */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Más sutil */
 }
 
 /* Fila 2: Sliders de ajuste */
@@ -530,8 +534,10 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     /* Máximo 5 sliders */
-    gap: var(--spacing-sm);
-    padding-top: var(--spacing-sm);
+    gap: 8px;
+    /* Reducido */
+    padding-top: 0;
+    /* Sin padding superior */
 }
 
 /* Ocultar controles de imagen cuando no hay imagen */
@@ -543,9 +549,12 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     /* 5 controles: zoom, pan-x, pan-y, gap, filas */
-    gap: var(--spacing-sm);
-    padding-top: var(--spacing-sm);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 8px;
+    /* Reducido */
+    padding-top: 0;
+    /* Sin padding superior */
+    border-top: none;
+    /* Sin borde */
 }
 
 /* Estilos para control de filas con botones */
@@ -634,13 +643,16 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
+    /* Reducido */
 }
 
 .compact-label {
-    color: white;
+    font-size: 0.75rem;
+    /* Más pequeño */
     font-weight: 500;
-    font-size: var(--font-size-sm);
-    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2px;
+    /* Reducido */
 }
 
 .checkbox-label {
