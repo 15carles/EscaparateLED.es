@@ -458,40 +458,11 @@ function updateMaxRowsControl() {
  * Actualizar visualización de resultados
  */
 function updateResultsDisplay() {
-    // Actualizar tarjetas de resumen
+    // Actualizar visualización del grid
     const breakdown = generateFrameBreakdown();
     const breakdownEntries = Object.entries(breakdown);
 
-    // Mostrar total
-    const totalElement = document.getElementById('result-total');
-    if (totalElement) {
-        totalElement.textContent = simulatorState.totalActiveFrames;
-    }
-
-    // Mostrar desglose por tipo (usar las tarjetas existentes de forma dinámica)
-    const horizontalElement = document.getElementById('result-horizontal');
-    const verticalElement = document.getElementById('result-vertical');
-
-    if (breakdownEntries.length > 0) {
-        // Primer tipo
-        if (horizontalElement) {
-            const [name, count] = breakdownEntries[0];
-            horizontalElement.textContent = count;
-            horizontalElement.parentElement.querySelector('.result-label').textContent = name;
-        }
-
-        // Segundo tipo
-        if (breakdownEntries.length > 1 && verticalElement) {
-            const [name, count] = breakdownEntries[1];
-            verticalElement.textContent = count;
-            verticalElement.parentElement.querySelector('.result-label').textContent = name;
-        } else if (verticalElement) {
-            verticalElement.textContent = '0';
-            verticalElement.parentElement.querySelector('.result-label').textContent = 'Otros';
-        }
-    }
-
-    // Mostrar nombre del producto en grid
+    // Actualizar nombre del producto en grid preview
     const gridProductName = document.getElementById('grid-product-name');
     if (gridProductName) {
         if (breakdownEntries.length === 1) {
@@ -1079,9 +1050,9 @@ document.addEventListener('DOMContentLoaded', function () {
             nightModeToggleBtn.setAttribute('aria-pressed', newState);
 
             if (newState) {
-                nightModeToggleBtn.innerHTML = '☀️ Modo día';
+                nightModeToggleBtn.innerHTML = 'Modo día';
             } else {
-                nightModeToggleBtn.innerHTML = '🌙 Modo noche';
+                nightModeToggleBtn.innerHTML = 'Modo noche';
             }
 
             // Activar/desactivar modo noche (overlay oscuro)
