@@ -1159,7 +1159,21 @@ p {
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  /* Reducir tamaño de texto del footer en móvil */
+  .footer-section h4 {
+    font-size: var(--font-size-base);
+  }
+
+  .footer-links {
+    font-size: var(--font-size-sm);
+  }
+
+  .footer-bottom {
+    font-size: 0.75rem;
   }
 }
 
