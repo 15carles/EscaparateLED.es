@@ -120,15 +120,6 @@
     <section class="section">
         <div class="container simulator-container">
 
-            <!-- Info Box -->
-            <div class="simulator-info">
-                <h4>ℹ️ Cómo funciona</h4>
-                <p>El simulador aplica automáticamente un <strong>margen perimetral de 15 cm</strong> en todos los lados
-                    del escaparate y una <strong>separación de 10 cm entre carpetas</strong> para garantizar una
-                    instalación óptima y estética. Introduce las medidas totales de tu escaparate y selecciona el modelo
-                    de carpeta que deseas utilizar.</p>
-            </div>
-
             <!-- Formulario del Simulador -->
             <div class="simulator-form">
                 <h2 class="mb-4">Configuración del Escaparate</h2>
@@ -159,6 +150,19 @@
                     <button type="submit" class="btn btn-primary btn-large btn-block">
                         Calcular Configuración
                     </button>
+
+                    <!-- Botones de navegación -->
+                    <div class="calculator-nav-buttons">
+                        <a href="#como-usar" class="calculator-nav-btn">
+                            📖 Cómo funciona
+                        </a>
+                        <a href="#ejemplos" class="calculator-nav-btn">
+                            💡 Ejemplos
+                        </a>
+                        <a href="#faq" class="calculator-nav-btn">
+                            ❓ FAQ
+                        </a>
+                    </div>
                 </form>
             </div>
 
@@ -211,7 +215,7 @@
                     <!-- Controles del Simulador -->
                     <div class="controls-group">
                         <div class="control-item">
-                            <label class="control-label">↔️ Separación</label>
+                            <label class="control-label">Separación</label>
                             <div class="rows-control-buttons">
                                 <button type="button" id="gap-decrease" class="rows-btn"
                                     aria-label="Reducir separación">−</button>
@@ -222,7 +226,7 @@
                         </div>
 
                         <div class="control-item rows-control-wrapper">
-                            <label class="control-label">📊 Filas</label>
+                            <label class="control-label">Filas</label>
                             <div class="rows-control-buttons">
                                 <button type="button" id="rows-decrease" class="rows-btn" disabled
                                     aria-label="Reducir filas">−</button>
@@ -235,12 +239,12 @@
                         <div class="control-item">
                             <button type="button" id="night-mode-toggle-btn" class="night-mode-toggle-btn"
                                 aria-pressed="false" aria-label="Activar modo noche">
-                                🌙 Modo noche
+                                Modo noche
                             </button>
                         </div>
 
                         <div class="control-item">
-                            <label for="background-upload" class="control-label">📤 Subir foto</label>
+                            <label for="background-upload" class="control-label">Sube tu escaparate</label>
                             <input type="file" id="background-upload" class="form-input-compact" accept="image/*"
                                 aria-label="Subir imagen de fondo del escaparate">
                         </div>
@@ -248,27 +252,27 @@
                         <div class="control-item">
                             <button type="button" id="reset-adjustments" class="reset-btn-centered"
                                 aria-label="Restablecer ajustes" title="Restablecer ajustes de imagen">
-                                ↺ Restablecer
+                                Restablecer
                             </button>
                         </div>
 
                         <!-- Controles de imagen (ocultos por defecto) -->
                         <div class="control-item image-control" id="zoom-control-item" style="display: none;">
                             <label for="zoom-control" class="control-label">
-                                🔍 <span id="zoom-value">100</span>%
+                                Zoom <span id="zoom-value">100</span>%
                             </label>
                             <input type="range" id="zoom-control" class="form-range-compact" min="50" max="200"
                                 value="100" aria-label="Ajustar zoom de la imagen">
                         </div>
 
                         <div class="control-item image-control" id="pan-x-control-item" style="display: none;">
-                            <label for="pan-x" class="control-label">↔️ Horizontal</label>
+                            <label for="pan-x" class="control-label">Horizontal</label>
                             <input type="range" id="pan-x" class="form-range-compact" min="-100" max="100" value="0"
                                 aria-label="Ajustar posición horizontal">
                         </div>
 
                         <div class="control-item image-control" id="pan-y-control-item" style="display: none;">
-                            <label for="pan-y" class="control-label">↕️ Vertical</label>
+                            <label for="pan-y" class="control-label">Vertical</label>
                             <input type="range" id="pan-y" class="form-range-compact" min="-100" max="100" value="0"
                                 aria-label="Ajustar posición vertical">
                         </div>
@@ -280,9 +284,6 @@
                     <button id="send-to-quote" class="btn btn-primary btn-large">
                         Solicitar Presupuesto con esta Configuración
                     </button>
-                    <button id="reset-simulator" class="btn btn-secondary btn-large">
-                        Nueva Simulación
-                    </button>
                 </div>
             </div>
 
@@ -290,7 +291,7 @@
     </section>
 
     <!-- Contenido SEO: Cómo Usar -->
-    <section class="section">
+    <section id="como-usar" class="section">
         <div class="container">
             <div style="max-width: 900px; margin: 0 auto;">
                 <h2 class="text-center mb-4">Cómo usar el simulador de escaparate LED</h2>
@@ -431,7 +432,7 @@
     </section>
 
     <!-- SEO Content: Typical Configurations -->
-    <section class="section">
+    <section id="ejemplos" class="section">
         <div class="container">
             <div style="max-width: 900px; margin: 0 auto;">
                 <h2 class="text-center mb-4">Configuraciones típicas según el tamaño del escaparate</h2>
@@ -451,11 +452,11 @@
                                     Ideal para inmobiliarias de barrio, oficinas pequeñas o locales en calles
                                     secundarias</p>
                                 <ul style="color: var(--color-text); margin: 0; padding-left: 1.5rem;">
-                                    <li><strong>Tamaño típico:</strong> 2.5m ancho × 2m alto</li>
-                                    <li><strong>Configuración recomendada:</strong> 7 columnas × 4 filas</li>
+                                    <li><strong>Tamaño típico:</strong> 1m ancho × 2m alto</li>
+                                    <li><strong>Configuración recomendada:</strong> 2 columnas × 3 filas</li>
                                     <li><strong>Formato sugerido:</strong> Carpetas A4 verticales</li>
-                                    <li><strong>Total carpetas:</strong> 28 unidades</li>
-                                    <li><strong>Perfecto para:</strong> Portfolio completo de propiedades disponibles
+                                    <li><strong>Total carpetas:</strong> 6 unidades</li>
+                                    <li><strong>Perfecto para:</strong> Portfolio de propiedades disponibles
                                     </li>
                                 </ul>
                             </div>
@@ -473,10 +474,10 @@
                                     Perfecto para inmobiliarias en zonas céntricas, franquicias o agencias con buen
                                     tráfico peatonal</p>
                                 <ul style="color: var(--color-text); margin: 0; padding-left: 1.5rem;">
-                                    <li><strong>Tamaño típico:</strong> 4m ancho × 2.5m alto</li>
-                                    <li><strong>Configuración recomendada:</strong> 9 columnas × 4 filas</li>
-                                    <li><strong>Formato sugerido:</strong> Carpetas A3 verticales</li>
-                                    <li><strong>Total carpetas:</strong> 36 unidades</li>
+                                    <li><strong>Tamaño típico:</strong> 1,5m ancho × 2.5m alto</li>
+                                    <li><strong>Configuración recomendada:</strong> 4 columnas × 3 filas</li>
+                                    <li><strong>Formato sugerido:</strong> Carpetas A4 verticales</li>
+                                    <li><strong>Total carpetas:</strong> 12 unidades</li>
                                     <li><strong>Perfecto para:</strong> Catálogo extenso con gran impacto visual
                                     </li>
                                 </ul>
@@ -495,11 +496,11 @@
                                     Para promotoras, grandes agencias, oficinas centrales o escaparates en ubicaciones
                                     premium</p>
                                 <ul style="color: var(--color-text); margin: 0; padding-left: 1.5rem;">
-                                    <li><strong>Tamaño típico:</strong> 6m ancho × 3m alto</li>
-                                    <li><strong>Configuración recomendada:</strong> 14 columnas × 5 filas</li>
+                                    <li><strong>Tamaño típico:</strong> 2,5m ancho × 3m alto</li>
+                                    <li><strong>Configuración recomendada:</strong> 8 columnas × 3 filas</li>
                                     <li><strong>Formato sugerido:</strong> Carpetas A3 verticales para máximo impacto
                                     </li>
-                                    <li><strong>Total carpetas:</strong> 70 unidades</li>
+                                    <li><strong>Total carpetas:</strong> 24 unidades</li>
                                     <li><strong>Perfecto para:</strong> Catálogo completo de promotora con múltiples
                                         proyectos
                                     </li>
@@ -522,7 +523,7 @@
     </section>
 
     <!-- FAQ Section (Expanded for SEO) -->
-    <section class="section section-alt">
+    <section id="faq" class="section section-alt">
         <div class="container">
             <div style="max-width: 900px; margin: 0 auto;">
                 <h2 class="text-center mb-4">Preguntas Frecuentes sobre Carpetas LED para Escaparates</h2>
