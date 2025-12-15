@@ -476,15 +476,34 @@
 
 /* Sección de controles del simulador */
 .simulator-controls-section {
-    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+    background: linear-gradient(135deg, rgba(52, 73, 94, 0.95) 0%, rgba(44, 62, 80, 0.95) 100%);
     border-radius: var(--border-radius);
-    padding: 12px;
+    padding: var(--spacing-md);
     margin-bottom: var(--spacing-md);
     color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .section-header {
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.simulator-controls-section .controls-sliders-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.simulator-controls-section .control-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 140px;
 }
 
 .night-mode-section-compact {
