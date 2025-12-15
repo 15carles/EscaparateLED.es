@@ -554,9 +554,10 @@
 .control-item {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     gap: var(--spacing-xs);
-    min-height: 80px;
+    min-height: 90px;
 }
 
 .control-label {
@@ -565,6 +566,49 @@
     font-size: var(--font-size-sm);
     margin: 0;
     text-align: center;
+    width: 100%;
+}
+
+/* Unificar estilos de botones */
+.night-mode-toggle-btn,
+.reset-btn-centered {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    color: white;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.night-mode-toggle-btn:hover,
+.reset-btn-centered:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Input de archivo */
+.form-input-compact {
+    width: 100%;
+    padding: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    color: white;
+    font-size: var(--font-size-sm);
+}
+
+/* Sliders */
+.form-range-compact {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    outline: none;
 }
 
 /* Estilos para control de filas con botones */
