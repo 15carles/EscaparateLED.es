@@ -207,8 +207,8 @@ function renderColumnGrid() {
     }
 
     // Crear contenedor de columnas
-    const columnGapControl = document.getElementById('column-gap');
-    const gapPx = columnGapControl ? parseInt(columnGapControl.value) : 8; // Usar valor del control o 8px por defecto
+    const gapValueDisplay = document.getElementById('gap-value');
+    const gapPx = gapValueDisplay ? parseInt(gapValueDisplay.textContent) : 8; // Leer del display de botones
 
     gridContainer.style.display = 'flex';
     gridContainer.style.gap = `${gapPx}px`;
@@ -406,10 +406,52 @@ function createColumnSelector(column) {
         updateColumn(column.id, newProductId);
         renderColumnGrid();
         updateResultsDisplay();
+        updateMaxRowsControl(); // Actualizar máximo de filas disponibles
     });
 
     container.appendChild(select);
     return container;
+}
+
+/**
+ * Actualizar el control de máximo de filas basado en productos actuales
+ */
+function updateMaxRowsControl() {
+    const rowsIncrease = document.getElementById('rows-increase');
+    if (!rowsIncrease) return;
+
+    // Calcular el máximo de filas posible con los productos actuales
+    let maxPossibleRows = 0;
+
+    simulatorState.columns.forEach(column => {
+        if (column.productId) {
+            const product = window.productManager?.getProductById(column.productId);
+            if (product) {
+                const heightCm = product.dimensions.height;
+                const showcaseHeightCm = simulatorState.showcaseHeight;
+                const possibleRows = Math.floor(showcaseHeightCm / heightCm);
+                maxPossibleRows = Math.max(maxPossibleRows, possibleRows);
+            }
+        }
+    });
+
+    // Si no hay productos, usar el valor guardado o 1
+    if (maxPossibleRows === 0) {
+        maxPossibleRows = parseInt(rowsIncrease.dataset.maxRows) || 1;
+    }
+
+    // Actualizar el data attribute
+    rowsIncrease.dataset.maxRows = maxPossibleRows;
+
+    // Actualizar estado de botones
+    const rowsDisplay = document.getElementById('rows-display');
+    const rowsDecrease = document.getElementById('rows-decrease');
+
+    if (rowsDisplay && rowsDecrease) {
+        const currentRows = parseInt(rowsDisplay.textContent);
+        rowsDecrease.disabled = currentRows <= 1;
+        rowsIncrease.disabled = currentRows >= maxPossibleRows;
+    }
 }
 
 /**
