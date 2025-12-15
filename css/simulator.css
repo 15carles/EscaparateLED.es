@@ -532,7 +532,8 @@
 /* Fila 1: Botones de acción */
 .controls-buttons-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 botones: Upload, Reset */
     gap: 8px;
     /* Reducido */
     margin-bottom: 6px;
