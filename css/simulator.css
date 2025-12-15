@@ -675,13 +675,6 @@
     align-items: center;
 }
 
-.control-item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    /* Reducido */
-}
-
 .compact-label {
     font-size: 0.75rem;
     /* Más pequeño */
