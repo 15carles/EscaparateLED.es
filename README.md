@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website Oficial
 
-![Version](https://img.shields.io/badge/version-2.12.3-blue)
+![Version](https://img.shields.io/badge/version-2.14.0-blue)
 ![Status](https://img.shields.io/badge/status-production-success)
 ![Mobile](https://img.shields.io/badge/mobile-optimized-green)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -18,7 +18,7 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 ### 🎯 Objetivos del Sitio
 
 - Mostrar catálogo de productos LED profesionales
-- Proporcionar simulador interactivo de escaparates
+- Proporcionar simulador interactivo híbrido con columnas independientes
 - Facilitar solicitudes de presupuesto personalizadas
 - Ofrecer información técnica y comercial
 - Cumplir con normativa legal española (RGPD, LOPDGDD, LSSI-CE)
@@ -35,7 +35,12 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ Navegación intuitiva con menú hamburguesa en móviles
 
 ### 🛠️ Funcionalidades
-- ✅ **Simulador interactivo** de escaparates con cálculo automático
+- ✅ **Simulador Híbrido V2** con sistema de columnas independientes
+  - Configuración automática inicial + personalización por columna
+  - Modo Noche con fondo personalizado (100% client-side)
+  - Cálculos técnicos en tiempo real (consumo, fuente de alimentación)
+  - Integración stateless via URL para comerciales
+  - Selectores desktop + Bottom Sheet móvil (botones 44px+)
 - ✅ **Sistema de productos modular** fácilmente actualizable
 - ✅ **Formularios inteligentes** con validación client-side y autocomplete
 - ✅ **Integración Supabase** para gestión de formularios y almacenamiento
@@ -119,7 +124,7 @@ led-escaparate/
 ├── js/
 │   ├── main.js               # JavaScript principal (navegación, cookies)
 │   ├── products.js           # Gestión de productos y catálogo
-│   ├── simulator.js          # Lógica del simulador
+│   ├── simulator.js          # Lógica del simulador V2 (columnas independientes, modo noche)
 │   ├── forms.js              # Validación de formularios (legacy)
 │   └── supabase-forms.js     # Integración con Supabase
 │
@@ -638,7 +643,46 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 
 ## 📝 Changelog
 
-### Versión 2.8.0 (Diciembre 2024)
+### Versión 2.14.0 (Diciembre 2024)
+
+#### Añadido
+- ✅ **Controles Unificados del Simulador**
+  * Sección única "Controles y Ajustes" con grid 3×2
+  * Fila 1: Separación | Filas | Modo noche
+  * Fila 2: Subir foto (2 cols) | Restablecer (1 col)
+  * Botones +/- para Separación y Filas con hold-to-repeat
+  * Alineación bottom consistente en ambas filas
+- ✅ **Botones de Navegación Rápida**
+  * 3 botones debajo de "Calcular": Cómo funciona, Ejemplos, FAQ
+  * Enlaces directos a secciones con smooth scroll
+  * Grid 3 columnas con hover azul tintado
+- ✅ **Mobile Responsive Completo**
+  * Tablet (≤768px): Grid 2 columnas landscape
+  * Mobile (≤480px): Stack vertical portrait + mensaje rotación
+  * Prompt animado "Mejor experiencia en horizontal"
+  * Touch targets optimizados (48px altura)
+  * Sin overlap de controles en portrait
+- ✅ **Contenido AI-Optimized (GEO/AIO)**
+  * Bloque semántico oculto con specs técnicas
+  * 10 menciones geográficas: Valencia, Catarroja, Albal, Torrent, Aldaia, Paterna, Alicante, Denia, Javea, Altea
+  * Schema Product con área servida y propiedades técnicas
+  * Dimensiones corregidas en HowTo (A4: 24x33/33x24, A3: 33x46/46x33)
+  * URLs del HowTo Schema arregladas
+
+#### Modificado
+- 🔄 Eliminadas tarjetas de resumen (horizontal/vertical/total)
+- 🔄 Interfaz más compacta y limpia
+- 🔄 JavaScript optimizado sin referencias a elementos eliminados
+
+#### Corregido
+- 🐛 Separación ahora funciona correctamente (lee de gap-value)
+- 🐛 Filas actualiza máximo dinámicamente al cambiar producto
+- 🐛 Controles alineados por bottom en ambas filas
+- 🐛 Sin superposición en mobile portrait
+
+---
+
+### Versión 2.13.0 (Diciembre 2024)
 
 #### Añadido
 - ✅ **Post Estratégico: 5 Ideas para Escaparates Inmobiliarios** (10 Dic 2025)

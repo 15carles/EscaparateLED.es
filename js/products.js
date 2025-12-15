@@ -11,8 +11,8 @@ const productCatalog = [
         id: 'led-a4-vertical',
         name: 'Carpeta LED A4 Vertical',
         dimensions: {
-            width: 33,  // cm
-            height: 24  // cm
+            width: 24,  // cm - A4 vertical: más alto que ancho
+            height: 33  // cm
         },
         image: 'images/products/a4-vertical.webp',
         description: 'Carpeta retroiluminada LED formato A4 en orientación vertical. Ideal para escaparates de inmobiliarias.',
@@ -29,8 +29,8 @@ const productCatalog = [
         id: 'led-a4-horizontal',
         name: 'Carpeta LED A4 Horizontal',
         dimensions: {
-            width: 24,  // cm
-            height: 33  // cm
+            width: 33,  // cm - A4 horizontal: más ancho que alto
+            height: 24  // cm
         },
         image: 'images/products/a4-horizontal.webp',
         description: 'Carpeta retroiluminada LED formato A4 en orientación horizontal. Perfecta para fichas de inmuebles.',
@@ -47,8 +47,8 @@ const productCatalog = [
         id: 'led-a3-vertical',
         name: 'Carpeta LED A3 Vertical',
         dimensions: {
-            width: 46,  // cm
-            height: 33  // cm
+            width: 33,  // cm - A3 vertical: más alto que ancho
+            height: 46  // cm
         },
         image: 'images/products/a3-vertical-1.webp',
         description: 'Carpeta retroiluminada LED formato A3 en orientación vertical. Mayor impacto visual para inmuebles destacados.',
@@ -65,8 +65,8 @@ const productCatalog = [
         id: 'led-a3-horizontal',
         name: 'Carpeta LED A3 Horizontal',
         dimensions: {
-            width: 33,  // cm
-            height: 46  // cm
+            width: 46,  // cm - A3 horizontal: más ancho que alto
+            height: 33  // cm
         },
         image: 'images/products/a3-horizontal-1.webp',
         description: 'Carpeta retroiluminada LED formato A3 en orientación horizontal. Máxima visibilidad nocturna.',

@@ -1,7 +1,13 @@
 /**
- * CARPETAS LED - Showcase Simulator
-  * Calculadora interactiva para colocación de carpetas LED en escaparates
+ * CARPETAS LED - Showcase Simulator V2
+ * Calculadora interactiva con sistema de columnas independientes
+ * Versión: 2.13.0 - Simulador Híbrido con Modo Noche
  */
+
+// ========================================
+// Importar datos de productos
+// ========================================
+// Se asume que products.js ya está cargado y exporta productCatalog
 
 // ========================================
 // Estado del Simulador
@@ -9,123 +15,827 @@
 let simulatorState = {
     showcaseWidth: 0,
     showcaseHeight: 0,
-    selectedProduct: null,
-    framesHorizontal: 0,
-    framesVertical: 0,
-    totalFrames: 0,
-    usableWidth: 0,
-    usableHeight: 0
+    columns: [], // Array de objetos: { id, productId, rows, frames }
+    totalActiveFrames: 0,
+    totalConsumption: 0,
+    recommendedPowerSupply: '',
+    nightMode: {
+        enabled: false,
+        backgroundImage: null,
+        zoom: 100,
+        panX: 0,
+        panY: 0
+    }
 };
 
 const PERIMETER_MARGIN = 15; // cm - Margen perimetral fijo desde los bordes del escaparate
 const FRAME_SPACING = 10; // cm - Espaciado entre carpetas
 
 // ========================================
-// Funciones de Cálculo
+// Funciones de Cálculo - Sistema de Columnas
 // ========================================
 
 /**
- * Calculate how many frames fit in the showcase
-  * Tiene en cuenta:
-  * - Margen perimetral de 15cm en todos los lados
-  * - Espaciado de 10cm entre carpetas
+ * Calcular cuántas columnas caben en el escaparate
+ * Retorna el número de columnas basado en el ancho del producto seleccionado
  */
-function calculateFrames(showcaseWidth, showcaseHeight, frameWidth, frameHeight) {
-    // Aplicar margen de 15cm en todos los lados
+function calculateColumns(showcaseWidth, frameWidth) {
     const usableWidth = showcaseWidth - (PERIMETER_MARGIN * 2);
-    const usableHeight = showcaseHeight - (PERIMETER_MARGIN * 2);
+    const columns = Math.floor((usableWidth + FRAME_SPACING) / (frameWidth + FRAME_SPACING));
+    return Math.max(0, columns);
+}
 
-    // Calcular cuántas carpetas caben con espaciado entre ellas
-    // Fórmula: (usableSpace + spacing) / (frameSize + spacing)
-    // El +espaciado tiene en cuenta que la última carpeta no necesita espaciado después
-    const framesHorizontal = Math.floor((usableWidth + FRAME_SPACING) / (frameWidth + FRAME_SPACING));
-    const framesVertical = Math.floor((usableHeight + FRAME_SPACING) / (frameHeight + FRAME_SPACING));
-    const totalFrames = framesHorizontal * framesVertical;
+/**
+ * Calcular cuántas filas caben en una columna específica
+ */
+function calculateRowsForColumn(showcaseHeight, frameHeight) {
+    const usableHeight = showcaseHeight - (PERIMETER_MARGIN * 2);
+    const rows = Math.floor((usableHeight + FRAME_SPACING) / (frameHeight + FRAME_SPACING));
+    return Math.max(0, rows);
+}
+
+/**
+ * Inicializar configuración automática
+ * Crea todas las columnas con el mismo tipo de carpeta (configuración inicial)
+ */
+function initializeAutoConfiguration(showcaseWidth, showcaseHeight, productId) {
+    const product = window.productManager?.getProductById(productId);
+    if (!product) {
+        console.error('Producto no encontrado:', productId);
+        return null;
+    }
+
+    const numColumns = calculateColumns(showcaseWidth, product.dimensions.width);
+    const numRows = calculateRowsForColumn(showcaseHeight, product.dimensions.height);
+
+    const columns = [];
+    for (let i = 0; i < numColumns; i++) {
+        columns.push({
+            id: i,
+            productId: productId,
+            rows: numRows,
+            frames: numRows // Inicialmente todas las carpetas activas
+        });
+    }
 
     return {
-        framesHorizontal,
-        framesVertical,
-        totalFrames,
-        usableWidth,
-        usableHeight
+        columns,
+        totalColumns: numColumns,
+        totalRows: numRows,
+        totalFrames: numColumns * numRows
     };
 }
 
 /**
- * Render the grid preview
+ * Actualizar una columna específica con nuevo tipo de carpeta
  */
-function renderGridPreview(framesHorizontal, framesVertical, frameWidth, frameHeight) {
+function updateColumn(columnId, newProductId) {
+    const column = simulatorState.columns.find(col => col.id === columnId);
+    if (!column) return false;
+
+    if (newProductId === null || newProductId === 'empty') {
+        // Columna vacía
+        column.productId = null;
+        column.rows = 0;
+        column.frames = 0;
+    } else {
+        const product = window.productManager?.getProductById(newProductId);
+        if (!product) return false;
+
+        // Recalcular filas para el nuevo producto
+        const newRows = calculateRowsForColumn(
+            simulatorState.showcaseHeight,
+            product.dimensions.height
+        );
+
+        column.productId = newProductId;
+        column.rows = newRows;
+        column.frames = newRows;
+    }
+
+    // Recalcular totales
+    recalculateTotals();
+
+    // Re-renderizar grid con nuevo scale dinámico
+    renderColumnGrid();
+
+    return true;
+}
+
+/**
+ * Recalcular totales y datos técnicos
+ */
+function recalculateTotals() {
+    let totalFrames = 0;
+    let totalConsumption = 0;
+
+    simulatorState.columns.forEach(column => {
+        if (column.productId && column.frames > 0) {
+            totalFrames += column.frames;
+
+            // Obtener consumo del producto
+            const product = window.productManager?.getProductById(column.productId);
+            if (product && product.specs.consumption) {
+                const watts = parseFloat(product.specs.consumption.replace('W', ''));
+                totalConsumption += watts * column.frames;
+            }
+        }
+    });
+
+    simulatorState.totalActiveFrames = totalFrames;
+    simulatorState.totalConsumption = totalConsumption;
+    simulatorState.recommendedPowerSupply = calculatePowerSupply(totalConsumption);
+
+    // Actualizar UI de datos técnicos
+    updateTechnicalDataDisplay();
+}
+
+/**
+ * Calcular fuente de alimentación recomendada
+ * Aplica margen de seguridad del 20%
+ */
+function calculatePowerSupply(totalWatts) {
+    const withMargin = totalWatts * 1.2; // 20% de margen
+
+    if (withMargin <= 60) return '60W';
+    if (withMargin <= 100) return '100W';
+    if (withMargin <= 150) return '150W';
+    if (withMargin <= 200) return '200W';
+    if (withMargin <= 300) return '300W';
+    return 'Personalizada (>300W)';
+}
+
+/**
+ * Generar desglose de carpetas por tipo
+ */
+function generateFrameBreakdown() {
+    const breakdown = {};
+
+    simulatorState.columns.forEach(column => {
+        if (column.productId && column.frames > 0) {
+            const product = window.productManager?.getProductById(column.productId);
+            if (product) {
+                if (!breakdown[product.name]) {
+                    breakdown[product.name] = 0;
+                }
+                breakdown[product.name] += column.frames;
+            }
+        }
+    });
+
+    return breakdown;
+}
+
+// ========================================
+// Funciones de Renderizado
+// ========================================
+
+/**
+ * Renderizar grid con sistema de columnas
+ */
+function renderColumnGrid() {
     const gridContainer = document.getElementById('showcase-grid');
     if (!gridContainer) return;
 
-    // Limpiar cuadrícula existente
     gridContainer.innerHTML = '';
 
-    // Establecer plantilla de cuadrícula
-    gridContainer.style.gridTemplateColumns = `repeat(${framesHorizontal}, ${frameWidth}px)`;
-    gridContainer.style.gridTemplateRows = `repeat(${framesVertical}, ${frameHeight}px)`;
+    // Configurar grid CSS
+    const totalColumns = simulatorState.columns.length;
+    if (totalColumns === 0) {
+        gridContainer.innerHTML = '<p class="empty-state">Configura el escaparate para ver la vista previa</p>';
+        return;
+    }
 
-    // Crear elementos de carpeta
-    const totalFrames = framesHorizontal * framesVertical;
-    for (let i = 0; i < totalFrames; i++) {
-        const frameItem = document.createElement('div');
-        frameItem.className = 'frame-item';
-        frameItem.style.width = `${frameWidth}px`;
-        frameItem.style.height = `${frameHeight}px`;
-        frameItem.textContent = i + 1;
-        frameItem.dataset.index = i;
+    // Crear contenedor de columnas
+    const gapValueDisplay = document.getElementById('gap-value');
+    const gapPx = gapValueDisplay ? parseInt(gapValueDisplay.textContent) : 8; // Leer del display de botones
 
-        // Añadir evento click para toggle on/off
-        frameItem.addEventListener('click', function () {
-            this.classList.toggle('is-disabled');
-            updateActiveFramesCount();
-        });
+    gridContainer.style.display = 'flex';
+    gridContainer.style.gap = `${gapPx}px`;
+    gridContainer.style.justifyContent = 'center';
 
-        gridContainer.appendChild(frameItem);
+    // Calcular el ancho y alto total del grid en cm (dimensiones reales)
+    let maxRows = 0;
+    let totalWidthCm = 0;
+
+    simulatorState.columns.forEach(column => {
+        if (column.productId && column.rows > 0) {
+            const product = window.productManager?.getProductById(column.productId);
+            if (product) {
+                totalWidthCm += product.dimensions.width;
+                maxRows = Math.max(maxRows, column.rows);
+            }
+        }
+    });
+
+    // Calcular altura total basada en la columna más alta
+    let totalHeightCm = 0;
+    if (maxRows > 0) {
+        // Buscar el primer producto activo para obtener la altura
+        const firstActiveColumn = simulatorState.columns.find(col => col.productId && col.rows > 0);
+        if (firstActiveColumn) {
+            const product = window.productManager?.getProductById(firstActiveColumn.productId);
+            if (product) {
+                totalHeightCm = product.dimensions.height * maxRows;
+            }
+        }
+    }
+
+    // Añadir espaciado entre carpetas al cálculo (en cm)
+    // Usar el valor dinámico de gapPx ya definido
+    const gapsBetweenColumns = totalColumns - 1;
+    const gapsBetweenRows = maxRows - 1;
+
+    // Obtener dimensiones del contenedor 16:9
+    const gridWrapper = document.querySelector('.grid-wrapper');
+    const containerWidth = gridWrapper ? gridWrapper.clientWidth - 40 : 760; // Restar padding (20px cada lado)
+    const containerHeight = gridWrapper ? gridWrapper.clientHeight - 40 : 427.5; // Restar padding
+
+    // Espacio reservado para selectores (desktop) - aproximadamente 35px por selector
+    const isMobile = window.innerWidth < 768;
+    const selectorHeightPx = isMobile ? 0 : 35;
+    const availableHeightForGrid = containerHeight - selectorHeightPx;
+
+    // Calcular espacio disponible restando gaps
+    const availableWidthForFolders = containerWidth - (gapPx * gapsBetweenColumns);
+    const availableHeightForFolders = availableHeightForGrid - (gapPx * gapsBetweenRows);
+
+    // Calcular factor de escala para llenar el contenedor manteniendo proporciones
+    // Usamos el factor limitante (el que da menor escala)
+    const scaleByWidth = availableWidthForFolders / totalWidthCm;
+    const scaleByHeight = availableHeightForFolders / totalHeightCm;
+    const scale = Math.min(scaleByWidth, scaleByHeight, 2.5); // Máximo 2.5x para no hacer carpetas demasiado grandes
+
+
+    simulatorState.columns.forEach((column, colIndex) => {
+        const columnDiv = document.createElement('div');
+        columnDiv.className = 'simulator-column';
+        columnDiv.dataset.columnId = column.id;
+        columnDiv.style.display = 'flex';
+        columnDiv.style.flexDirection = 'column';
+        columnDiv.style.gap = '8px';
+        columnDiv.style.position = 'relative';
+
+        // Selector de columna (desktop) o indicador táctil (mobile)
+        const isMobile = window.innerWidth < 768;
+
+        if (!isMobile) {
+            // Desktop: selector dropdown
+            const selector = createColumnSelector(column);
+            columnDiv.appendChild(selector);
+        } else {
+            // Mobile: hacer columna táctil
+            columnDiv.style.cursor = 'pointer';
+            columnDiv.addEventListener('click', () => openBottomSheet(column.id));
+        }
+
+        // Renderizar carpetas de la columna
+        if (column.productId && column.rows > 0) {
+            const product = window.productManager?.getProductById(column.productId);
+            if (product) {
+                for (let row = 0; row < column.rows; row++) {
+                    const frameItem = document.createElement('div');
+                    frameItem.className = 'frame-item';
+                    // Usar el scale calculado dinámicamente
+                    frameItem.style.width = `${product.dimensions.width * scale}px`;
+                    frameItem.style.height = `${product.dimensions.height * scale}px`;
+
+                    // Aplicar imagen de fondo según orientación
+                    const isVertical = product.dimensions.height > product.dimensions.width;
+                    const imagePath = isVertical
+                        ? 'images/simulador/anuncio_carpeta_led_ledescaparate_a4_a3_vertical_simulador.jpg'
+                        : 'images/simulador/anuncio_carpeta_led_ledescaparate_a4_a3_horizontal_simulador.jpg';
+
+                    frameItem.style.backgroundImage = `url(${imagePath})`;
+
+                    // Usar data attribute para el label
+                    frameItem.setAttribute('data-label', `${colIndex + 1}-${row + 1}`);
+
+                    frameItem.dataset.columnId = column.id;
+                    frameItem.dataset.row = row;
+
+                    columnDiv.appendChild(frameItem);
+                }
+            }
+        } else {
+            // Columna vacía - mostrar placeholder
+            const emptyPlaceholder = document.createElement('div');
+            emptyPlaceholder.className = 'column-empty-placeholder';
+            emptyPlaceholder.textContent = 'Vacío';
+            emptyPlaceholder.style.padding = '20px';
+            emptyPlaceholder.style.opacity = '0.3';
+            columnDiv.appendChild(emptyPlaceholder);
+        }
+
+        gridContainer.appendChild(columnDiv);
+    });
+
+    // Renderizar sistema de suspensión después del grid
+    renderSuspensionSystem(scale);
+}
+
+/**
+ * Renderizar sistema de suspensión (cables)
+ */
+function renderSuspensionSystem(scale) {
+    const gridContainer = document.getElementById('showcase-grid');
+    if (!gridContainer) return;
+
+    // Calcular grosor de cable escalado (mínimo 1px, escala con el tamaño)
+    const cableWidth = Math.max(1, Math.round(scale * 0.5));
+
+    // Distancia fija desde el borde en cm (aproximadamente 1.2cm según imagen de referencia)
+    const edgeDistanceCm = 1.2;
+    const edgeDistancePx = edgeDistanceCm * scale;
+
+    // Aplicar ancho de cable y posiciones a todas las columnas
+    const columnDivs = gridContainer.querySelectorAll('.simulator-column');
+    columnDivs.forEach(columnDiv => {
+        columnDiv.style.setProperty('--cable-width', `${cableWidth}px`);
+
+        // Obtener el ancho real de la primera carpeta
+        const firstFrame = columnDiv.querySelector('.frame-item');
+        if (firstFrame) {
+            const frameWidth = firstFrame.offsetWidth;
+
+            // Calcular offset desde el centro de la carpeta
+            // La mitad del ancho menos la distancia desde el borde
+            const offsetFromCenter = (frameWidth / 2) - edgeDistancePx;
+
+            columnDiv.style.setProperty('--cable-offset-from-center', `${offsetFromCenter}px`);
+        }
+    });
+}
+
+/**
+ * Crear selector de columna (desktop)
+ */
+function createColumnSelector(column) {
+    const container = document.createElement('div');
+    container.className = 'column-selector';
+
+    const select = document.createElement('select');
+    select.className = 'form-select';
+    select.setAttribute('aria-label', `Configurar columna ${column.id + 1}`);
+
+    // Opción actual
+    const currentProduct = column.productId ?
+        window.productManager?.getProductById(column.productId) : null;
+
+    // Opciones disponibles
+    const options = [
+        { value: 'empty', label: '-- Vacío --' },
+        { value: 'led-a4-vertical', label: 'A4 Vertical' },
+        { value: 'led-a4-horizontal', label: 'A4 Horizontal' },
+        { value: 'led-a3-vertical', label: 'A3 Vertical' },
+        { value: 'led-a3-horizontal', label: 'A3 Horizontal' }
+    ];
+
+    options.forEach(opt => {
+        const option = document.createElement('option');
+        option.value = opt.value;
+        option.textContent = opt.label;
+        if (opt.value === column.productId || (opt.value === 'empty' && !column.productId)) {
+            option.selected = true;
+        }
+        select.appendChild(option);
+    });
+
+    select.addEventListener('change', (e) => {
+        const newProductId = e.target.value === 'empty' ? null : e.target.value;
+        updateColumn(column.id, newProductId);
+        renderColumnGrid();
+        updateResultsDisplay();
+        updateMaxRowsControl(); // Actualizar máximo de filas disponibles
+    });
+
+    container.appendChild(select);
+    return container;
+}
+
+/**
+ * Actualizar el control de máximo de filas basado en productos actuales
+ */
+function updateMaxRowsControl() {
+    const rowsIncrease = document.getElementById('rows-increase');
+    if (!rowsIncrease) return;
+
+    // Calcular el máximo de filas posible con los productos actuales
+    let maxPossibleRows = 0;
+
+    simulatorState.columns.forEach(column => {
+        if (column.productId) {
+            const product = window.productManager?.getProductById(column.productId);
+            if (product) {
+                const heightCm = product.dimensions.height;
+                const showcaseHeightCm = simulatorState.showcaseHeight;
+                const possibleRows = Math.floor(showcaseHeightCm / heightCm);
+                maxPossibleRows = Math.max(maxPossibleRows, possibleRows);
+            }
+        }
+    });
+
+    // Si no hay productos, usar el valor guardado o 1
+    if (maxPossibleRows === 0) {
+        maxPossibleRows = parseInt(rowsIncrease.dataset.maxRows) || 1;
+    }
+
+    // Actualizar el data attribute
+    rowsIncrease.dataset.maxRows = maxPossibleRows;
+
+    // Actualizar estado de botones
+    const rowsDisplay = document.getElementById('rows-display');
+    const rowsDecrease = document.getElementById('rows-decrease');
+
+    if (rowsDisplay && rowsDecrease) {
+        const currentRows = parseInt(rowsDisplay.textContent);
+        rowsDecrease.disabled = currentRows <= 1;
+        rowsIncrease.disabled = currentRows >= maxPossibleRows;
     }
 }
 
 /**
- * Update active frames count (excluding disabled ones)
+ * Actualizar visualización de resultados
  */
-function updateActiveFramesCount() {
-    const allFrames = document.querySelectorAll('.frame-item');
-    const activeFrames = document.querySelectorAll('.frame-item:not(.is-disabled)');
-    const activeCount = activeFrames.length;
+function updateResultsDisplay() {
+    // Actualizar visualización del grid
+    const breakdown = generateFrameBreakdown();
+    const breakdownEntries = Object.entries(breakdown);
 
-    // Actualizar el total en la UI
-    const totalElement = document.getElementById('result-total');
-    if (totalElement) {
-        totalElement.textContent = activeCount;
-    }
-
-    // Actualizar el estado del simulador
-    if (simulatorState.totalFrames > 0) {
-        simulatorState.totalFrames = activeCount;
+    // Actualizar nombre del producto en grid preview
+    const gridProductName = document.getElementById('grid-product-name');
+    if (gridProductName) {
+        if (breakdownEntries.length === 1) {
+            gridProductName.textContent = breakdownEntries[0][0];
+        } else if (breakdownEntries.length > 1) {
+            gridProductName.textContent = 'Configuración Mixta';
+        } else {
+            gridProductName.textContent = '-';
+        }
     }
 }
 
+/**
+ * Actualizar visualización de datos técnicos
+ */
+function updateTechnicalDataDisplay() {
+    const techTotal = document.getElementById('tech-total');
+    const techConsumption = document.getElementById('tech-consumption');
+    const techPowerSupply = document.getElementById('tech-power-supply');
+    const techBreakdown = document.getElementById('tech-breakdown');
+
+    if (techTotal) techTotal.textContent = simulatorState.totalActiveFrames;
+    if (techConsumption) techConsumption.textContent = `${simulatorState.totalConsumption.toFixed(1)}W`;
+    if (techPowerSupply) techPowerSupply.textContent = simulatorState.recommendedPowerSupply;
+
+    if (techBreakdown) {
+        const breakdown = generateFrameBreakdown();
+        const breakdownHTML = Object.entries(breakdown)
+            .map(([name, count]) => {
+                const product = window.productManager?.getAllProducts().find(p => p.name === name);
+                const watts = product ? parseFloat(product.specs.consumption.replace('W', '')) : 0;
+                const subtotal = watts * count;
+                return `<p><strong>${name}:</strong> ${count} unidades × ${watts}W = ${subtotal}W</p>`;
+            })
+            .join('');
+        techBreakdown.innerHTML = breakdownHTML || '<p>No hay carpetas configuradas</p>';
+    }
+}
+
+// ========================================
+// Bottom Sheet (Mobile)
+// ========================================
+
+let bottomSheetInstance = null;
 
 /**
- * Update results display
+ * Abrir bottom sheet para seleccionar tipo de carpeta (mobile)
  */
-function updateResults(results, productName) {
-    const resultsContainer = document.getElementById('simulator-results');
-    if (!resultsContainer) return;
+function openBottomSheet(columnId) {
+    const column = simulatorState.columns.find(col => col.id === columnId);
+    if (!column) return;
 
-    // Actualizar valores de resultado
-    document.getElementById('result-horizontal').textContent = results.framesHorizontal;
-    document.getElementById('result-vertical').textContent = results.framesVertical;
-    document.getElementById('result-total').textContent = results.totalFrames;
+    // Crear bottom sheet si no existe
+    if (!bottomSheetInstance) {
+        createBottomSheet();
+    }
 
-    // Actualizar información de cuadrícula
-    document.getElementById('grid-product-name').textContent = productName;
+    // Actualizar contenido
+    const title = bottomSheetInstance.querySelector('.bottom-sheet-title');
+    title.textContent = `Columna ${columnId + 1}`;
 
-    // Mostrar resultados
-    resultsContainer.classList.add('active');
+    // Marcar opción actual
+    const buttons = bottomSheetInstance.querySelectorAll('.bottom-sheet-button');
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.productId === column.productId ||
+            (btn.dataset.productId === 'empty' && !column.productId)) {
+            btn.classList.add('active');
+        }
 
-    // Desplazar a resultados
-    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        // Actualizar evento
+        btn.onclick = () => {
+            const newProductId = btn.dataset.productId === 'empty' ? null : btn.dataset.productId;
+            updateColumn(columnId, newProductId);
+            renderColumnGrid();
+            updateResultsDisplay();
+            closeBottomSheet();
+        };
+    });
+
+    // Mostrar
+    bottomSheetInstance.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+/**
+ * Cerrar bottom sheet
+ */
+function closeBottomSheet() {
+    if (bottomSheetInstance) {
+        bottomSheetInstance.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+/**
+ * Crear estructura del bottom sheet
+ */
+function createBottomSheet() {
+    const sheet = document.createElement('div');
+    sheet.className = 'bottom-sheet';
+    sheet.innerHTML = `
+        <div class="bottom-sheet-overlay"></div>
+        <div class="bottom-sheet-content">
+            <div class="bottom-sheet-header">
+                <h3 class="bottom-sheet-title">Seleccionar Tipo</h3>
+                <button class="bottom-sheet-close" aria-label="Cerrar">✕</button>
+            </div>
+            <div class="bottom-sheet-buttons">
+                <button class="bottom-sheet-button btn btn-secondary" data-product-id="empty">
+                    🚫 Vacío
+                </button>
+                <button class="bottom-sheet-button btn btn-primary" data-product-id="led-a4-vertical">
+                    📄 A4 Vertical
+                </button>
+                <button class="bottom-sheet-button btn btn-primary" data-product-id="led-a4-horizontal">
+                    📄 A4 Horizontal
+                </button>
+                <button class="bottom-sheet-button btn btn-primary" data-product-id="led-a3-vertical">
+                    📋 A3 Vertical
+                </button>
+                <button class="bottom-sheet-button btn btn-primary" data-product-id="led-a3-horizontal">
+                    📋 A3 Horizontal
+                </button>
+            </div>
+        </div>
+    `;
+
+    // Cerrar al hacer clic en overlay o botón cerrar
+    sheet.querySelector('.bottom-sheet-overlay').addEventListener('click', closeBottomSheet);
+    sheet.querySelector('.bottom-sheet-close').addEventListener('click', closeBottomSheet);
+
+    document.body.appendChild(sheet);
+    bottomSheetInstance = sheet;
+}
+
+// ========================================
+// Modo Noche
+// ========================================
+
+/**
+ * Activar/desactivar modo noche
+ */
+function toggleNightMode(enabled) {
+    simulatorState.nightMode.enabled = enabled;
+    const gridWrapper = document.querySelector('.grid-wrapper');
+
+    if (enabled && gridWrapper) {
+        gridWrapper.classList.add('night-mode');
+        updateNightModeBackground();
+    } else if (gridWrapper) {
+        gridWrapper.classList.remove('night-mode');
+    }
+}
+
+/**
+ * Cargar imagen de fondo (client-side)
+ */
+function loadBackgroundImage(file) {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+        simulatorState.nightMode.backgroundImage = e.target.result;
+
+        // Aplicar imagen inmediatamente al grid wrapper
+        const gridWrapper = document.querySelector('.grid-wrapper');
+        if (gridWrapper) {
+            gridWrapper.style.backgroundImage = `url(${e.target.result})`;
+            gridWrapper.style.backgroundSize = 'cover';
+            gridWrapper.style.backgroundPosition = 'center';
+            gridWrapper.style.backgroundRepeat = 'no-repeat';
+        }
+
+        // Mostrar controles de imagen individualmente
+        const zoomItem = document.getElementById('zoom-control-item');
+        const panXItem = document.getElementById('pan-x-control-item');
+        const panYItem = document.getElementById('pan-y-control-item');
+
+        if (zoomItem) zoomItem.style.display = 'block';
+        if (panXItem) panXItem.style.display = 'block';
+        if (panYItem) panYItem.style.display = 'block';
+
+        // Aplicar zoom/pan inicial
+        updateNightModeBackground();
+    };
+
+    reader.readAsDataURL(file);
+}
+
+/**
+ * Restablecer ajustes de imagen a valores por defecto
+ */
+function resetImageAdjustments() {
+    // Restablecer valores en el estado
+    simulatorState.nightMode.zoom = 100;
+    simulatorState.nightMode.panX = 0;
+    simulatorState.nightMode.panY = 0;
+
+    // Actualizar controles
+    const zoomControl = document.getElementById('zoom-control');
+    const panXControl = document.getElementById('pan-x');
+    const panYControl = document.getElementById('pan-y');
+    const columnGapControl = document.getElementById('column-gap');
+
+    if (zoomControl) zoomControl.value = 100;
+    if (panXControl) panXControl.value = 0;
+    if (panYControl) panYControl.value = 0;
+    if (columnGapControl) columnGapControl.value = 8;
+
+    // Actualizar valores mostrados
+    const zoomValue = document.getElementById('zoom-value');
+    const gapValue = document.getElementById('gap-value');
+
+    if (zoomValue) zoomValue.textContent = '100';
+    if (gapValue) gapValue.textContent = '8';
+
+    // Aplicar cambios visuales
+    updateNightModeBackground();
+
+    // Re-renderizar grid con gap por defecto
+    const gridContainer = document.getElementById('showcase-grid');
+    if (gridContainer) {
+        gridContainer.style.gap = '8px';
+    }
+}
+
+/**
+ * Actualizar fondo con zoom y pan
+ */
+function updateNightModeBackground() {
+    const gridWrapper = document.querySelector('.grid-wrapper');
+    if (!gridWrapper || !simulatorState.nightMode.backgroundImage) return;
+
+    const zoom = simulatorState.nightMode.zoom;
+    const panX = simulatorState.nightMode.panX;
+    const panY = simulatorState.nightMode.panY;
+
+    // Aplicar transformaciones
+    gridWrapper.style.backgroundImage = `url(${simulatorState.nightMode.backgroundImage})`;
+    gridWrapper.style.backgroundSize = `${zoom}%`;
+    gridWrapper.style.backgroundPosition = `${50 + panX}% ${50 + panY}%`;
+}
+/**
+ * Actualizar controles de modo noche
+ */
+function updateNightModeControls(type, value) {
+    switch (type) {
+        case 'zoom':
+            simulatorState.nightMode.zoom = parseFloat(value);
+            break;
+        case 'panX':
+            simulatorState.nightMode.panX = parseFloat(value);
+            break;
+        case 'panY':
+            simulatorState.nightMode.panY = parseFloat(value);
+            break;
+    }
+    updateNightModeBackground();
+}
+
+// ========================================
+// Integración Stateless (URL)
+// ========================================
+
+/**
+ * Codificar configuración en URL
+ * Formato: ?cfg=w300h200-c0A4V4-c1A3H3-c2X
+ */
+function encodeConfiguration() {
+    const parts = [
+        `w${simulatorState.showcaseWidth}`,
+        `h${simulatorState.showcaseHeight}`
+    ];
+
+    simulatorState.columns.forEach(col => {
+        if (col.productId) {
+            const shortId = col.productId
+                .replace('led-', '')
+                .replace('-vertical', 'V')
+                .replace('-horizontal', 'H')
+                .replace('a4', 'A4')
+                .replace('a3', 'A3');
+            parts.push(`c${col.id}${shortId}${col.rows}`);
+        } else {
+            parts.push(`c${col.id}X`);
+        }
+    });
+
+    return parts.join('-');
+}
+
+/**
+ * Decodificar configuración desde URL
+ */
+function decodeConfiguration(configString) {
+    const parts = configString.split('-');
+    const config = {
+        showcaseWidth: 0,
+        showcaseHeight: 0,
+        columns: []
+    };
+
+    parts.forEach(part => {
+        if (part.startsWith('w')) {
+            config.showcaseWidth = parseFloat(part.substring(1));
+        } else if (part.startsWith('h')) {
+            config.showcaseHeight = parseFloat(part.substring(1));
+        } else if (part.startsWith('c')) {
+            const match = part.match(/c(\d+)([A-Z0-9]+)(\d+)?/);
+            if (match) {
+                const [, colId, typeCode, rows] = match;
+                let productId = null;
+
+                if (typeCode !== 'X') {
+                    productId = `led-${typeCode.toLowerCase()
+                        .replace('a4v', 'a4-vertical')
+                        .replace('a4h', 'a4-horizontal')
+                        .replace('a3v', 'a3-vertical')
+                        .replace('a3h', 'a3-horizontal')}`;
+                }
+
+                config.columns.push({
+                    id: parseInt(colId),
+                    productId,
+                    rows: rows ? parseInt(rows) : 0
+                });
+            }
+        }
+    });
+
+    return config;
+}
+
+/**
+ * Cargar configuración desde URL si existe
+ */
+function loadConfigurationFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const configString = urlParams.get('cfg');
+
+    if (configString) {
+        try {
+            const config = decodeConfiguration(configString);
+
+            // Rellenar formulario
+            document.getElementById('showcase-width').value = config.showcaseWidth;
+            document.getElementById('showcase-height').value = config.showcaseHeight;
+
+            // Aplicar configuración
+            simulatorState.showcaseWidth = config.showcaseWidth;
+            simulatorState.showcaseHeight = config.showcaseHeight;
+            simulatorState.columns = config.columns.map(col => ({
+                ...col,
+                frames: col.rows
+            }));
+
+            recalculateTotals();
+            renderColumnGrid();
+            updateResultsDisplay();
+
+            // Mostrar resultados
+            const resultsContainer = document.getElementById('simulator-results');
+            if (resultsContainer) {
+                resultsContainer.classList.add('active');
+            }
+
+            return true;
+        } catch (error) {
+            console.error('Error al cargar configuración desde URL:', error);
+        }
+    }
+
+    return false;
 }
 
 // ========================================
@@ -133,18 +843,17 @@ function updateResults(results, productName) {
 // ========================================
 
 /**
- * Handle simulator form submission
+ * Manejar envío del formulario
  */
 function handleSimulatorSubmit(event) {
     event.preventDefault();
 
-    // Obtener valores del formulario
     const showcaseWidth = parseFloat(document.getElementById('showcase-width').value);
     const showcaseHeight = parseFloat(document.getElementById('showcase-height').value);
     const productSelect = document.getElementById('product-selector');
     const selectedOption = productSelect.options[productSelect.selectedIndex];
 
-    // Validar entradas
+    // Validaciones
     if (!showcaseWidth || showcaseWidth <= 0) {
         alert('Por favor, introduce un ancho válido para el escaparate');
         return;
@@ -160,101 +869,149 @@ function handleSimulatorSubmit(event) {
         return;
     }
 
-    // Obtener dimensiones del producto
-    const frameWidth = parseFloat(selectedOption.dataset.width);
-    const frameHeight = parseFloat(selectedOption.dataset.height);
     const productId = selectedOption.value;
-    const productName = selectedOption.textContent;
+    const product = window.productManager?.getProductById(productId);
 
-    // Comprobar si el escaparate es suficientemente grande
-    if (showcaseWidth < (frameWidth + PERIMETER_MARGIN * 2) || showcaseHeight < (frameHeight + PERIMETER_MARGIN * 2)) {
-        alert(`El escaparate es demasiado pequeño para este modelo. Necesitas al menos ${frameWidth + PERIMETER_MARGIN * 2}cm de ancho y ${frameHeight + PERIMETER_MARGIN * 2}cm de alto (incluyendo márgenes de 15cm).`);
+    if (!product) {
+        alert('Error al cargar datos del producto');
         return;
     }
 
-    // Calcular carpetas
-    const results = calculateFrames(showcaseWidth, showcaseHeight, frameWidth, frameHeight);
+    // Verificar tamaño mínimo
+    if (showcaseWidth < (product.dimensions.width + PERIMETER_MARGIN * 2) ||
+        showcaseHeight < (product.dimensions.height + PERIMETER_MARGIN * 2)) {
+        alert(`El escaparate es demasiado pequeño para este modelo. Necesitas al menos ${product.dimensions.width + PERIMETER_MARGIN * 2}cm de ancho y ${product.dimensions.height + PERIMETER_MARGIN * 2}cm de alto (incluyendo márgenes de 15cm).`);
+        return;
+    }
+
+    // Inicializar configuración automática
+    const autoConfig = initializeAutoConfiguration(showcaseWidth, showcaseHeight, productId);
+
+    if (!autoConfig) {
+        alert('Error al calcular la configuración');
+        return;
+    }
 
     // Actualizar estado
-    simulatorState = {
-        showcaseWidth,
-        showcaseHeight,
-        selectedProduct: {
-            id: productId,
-            name: productName,
-            width: frameWidth,
-            height: frameHeight
-        },
-        ...results
-    };
+    simulatorState.showcaseWidth = showcaseWidth;
+    simulatorState.showcaseHeight = showcaseHeight;
+    simulatorState.columns = autoConfig.columns;
 
-    // Renderizar vista previa de cuadrícula (escalar para visualización)
-    const scale = Math.min(600 / (results.usableWidth), 400 / (results.usableHeight), 3);
-    renderGridPreview(
-        results.framesHorizontal,
-        results.framesVertical,
-        frameWidth * scale,
-        frameHeight * scale
-    );
+    recalculateTotals();
+    renderColumnGrid();
+    updateResultsDisplay();
 
-    // Actualizar visualización de resultados
-    updateResults(results, productName);
+    // Configurar control de filas con botones
+    const rowsDisplay = document.getElementById('rows-display');
+    const rowsDecrease = document.getElementById('rows-decrease');
+    const rowsIncrease = document.getElementById('rows-increase');
+
+    if (rowsDisplay && rowsDecrease && rowsIncrease && autoConfig.columns.length > 0) {
+        const maxRows = autoConfig.columns[0].rows;
+
+        // Guardar el máximo en un data attribute para usarlo después
+        rowsIncrease.dataset.maxRows = maxRows;
+
+        // Mostrar valor actual
+        rowsDisplay.textContent = maxRows;
+
+        // Habilitar botones
+        rowsDecrease.disabled = maxRows <= 1;
+        rowsIncrease.disabled = false; // Empieza en el máximo, no se puede aumentar más
+    }
+
+    // Mostrar resultados
+    const resultsContainer = document.getElementById('simulator-results');
+    if (resultsContainer) {
+        resultsContainer.classList.add('active');
+
+        // Re-renderizar después de que el contenedor tenga sus dimensiones finales
+        // El aspect-ratio CSS necesita un frame para calcular dimensiones correctas
+        setTimeout(() => {
+            renderColumnGrid();
+        }, 50);
+        resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
 }
 
 /**
- * Send simulator data to quote form
+ * Enviar a formulario de presupuesto
  */
 function sendToQuoteForm() {
-    if (simulatorState.totalFrames === 0) {
+    if (simulatorState.totalActiveFrames === 0) {
         alert('Por favor, calcula primero la configuración del escaparate');
         return;
     }
 
-    // Almacenar datos del simulador en localStorage
+    // Obtener el producto más común para el nombre
+    const breakdown = generateFrameBreakdown();
+    const breakdownEntries = Object.entries(breakdown);
+    const productName = breakdownEntries.length > 0 ? breakdownEntries[0][0] : 'Configuración Mixta';
+
+    // Obtener el primer producto con ID para compatibilidad
+    const firstActiveColumn = simulatorState.columns.find(col => col.productId);
+    const productId = firstActiveColumn ? firstActiveColumn.productId : '';
+
+    // Almacenar datos del simulador en localStorage (método original)
     localStorage.setItem('simulatorData', JSON.stringify({
         showcaseWidth: simulatorState.showcaseWidth,
         showcaseHeight: simulatorState.showcaseHeight,
-        productId: simulatorState.selectedProduct.id,
-        productName: simulatorState.selectedProduct.name,
-        quantity: simulatorState.totalFrames,
-        framesHorizontal: simulatorState.framesHorizontal,
-        framesVertical: simulatorState.framesVertical
+        productId: productId,
+        productName: productName,
+        quantity: simulatorState.totalActiveFrames,
+        framesHorizontal: simulatorState.columns.length,
+        framesVertical: simulatorState.columns.length > 0 ? simulatorState.columns[0].rows : 0
     }));
 
+    // También generar URL con configuración para compartir (opcional)
+    const configString = encodeConfiguration();
+
     // Redirigir al formulario de presupuesto
+    // Usar solo localStorage, no URL, para mantener compatibilidad con presupuesto.html
     window.location.href = 'presupuesto.html';
 }
 
 /**
- * Reset simulator
+ * Resetear simulador
  */
 function resetSimulator() {
-    // Reiniciar formulario
     document.getElementById('simulator-form').reset();
 
-    // Reiniciar estado
     simulatorState = {
         showcaseWidth: 0,
         showcaseHeight: 0,
-        selectedProduct: null,
-        framesHorizontal: 0,
-        framesVertical: 0,
-        totalFrames: 0,
-        usableWidth: 0,
-        usableHeight: 0
+        columns: [],
+        totalActiveFrames: 0,
+        totalConsumption: 0,
+        recommendedPowerSupply: '',
+        nightMode: {
+            enabled: false,
+            backgroundImage: null,
+            zoom: 100,
+            panX: 0,
+            panY: 0
+        }
     };
 
-    // Ocultar resultados
     const resultsContainer = document.getElementById('simulator-results');
     if (resultsContainer) {
         resultsContainer.classList.remove('active');
     }
+
+    const gridContainer = document.getElementById('showcase-grid');
+    if (gridContainer) {
+        gridContainer.innerHTML = '';
+    }
 }
 
 // ========================================
-// Inicializar
+// Inicialización
 // ========================================
 document.addEventListener('DOMContentLoaded', function () {
+    // Cargar configuración desde URL si existe
+    const loadedFromURL = loadConfigurationFromURL();
+
+    // Event listeners del formulario
     const simulatorForm = document.getElementById('simulator-form');
     if (simulatorForm) {
         simulatorForm.addEventListener('submit', handleSimulatorSubmit);
@@ -269,12 +1026,215 @@ document.addEventListener('DOMContentLoaded', function () {
     if (resetButton) {
         resetButton.addEventListener('click', resetSimulator);
     }
+
+    // Event listener para subir imagen de fondo
+    const backgroundUpload = document.getElementById('background-upload');
+    if (backgroundUpload) {
+        backgroundUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                loadBackgroundImage(file);
+            }
+        });
+    }
+
+    // Event listener para toggle de modo noche (ahora es un botón)
+    const nightModeToggleBtn = document.getElementById('night-mode-toggle-btn');
+    if (nightModeToggleBtn) {
+        nightModeToggleBtn.addEventListener('click', () => {
+            const isActive = nightModeToggleBtn.classList.contains('active');
+            const newState = !isActive;
+
+            // Actualizar botón
+            nightModeToggleBtn.classList.toggle('active');
+            nightModeToggleBtn.setAttribute('aria-pressed', newState);
+
+            if (newState) {
+                nightModeToggleBtn.innerHTML = 'Modo día';
+            } else {
+                nightModeToggleBtn.innerHTML = 'Modo noche';
+            }
+
+            // Activar/desactivar modo noche (overlay oscuro)
+            toggleNightMode(newState);
+        });
+    }
+
+    const zoomControl = document.getElementById('zoom-control');
+    if (zoomControl) {
+        zoomControl.addEventListener('input', (e) => {
+            updateNightModeControls('zoom', e.target.value);
+            // Actualizar valor mostrado
+            const zoomValue = document.getElementById('zoom-value');
+            if (zoomValue) {
+                zoomValue.textContent = e.target.value;
+            }
+        });
+    }
+
+    const panXControl = document.getElementById('pan-x');
+    if (panXControl) {
+        panXControl.addEventListener('input', (e) => {
+            updateNightModeControls('panX', e.target.value);
+        });
+    }
+
+    const panYControl = document.getElementById('pan-y');
+    if (panYControl) {
+        panYControl.addEventListener('input', (e) => {
+            updateNightModeControls('panY', e.target.value);
+        });
+    }
+
+    // Event listeners para botones de control de separación (gap)
+    const gapDisplay = document.getElementById('gap-value');
+    const gapDecrease = document.getElementById('gap-decrease');
+    const gapIncrease = document.getElementById('gap-increase');
+
+    if (gapDecrease && gapIncrease && gapDisplay) {
+        let gapInterval = null;
+        let gapTimeout = null;
+
+        // Función para disminuir separación
+        const decreaseGap = () => {
+            const currentGap = parseInt(gapDisplay.textContent);
+            const minGap = 8;
+            if (currentGap > minGap) {
+                const newGap = currentGap - 1;
+                gapDisplay.textContent = newGap;
+                renderColumnGrid();
+            }
+        };
+
+        // Función para aumentar separación
+        const increaseGap = () => {
+            const currentGap = parseInt(gapDisplay.textContent);
+            const maxGap = 40;
+            if (currentGap < maxGap) {
+                const newGap = currentGap + 1;
+                gapDisplay.textContent = newGap;
+                renderColumnGrid();
+            }
+        };
+
+        // Detener repetición
+        const stopGapRepeat = () => {
+            if (gapTimeout) clearTimeout(gapTimeout);
+            if (gapInterval) clearInterval(gapInterval);
+            gapTimeout = null;
+            gapInterval = null;
+        };
+
+        // Botón para disminuir separación
+        gapDecrease.addEventListener('click', decreaseGap);
+        gapDecrease.addEventListener('mousedown', () => {
+            gapTimeout = setTimeout(() => {
+                gapInterval = setInterval(decreaseGap, 100);
+            }, 500);
+        });
+        gapDecrease.addEventListener('mouseup', stopGapRepeat);
+        gapDecrease.addEventListener('mouseleave', stopGapRepeat);
+
+        // Botón para aumentar separación
+        gapIncrease.addEventListener('click', increaseGap);
+        gapIncrease.addEventListener('mousedown', () => {
+            gapTimeout = setTimeout(() => {
+                gapInterval = setInterval(increaseGap, 100);
+            }, 500);
+        });
+        gapIncrease.addEventListener('mouseup', stopGapRepeat);
+        gapIncrease.addEventListener('mouseleave', stopGapRepeat);
+    }
+
+
+
+    // Event listeners para botones de control de filas
+    const rowsDisplay = document.getElementById('rows-display');
+    const rowsDecrease = document.getElementById('rows-decrease');
+    const rowsIncrease = document.getElementById('rows-increase');
+
+    if (rowsDecrease && rowsIncrease && rowsDisplay) {
+        // Botón para disminuir filas
+        rowsDecrease.addEventListener('click', () => {
+            const currentRows = parseInt(rowsDisplay.textContent);
+            if (currentRows > 1) {
+                const newRows = currentRows - 1;
+
+                // Actualizar display
+                rowsDisplay.textContent = newRows;
+
+                // Actualizar columnas
+                simulatorState.columns.forEach(column => {
+                    if (column.productId && column.productId !== 'empty') {
+                        column.rows = newRows;
+                    }
+                });
+
+                // Actualizar estado de botones
+                rowsDecrease.disabled = newRows <= 1;
+                rowsIncrease.disabled = false;
+
+                // Recalcular y re-renderizar
+                recalculateTotals();
+                renderColumnGrid();
+                updateResultsDisplay();
+            }
+        });
+
+        // Botón para aumentar filas
+        rowsIncrease.addEventListener('click', () => {
+            const currentRows = parseInt(rowsDisplay.textContent);
+            const maxRows = parseInt(rowsIncrease.dataset.maxRows || 1);
+
+            if (currentRows < maxRows) {
+                const newRows = currentRows + 1;
+
+                // Actualizar display
+                rowsDisplay.textContent = newRows;
+
+                // Actualizar columnas
+                simulatorState.columns.forEach(column => {
+                    if (column.productId && column.productId !== 'empty') {
+                        column.rows = newRows;
+                    }
+                });
+
+                // Actualizar estado de botones
+                rowsDecrease.disabled = false;
+                rowsIncrease.disabled = newRows >= maxRows;
+
+                // Recalcular y re-renderizar
+                recalculateTotals();
+                renderColumnGrid();
+                updateResultsDisplay();
+            }
+        });
+    }
+
+    // Event listener para botón de restablecer ajustes
+    const resetBtn = document.getElementById('reset-adjustments');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetImageAdjustments);
+    }
+
+    // Responsive: recrear grid al cambiar tamaño de ventana
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            if (simulatorState.columns.length > 0) {
+                renderColumnGrid();
+            }
+        }, 250);
+    });
 });
 
 // Exportar funciones para uso global
 window.simulator = {
-    calculateFrames,
+    getState: () => simulatorState,
+    updateColumn,
     sendToQuoteForm,
     resetSimulator,
-    getState: () => simulatorState
+    encodeConfiguration,
+    decodeConfiguration
 };
