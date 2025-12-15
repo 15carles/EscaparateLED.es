@@ -307,14 +307,17 @@ p {
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: white;
   color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  border: 2px solid white;
+  box-shadow: var(--shadow-md);
 }
 
 .btn-secondary:hover {
   background-color: var(--color-primary);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-white {
