@@ -516,11 +516,14 @@
 }
 
 .image-controls-compact {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: var(--spacing-sm);
-    padding-top: var(--spacing-sm);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* 5 controles: zoom, pan-x, pan-y, gap, filas */
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--border-radius);
+    margin-top: 8px;
 }
 
 .control-item-with-reset {

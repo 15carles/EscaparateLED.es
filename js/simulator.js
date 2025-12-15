@@ -885,6 +885,24 @@ function handleSimulatorSubmit(event) {
     renderColumnGrid();
     updateResultsDisplay();
 
+    // Configurar control de filas con el máximo calculado
+    const rowsControl = document.getElementById('rows-control');
+    const rowsValueSpan = document.getElementById('rows-value');
+    const rowsMaxSpan = document.getElementById('rows-max');
+
+    if (rowsControl && autoConfig.columns.length > 0) {
+        const maxRows = autoConfig.columns[0].rows;
+
+        // Configurar el slider
+        rowsControl.max = maxRows;
+        rowsControl.value = maxRows;
+        rowsControl.disabled = false;
+
+        // Actualizar displays
+        if (rowsValueSpan) rowsValueSpan.textContent = maxRows;
+        if (rowsMaxSpan) rowsMaxSpan.textContent = maxRows;
+    }
+
     // Mostrar resultados
     const resultsContainer = document.getElementById('simulator-results');
     if (resultsContainer) {
@@ -1064,6 +1082,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Re-renderizar para aplicar nuevo gap y recalcular scale
             renderColumnGrid();
+        });
+    }
+
+    // Event listener para control de filas
+    const rowsControl = document.getElementById('rows-control');
+    if (rowsControl) {
+        rowsControl.addEventListener('input', (e) => {
+            const newRowCount = parseInt(e.target.value);
+
+            // Actualizar valor mostrado
+            const rowsValueSpan = document.getElementById('rows-value');
+            if (rowsValueSpan) {
+                rowsValueSpan.textContent = newRowCount;
+            }
+
+            // Actualizar número de filas en todas las columnas que tienen producto
+            simulatorState.columns.forEach(column => {
+                if (column.productId && column.productId !== 'empty') {
+                    column.rows = newRowCount;
+                }
+            });
+
+            // Recalcular totales y re-renderizar
+            recalculateTotals();
+            renderColumnGrid();
+            updateResultsDisplay();
         });
     }
 
