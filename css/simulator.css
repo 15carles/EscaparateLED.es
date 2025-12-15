@@ -532,12 +532,12 @@
 /* Fila 2: Sliders de ajuste */
 .controls-sliders-row {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    /* Máximo 5 sliders */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    /* Auto-ajuste simétrico */
     gap: 8px;
-    /* Reducido */
     padding-top: 0;
-    /* Sin padding superior */
+    justify-items: center;
+    /* Centrar items */
 }
 
 /* Ocultar controles de imagen cuando no hay imagen */
