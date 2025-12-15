@@ -35,10 +35,10 @@
     align-items: center;
     justify-content: center;
     padding: var(--spacing-sm);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 102, 255);
+    border: 1px solid rgba(255, 255, 255, );
     border-radius: var(--border-radius);
-    color: var(--color-text-light);
+    color: white;
     font-size: var(--font-size-sm);
     font-weight: 500;
     text-decoration: none;
@@ -47,8 +47,8 @@
 }
 
 .calculator-nav-btn:hover {
-    background: rgba(74, 144, 226, 0.15);
-    border-color: rgba(74, 144, 226, 0.3);
+    background: rgba(0, 82, 204);
+    border-color: rgba(0, 102, 255, 0.3);
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -651,6 +651,112 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE STYLES
+   ======================================== */
+
+/* Tablet y móvil grande (hasta 768px) */
+@media (max-width: 768px) {
+    .controls-group {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        gap: var(--spacing-md);
+    }
+
+    /* Reorganizar en 2 columnas */
+    .control-item:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    /* Separación */
+    .control-item:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    /* Filas */
+    .control-item:nth-child(3) {
+        grid-column: 1 / 3;
+        grid-row: 2;
+    }
+
+    /* Modo noche - ancho completo */
+    .control-item:nth-child(4) {
+        grid-column: 1 / 3;
+        grid-row: 3;
+    }
+
+    /* Subir foto - ancho completo */
+    .control-item:nth-child(5) {
+        grid-column: 1 / 3;
+        grid-row: 4;
+    }
+
+    /* Restablecer - ancho completo */
+}
+
+/* Móvil pequeño (hasta 480px) */
+@media (max-width: 480px) {
+    .unified-controls-section {
+        padding: var(--spacing-xs);
+    }
+
+    .controls-group {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-xs);
+    }
+
+    /* Todo en 1 columna vertical */
+    .control-item:nth-child(1),
+    .control-item:nth-child(2),
+    .control-item:nth-child(3),
+    .control-item:nth-child(4),
+    .control-item:nth-child(5) {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    /* Aumentar altura mínima para mejor touch */
+    .control-item {
+        min-height: 60px;
+        gap: 8px;
+    }
+
+    /* Botones más grandes para touch */
+    .night-mode-toggle-btn,
+    .reset-btn-centered {
+        height: 48px;
+        font-size: 1rem;
+        padding: 12px var(--spacing-sm);
+    }
+
+    .form-input-compact {
+        height: 48px;
+        font-size: 1rem;
+        padding: 12px var(--spacing-sm);
+    }
+
+    /* Labels más grandes */
+    .control-label {
+        font-size: 0.9rem;
+    }
+
+    /* Botones de filas más grandes */
+    .rows-btn {
+        min-width: 44px;
+        min-height: 44px;
+        font-size: 1.2rem;
+    }
+
+    .rows-display {
+        font-size: 1.1rem;
+        min-width: 50px;
+    }
 }
 
 /* Alinear items de fila 2 por el bottom */
