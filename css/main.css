@@ -1138,7 +1138,7 @@ p {
   .hero .btn-secondary {
     background-color: white;
     color: var(--color-primary);
-    border: 2px solid white;
+    border: none;
   }
 
   /* Reducir altura de botones en hero para móvil */
