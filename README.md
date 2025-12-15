@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website Oficial
 
-![Version](https://img.shields.io/badge/version-2.14.0-blue)
+![Version](https://img.shields.io/badge/version-2.15.0-blue)
 ![Status](https://img.shields.io/badge/status-production-success)
 ![Mobile](https://img.shields.io/badge/mobile-optimized-green)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -642,6 +642,52 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 ---
 
 ## 📝 Changelog
+
+### Versión 2.15.0 (Diciembre 2024)
+
+#### Añadido
+- ✅ **Optimización Completa UX Móvil**
+  * Padding global reducido: container 24px → 12px en móvil
+  * Espaciado vertical optimizado: 48px → 40px en móvil
+  * Hero section con altura automática para mejor adaptación
+  * Grids optimizados: 2 columnas en tablets, 1 columna en móviles
+  * Padding navegación reducido: 24px → 16px en móvil
+- ✅ **Productos Homepage Optimizados**
+  * 2 productos destacados en móvil (vs 3 en desktop)
+  * Especificaciones compactas en móvil (solo Medidas y Consumo)
+  * Mejor uso del espacio horizontal en pantallas pequeñas
+- ✅ **Botones Hero Mejorados**
+  * Botón secundario con colores invertidos (fondo blanco, texto azul)
+  * Hover: fondo azul, texto blanco (sin borde)
+  * Layout horizontal en todas las pantallas (desktop y móvil)
+  * Botones simétricos con altura idéntica
+  * Padding reducido en móvil: 0.5rem vertical
+  * Ancho completo con max-width para mejor balance visual
+- ✅ **H1 Hero Optimizado**
+  * Centrado con text-align: center
+  * Ancho específico 1100px en desktop (2 líneas)
+  * Responsive en móvil con márgenes automáticos
+  * Resto del contenido mantiene 700px de ancho
+- ✅ **Botones Simulador Optimizados**
+  * Texto centrado en botones de navegación (Cómo funciona, Ejemplos, FAQ)
+  * Padding reducido: 0.5rem vertical para ahorrar espacio
+  * Mejor uso del espacio vertical en móvil
+
+#### Modificado
+- 🔄 Eliminado `text-align: justify` de `simulador.html` (19 instancias)
+  * Secciones afectadas: "Cómo usar el simulador" (5), "Ventajas" (6), "FAQ" (8)
+  * Mejora significativa de legibilidad en móvil
+  * Espaciado uniforme entre palabras
+- 🔄 Todos los botones ahora tienen `text-align: center` garantizado
+- 🔄 Layout consistente de botones hero en todas las pantallas
+
+#### Corregido
+- 🐛 H1 cortado en móvil por márgenes negativos
+- 🐛 Botones hero con alturas asimétricas (borde de 2px)
+- 🐛 Espacios irregulares en textos justificados
+- 🐛 Desperdicio de espacio vertical en móvil
+
+---
 
 ### Versión 2.14.0 (Diciembre 2024)
 

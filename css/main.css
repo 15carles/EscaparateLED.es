@@ -307,14 +307,17 @@ p {
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: white;
   color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  border: none;
+  box-shadow: var(--shadow-md);
 }
 
 .btn-secondary:hover {
   background-color: var(--color-primary);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-white {
@@ -380,6 +383,19 @@ p {
   color: white;
   margin-bottom: var(--spacing-md);
   animation: fadeInUp 0.8s ease-out;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Desktop only: wider h1 for 2-line display */
+@media (min-width: 769px) {
+  .hero h1 {
+    width: 1100px;
+    max-width: 1100px;
+    margin-left: calc((700px - 1100px) / 2);
+    margin-right: calc((700px - 1100px) / 2);
+  }
 }
 
 .hero h2 {
@@ -399,6 +415,16 @@ p {
 
 .hero-cta {
   animation: fadeInUp 0.8s ease-out 0.6s backwards;
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-md);
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-cta .btn {
+  flex: 1;
+  max-width: 300px;
 }
 
 /* ========================================
@@ -705,6 +731,26 @@ p {
   padding: var(--spacing-md);
   border-radius: var(--border-radius);
   margin-bottom: var(--spacing-md);
+}
+
+/* Form row for side-by-side fields */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .form-row {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .blog-content table {
@@ -1035,9 +1081,9 @@ p {
     --font-size-5xl: 2rem;
     --font-size-4xl: 1.75rem;
     --font-size-3xl: 1.5rem;
-    --spacing-2xl: 3rem;
-    --spacing-3xl: 3rem;
-    --container-padding: 1rem;
+    --spacing-2xl: 2.5rem;
+    --spacing-3xl: 2.5rem;
+    --container-padding: 0.75rem;
   }
 
   .nav-menu {
@@ -1076,15 +1122,38 @@ p {
   }
 
   .hero {
-    min-height: 400px;
+    min-height: auto;
+    padding: var(--spacing-xl) 0;
+  }
+
+  /* Mejorar espaciado de botones en hero para móvil */
+  .hero-cta {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-md);
+    /* 24px de separación entre botones */
+  }
+
+  /* Botón secundario con fondo sólido en móvil (sin hover) */
+  .hero .btn-secondary {
+    background-color: white;
+    color: var(--color-primary);
+    border: none;
+  }
+
+  /* Reducir altura de botones en hero para móvil */
+  .hero-cta .btn {
+    padding: 0.5rem 1rem;
   }
 
   .benefits-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--spacing-md);
   }
 
   .products-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--spacing-md);
   }
 
   .footer-content {
@@ -1096,6 +1165,12 @@ p {
   .btn-large {
     padding: var(--spacing-sm) var(--spacing-lg);
     font-size: var(--font-size-base);
+  }
+
+  /* Forzar 1 columna en móviles muy pequeños */
+  .benefits-grid,
+  .products-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1348,13 +1423,13 @@ p {
 
   /* Añadir padding horizontal al nav para evitar que el logo toque el borde */
   .nav {
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-sm);
   }
 
   /* Asegurar que el container también tenga padding horizontal */
   .container {
-    padding-left: var(--spacing-md);
-    padding-right: var(--spacing-md);
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
   }
 
   /* Logo más pequeño en móvil para mejor ajuste */
@@ -1423,8 +1498,8 @@ p {
 /* Responsivo: 2 columnas en tablets */
 @media (max-width: 768px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
   }
 
   .gallery-caption {
@@ -1433,10 +1508,32 @@ p {
   }
 }
 
-/* Responsivo: 1 columna en móviles */
+/* Responsivo: 2 columnas fijas en móviles */
 @media (max-width: 480px) {
   .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+/* ========================================
+   Blog Grid
+   ======================================== */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .blog-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
   }
 }

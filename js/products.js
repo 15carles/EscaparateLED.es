@@ -167,15 +167,23 @@ function renderProductGallery(product) {
 
 /**
  * Render a single product card
+ * @param {Object} product - Product object
+ * @param {boolean} compact - If true, show only essential specs (for mobile)
  */
-function renderProductCard(product) {
-    return `
-    <div class="product-card" data-product-id="${product.id}">
-      ${renderProductGallery(product)}
-      <div class="product-content">
-        <h3 class="product-title">${product.name}</h3>
-        <p class="product-description">${product.description}</p>
-        
+function renderProductCard(product, compact = false) {
+    // En modo compacto (móvil), solo mostrar medidas y consumo
+    const specsHTML = compact ? `
+        <ul class="product-specs">
+          <li>
+            <span class="spec-label">Medidas:</span>
+            <span class="spec-value">${product.dimensions.width} x ${product.dimensions.height} cm</span>
+          </li>
+          <li>
+            <span class="spec-label">Consumo:</span>
+            <span class="spec-value">${product.specs.consumption}</span>
+          </li>
+        </ul>
+    ` : `
         <ul class="product-specs">
           <li>
             <span class="spec-label">Medidas:</span>
@@ -202,6 +210,16 @@ function renderProductCard(product) {
             <span class="spec-value">${product.usage}</span>
           </li>
         </ul>
+    `;
+
+    return `
+    <div class="product-card" data-product-id="${product.id}">
+      ${renderProductGallery(product)}
+      <div class="product-content">
+        <h3 class="product-title">${product.name}</h3>
+        <p class="product-description">${product.description}</p>
+        
+        ${specsHTML}
         
         <button class="btn btn-primary btn-block" onclick="addToQuote('${product.id}')">
           Incluir en presupuesto
@@ -213,6 +231,8 @@ function renderProductCard(product) {
 
 /**
  * Render all products in a grid
+ * @param {string} containerId - ID of the container element
+ * @param {boolean} filterFeatured - If true, only show featured products
  */
 function renderProductGrid(containerId, filterFeatured = false) {
     const container = document.getElementById(containerId);
@@ -221,9 +241,19 @@ function renderProductGrid(containerId, filterFeatured = false) {
     let products = productCatalog;
     if (filterFeatured) {
         products = products.filter(p => p.featured);
+
+        // En móvil, limitar a 2 productos destacados (desktop muestra los 3)
+        if (window.innerWidth <= 768) {
+            products = products.slice(0, 2);
+        }
+        // Desktop: muestra todos los productos featured (3)
     }
 
-    container.innerHTML = products.map(product => renderProductCard(product)).join('');
+    // Determinar si usar modo compacto (móvil)
+    const isMobile = window.innerWidth <= 768;
+    const useCompact = isMobile && filterFeatured;
+
+    container.innerHTML = products.map(product => renderProductCard(product, useCompact)).join('');
 }
 
 /**
