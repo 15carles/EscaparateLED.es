@@ -1096,6 +1096,11 @@ p {
   color: var(--color-secondary);
 }
 
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 /* Visualmente oculto pero accesible para lectores de pantalla */
 .visually-hidden {
   position: absolute;
