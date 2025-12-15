@@ -309,7 +309,7 @@ p {
 .btn-secondary {
   background-color: white;
   color: var(--color-primary);
-  border: 2px solid white;
+  border: none;
   box-shadow: var(--shadow-md);
 }
 
@@ -402,6 +402,15 @@ p {
 
 .hero-cta {
   animation: fadeInUp 0.8s ease-out 0.6s backwards;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.hero-cta .btn {
+  width: 100%;
+  max-width: 400px;
 }
 
 /* ========================================
