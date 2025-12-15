@@ -1141,6 +1141,11 @@ p {
     border: 2px solid white;
   }
 
+  /* Reducir altura de botones en hero para móvil */
+  .hero-cta .btn {
+    padding: 0.5rem 1rem;
+  }
+
   .benefits-grid {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: var(--spacing-md);
