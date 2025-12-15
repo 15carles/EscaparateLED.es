@@ -204,7 +204,37 @@
                 </div>
 
 
-                <!-- Modo Noche - Visualización con Fondo Personalizado (Compacto) -->
+                <!-- SECCIÓN 1: CONTROLES DEL SIMULADOR (ARRIBA) -->
+                <div class="simulator-controls-section">
+                    <div class="section-header">
+                        <h3 class="section-subtitle-compact">⚙️ Controles del Simulador</h3>
+                    </div>
+
+                    <div class="controls-sliders-row">
+                        <!-- Separación entre columnas -->
+                        <div class="control-item">
+                            <label for="column-gap" class="compact-label">
+                                ↔️ Separación <span id="gap-value">8</span>px
+                            </label>
+                            <input type="range" id="column-gap" class="form-range-compact" min="8" max="40" value="8"
+                                aria-label="Ajustar separación entre columnas">
+                        </div>
+
+                        <!-- Control de filas -->
+                        <div class="control-item rows-control-wrapper">
+                            <label class="compact-label">📊 Filas</label>
+                            <div class="rows-control-buttons">
+                                <button type="button" id="rows-decrease" class="rows-btn" disabled
+                                    aria-label="Reducir filas">−</button>
+                                <span id="rows-display" class="rows-display">1</span>
+                                <button type="button" id="rows-increase" class="rows-btn" disabled
+                                    aria-label="Aumentar filas">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN 2: CONTROLES DE IMAGEN (ABAJO) -->
                 <div class="night-mode-section-compact">
                     <div class="night-mode-header">
                         <h3 class="section-subtitle-compact">📸 Añade una foto de tu escaparate</h3>
@@ -237,29 +267,8 @@
                             </div>
                         </div>
 
-                        <!-- Fila 2: Sliders de ajuste -->
+                        <!-- Fila 2: Sliders de imagen (ocultos por defecto) -->
                         <div class="controls-sliders-row">
-                            <!-- Controles del simulador (siempre visibles) -->
-                            <div class="control-item">
-                                <label for="column-gap" class="compact-label">
-                                    ↔️ Separación <span id="gap-value">8</span>px
-                                </label>
-                                <input type="range" id="column-gap" class="form-range-compact" min="8" max="40"
-                                    value="8" aria-label="Ajustar separación entre columnas">
-                            </div>
-
-                            <div class="control-item rows-control-wrapper">
-                                <label class="compact-label">📊 Filas</label>
-                                <div class="rows-control-buttons">
-                                    <button type="button" id="rows-decrease" class="rows-btn" disabled
-                                        aria-label="Reducir filas">−</button>
-                                    <span id="rows-display" class="rows-display">1</span>
-                                    <button type="button" id="rows-increase" class="rows-btn" disabled
-                                        aria-label="Aumentar filas">+</button>
-                                </div>
-                            </div>
-
-                            <!-- Controles de imagen (ocultos por defecto, aparecen al subir imagen) -->
                             <div class="control-item image-control" id="zoom-control-item" style="display: none;">
                                 <label for="zoom-control" class="compact-label">
                                     🔍 <span id="zoom-value">100</span>%
