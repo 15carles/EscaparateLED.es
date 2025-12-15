@@ -403,14 +403,15 @@ p {
 .hero-cta {
   animation: fadeInUp 0.8s ease-out 0.6s backwards;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: var(--spacing-md);
   align-items: center;
+  justify-content: center;
 }
 
 .hero-cta .btn {
-  width: 100%;
-  max-width: 400px;
+  flex: 1;
+  max-width: 300px;
 }
 
 /* ========================================
