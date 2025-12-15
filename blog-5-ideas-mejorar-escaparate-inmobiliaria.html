@@ -195,23 +195,18 @@
 
     <!-- Cabecera del Post -->
     <section class="section section-alt">
-        <div class="container" style="max-width: 900px;">
-            <div style="color: var(--color-text-light); margin-bottom: var(--spacing-sm);">
+        <div class="container container-sm">
+            <div class="blog-meta-date">
                 <span>📅 10 Diciembre 2025</span> • <span>⏱️ 7 min lectura</span>
             </div>
 
             <h1>5 Estrategias para que tu Escaparate Inmobiliario Venda Solo (Guía 2025)</h1>
 
-            <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-md);">
-                <span
-                    style="background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: var(--font-size-sm);">Guía
-                    Práctica</span>
-                <span
-                    style="background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: var(--font-size-sm);">Escaparates</span>
-                <span
-                    style="background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: var(--font-size-sm);">Inmobiliarias</span>
-                <span
-                    style="background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: var(--font-size-sm);">2025</span>
+            <div class="blog-tags-container">
+                <span class="blog-tag">Guía Práctica</span>
+                <span class="blog-tag">Escaparates</span>
+                <span class="blog-tag">Inmobiliarias</span>
+                <span class="blog-tag">2025</span>
             </div>
         </div>
     </section>
@@ -219,16 +214,14 @@
     <!-- Article Content -->
     <main>
         <article class="section">
-            <div class="container" style="max-width: 800px;">
+            <div class="container container-sm">
 
                 <!-- Imagen destacada del post -->
-                <div
-                    style="width: 100%; height: 400px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: var(--border-radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-size: var(--font-size-4xl); margin-bottom: var(--spacing-xl);">
+                <div class="blog-featured-image">
                     🏆
                 </div>
 
-                <div class="blog-content"
-                    style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md);">
+                <div class="blog-content blog-content-box">
 
                     <h2>La Iluminación es Autoridad</h2>
                     <p>
@@ -350,23 +343,19 @@
                     </p>
 
                     <!-- Tarjeta de Configuración Ganadora -->
-                    <div
-                        style="background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 82, 204, 0.05)); border: 2px solid var(--color-primary); border-radius: var(--border-radius-lg); padding: var(--spacing-xl); margin-top: var(--spacing-2xl); text-align: center;">
-                        <h3
-                            style="color: var(--color-primary); margin-bottom: var(--spacing-md); font-size: var(--font-size-2xl);">
+                    <div class="promo-card">
+                        <h3>
                             🏆 Pack Superventas Inmobiliaria
                         </h3>
-                        <p
-                            style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-md); color: var(--color-text);">
+                        <p class="text-lg mb-4 text-center">
                             <strong>Configuración ganadora:</strong> 12 Carpetas LED A4 (distribución 3x4)
                         </p>
-                        <ul
-                            style="list-style: none; padding: 0; margin-bottom: var(--spacing-lg); text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;">
-                            <li style="padding: var(--spacing-xs) 0;">✅ Iluminación 6000K profesional</li>
-                            <li style="padding: var(--spacing-xs) 0;">✅ PMMA Óptico sin amarilleamiento</li>
-                            <li style="padding: var(--spacing-xs) 0;">✅ Cierre magnético para cambios rápidos</li>
-                            <li style="padding: var(--spacing-xs) 0;">✅ Consumo: solo 40W (2€/mes)</li>
-                            <li style="padding: var(--spacing-xs) 0;">✅ Garantía 3 años</li>
+                        <ul class="promo-list">
+                            <li>✅ Iluminación 6000K profesional</li>
+                            <li>✅ PMMA Óptico sin amarilleamiento</li>
+                            <li>✅ Cierre magnético para cambios rápidos</li>
+                            <li>✅ Consumo: solo 40W (2€/mes)</li>
+                            <li>✅ Garantía 3 años</li>
                         </ul>
                         <a href="presupuesto.html" id="pack-superventas-btn" class="btn btn-primary btn-large"
                             style="color: white;" onclick="localStorage.setItem('packQuantity', '12');">
@@ -375,13 +364,11 @@
                     </div>
 
                     <!-- CTA Final -->
-                    <section
-                        style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); color: white; padding: var(--spacing-2xl); border-radius: var(--border-radius-lg); text-align: center; margin-top: var(--spacing-xl);">
-                        <h2 style="color: white; margin-bottom: var(--spacing-md);">
+                    <section class="cta-box mt-5">
+                        <h2 class="text-white mb-3">
                             ¿Listo para transformar tu escaparate?
                         </h2>
-                        <p
-                            style="color: var(--color-light-gray); font-size: var(--font-size-lg); margin-bottom: var(--spacing-xl); opacity: 0.95;">
+                        <p class="text-lg mb-5" style="color: rgba(255,255,255,0.9);">
                             Solicita un presupuesto personalizado del Pack Superventas o diseña tu configuración ideal.
                         </p>
                         <a href="presupuesto.html" class="btn btn-white btn-large">
@@ -390,15 +377,12 @@
                     </section>
 
                     <!-- Navegación entre artículos -->
-                    <nav
-                        style="border-top: 1px solid var(--color-border); padding-top: var(--spacing-xl); margin-top: var(--spacing-xl);">
-                        <div
-                            style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-md);">
-                            <a href="blog.html" style="color: var(--color-primary); font-weight: 600;">
+                    <nav class="blog-post-nav">
+                        <div class="blog-post-nav-container">
+                            <a href="blog.html" class="blog-back-link">
                                 ← Volver al Blog
                             </a>
-                            <a href="blog-mejores-sistemas-iluminacion-2025.html"
-                                style="color: var(--color-primary); font-weight: 600;">
+                            <a href="blog-mejores-sistemas-iluminacion-2025.html" class="blog-back-link">
                                 Siguiente artículo: Mejores Sistemas 2025 →
                             </a>
                         </div>
@@ -417,24 +401,22 @@
                 </p>
 
                 <div style="display: grid; gap: 1.5rem;">
-                    <div
-                        style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
-                        <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; font-size: 1.1rem;">
+                    <div class="faq-card">
+                        <h3>
                             ¿Qué potencia (Watios) consume un escaparate medio?
                         </h3>
-                        <p class="mb-0" style="color: var(--color-text);">
+                        <p class="mb-0">
                             Un sistema medio de 12 carpetas LED consume apenas <strong>40-50W</strong> gracias a la
                             eficiencia energética A++. Esto equivale a menos de 2€ al mes en electricidad (8h/día),
                             comparado con 40-60€ de sistemas tradicionales con focos halógenos.
                         </p>
                     </div>
 
-                    <div
-                        style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
-                        <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; font-size: 1.1rem;">
+                    <div class="faq-card">
+                        <h3>
                             ¿Puedo instalarlo yo mismo?
                         </h3>
-                        <p class="mb-0" style="color: var(--color-text);">
+                        <p class="mb-0">
                             Sí, el sistema de tensores electrificados es <strong>modular y sencillo</strong>. Incluye
                             instrucciones paso a paso y soporte técnico por videollamada. Si estás en Valencia,
                             ofrecemos instalación profesional completa. Para el resto de España, enviamos kits
@@ -442,12 +424,11 @@
                         </p>
                     </div>
 
-                    <div
-                        style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
-                        <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; font-size: 1.1rem;">
+                    <div class="faq-card">
+                        <h3>
                             ¿Qué papel necesito para las carpetas LED?
                         </h3>
-                        <p class="mb-0" style="color: var(--color-text);">
+                        <p class="mb-0">
                             Necesitas <strong>papel Backlit</strong> (retroiluminable) de gramaje 120-150g/m². Este
                             papel está diseñado específicamente para maximizar el brillo y la difusión de la luz LED,
                             garantizando que tus ofertas se vean nítidas y profesionales tanto de día como de noche.
@@ -455,10 +436,9 @@
                     </div>
                 </div>
 
-                <div
-                    style="background: white; padding: 2rem; border-radius: var(--border-radius-lg); margin-top: 2rem; text-align: center; box-shadow: var(--shadow-md);">
+                <div class="faq-footer-box">
                     <h3 style="color: var(--color-primary); margin-bottom: 1rem;">¿Tienes más dudas?</h3>
-                    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">
+                    <p class="text-light mb-4">
                         Nuestro equipo está aquí para ayudarte a diseñar el escaparate LED perfecto para tu
                         inmobiliaria.
                     </p>
@@ -517,6 +497,7 @@
     </footer>
 
     <!-- Widget flotante de WhatsApp -->
+    <!-- (Estilos movidos a main.css) -->
     <aside role="complementary" aria-label="Contacto rápido por WhatsApp" class="whatsapp-widget">
         <a href="https://wa.me/34626612141?text=Hola,%20estoy%20viendo%20la%20web%20y%20tengo%20una%20duda%20sobre%20las%20carpetas%20LED."
             target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp - ¿Te ayudamos?">
@@ -524,60 +505,6 @@
             <span class="whatsapp-text">¿Te ayudamos?</span>
         </a>
     </aside>
-
-    <style>
-        /* Widget de WhatsApp flotante */
-        .whatsapp-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999;
-        }
-
-        .whatsapp-widget a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background-color: #f0fdf4;
-            color: #166534;
-            padding: 14px 24px;
-            border: 1px solid #bbf7d0;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-widget a:hover {
-            background-color: #dcfce7;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-            color: #166534;
-        }
-
-        .whatsapp-icon {
-            font-size: 24px;
-        }
-
-        @media (max-width: 768px) {
-            .whatsapp-widget a {
-                width: 50px;
-                height: 50px;
-                padding: 0;
-                justify-content: center;
-                border-radius: 50%;
-            }
-
-            .whatsapp-text {
-                display: none;
-            }
-
-            .whatsapp-icon {
-                font-size: 26px;
-            }
-        }
-    </style>
 
     <script src="js/main.js"></script>
 </body>

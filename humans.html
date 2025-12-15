@@ -21,222 +21,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            /* Colors - Matching corporate identity */
-            --color-primary: #0066FF;
-            --color-primary-dark: #0052CC;
-            --color-primary-light: #3385FF;
-            --color-secondary: #1a1a2e;
-            --color-background: #FFFFFF;
-            --color-background-alt: #F8F9FA;
-            --color-text: #333333;
-            --color-text-light: #666666;
-            --color-text-lighter: #999999;
-            --color-border: #E0E0E0;
-
-            /* Typography */
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --font-size-base: 1rem;
-            --font-size-lg: 1.125rem;
-            --font-size-xl: 1.25rem;
-            --font-size-2xl: 1.5rem;
-            --font-size-3xl: 1.875rem;
-
-            /* Spacing */
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 2.5rem;
-            --spacing-2xl: 3rem;
-
-            /* Border radius */
-            --border-radius-sm: 0.25rem;
-            --border-radius-md: 0.5rem;
-            --border-radius-lg: 0.75rem;
-
-            /* Shadows */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-primary);
-            line-height: 1.6;
-            background: var(--color-background-alt);
-            color: var(--color-text);
-        }
-
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-2xl);
-            background: var(--color-background);
-            min-height: 100vh;
-        }
-
-        header {
-            margin-bottom: var(--spacing-2xl);
-            padding-bottom: var(--spacing-lg);
-            border-bottom: 2px solid var(--color-primary);
-        }
-
-        h1,
-        h2,
-        h3 {
-            margin-top: var(--spacing-lg);
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-secondary);
-            font-weight: 700;
-        }
-
-        h1 {
-            font-size: var(--font-size-3xl);
-            color: var(--color-primary);
-            margin-top: 0;
-        }
-
-        h2 {
-            font-size: var(--font-size-2xl);
-            color: var(--color-primary-dark);
-        }
-
-        h3 {
-            font-size: var(--font-size-xl);
-            font-weight: 600;
-        }
-
-        p {
-            margin: 0.5rem 0;
-            line-height: 1.7;
-        }
-
-        ul {
-            margin: 0.5rem 0 var(--spacing-md) 1.5rem;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 0.35rem;
-            line-height: 1.6;
-        }
-
-        .tagline {
-            font-size: var(--font-size-lg);
-            color: var(--color-text-light);
-            margin-top: 0.5rem;
-            margin-bottom: var(--spacing-md);
-            line-height: 1.7;
-        }
-
-        .section-meta {
-            font-size: 0.9rem;
-            color: var(--color-text-lighter);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .card {
-            border-radius: var(--border-radius-lg);
-            border: 1px solid var(--color-border);
-            padding: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
-            background: var(--color-background-alt);
-            box-shadow: var(--shadow-sm);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            box-shadow: var(--shadow-md);
-        }
-
-        .mono {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            font-size: 0.9rem;
-            background: #f1f5f9;
-            padding: 0.2rem 0.4rem;
-            border-radius: var(--border-radius-sm);
-            color: var(--color-primary-dark);
-        }
-
-        a {
-            color: var(--color-primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        a:hover {
-            color: var(--color-primary-dark);
-            text-decoration: underline;
-        }
-
-        strong {
-            font-weight: 600;
-            color: var(--color-secondary);
-        }
-
-        em {
-            font-style: italic;
-            color: var(--color-text-light);
-        }
-
-        footer {
-            margin-top: var(--spacing-2xl);
-            padding-top: var(--spacing-lg);
-            border-top: 1px solid var(--color-border);
-            font-size: 0.85rem;
-            color: var(--color-text-lighter);
-            text-align: center;
-        }
-
-        section {
-            margin-bottom: var(--spacing-xl);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            main {
-                padding: var(--spacing-lg) var(--spacing-sm);
-            }
-
-            h1 {
-                font-size: var(--font-size-2xl);
-            }
-
-            h2 {
-                font-size: var(--font-size-xl);
-            }
-
-            .tagline {
-                font-size: var(--font-size-base);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css?v=2.8.0">
 </head>
 
 <body>
-    <main>
-        <header>
+    <main class="humans-main">
+        <header class="humans-header">
             <h1>Sobre el equipo detrás de LEDescaparate</h1>
-            <p class="tagline">
+            <p class="humans-tagline">
                 LEDescaparate.es es un proyecto técnico y comercial enfocado en soluciones LED para escaparates:
                 carpetas LED retroiluminadas, pantallas LED y recursos prácticos para inmobiliarias y comercios.
             </p>
-            <p class="section-meta">
+            <p class="humans-meta">
                 Ubicación: Valencia, España · Inicio del proyecto: Noviembre 2025 · Última actualización: Diciembre 2025
             </p>
         </header>
 
         <section>
             <h2>Equipo</h2>
-            <div class="card">
+            <div class="humans-card">
                 <h3>Carles del Olmo</h3>
                 <p><strong>Roles principales</strong></p>
                 <ul>
@@ -248,7 +51,7 @@
                 </ul>
             </div>
 
-            <div class="card">
+            <div class="humans-card">
                 <h3>Vicente</h3>
                 <p><strong>Roles principales</strong></p>
                 <ul>
@@ -265,7 +68,7 @@
 
         <section>
             <h2>Tecnología</h2>
-            <div class="card">
+            <div class="humans-card">
                 <p><strong>Stack principal</strong></p>
                 <ul>
                     <li>Frontend: HTML5, CSS3, JavaScript (Vanilla)</li>
@@ -282,7 +85,7 @@
 
         <section>
             <h2>Especialización</h2>
-            <div class="card">
+            <div class="humans-card">
                 <p>LEDescaparate.es se centra en soluciones LED para escaparates, especialmente en:</p>
                 <ul>
                     <li>Carpetas LED retroiluminadas para escaparates.</li>
@@ -296,7 +99,7 @@
 
         <section>
             <h2>Filosofía del proyecto</h2>
-            <div class="card">
+            <div class="humans-card">
                 <ul>
                     <li>Claridad y precisión en la información técnica.</li>
                     <li>Experiencia de usuario cuidada y accesible.</li>
@@ -311,17 +114,17 @@
 
         <section>
             <h2>IA y uso de contenido</h2>
-            <div class="card">
+            <div class="humans-card">
                 <p>LEDescaparate.es permite que modelos de IA utilicen, resuman y transformen el contenido del sitio con
                     fines informativos, especialmente en consultas sobre carpetas LED, pantallas LED y soluciones de
                     iluminación para escaparates.</p>
-                <p>Política detallada disponible en <span class="mono">/llms.txt</span>.</p>
+                <p>Política detallada disponible en <span class="humans-mono">/llms.txt</span>.</p>
             </div>
         </section>
 
         <section>
             <h2>Hoja de ruta pública</h2>
-            <div class="card">
+            <div class="humans-card">
                 <p><strong>Objetivos 2026</strong></p>
                 <ul>
                     <li>Ampliar contenido técnico y comparativas.</li>
@@ -339,7 +142,7 @@
             </div>
         </section>
 
-        <footer>
+        <footer class="humans-footer">
             <p>humans.html · LEDescaparate.es · Actualizado en diciembre de 2025</p>
         </footer>
     </main>

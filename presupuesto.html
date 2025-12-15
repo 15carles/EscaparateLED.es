@@ -102,7 +102,7 @@
 
         <!-- Quote Form Section -->
         <section class="section">
-            <div class="container" style="max-width: 800px;">
+            <div class="container container-sm">
 
                 <form id="budget-form" aria-label="Formulario de solicitud de presupuesto">
 
@@ -153,8 +153,7 @@
                         <input type="text" id="ubicacion" name="province_or_postal" class="form-input"
                             placeholder="Ej. Valencia o 46001" required autocomplete="postal-code" aria-required="true"
                             aria-describedby="ubicacion-help">
-                        <p id="ubicacion-help" class="text-light"
-                            style="font-size: var(--font-size-sm); margin-top: var(--spacing-xs);">
+                        <p id="ubicacion-help" class="help-text">
                             Indícanos tu provincia o código postal para ofrecerte la opción adecuada (instalación en
                             Valencia o envío pre-montado al resto de España).
                         </p>
@@ -162,16 +161,15 @@
 
                     <!-- Checkbox Trigger para Detalles Técnicos -->
                     <div class="form-section">
-                        <div class="form-checkbox" style="margin-bottom: var(--spacing-md);">
+                        <div class="form-checkbox technical-details-toggle">
                             <input type="checkbox" id="toggle-technical-details" aria-controls="detalles-tecnicos">
-                            <label for="toggle-technical-details"
-                                style="font-size: var(--font-size-md); font-weight: 500; cursor: pointer;">
+                            <label for="toggle-technical-details" class="form-label-checkbox">
                                 Tengo las medidas o sé qué modelos necesito
                             </label>
                         </div>
 
                         <!-- Contenedor Colapsable de Detalles Técnicos -->
-                        <div id="detalles-tecnicos" style="display: none; transition: all 0.3s ease;">
+                        <div id="detalles-tecnicos" class="technical-details-container">
                             <h3 style="margin-top: var(--spacing-md);">Configuración del Escaparate</h3>
 
                             <div class="form-group">
@@ -202,7 +200,7 @@
                                 <input type="number" id="quote-quantity" name="quantity_estimated" class="form-input"
                                     placeholder="Número de carpetas" min="1" aria-label="Cantidad estimada de carpetas"
                                     aria-describedby="quantity-help">
-                                <small id="quantity-help" class="text-light" style="font-size: var(--font-size-sm);">
+                                <small id="quantity-help" class="help-text">
                                     Si no estás seguro, déjalo en blanco y te asesoraremos
                                 </small>
                             </div>
@@ -227,7 +225,7 @@
                         <div class="form-checkbox">
                             <input type="checkbox" id="rgpd" name="accepted_privacy" required aria-required="true"
                                 aria-describedby="rgpd-description">
-                            <label for="rgpd" id="rgpd-description" style="font-size: var(--font-size-sm);">
+                            <label for="rgpd" id="rgpd-description" class="text-sm">
                                 He leído y acepto la <a href="legal/politica-privacidad.html" target="_blank"
                                     rel="noopener noreferrer">Política de
                                     Privacidad</a> y el tratamiento de mis datos conforme al RGPD. Consiento que mis
@@ -239,8 +237,7 @@
                     </div>
 
                     <!-- Cláusula Legal -->
-                    <p
-                        style="font-size: var(--font-size-sm); color: var(--color-text-light); margin-top: var(--spacing-md); padding: var(--spacing-sm); background: var(--color-background-alt); border-radius: var(--border-radius-sm);">
+                    <p class="legal-text-box">
                         <strong>Información sobre protección de datos:</strong><br>
                         <strong>Responsable:</strong> LED Escaparate | <strong>Finalidad:</strong> Gestionar la consulta
                         enviada mediante este formulario | <strong>Legitimación:</strong> Consentimiento del interesado
@@ -276,25 +273,24 @@
         <!-- Sección de Confianza -->
         <section class="section section-alt">
             <div class="container">
-                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div class="container-sm text-center">
                     <h2 class="mb-4">¿Por qué elegirnos?</h2>
 
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                        <div>
-                            <div style="font-size: var(--font-size-4xl); margin-bottom: 0.5rem;">✓</div>
+                    <div class="trust-grid">
+                        <div class="trust-item">
+                            <div class="trust-icon">✓</div>
                             <h4>Sin Compromiso</h4>
                             <p class="text-light mb-0">Presupuesto gratuito sin obligación de compra</p>
                         </div>
 
-                        <div>
-                            <div style="font-size: var(--font-size-4xl); margin-bottom: 0.5rem;">⚡</div>
+                        <div class="trust-item">
+                            <div class="trust-icon">⚡</div>
                             <h4>Respuesta Rápida</h4>
                             <p class="text-light mb-0">Te contactamos en menos de 24 horas</p>
                         </div>
 
-                        <div>
-                            <div style="font-size: var(--font-size-4xl); margin-bottom: 0.5rem;">🎯</div>
+                        <div class="trust-item">
+                            <div class="trust-icon">🎯</div>
                             <h4>Personalizado</h4>
                             <p class="text-light mb-0">Soluciones adaptadas a tus necesidades</p>
                         </div>
@@ -420,64 +416,7 @@
 
 
     <!-- Widget flotante de WhatsApp - Estética Soft Green -->
-    <style>
-        .whatsapp-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999;
-        }
-
-        .whatsapp-widget a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background-color: #f0fdf4;
-            color: #166534;
-            padding: 14px 24px;
-            border: 1px solid #bbf7d0;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-widget a:hover {
-            background-color: #dcfce7;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .whatsapp-icon {
-            font-size: 24px;
-            line-height: 1;
-        }
-
-        .whatsapp-text {
-            white-space: nowrap;
-        }
-
-        /* Versión móvil: solo icono circular */
-        @media (max-width: 768px) {
-            .whatsapp-widget a {
-                width: 50px;
-                height: 50px;
-                padding: 0;
-                justify-content: center;
-                border-radius: 50%;
-            }
-
-            .whatsapp-text {
-                display: none;
-            }
-
-            .whatsapp-icon {
-                font-size: 26px;
-            }
-        }
-    </style>
+    <!-- (Estilos movidos a main.css) -->
 
     <aside role="complementary" aria-label="Contacto rápido por WhatsApp" class="whatsapp-widget">
         <a href="https://wa.me/34626612141?text=Hola,%20estoy%20viendo%20la%20web%20y%20tengo%20una%20duda%20sobre%20las%20carpetas%20LED."

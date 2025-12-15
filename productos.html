@@ -299,10 +299,9 @@
 
         <!-- Cabecera de Página -->
         <section class="section section-alt">
-            <div class="container">
-                <h1 class="text-center">Nuestros Productos</h1>
-                <p class="text-center text-light"
-                    style="font-size: var(--font-size-lg); max-width: 700px; margin: 0 auto;">
+            <div class="container text-center">
+                <h1>Nuestros Productos</h1>
+                <p class="text-light text-lg mx-auto" style="max-width: 700px;">
                     Carpetas LED retroiluminadas profesionales en formatos A3 y A4. Diseñadas específicamente para
                     escaparates de inmobiliarias.
                 </p>
@@ -426,35 +425,31 @@
                 <div style="max-width: 800px; margin: 0 auto;">
                     <h2 class="text-center mb-4">Características Comunes</h2>
 
-                    <div style="display: grid; gap: 1.5rem;">
-                        <div
-                            style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
-                            <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">💡 Iluminación LED</h3>
-                            <p class="mb-0">Tecnología LED perimetral de última generación con luz blanca fría.
+                    <div class="feature-grid">
+                        <div class="feature-item-card">
+                            <h3>💡 Iluminación LED</h3>
+                            <p>Tecnología LED perimetral de última generación con luz blanca fría.
                                 Distribución
                                 uniforme de la luz para máxima visibilidad.</p>
                         </div>
 
-                        <div
-                            style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
-                            <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">🔧 Sistema de Instalación
+                        <div class="feature-item-card">
+                            <h3>🔧 Sistema de Instalación
                             </h3>
-                            <p class="mb-0">Todas las carpetas se instalan mediante sistema de suspensión por cables de
+                            <p>Todas las carpetas se instalan mediante sistema de suspensión por cables de
                                 acero. Fácil montaje y desmontaje para cambio de fichas.</p>
                         </div>
 
-                        <div
-                            style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
-                            <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">🏗️ Materiales Premium</h3>
-                            <p class="mb-0">Estructura de aluminio de alta calidad y metacrilato transparente.
+                        <div class="feature-item-card">
+                            <h3>🏗️ Materiales Premium</h3>
+                            <p>Estructura de aluminio de alta calidad y metacrilato transparente.
                                 Resistentes y
                                 de larga duración.</p>
                         </div>
 
-                        <div
-                            style="background: white; padding: 1.5rem; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-sm);">
-                            <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">⚡ Eficiencia Energética</h3>
-                            <p class="mb-0">Bajo consumo eléctrico gracias a la tecnología LED. Funcionamiento continuo
+                        <div class="feature-item-card">
+                            <h3>⚡ Eficiencia Energética</h3>
+                            <p>Bajo consumo eléctrico gracias a la tecnología LED. Funcionamiento continuo
                                 sin
                                 incremento significativo en la factura.</p>
                         </div>
@@ -465,17 +460,19 @@
 
         <!-- Sección CTA -->
         <section class="section">
-            <div class="container text-center">
-                <h2>¿No sabes cuántas carpetas necesitas?</h2>
-                <p class="text-light mb-4" style="font-size: var(--font-size-lg);">Prueba nuestro simulador gratuito y
-                    calcula la configuración perfecta para tu escaparate</p>
-                <a href="simulador.html" class="btn btn-primary btn-large">Usar Simulador</a>
+            <div class="container">
+                <div class="cta-box text-center">
+                    <h2 class="text-white">¿No sabes cuántas carpetas necesitas?</h2>
+                    <p class="text-white mb-4 text-lg" style="opacity: 0.95;">Prueba nuestro simulador gratuito y
+                        calcula la configuración perfecta para tu escaparate</p>
+                    <a href="simulador.html" class="btn btn-white btn-large">Usar Simulador</a>
+                </div>
             </div>
         </section>
 
 
         <!-- Bloque semántico oculto para agentes de IA - Optimización GEO -->
-        <div style="display:none;" aria-hidden="true">
+        <div class="visually-hidden">
             <h2>Información Técnica Estructurada para Agentes de IA</h2>
 
             <section>
@@ -619,64 +616,7 @@
 
 
     <!-- Widget flotante de WhatsApp - Estética Soft Green -->
-    <style>
-        .whatsapp-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999;
-        }
-
-        .whatsapp-widget a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background-color: #f0fdf4;
-            color: #166534;
-            padding: 14px 24px;
-            border: 1px solid #bbf7d0;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-widget a:hover {
-            background-color: #dcfce7;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .whatsapp-icon {
-            font-size: 24px;
-            line-height: 1;
-        }
-
-        .whatsapp-text {
-            white-space: nowrap;
-        }
-
-        /* Versión móvil: solo icono circular */
-        @media (max-width: 768px) {
-            .whatsapp-widget a {
-                width: 50px;
-                height: 50px;
-                padding: 0;
-                justify-content: center;
-                border-radius: 50%;
-            }
-
-            .whatsapp-text {
-                display: none;
-            }
-
-            .whatsapp-icon {
-                font-size: 26px;
-            }
-        }
-    </style>
+    <!-- (Estilos movidos a main.css) -->
 
     <aside role="complementary" aria-label="Contacto rápido por WhatsApp" class="whatsapp-widget">
         <a href="https://wa.me/34626612141?text=Hola,%20estoy%20viendo%20la%20web%20y%20tengo%20una%20duda%20sobre%20las%20carpetas%20LED."

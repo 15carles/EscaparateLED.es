@@ -188,14 +188,13 @@ IMPORTANTE:
 
     <!-- Article Header -->
     <section class="section section-alt">
-        <div class="container" style="max-width: 800px;">
+        <div class="container container-sm">
             <div style="margin-bottom: var(--spacing-md);">
-                <a href="blog.html" style="color: var(--color-primary); font-weight: 600;">← Volver al blog</a>
+                <a href="blog.html" class="blog-back-link">← Volver al blog</a>
             </div>
 
             <!-- ✏️ EDITAR: Fecha de publicación del post -->
-            <div
-                style="font-size: var(--font-size-sm); color: var(--color-text-light); margin-bottom: var(--spacing-sm);">
+            <div class="blog-meta-date">
                 15 de Noviembre de 2024
             </div>
 
@@ -203,25 +202,20 @@ IMPORTANTE:
             <h1>Cómo mejorar la visibilidad nocturna de tu escaparate inmobiliario</h1>
 
             <!-- ✏️ EDITAR: Tags/Etiquetas del post (2-4 tags recomendados) -->
-            <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-md);">
-                <span
-                    style="background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: var(--font-size-sm);">Escaparates</span>
-                <span
-                    style="background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: var(--font-size-sm);">Iluminación
-                    LED</span>
-                <span
-                    style="background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: var(--font-size-sm);">Inmobiliarias</span>
+            <div class="blog-tags-container">
+                <span class="blog-tag">Escaparates</span>
+                <span class="blog-tag">Iluminación LED</span>
+                <span class="blog-tag">Inmobiliarias</span>
             </div>
         </div>
     </section>
 
     <!-- Article Content -->
     <article class="section">
-        <div class="container" style="max-width: 800px;">
+        <div class="container container-sm">
 
             <!-- ✏️ EDITAR: Imagen destacada del post (puedes cambiar el emoji o usar una imagen real) -->
-            <div
-                style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); border-radius: var(--border-radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-size: var(--font-size-4xl); margin-bottom: var(--spacing-xl);">
+            <div class="blog-featured-image">
                 🌙
             </div>
 
@@ -242,8 +236,7 @@ IMPORTANTE:
             Los estilos se aplicarán automáticamente gracias a la clase .blog-content
             ═══════════════════════════════════════════════════════════════════════════════
             -->
-            <div class="blog-content"
-                style="background: white; padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md);">
+            <div class="blog-content blog-content-box">
 
                 <h2>Introducción</h2>
                 <p>
@@ -337,8 +330,7 @@ IMPORTANTE:
                     la configuración perfecta para tu escaparate.
                 </p>
 
-                <div
-                    style="background: var(--color-background-alt); padding: var(--spacing-lg); border-radius: var(--border-radius); margin-top: var(--spacing-xl); text-align: center;">
+                <div class="blog-cta-box">
                     <h3 style="margin-bottom: var(--spacing-md);">¿Quieres mejorar tu escaparate?</h3>
                     <a href="simulador.html" class="btn btn-primary btn-large"
                         style="color: white; border-bottom: none;">Probar Simulador Gratis</a>
@@ -349,18 +341,15 @@ IMPORTANTE:
             <!-- Posts Relacionados -->
             <div style="margin-top: var(--spacing-2xl);">
                 <h2 class="mb-4">Artículos Relacionados</h2>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg);">
+                <div class="related-posts-grid">
 
-                    <div
-                        style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
-                        <div
-                            style="height: 150px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: var(--font-size-3xl);">
+                    <div class="related-post-card">
+                        <div class="related-post-thumb bg-gradient-purple">
                             ✨
                         </div>
                         <div style="padding: var(--spacing-md);">
                             <h4 style="margin-bottom: var(--spacing-xs);">
-                                <a href="blog-post.html" style="color: var(--color-secondary);">Tendencias en diseño de
+                                <a href="blog-post.html" class="text-secondary">Tendencias en diseño de
                                     escaparates 2024</a>
                             </h4>
                             <a href="blog-post.html" class="btn btn-secondary"
@@ -368,15 +357,13 @@ IMPORTANTE:
                         </div>
                     </div>
 
-                    <div
-                        style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
-                        <div
-                            style="height: 150px; background: linear-gradient(135deg, #f093fb, #f5576c); display: flex; align-items: center; justify-content: center; color: white; font-size: var(--font-size-3xl);">
+                    <div class="related-post-card">
+                        <div class="related-post-thumb bg-gradient-pink">
                             📊
                         </div>
                         <div style="padding: var(--spacing-md);">
                             <h4 style="margin-bottom: var(--spacing-xs);">
-                                <a href="blog-post.html" style="color: var(--color-secondary);">ROI de la iluminación
+                                <a href="blog-post.html" class="text-secondary">ROI de la iluminación
                                     LED</a>
                             </h4>
                             <a href="blog-post.html" class="btn btn-secondary"
