@@ -214,29 +214,33 @@
                     </div>
 
                     <div class="night-mode-controls-compact">
-                        <!-- Fila 1: Upload y Toggle -->
-                        <div class="controls-row">
+                        <!-- Fila 1: Botones de acción -->
+                        <div class="controls-buttons-row">
                             <div class="control-item">
-                                <label for="background-upload" class="compact-label">Subir foto</label>
+                                <label for="background-upload" class="compact-label">📤 Subir foto</label>
                                 <input type="file" id="background-upload" class="form-input-compact" accept="image/*"
                                     aria-label="Subir imagen de fondo del escaparate">
                             </div>
 
-                            <div class="control-item control-item-with-reset">
+                            <div class="control-item">
                                 <button type="button" id="night-mode-toggle-btn" class="night-mode-toggle-btn"
                                     aria-pressed="false" aria-label="Activar modo noche">
                                     🌙 Modo noche
                                 </button>
+                            </div>
+
+                            <div class="control-item">
                                 <button type="button" id="reset-adjustments" class="reset-btn-centered"
-                                    aria-label="Restablecer ajustes" title="Restablecer ajustes">
+                                    aria-label="Restablecer ajustes" title="Restablecer ajustes de imagen">
                                     ↺ Restablecer
                                 </button>
                             </div>
                         </div>
 
-                        <!-- Fila 2: Controles de imagen (ocultos por defecto) -->
-                        <div class="image-controls-compact" id="image-controls-sliders" style="display: none;">
-                            <div class="control-item">
+                        <!-- Fila 2: Sliders de ajuste -->
+                        <div class="controls-sliders-row">
+                            <!-- Controles de imagen (ocultos por defecto, aparecen al subir imagen) -->
+                            <div class="control-item image-control" id="zoom-control-item" style="display: none;">
                                 <label for="zoom-control" class="compact-label">
                                     🔍 <span id="zoom-value">100</span>%
                                 </label>
@@ -244,18 +248,19 @@
                                     value="100" aria-label="Ajustar zoom de la imagen">
                             </div>
 
-                            <div class="control-item">
+                            <div class="control-item image-control" id="pan-x-control-item" style="display: none;">
                                 <label for="pan-x" class="compact-label">↔️ Horizontal</label>
                                 <input type="range" id="pan-x" class="form-range-compact" min="-100" max="100" value="0"
                                     aria-label="Ajustar posición horizontal">
                             </div>
 
-                            <div class="control-item">
+                            <div class="control-item image-control" id="pan-y-control-item" style="display: none;">
                                 <label for="pan-y" class="compact-label">↕️ Vertical</label>
                                 <input type="range" id="pan-y" class="form-range-compact" min="-100" max="100" value="0"
                                     aria-label="Ajustar posición vertical">
                             </div>
 
+                            <!-- Controles del simulador (siempre visibles) -->
                             <div class="control-item">
                                 <label for="column-gap" class="compact-label">
                                     ↔️ Separación <span id="gap-value">8</span>px

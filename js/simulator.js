@@ -623,11 +623,14 @@ function loadBackgroundImage(file) {
             gridWrapper.style.backgroundRepeat = 'no-repeat';
         }
 
-        // Mostrar controles de imagen inmediatamente
-        const imageControlsSliders = document.getElementById('image-controls-sliders');
-        if (imageControlsSliders) {
-            imageControlsSliders.style.display = 'grid';
-        }
+        // Mostrar controles de imagen individualmente
+        const zoomItem = document.getElementById('zoom-control-item');
+        const panXItem = document.getElementById('pan-x-control-item');
+        const panYItem = document.getElementById('pan-y-control-item');
+
+        if (zoomItem) zoomItem.style.display = 'block';
+        if (panXItem) panXItem.style.display = 'block';
+        if (panYItem) panYItem.style.display = 'block';
 
         // Aplicar zoom/pan inicial
         updateNightModeBackground();

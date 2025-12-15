@@ -515,6 +515,30 @@
     margin-bottom: var(--spacing-sm);
 }
 
+/* Fila 1: Botones de acción */
+.controls-buttons-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Fila 2: Sliders de ajuste */
+.controls-sliders-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* Máximo 5 sliders */
+    gap: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+}
+
+/* Ocultar controles de imagen cuando no hay imagen */
+.image-control {
+    transition: opacity 0.3s ease;
+}
+
 .image-controls-compact {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
