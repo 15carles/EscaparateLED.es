@@ -242,10 +242,11 @@ function renderProductGrid(containerId, filterFeatured = false) {
     if (filterFeatured) {
         products = products.filter(p => p.featured);
 
-        // En móvil, limitar a 2 productos destacados
+        // En móvil, limitar a 2 productos destacados (desktop muestra los 3)
         if (window.innerWidth <= 768) {
             products = products.slice(0, 2);
         }
+        // Desktop: muestra todos los productos featured (3)
     }
 
     // Determinar si usar modo compacto (móvil)
