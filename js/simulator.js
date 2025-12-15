@@ -885,22 +885,23 @@ function handleSimulatorSubmit(event) {
     renderColumnGrid();
     updateResultsDisplay();
 
-    // Configurar control de filas con el máximo calculado
-    const rowsControl = document.getElementById('rows-control');
-    const rowsValueSpan = document.getElementById('rows-value');
-    const rowsMaxSpan = document.getElementById('rows-max');
+    // Configurar control de filas con botones
+    const rowsDisplay = document.getElementById('rows-display');
+    const rowsDecrease = document.getElementById('rows-decrease');
+    const rowsIncrease = document.getElementById('rows-increase');
 
-    if (rowsControl && autoConfig.columns.length > 0) {
+    if (rowsDisplay && rowsDecrease && rowsIncrease && autoConfig.columns.length > 0) {
         const maxRows = autoConfig.columns[0].rows;
 
-        // Configurar el slider
-        rowsControl.max = maxRows;
-        rowsControl.value = maxRows;
-        rowsControl.disabled = false;
+        // Guardar el máximo en un data attribute para usarlo después
+        rowsIncrease.dataset.maxRows = maxRows;
 
-        // Actualizar displays
-        if (rowsValueSpan) rowsValueSpan.textContent = maxRows;
-        if (rowsMaxSpan) rowsMaxSpan.textContent = maxRows;
+        // Mostrar valor actual
+        rowsDisplay.textContent = maxRows;
+
+        // Habilitar botones
+        rowsDecrease.disabled = maxRows <= 1;
+        rowsIncrease.disabled = false; // Empieza en el máximo, no se puede aumentar más
     }
 
     // Mostrar resultados
@@ -1080,61 +1081,88 @@ document.addEventListener('DOMContentLoaded', function () {
                 gapValueSpan.textContent = gapValue;
             }
 
-            // Re-renderizar para aplicar nuevo gap y recalcular scale
-            renderColumnGrid();
-        });
-    }
+            if (rowsDecrease && rowsIncrease && rowsDisplay) {
+                // Botón para disminuir filas
+                rowsDecrease.addEventListener('click', () => {
+                    const currentRows = parseInt(rowsDisplay.textContent);
+                    if (currentRows > 1) {
+                        const newRows = currentRows - 1;
 
-    // Event listener para control de filas
-    const rowsControl = document.getElementById('rows-control');
-    if (rowsControl) {
-        rowsControl.addEventListener('input', (e) => {
-            const newRowCount = parseInt(e.target.value);
+                        // Actualizar display
+                        rowsDisplay.textContent = newRows;
 
-            // Actualizar valor mostrado
-            const rowsValueSpan = document.getElementById('rows-value');
-            if (rowsValueSpan) {
-                rowsValueSpan.textContent = newRowCount;
+                        // Actualizar columnas
+                        simulatorState.columns.forEach(column => {
+                            if (column.productId && column.productId !== 'empty') {
+                                column.rows = newRows;
+                            }
+                        });
+
+                        // Actualizar estado de botones
+                        rowsDecrease.disabled = newRows <= 1;
+                        rowsIncrease.disabled = false;
+
+                        // Recalcular y re-renderizar
+                        recalculateTotals();
+                        renderColumnGrid();
+                        updateResultsDisplay();
+                    }
+                });
+
+                // Botón para aumentar filas
+                rowsIncrease.addEventListener('click', () => {
+                    const currentRows = parseInt(rowsDisplay.textContent);
+                    const maxRows = parseInt(rowsIncrease.dataset.maxRows || 1);
+
+                    if (currentRows < maxRows) {
+                        const newRows = currentRows + 1;
+
+                        // Actualizar display
+                        rowsDisplay.textContent = newRows;
+
+                        // Actualizar columnas
+                        simulatorState.columns.forEach(column => {
+                            if (column.productId && column.productId !== 'empty') {
+                                column.rows = newRows;
+                            }
+                        });
+
+                        // Actualizar estado de botones
+                        rowsDecrease.disabled = false;
+                        rowsIncrease.disabled = newRows >= maxRows;
+
+                        // Recalcular y re-renderizar
+                        recalculateTotals();
+                        renderColumnGrid();
+                        updateResultsDisplay();
+                    }
+                });
             }
 
-            // Actualizar número de filas en todas las columnas que tienen producto
-            simulatorState.columns.forEach(column => {
-                if (column.productId && column.productId !== 'empty') {
-                    column.rows = newRowCount;
-                }
+            // Event listener para botón de restablecer ajustes
+            const resetBtn = document.getElementById('reset-adjustments');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', resetImageAdjustments);
+            }
+
+            // Responsive: recrear grid al cambiar tamaño de ventana
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    if (simulatorState.columns.length > 0) {
+                        renderColumnGrid();
+                    }
+                }, 250);
             });
-
-            // Recalcular totales y re-renderizar
-            recalculateTotals();
-            renderColumnGrid();
-            updateResultsDisplay();
         });
-    }
 
-    // Event listener para botón de restablecer ajustes
-    const resetBtn = document.getElementById('reset-adjustments');
-    if (resetBtn) {
-        resetBtn.addEventListener('click', resetImageAdjustments);
-    }
-
-    // Responsive: recrear grid al cambiar tamaño de ventana
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            if (simulatorState.columns.length > 0) {
-                renderColumnGrid();
-            }
-        }, 250);
-    });
-});
-
-// Exportar funciones para uso global
-window.simulator = {
-    getState: () => simulatorState,
-    updateColumn,
-    sendToQuoteForm,
-    resetSimulator,
-    encodeConfiguration,
-    decodeConfiguration
-};
+        // Exportar funciones para uso global
+        window.simulator = {
+            getState: () => simulatorState,
+            updateColumn,
+            sendToQuoteForm,
+            resetSimulator,
+            encodeConfiguration,
+            decodeConfiguration
+        };

@@ -264,12 +264,15 @@
                                     value="8" aria-label="Ajustar separación entre columnas">
                             </div>
 
-                            <div class="control-item">
-                                <label for="rows-control" class="compact-label">
-                                    📊 Filas <span id="rows-value">1</span>/<span id="rows-max">1</span>
-                                </label>
-                                <input type="range" id="rows-control" class="form-range-compact" min="1" max="1"
-                                    value="1" aria-label="Ajustar número de filas" disabled>
+                            <div class="control-item rows-control-wrapper">
+                                <label class="compact-label">📊 Filas</label>
+                                <div class="rows-control-buttons">
+                                    <button type="button" id="rows-decrease" class="rows-btn" disabled
+                                        aria-label="Reducir filas">−</button>
+                                    <span id="rows-display" class="rows-display">1</span>
+                                    <button type="button" id="rows-increase" class="rows-btn" disabled
+                                        aria-label="Aumentar filas">+</button>
+                                </div>
                             </div>
                         </div>
                     </div>
