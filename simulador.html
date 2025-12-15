@@ -216,11 +216,14 @@
                     <!-- Controles del Simulador -->
                     <div class="controls-group">
                         <div class="control-item">
-                            <label for="column-gap" class="control-label">
-                                ↔️ Separación <span id="gap-value">8</span>px
-                            </label>
-                            <input type="range" id="column-gap" class="form-range-compact" min="8" max="40" value="8"
-                                aria-label="Ajustar separación entre columnas">
+                            <label class="control-label">↔️ Separación</label>
+                            <div class="rows-control-buttons">
+                                <button type="button" id="gap-decrease" class="rows-btn"
+                                    aria-label="Reducir separación">−</button>
+                                <span id="gap-value" class="rows-display">8</span>
+                                <button type="button" id="gap-increase" class="rows-btn"
+                                    aria-label="Aumentar separación">+</button>
+                            </div>
                         </div>
 
                         <div class="control-item rows-control-wrapper">

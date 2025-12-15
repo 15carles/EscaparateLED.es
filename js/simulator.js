@@ -1073,21 +1073,35 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    const columnGapControl = document.getElementById('column-gap');
-    if (columnGapControl) {
-        columnGapControl.addEventListener('input', (e) => {
-            const gapValue = e.target.value;
+    // Event listeners para botones de control de separación (gap)
+    const gapDisplay = document.getElementById('gap-value');
+    const gapDecrease = document.getElementById('gap-decrease');
+    const gapIncrease = document.getElementById('gap-increase');
 
-            // Actualizar valor mostrado
-            const gapValueSpan = document.getElementById('gap-value');
-            if (gapValueSpan) {
-                gapValueSpan.textContent = gapValue;
+    if (gapDecrease && gapIncrease && gapDisplay) {
+        // Botón para disminuir separación
+        gapDecrease.addEventListener('click', () => {
+            const currentGap = parseInt(gapDisplay.textContent);
+            const minGap = 8;
+            if (currentGap > minGap) {
+                const newGap = currentGap - 1;
+                gapDisplay.textContent = newGap;
+                renderColumnGrid();
             }
+        });
 
-            // Re-renderizar para aplicar nuevo gap y recalcular scale
-            renderColumnGrid();
+        // Botón para aumentar separación
+        gapIncrease.addEventListener('click', () => {
+            const currentGap = parseInt(gapDisplay.textContent);
+            const maxGap = 40;
+            if (currentGap < maxGap) {
+                const newGap = currentGap + 1;
+                gapDisplay.textContent = newGap;
+                renderColumnGrid();
+            }
         });
     }
+
 
     // Event listeners para botones de control de filas
     const rowsDisplay = document.getElementById('rows-display');
