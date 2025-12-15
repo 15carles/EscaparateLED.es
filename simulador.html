@@ -204,25 +204,27 @@
                 </div>
 
 
-                <!-- SECCIÓN 1: CONTROLES DEL SIMULADOR (ARRIBA) -->
-                <div class="simulator-controls-section">
-                    <div class="section-header">
-                        <h3 class="section-subtitle-compact">⚙️ Controles del Simulador</h3>
+                <!-- SECCIÓN UNIFICADA: CONTROLES Y AJUSTES -->
+                <div class="unified-controls-section">
+                    <div class="controls-header">
+                        <h3 class="controls-title">⚙️ Controles y Ajustes</h3>
+                        <p class="controls-description">
+                            Personaliza tu simulador. <strong>100% privado</strong> - procesado en tu navegador.
+                        </p>
                     </div>
 
-                    <div class="controls-sliders-row">
-                        <!-- Separación entre columnas -->
+                    <!-- Controles del Simulador -->
+                    <div class="controls-group">
                         <div class="control-item">
-                            <label for="column-gap" class="compact-label">
+                            <label for="column-gap" class="control-label">
                                 ↔️ Separación <span id="gap-value">8</span>px
                             </label>
                             <input type="range" id="column-gap" class="form-range-compact" min="8" max="40" value="8"
                                 aria-label="Ajustar separación entre columnas">
                         </div>
 
-                        <!-- Control de filas -->
                         <div class="control-item rows-control-wrapper">
-                            <label class="compact-label">📊 Filas</label>
+                            <label class="control-label">📊 Filas</label>
                             <div class="rows-control-buttons">
                                 <button type="button" id="rows-decrease" class="rows-btn" disabled
                                     aria-label="Reducir filas">−</button>
@@ -232,63 +234,45 @@
                             </div>
                         </div>
 
-                        <!-- Modo noche -->
                         <div class="control-item">
                             <button type="button" id="night-mode-toggle-btn" class="night-mode-toggle-btn"
                                 aria-pressed="false" aria-label="Activar modo noche">
                                 🌙 Modo noche
                             </button>
                         </div>
-                    </div>
-                </div>
 
-                <!-- SECCIÓN 2: CONTROLES DE IMAGEN (ABAJO) -->
-                <div class="night-mode-section-compact">
-                    <div class="night-mode-header">
-                        <h3 class="section-subtitle-compact">📸 Añade una foto de tu escaparate</h3>
-                        <p class="night-mode-description">
-                            Visualiza sobre tu escaparate. <strong>100% privado</strong> - procesado en tu navegador.
-                        </p>
-                    </div>
-
-                    <div class="night-mode-controls-compact">
-                        <!-- Fila 1: Botones de acción -->
-                        <div class="controls-buttons-row">
-                            <div class="control-item">
-                                <label for="background-upload" class="compact-label">📤 Subir foto</label>
-                                <input type="file" id="background-upload" class="form-input-compact" accept="image/*"
-                                    aria-label="Subir imagen de fondo del escaparate">
-                            </div>
-
-                            <div class="control-item">
-                                <button type="button" id="reset-adjustments" class="reset-btn-centered"
-                                    aria-label="Restablecer ajustes" title="Restablecer ajustes de imagen">
-                                    ↺ Restablecer
-                                </button>
-                            </div>
+                        <div class="control-item">
+                            <label for="background-upload" class="control-label">📤 Subir foto</label>
+                            <input type="file" id="background-upload" class="form-input-compact" accept="image/*"
+                                aria-label="Subir imagen de fondo del escaparate">
                         </div>
 
-                        <!-- Fila 2: Sliders de imagen (ocultos por defecto) -->
-                        <div class="controls-sliders-row">
-                            <div class="control-item image-control" id="zoom-control-item" style="display: none;">
-                                <label for="zoom-control" class="compact-label">
-                                    🔍 <span id="zoom-value">100</span>%
-                                </label>
-                                <input type="range" id="zoom-control" class="form-range-compact" min="50" max="200"
-                                    value="100" aria-label="Ajustar zoom de la imagen">
-                            </div>
+                        <div class="control-item">
+                            <button type="button" id="reset-adjustments" class="reset-btn-centered"
+                                aria-label="Restablecer ajustes" title="Restablecer ajustes de imagen">
+                                ↺ Restablecer
+                            </button>
+                        </div>
 
-                            <div class="control-item image-control" id="pan-x-control-item" style="display: none;">
-                                <label for="pan-x" class="compact-label">↔️ Horizontal</label>
-                                <input type="range" id="pan-x" class="form-range-compact" min="-100" max="100" value="0"
-                                    aria-label="Ajustar posición horizontal">
-                            </div>
+                        <!-- Controles de imagen (ocultos por defecto) -->
+                        <div class="control-item image-control" id="zoom-control-item" style="display: none;">
+                            <label for="zoom-control" class="control-label">
+                                🔍 <span id="zoom-value">100</span>%
+                            </label>
+                            <input type="range" id="zoom-control" class="form-range-compact" min="50" max="200"
+                                value="100" aria-label="Ajustar zoom de la imagen">
+                        </div>
 
-                            <div class="control-item image-control" id="pan-y-control-item" style="display: none;">
-                                <label for="pan-y" class="compact-label">↕️ Vertical</label>
-                                <input type="range" id="pan-y" class="form-range-compact" min="-100" max="100" value="0"
-                                    aria-label="Ajustar posición vertical">
-                            </div>
+                        <div class="control-item image-control" id="pan-x-control-item" style="display: none;">
+                            <label for="pan-x" class="control-label">↔️ Horizontal</label>
+                            <input type="range" id="pan-x" class="form-range-compact" min="-100" max="100" value="0"
+                                aria-label="Ajustar posición horizontal">
+                        </div>
+
+                        <div class="control-item image-control" id="pan-y-control-item" style="display: none;">
+                            <label for="pan-y" class="control-label">↕️ Vertical</label>
+                            <input type="range" id="pan-y" class="form-range-compact" min="-100" max="100" value="0"
+                                aria-label="Ajustar posición vertical">
                         </div>
                     </div>
                 </div>

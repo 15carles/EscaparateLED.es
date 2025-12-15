@@ -471,133 +471,60 @@
 }
 
 /* ========================================
-   MODO NOCHE - VERSIÓN COMPACTA
+   SECCIÓN UNIFICADA DE CONTROLES
    ======================================== */
 
-/* Sección de controles del simulador */
-.simulator-controls-section {
-    background: linear-gradient(135deg, rgba(52, 73, 94, 0.95) 0%, rgba(44, 62, 80, 0.95) 100%);
+.unified-controls-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     border-radius: var(--border-radius);
     padding: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.section-header {
-    margin-bottom: var(--spacing-sm);
-    text-align: center;
-}
-
-.simulator-controls-section .controls-sliders-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-md);
-    flex-wrap: wrap;
-}
-
-.simulator-controls-section .control-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    min-width: 140px;
-}
-
-.night-mode-section-compact {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    padding: 12px;
-    border-radius: var(--border-radius);
     margin-bottom: var(--spacing-lg);
     color: white;
 }
 
-.night-mode-header {
-    margin-bottom: var(--spacing-sm);
+.controls-header {
+    margin-bottom: var(--spacing-md);
+    text-align: center;
 }
 
-.section-subtitle-compact {
+.controls-title {
     color: white;
     margin: 0 0 var(--spacing-xs) 0;
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-lg);
     font-weight: 600;
 }
 
-
-.night-mode-description {
+.controls-description {
     margin: 0;
     font-size: var(--font-size-sm);
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.4;
 }
 
-.night-mode-controls-compact {
-    background: rgba(255, 255, 255, 0.1);
-    padding: var(--spacing-sm);
-    border-radius: var(--border-radius);
-    backdrop-filter: blur(10px);
-}
-
-.controls-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: var(--spacing-md);
-    align-items: center;
-    margin-bottom: var(--spacing-sm);
-}
-
-/* Fila 1: Botones de acción */
-.controls-buttons-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* 2 botones: Upload, Reset */
-    gap: 8px;
-    /* Reducido */
-    margin-bottom: 6px;
-    /* Reducido */
-    padding-bottom: 6px;
-    /* Reducido */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    /* Más sutil */
-}
-
-/* Fila 2: Sliders de ajuste */
-.controls-sliders-row {
+.controls-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* Centrar con espacio a los lados */
-    gap: 12px;
-    /* Espacio entre controles */
-    padding-top: 0;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
 }
 
-.controls-sliders-row .control-item {
-    flex: 0 0 auto;
-    /* No crecer ni encoger */
+.control-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
     min-width: 140px;
-    /* Ancho mínimo consistente */
     max-width: 180px;
-    /* Ancho máximo */
 }
 
-/* Ocultar controles de imagen cuando no hay imagen */
-.image-control {
-    transition: opacity 0.3s ease;
-}
-
-.image-controls-compact {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    /* 5 controles: zoom, pan-x, pan-y, gap, filas */
-    gap: 8px;
-    /* Reducido */
-    padding-top: 0;
-    /* Sin padding superior */
-    border-top: none;
-    /* Sin borde */
+.control-label {
+    color: white;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    margin: 0;
 }
 
 /* Estilos para control de filas con botones */
