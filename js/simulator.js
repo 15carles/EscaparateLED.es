@@ -1081,88 +1081,98 @@ document.addEventListener('DOMContentLoaded', function () {
                 gapValueSpan.textContent = gapValue;
             }
 
-            if (rowsDecrease && rowsIncrease && rowsDisplay) {
-                // Botón para disminuir filas
-                rowsDecrease.addEventListener('click', () => {
-                    const currentRows = parseInt(rowsDisplay.textContent);
-                    if (currentRows > 1) {
-                        const newRows = currentRows - 1;
+            // Re-renderizar para aplicar nuevo gap y recalcular scale
+            renderColumnGrid();
+        });
+    }
 
-                        // Actualizar display
-                        rowsDisplay.textContent = newRows;
+    // Event listeners para botones de control de filas
+    const rowsDisplay = document.getElementById('rows-display');
+    const rowsDecrease = document.getElementById('rows-decrease');
+    const rowsIncrease = document.getElementById('rows-increase');
 
-                        // Actualizar columnas
-                        simulatorState.columns.forEach(column => {
-                            if (column.productId && column.productId !== 'empty') {
-                                column.rows = newRows;
-                            }
-                        });
+    if (rowsDecrease && rowsIncrease && rowsDisplay) {
+        // Botón para disminuir filas
+        rowsDecrease.addEventListener('click', () => {
+            const currentRows = parseInt(rowsDisplay.textContent);
+            if (currentRows > 1) {
+                const newRows = currentRows - 1;
 
-                        // Actualizar estado de botones
-                        rowsDecrease.disabled = newRows <= 1;
-                        rowsIncrease.disabled = false;
+                // Actualizar display
+                rowsDisplay.textContent = newRows;
 
-                        // Recalcular y re-renderizar
-                        recalculateTotals();
-                        renderColumnGrid();
-                        updateResultsDisplay();
+                // Actualizar columnas
+                simulatorState.columns.forEach(column => {
+                    if (column.productId && column.productId !== 'empty') {
+                        column.rows = newRows;
                     }
                 });
 
-                // Botón para aumentar filas
-                rowsIncrease.addEventListener('click', () => {
-                    const currentRows = parseInt(rowsDisplay.textContent);
-                    const maxRows = parseInt(rowsIncrease.dataset.maxRows || 1);
+                // Actualizar estado de botones
+                rowsDecrease.disabled = newRows <= 1;
+                rowsIncrease.disabled = false;
 
-                    if (currentRows < maxRows) {
-                        const newRows = currentRows + 1;
-
-                        // Actualizar display
-                        rowsDisplay.textContent = newRows;
-
-                        // Actualizar columnas
-                        simulatorState.columns.forEach(column => {
-                            if (column.productId && column.productId !== 'empty') {
-                                column.rows = newRows;
-                            }
-                        });
-
-                        // Actualizar estado de botones
-                        rowsDecrease.disabled = false;
-                        rowsIncrease.disabled = newRows >= maxRows;
-
-                        // Recalcular y re-renderizar
-                        recalculateTotals();
-                        renderColumnGrid();
-                        updateResultsDisplay();
-                    }
-                });
+                // Recalcular y re-renderizar
+                recalculateTotals();
+                renderColumnGrid();
+                updateResultsDisplay();
             }
-
-            // Event listener para botón de restablecer ajustes
-            const resetBtn = document.getElementById('reset-adjustments');
-            if (resetBtn) {
-                resetBtn.addEventListener('click', resetImageAdjustments);
-            }
-
-            // Responsive: recrear grid al cambiar tamaño de ventana
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    if (simulatorState.columns.length > 0) {
-                        renderColumnGrid();
-                    }
-                }, 250);
-            });
         });
 
-        // Exportar funciones para uso global
-        window.simulator = {
-            getState: () => simulatorState,
-            updateColumn,
-            sendToQuoteForm,
-            resetSimulator,
-            encodeConfiguration,
-            decodeConfiguration
-        };
+        // Botón para aumentar filas
+        rowsIncrease.addEventListener('click', () => {
+            const currentRows = parseInt(rowsDisplay.textContent);
+            const maxRows = parseInt(rowsIncrease.dataset.maxRows || 1);
+
+            if (currentRows < maxRows) {
+                const newRows = currentRows + 1;
+
+                // Actualizar display
+                rowsDisplay.textContent = newRows;
+
+                // Actualizar columnas
+                simulatorState.columns.forEach(column => {
+                    if (column.productId && column.productId !== 'empty') {
+                        column.rows = newRows;
+                    }
+                });
+
+                // Actualizar estado de botones
+                rowsDecrease.disabled = false;
+                rowsIncrease.disabled = newRows >= maxRows;
+
+                // Recalcular y re-renderizar
+                recalculateTotals();
+                renderColumnGrid();
+                updateResultsDisplay();
+            }
+        });
+    }
+
+    // Event listener para botón de restablecer ajustes
+    const resetBtn = document.getElementById('reset-adjustments');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetImageAdjustments);
+    }
+
+    // Responsive: recrear grid al cambiar tamaño de ventana
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            if (simulatorState.columns.length > 0) {
+                renderColumnGrid();
+            }
+        }, 250);
+    });
+});
+
+// Exportar funciones para uso global
+window.simulator = {
+    getState: () => simulatorState,
+    updateColumn,
+    sendToQuoteForm,
+    resetSimulator,
+    encodeConfiguration,
+    decodeConfiguration
+};
