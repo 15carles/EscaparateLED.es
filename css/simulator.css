@@ -531,13 +531,22 @@
 
 /* Fila 2: Sliders de ajuste */
 .controls-sliders-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    /* Auto-ajuste simétrico */
-    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Centrar con espacio a los lados */
+    gap: 12px;
+    /* Espacio entre controles */
     padding-top: 0;
-    justify-items: center;
-    /* Centrar items */
+}
+
+.controls-sliders-row .control-item {
+    flex: 0 0 auto;
+    /* No crecer ni encoger */
+    min-width: 140px;
+    /* Ancho mínimo consistente */
+    max-width: 180px;
+    /* Ancho máximo */
 }
 
 /* Ocultar controles de imagen cuando no hay imagen */
