@@ -376,7 +376,7 @@ p {
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 700px;
+  max-width: 900px;
 }
 
 .hero h1 {
