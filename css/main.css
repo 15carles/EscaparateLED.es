@@ -1129,7 +1129,7 @@ p {
   /* Mejorar espaciado de botones en hero para móvil */
   .hero-cta {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: var(--spacing-md);
     /* 24px de separación entre botones */
   }
