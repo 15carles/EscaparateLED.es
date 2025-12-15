@@ -1079,8 +1079,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const gapIncrease = document.getElementById('gap-increase');
 
     if (gapDecrease && gapIncrease && gapDisplay) {
-        // Botón para disminuir separación
-        gapDecrease.addEventListener('click', () => {
+        let gapInterval = null;
+        let gapTimeout = null;
+
+        // Función para disminuir separación
+        const decreaseGap = () => {
             const currentGap = parseInt(gapDisplay.textContent);
             const minGap = 8;
             if (currentGap > minGap) {
@@ -1088,10 +1091,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 gapDisplay.textContent = newGap;
                 renderColumnGrid();
             }
-        });
+        };
 
-        // Botón para aumentar separación
-        gapIncrease.addEventListener('click', () => {
+        // Función para aumentar separación
+        const increaseGap = () => {
             const currentGap = parseInt(gapDisplay.textContent);
             const maxGap = 40;
             if (currentGap < maxGap) {
@@ -1099,8 +1102,37 @@ document.addEventListener('DOMContentLoaded', function () {
                 gapDisplay.textContent = newGap;
                 renderColumnGrid();
             }
+        };
+
+        // Detener repetición
+        const stopGapRepeat = () => {
+            if (gapTimeout) clearTimeout(gapTimeout);
+            if (gapInterval) clearInterval(gapInterval);
+            gapTimeout = null;
+            gapInterval = null;
+        };
+
+        // Botón para disminuir separación
+        gapDecrease.addEventListener('click', decreaseGap);
+        gapDecrease.addEventListener('mousedown', () => {
+            gapTimeout = setTimeout(() => {
+                gapInterval = setInterval(decreaseGap, 100);
+            }, 500);
         });
+        gapDecrease.addEventListener('mouseup', stopGapRepeat);
+        gapDecrease.addEventListener('mouseleave', stopGapRepeat);
+
+        // Botón para aumentar separación
+        gapIncrease.addEventListener('click', increaseGap);
+        gapIncrease.addEventListener('mousedown', () => {
+            gapTimeout = setTimeout(() => {
+                gapInterval = setInterval(increaseGap, 100);
+            }, 500);
+        });
+        gapIncrease.addEventListener('mouseup', stopGapRepeat);
+        gapIncrease.addEventListener('mouseleave', stopGapRepeat);
     }
+
 
 
     // Event listeners para botones de control de filas
