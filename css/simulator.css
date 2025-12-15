@@ -783,7 +783,10 @@
     /* Mantener layout básico pero mostrar prompt cuando hay resultados */
     .controls-group {
         grid-template-columns: 1fr;
-        gap: var(--spacing-sm);
+        grid-template-rows: auto;
+        grid-auto-rows: auto;
+        gap: var(--spacing-md);
+        padding: var(--spacing-sm);
     }
 
     .control-item:nth-child(1),
@@ -793,6 +796,25 @@
     .control-item:nth-child(5) {
         grid-column: 1;
         grid-row: auto;
+    }
+
+    /* Aumentar altura mínima para evitar overlap */
+    .control-item {
+        min-height: 70px;
+        gap: 8px;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    /* Botones más grandes para touch */
+    .night-mode-toggle-btn,
+    .reset-btn-centered {
+        height: 48px;
+        font-size: 1rem;
+    }
+
+    .form-input-compact {
+        height: 48px;
+        font-size: 1rem;
     }
 }
 
