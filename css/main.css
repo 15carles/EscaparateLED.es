@@ -79,6 +79,57 @@
 }
 
 /* ========================================
+   Mobile UX Polish & Resets
+   ======================================== */
+
+/* 1. Prevenir scroll horizontal accidental */
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* 2. Imágenes responsive (nunca rompen el layout) */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 3. Asegurar que los elementos interactivos sean fáciles de tocar */
+/* Aumenta el tamaño de los objetivos táctiles para una mejor usabilidad móvil */
+button,
+a,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+label {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* 4. Prevenir el zoom automático en campos de entrada en iOS */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  font-size: 16px;
+  /* Evita el zoom en iOS */
+}
+
+/* 5. Ajustar la altura del hero para que no sea excesivamente alta en móviles */
+/* Esto es un ejemplo, ajusta el selector y el valor según tu diseño */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 60vh;
+    /* O un valor fijo como 400px */
+  }
+}
+
+/* ========================================
    Reseteo y Estilos Base
    ======================================== */
 * {
@@ -1174,6 +1225,38 @@ p {
 
   .footer-bottom {
     font-size: 0.75rem;
+  }
+
+  /* --- Mobile UX Polish (Extras) --- */
+
+  /* 3. Touch Targets (dedos): Mínimo 44px de altura para ser pulsables */
+  .btn,
+  .hero-cta .btn,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    display: flex;
+    /* Asegura centrado vertical */
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 4. Prevenir Zoom en iOS (Inputs deben ser 16px min) */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+
+  /* 5. Altura dinámica real (evita que la barra del navegador tape contenido) */
+  .hero {
+    min-height: 100dvh;
+    padding: var(--spacing-xl) 0;
+    /* Padding seguro */
   }
 }
 
