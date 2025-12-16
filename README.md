@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website Oficial
 
-![Version](https://img.shields.io/badge/version-2.17.1-blue)
+![Version](https://img.shields.io/badge/version-2.18.0-blue)
 ![Status](https://img.shields.io/badge/status-production-success)
 ![Mobile](https://img.shields.io/badge/mobile-optimized-green)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -48,6 +48,7 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ **Optimización para agentes de IA** (ChatGPT, Gemini, SGE)
 - ✅ **Schema JSON-LD** para comprensión de negocio por IA
 - ✅ **Páginas de respuesta** (gracias, 404, error)
+- ✅ **Geo-SEO y Landing Pages Locales:** 10 páginas específicas para capitales españolas (Madrid, BCN, Valencia, Sevilla...) con metadatos y Schema.org optimizados.
 - ✅ **Blog escalable** con sistema de plantillas documentado
 - ✅ **Estrategia híbrida de instalación** (Valencia local vs Nacional)
 
