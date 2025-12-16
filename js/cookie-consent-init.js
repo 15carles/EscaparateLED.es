@@ -1,17 +1,17 @@
 /**
- * Cookie Consent Global Configuration (AEPD Compliant)
- * Uses vanilla-cookieconsent v3
+ * Configuración Global del Consentimiento de Cookies (Cumplimiento AEPD)
+ * Utiliza vanilla-cookieconsent v3
  */
 
-// Define URLs for legal pages relative to the current path
+// Definir URLs para las páginas legales relativas a la ruta actual
 const PATH_ROOT = window.location.pathname.includes('/legal/') ? '../' : './';
 const URL_COOKIES = 'legal/politica-cookies.html';
 const URL_PRIVACY = 'legal/politica-privacidad.html';
 
-// Check if CookieConsent is loaded
+// Comprobar si la librería CookieConsent está cargada
 window.addEventListener('load', function () {
     if (typeof CookieConsent === 'undefined') {
-        console.error('CookieConsent library not loaded!');
+        console.error('¡La librería CookieConsent no está cargada!');
         return;
     }
 
@@ -37,11 +37,11 @@ window.addEventListener('load', function () {
                 enabled: true
             },
             analytics: {
-                enabled: false, // Disabled by default (Opt-in)
+                enabled: false, // Desactivado por defecto (Opt-in)
                 autoClear: {
                     cookies: [
                         {
-                            name: /^_ga/,   // Regex: match all cookies starting with '_ga'
+                            name: /^_ga/,   // Regex: coincide con todas las cookies que empiezan por '_ga'
                         },
                         {
                             name: '_gid',
