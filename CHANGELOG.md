@@ -1,5 +1,22 @@
 # 📋 CHANGELOG - LED Escaparate Website
 
+## [2.17.1] - 2025-12-16
+
+### 🚀 SEO & GEO Polish
+- ✅ **Schema FAQPage en Home**: Integradas preguntas frecuentes (envíos, garantía, precio) en `index.html` para Rich Snippets.
+- ✅ **Schema LocalBusiness Ampliado**: Añadidas ciudades nacionales (Madrid, Barcelona, Sevilla, Bilbao, Málaga) para reforzar autoridad nacional.
+- ✅ **Schema CollectionPage en Blog**: Estructura mejorada para el índice del blog.
+- ✅ **Mejoras Semánticas**: Bloque de información oculta para agentes de IA en `blog.html` con datos clave del negocio.
+- ✅ **Referencias IA**: Actualizado `llms.txt` con enlaces al nuevo Simulador y Blog.
+
+## [2.17.0] - 2025-12-16
+
+### 📰 Blog 2.0 y Simulador Híbrido V2
+- ✅ **Refactorización de Estilos Blog**: Eliminación masiva de estilos inline y centralización en `main.css`.
+- ✅ **Nuevo Post**: Lanzamiento del Simulador Híbrido V2 con visualización realista.
+- ✅ **Plantilla Limpia**: Nuevo `blog-post.html` class-based para futuros artículos.
+- ✅ **Widget WhatsApp**: Centralizado y añadido al nuevo post.
+
 ## [2.16.0] - 2025-12-16
 
 ### 🍪 Banner de Cookies Legal (Cumplimiento AEPD)
