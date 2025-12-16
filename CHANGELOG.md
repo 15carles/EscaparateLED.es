@@ -1,6 +1,21 @@
 # 📋 CHANGELOG - LED Escaparate Website
 
-## [2.12.1] - 2025-12-10
+## [2.16.0] - 2025-12-16
+
+### 🍪 Banner de Cookies Legal (Cumplimiento AEPD)
+- ✅ **Implementación estricta RGPD/AEPD** con `vanilla-cookieconsent` v2.9.2
+- ✅ **Jerarquía de botones plana**: "Aceptar todo", "Rechazar todo" y "Configurar" al mismo nivel visual (requisito legal en España)
+- ✅ **Gestión granular**: Categorías "Necesarias" (siempre activas) y "Analíticas" (bloqueadas por defecto)
+- ✅ **Compatibilidad dual**: Funciona tanto en servidor web como en sistema de archivos local (`file:///`) gracias al downgrade estratégico a v2.9.2
+- ✅ **Diseño integrado**: Estilos personalizados (`css/main.css`) que heredan la identidad visual del sitio (colores, fuentes, bordes)
+
+#### Cambios Técnicos
+- Nuevo script `js/cookie-consent-init.js` con lógica de configuración
+- Eliminado código legacy de cookies en `js/main.js`
+- Inyección de scripts en 19 archivos HTML
+- Limpieza automática de cookies no consentidas
+
+## [2.15.0] - 2025-12-16
 
 ### 🤖 Implementación de Archivos Meta (SEO + IA SEO 2026)
 - ✅ **robots.txt actualizado** - Optimización completa para SEO e IA

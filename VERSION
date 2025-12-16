@@ -1,4 +1,4 @@
-2.15.0
-Optimización UX Móvil y Mejoras de UI
-Optimización completa de UX móvil (padding, spacing, grids), botones hero mejorados (colores invertidos, layout horizontal, simétricos), h1 hero centrado y optimizado (2 líneas desktop), alineación de textos corregida (eliminado text-align:justify), botones simulador optimizados (texto centrado, padding reducido), productos homepage adaptados (2 en móvil, 3 en desktop)
+2.16.0
+Implementación Banner de Cookies Legal (AEPD)
+Banner de cookies conforme a RGPD/AEPD con vanilla-cookieconsent v2.9.2 (robusto en file://). Botones Aceptar/Rechazar/Configurar al mismo nivel. Gestión de categorías (Necesarias/Analytics). Integración visual con diseño corporativo en todas las páginas.
 

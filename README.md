@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website Oficial
 
-![Version](https://img.shields.io/badge/version-2.15.0-blue)
+![Version](https://img.shields.io/badge/version-2.16.0-blue)
 ![Status](https://img.shields.io/badge/status-production-success)
 ![Mobile](https://img.shields.io/badge/mobile-optimized-green)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -53,8 +53,9 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 
 ### 🔒 Seguridad y Legal
 - ✅ Cumplimiento **RGPD/LOPDGDD** completo
+- ✅ **Banner de Cookies AEPD** (Aceptar/Rechazar/Configurar)
 - ✅ Política de Privacidad adaptada a Supabase
-- ✅ Política de Cookies (solo técnicas)
+- ✅ Política de Cookies (gestión granular)
 - ✅ Aviso Legal y Condiciones de Uso
 - ✅ Cláusulas legales en formularios
 - ✅ Headers de seguridad configurados
@@ -642,6 +643,18 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 ---
 
 ## 📝 Changelog
+
+### Versión 2.16.0 (Diciembre 2025)
+
+#### Añadido
+- ✅ **Banner de Cookies Legal (AEPD)**
+  * Cumplimiento estricto RGPD: botones Aceptar/Rechazar/Configurar al mismo nivel
+  * Librería robusta `vanilla-cookieconsent` v2.9.2 (compatible con sistema de archivos local)
+  * Estilos integrados con la identidad visual de la marca
+  * Gestión granular de preferencias (Necesarias vs Analytics)
+  * Textos legales actualizados y enlazados
+
+---
 
 ### Versión 2.15.0 (Diciembre 2024)
 
