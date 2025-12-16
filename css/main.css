@@ -1052,6 +1052,14 @@ p {
   /* Reverted */
 }
 
+/* Geo-Navigation Columns */
+.geo-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: var(--spacing-md);
+  row-gap: 0;
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   /* Reverted */
