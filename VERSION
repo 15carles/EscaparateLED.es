@@ -1,4 +1,4 @@
-2.18.0
-Estrategia Geo-SEO y Optimización Footer
-Implementación de 10 landing pages geo-localizadas (Madrid, Barcelona, Valencia, etc.) con inyección de JSON-LD 'Service', metadatos específicos y Open Graph. Actualización del footer global para incluir enlaces a estas páginas, con optimización CSS para reducir altura vertical y mejorar la densidad de información en móviles (Grid layout ajustado).
+2.19.0
+SEO Price Injection (Rich Snippets)
+Implementación de datos estructurados de precios (Schema.org AggregateOffer) y etiquetas Open Graph de producto en 10 landing pages geo-localizadas, home y página de productos. Objetivo: Aparecer en búsquedas transaccionales locales y corregir errores de precio cero.
 

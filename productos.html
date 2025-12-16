@@ -16,6 +16,11 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ledescaparate.es/productos">
 
+    <!-- Product Meta Tags -->
+    <meta property="product:price:amount" content="38.50" />
+    <meta property="product:price:currency" content="EUR" />
+    <meta property="product:availability" content="instock" />
+
     <link rel="canonical" href="https://ledescaparate.es/productos">
 
     <!-- Favicons -->
@@ -70,41 +75,46 @@
         }
       ],
       "offers": {
-        "@type": "Offer",
-        "url": "https://ledescaparate.es/presupuesto.html",
+        "@type": "AggregateOffer",
+        "lowPrice": "38.50",
         "priceCurrency": "EUR",
-        "price": "0",
-        "priceValidUntil": "2025-12-31",
-        "itemCondition": "https://schema.org/NewCondition",
+        "offerCount": "2",
         "availability": "https://schema.org/InStock",
-        "warranty": {
-          "@type": "WarrantyPromise",
-          "durationOfWarranty": {
-            "@type": "QuantitativeValue",
-            "value": "3",
-            "unitCode": "ANN"
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Carpeta LED A4 Vertical",
+            "price": "38.50",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "url": "https://ledescaparate.es/presupuesto.html",
+             "warranty": {
+              "@type": "WarrantyPromise",
+              "durationOfWarranty": {
+                "@type": "QuantitativeValue",
+                "value": "3",
+                "unitCode": "ANN"
+              },
+              "warrantyScope": "Garantía de reposición"
+            },
+            "hasMerchantReturnPolicy": {
+              "@type": "MerchantReturnPolicy",
+              "applicableCountry": "ES",
+              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+              "merchantReturnDays": 14,
+              "returnMethod": "https://schema.org/ReturnByMail"
+            }
           },
-          "warrantyScope": "Garantía de reposición"
-        },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "ES",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": 14,
-          "returnMethod": "https://schema.org/ReturnByMail"
-        },
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "0",
-            "currency": "EUR"
-          },
-          "shippingDestination": {
-            "@type": "DefinedRegion",
-            "addressCountry": "ES"
+          {
+             "@type": "Offer",
+             "name": "Carpeta LED A4 Horizontal",
+             "price": "38.50",
+             "priceCurrency": "EUR",
+             "availability": "https://schema.org/InStock",
+             "itemCondition": "https://schema.org/NewCondition"
           }
-        }
+        ]
       }
     }
     </script>
@@ -591,7 +601,7 @@
 
                 <div class="footer-section">
                     <h4>Envíos 24h</h4>
-          <ul class="footer-links geo-columns">
+                    <ul class="footer-links geo-columns">
                         <li><a href="escaparates-led-madrid.html">Madrid</a></li>
                         <li><a href="escaparates-led-barcelona.html">Barcelona</a></li>
                         <li><a href="escaparates-led-valencia.html">Valencia</a></li>

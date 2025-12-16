@@ -21,6 +21,12 @@
     <meta property="og:url" content="https://ledescaparate.es/escaparates-led-zaragoza.html">
     <meta property="og:locale" content="es_ES" />
 
+    <!-- Product Meta Tags -->
+    <meta property="product:price:amount" content="38.50" />
+    <meta property="product:price:currency" content="EUR" />
+    <meta property="product:availability" content="instock" />
+
+
     <link rel="canonical" href="https://ledescaparate.es/escaparates-led-zaragoza.html">
 
     <!-- Favicons -->
@@ -49,27 +55,31 @@
         "name": "Zaragoza"
       },
       "description": "Envío urgente de sistemas de iluminación LED para inmobiliarias y comercios en Zaragoza.",
-      "offers": {
-        "@type": "Offer",
-        "availability": "https://schema.org/InStock",
+            "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "38.50",
         "priceCurrency": "EUR",
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": {
-            "@type": "QuantitativeValue",
-            "minValue": 0,
-            "maxValue": 1,
-            "unitCode": "DAY"
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Carpeta LED A4 Vertical",
+            "price": "38.50",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition"
           },
-          "transitTime": {
-            "@type": "QuantitativeValue",
-            "minValue": 1,
-            "maxValue": 2,
-            "unitCode": "DAY"
+          {
+            "@type": "Offer",
+            "name": "Carpeta LED A4 Horizontal",
+            "price": "38.50",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition"
           }
-        }
+        ]
       }
-    }
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

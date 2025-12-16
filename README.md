@@ -34,21 +34,16 @@ Plataforma web completa para la promoción y venta de carpetas retroiluminadas L
 - ✅ Tipografía Inter (Google Fonts) para máxima legibilidad
 - ✅ Navegación intuitiva con menú hamburguesa en móviles
 
-### 🛠️ Funcionalidades
-- ✅ **Simulador Híbrido V2** con sistema de columnas independientes
-  - Configuración automática inicial + personalización por columna
-  - Modo Noche con fondo personalizado (100% client-side)
-  - Cálculos técnicos en tiempo real (consumo, fuente de alimentación)
-  - Integración stateless via URL para comerciales
-  - Selectores desktop + Bottom Sheet móvil (botones 44px+)
-- ✅ **Sistema de productos modular** fácilmente actualizable
-- ✅ **Formularios inteligentes** con validación client-side y autocomplete
-- ✅ **Integración Supabase** para gestión de formularios y almacenamiento
-- ✅ **Widget flotante de WhatsApp** con estética Soft Green y diseño responsivo
-- ✅ **Optimización para agentes de IA** (ChatGPT, Gemini, SGE)
-- ✅ **Schema JSON-LD** para comprensión de negocio por IA
-- ✅ **Páginas de respuesta** (gracias, 404, error)
-- ✅ **Geo-SEO y Landing Pages Locales:** 10 páginas específicas para capitales españolas (Madrid, BCN, Valencia, Sevilla...) con metadatos y Schema.org optimizados.
+## 🚀 Características
+- **Simulador de Escaparate Interactivo:** Permite configurar filas, columnas y orientación (A3/A4).
+- **Cálculo de Consumo y Precio:** Estimación en tiempo real del coste y consumo energético.
+- **Formulario de Presupuesto Inteligente:** Pre-llenado automático de cantidades desde el simulador.
+- **Blog Técnico:** Artículos detallados sobre iluminación y montaje.
+- **Diseño Responsive:** Optimizado para móviles y escritorio.
+- **Modo Oscuro/Claro:** Adaptable a las preferencias del sistema.
+- **SEO Técnico Avanzado:** Inyección de JSON-LD, Open Graph y Geo-etiquetado.
+- ✅ **Geo-SEO y Landing Pages Locales:** 10 páginas específicas para capitales españolas (Madrid, BCN, Valencia...) con metadatos y Schema.org optimizados.
+- ✅ **Rich Snippets de Precio:** Datos estructurados (Schema.org) invisibles con precio real para mejorar CTR en búsquedas transaccionales.
 - ✅ **Blog escalable** con sistema de plantillas documentado
 - ✅ **Estrategia híbrida de instalación** (Valencia local vs Nacional)
 

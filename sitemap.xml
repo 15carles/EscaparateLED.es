@@ -134,6 +134,25 @@
   </url>
 
   <url>
+    <loc>https://ledescaparate.es/index.html</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ledescaparate.es/nosotros.html</loc>
+    <lastmod>2024-12-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ledescaparate.es/productos.html</loc>
+    <lastmod>2025-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
     <loc>https://ledescaparate.es/escaparates-led-madrid.html</loc>
     <lastmod>2025-12-16</lastmod>
     <changefreq>weekly</changefreq>
