@@ -1,143 +1,23 @@
 <!DOCTYPE html>
-<!--
-═══════════════════════════════════════════════════════════════════════════════
-PLANTILLA BASE PARA POSTS DEL BLOG - LEDescaparate
-═══════════════════════════════════════════════════════════════════════════════
-
-Este archivo sirve como plantilla para crear nuevos posts del blog.
-
-CÓMO CREAR UN NUEVO POST:
-
-1. DUPLICAR ESTE ARCHIVO
-   - Haz una copia de blog-post.html
-   - Nómbrala de forma descriptiva usando guiones para separar palabras
-   - Ejemplos de nombres:
-     * blog-visibilidad-nocturna-escaparate.html
-     * blog-tendencias-diseno-2024.html
-     * blog-roi-iluminacion-led.html
-     * blog-guia-instalacion-carpetas.html
-
-2. MODIFICAR EL <head> (SEO Y METADATOS) - Líneas 5-38
-   
-   a) <title> (línea 27):
-      - Formato: "Título del Post | Blog LED Escaparate"
-      - Máximo 60 caracteres
-      - Ejemplo: "Guía de Instalación de Carpetas LED | Blog LED Escaparate"
-   
-   b) <meta name="description"> (líneas 7-8):
-      - Escribe un resumen atractivo de 150-160 caracteres
-      - Debe incluir palabras clave relevantes
-      - Ejemplo: "Aprende a instalar carpetas LED en tu escaparate paso a paso. Consejos profesionales y errores comunes a evitar."
-   
-   c) <meta name="keywords"> (línea 9):
-      - Añade 3-5 palabras clave separadas por comas
-      - Ejemplo: "instalación carpetas LED, guía escaparate, montaje LED"
-   
-   d) Open Graph tags (líneas 12-16):
-      - og:title: Mismo título que <title> pero sin "| Blog LED Escaparate"
-      - og:description: Misma descripción que meta description
-      - og:url: Cambia "blog-post" por el nombre de tu archivo (sin .html)
-   
-   e) <link rel="canonical"> (línea 18):
-      - Cambia "blog-post" por el nombre de tu archivo (sin .html)
-
-3. MODIFICAR EL CONTENIDO DEL POST - Líneas 65-200
-   
-   a) BREADCRUMB (línea 69):
-      - Ya está configurado para volver a blog.html, no cambiar
-   
-   b) FECHA (líneas 72-75):
-      - Cambia "15 de Noviembre de 2024" por la fecha de publicación
-      - Formato: "DD de Mes de YYYY"
-   
-   c) TÍTULO PRINCIPAL - H1 (línea 77):
-      - Cambia el título del post
-      - Debe ser el mismo que usaste en <title> (sin "| Blog LED Escaparate")
-      - Solo debe haber UN <h1> por página
-   
-   d) TAGS/ETIQUETAS (líneas 79-87):
-      - Modifica o añade tags relevantes
-      - Mantén 2-4 tags máximo
-      - Ejemplos: "Escaparates", "Iluminación LED", "Inmobiliarias", "Diseño"
-   
-   e) IMAGEN DESTACADA (líneas 95-99):
-      - Puedes cambiar el emoji del gradiente
-      - O reemplazar todo el div con una imagen real:
-        <img src="images/blog/nombre-imagen.jpg" alt="Descripción de la imagen" 
-             style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--border-radius-lg);">
-   
-   f) CONTENIDO DEL ARTÍCULO (líneas 101-200):
-      - TODO el contenido debe estar dentro de <div class="blog-content">
-      - Usa esta estructura de encabezados:
-        * <h2> para secciones principales
-        * <h3> para subsecciones
-        * <p> para párrafos
-        * <ul> o <ol> para listas
-        * <strong> para texto en negrita
-      - Los estilos se aplicarán automáticamente gracias a .blog-content
-   
-   g) CTA FINAL (líneas 196-200):
-      - Ya está configurado, no necesita cambios
-      - Enlaza al simulador como llamada a la acción
-
-4. ACTUALIZAR EL LISTADO EN blog.html
-   - Abre blog.html
-   - Copia uno de los bloques <article class="product-card">
-   - Modifica:
-     * La fecha
-     * El título (debe coincidir con el H1 del post)
-     * El extracto (2-3 líneas)
-     * El href para que apunte a tu nuevo archivo: href="blog-nombre-del-post.html"
-
-ESTRUCTURA RECOMENDADA DEL CONTENIDO:
-
-<div class="blog-content">
-    <h2>Introducción</h2>
-    <p>Párrafo introductorio...</p>
-
-    <h2>Sección Principal 1</h2>
-    <p>Contenido...</p>
-    
-    <h3>Subsección 1.1</h3>
-    <p>Contenido...</p>
-    <ul>
-        <li>Punto 1</li>
-        <li>Punto 2</li>
-    </ul>
-
-    <h2>Sección Principal 2</h2>
-    <p>Contenido...</p>
-
-    <h2>Conclusión</h2>
-    <p>Resumen final...</p>
-</div>
-
-IMPORTANTE:
-- Mantén UN SOLO <h1> por página (el título del post)
-- No elimines el header ni el footer globales
-- No modifiques las clases CSS existentes
-- El contenido debe estar dentro de <div class="blog-content"> para mantener estilos
-- Verifica que todos los enlaces internos funcionen correctamente
-
-═══════════════════════════════════════════════════════════════════════════════
--->
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Cómo mejorar la visibilidad nocturna de tu escaparate inmobiliario con carpetas LED. Consejos y mejores prácticas.">
-    <meta name="keywords" content="visibilidad nocturna escaparate, iluminación LED inmobiliaria, escaparate nocturno">
+    <!-- TODO: Actualizar descripción y keywods -->
+    <meta name="description" content="Descripción corta del artículo para SEO (150-160 caracteres).">
+    <meta name="keywords" content="palabra clave 1, palabra clave 2, palabra clave 3">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Cómo mejorar la visibilidad nocturna de tu escaparate | Blog LED Escaparate">
-    <meta property="og:description"
-        content="Cómo mejorar la visibilidad nocturna de tu escaparate inmobiliario con carpetas LED. Consejos y mejores prácticas.">
+    <meta property="og:title" content="Título del Artículo | LED Escaparate">
+    <meta property="og:description" content="Descripción corta del artículo para redes sociales.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://ledescaparate.es/blog-post">
+    <!-- TODO: Actualizar URL -->
+    <meta property="og:url" content="https://ledescaparate.es/blog-url-del-post.html">
+    <meta property="og:image" content="https://ledescaparate.es/images/social/default-blog.jpg">
 
-    <link rel="canonical" href="https://ledescaparate.es/blog-post">
+    <!-- TODO: Actualizar Canonical -->
+    <link rel="canonical" href="https://ledescaparate.es/blog-url-del-post.html">
 
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -147,7 +27,7 @@ IMPORTANTE:
     <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
     <link rel="manifest" href="/images/icons/site.webmanifest">
 
-    <title>Cómo mejorar la visibilidad nocturna de tu escaparate | Blog LED Escaparate</title>
+    <title>Título del Artículo | LED Escaparate</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,24 +37,20 @@ IMPORTANTE:
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     </noscript>
 
-    <link rel="stylesheet" href="css/main.css?v=2.8.0">
+    <link rel="stylesheet" href="css/main.css?v=2.16.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css">
 </head>
 
 <body>
-    <!-- Cabecera y Navegación -->
+    <!-- Cabecera -->
     <header class="header">
         <nav class="nav container">
             <a href="index.html" class="nav-logo" aria-label="Ir a la página de inicio">
                 LED<span>Escaparate</span>
             </a>
-
             <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
-
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Inicio</a></li>
                 <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
@@ -187,205 +63,87 @@ IMPORTANTE:
         </nav>
     </header>
 
-    <!-- Article Header -->
-    <section class="section section-alt">
-        <div class="container container-sm">
-            <div style="margin-bottom: var(--spacing-md);">
-                <a href="blog.html" class="blog-back-link">← Volver al blog</a>
-            </div>
+    <main>
+        <article class="container blog-post-container" style="max-width: 800px; margin: 4rem auto; padding: 0 1.5rem;">
 
-            <!-- ✏️ EDITAR: Fecha de publicación del post -->
-            <div class="blog-meta-date">
-                15 de Noviembre de 2024
-            </div>
+            <header class="mb-5">
+                <a href="blog.html" class="text-sm text-light mb-3" style="display: inline-block;">← Volver al Blog</a>
+                <h1 style="font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin-bottom: 1rem;">
+                    Título Principal del Artículo
+                </h1>
+                <div class="text-sm text-light">
+                    <!-- TODO: Actualizar fecha -->
+                    <span>DD Mes, YYYY</span> • <span>X min de lectura</span>
+                </div>
+            </header>
 
-            <!-- ✏️ EDITAR: Título principal del post (H1) - Debe coincidir con el <title> del <head> -->
-            <h1>Cómo mejorar la visibilidad nocturna de tu escaparate inmobiliario</h1>
+            <div class="blog-content text-light" style="font-size: 1.1rem; line-height: 1.7;">
 
-            <!-- ✏️ EDITAR: Tags/Etiquetas del post (2-4 tags recomendados) -->
-            <div class="blog-tags-container">
-                <span class="blog-tag">Escaparates</span>
-                <span class="blog-tag">Iluminación LED</span>
-                <span class="blog-tag">Inmobiliarias</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Article Content -->
-    <article class="section">
-        <div class="container container-sm">
-
-            <!-- ✏️ EDITAR: Imagen destacada del post (puedes cambiar el emoji o usar una imagen real) -->
-            <div class="blog-featured-image">
-                🌙
-            </div>
-
-            <!-- 
-            ═══════════════════════════════════════════════════════════════════════════════
-            ✏️ EDITAR: CONTENIDO DEL ARTÍCULO
-            ═══════════════════════════════════════════════════════════════════════════════
-            
-            Reemplaza todo el contenido dentro de este <div class="blog-content"> con tu artículo.
-            
-            Estructura recomendada:
-            - <h2> para secciones principales
-            - <h3> para subsecciones
-            - <p> para párrafos
-            - <ul> o <ol> para listas
-            - <strong> para texto en negrita
-            
-            Los estilos se aplicarán automáticamente gracias a la clase .blog-content
-            ═══════════════════════════════════════════════════════════════════════════════
-            -->
-            <div class="blog-content blog-content-box">
-
-                <h2>Introducción</h2>
-                <p>
-                    En el competitivo mundo inmobiliario, cada detalle cuenta para captar la atención de potenciales
-                    clientes.
-                    Uno de los aspectos más descuidados, pero con mayor impacto, es la visibilidad nocturna del
-                    escaparate.
-                    Mientras tu oficina está cerrada, tu escaparate sigue trabajando para ti.
+                <!-- Párrafo introductorio destacado -->
+                <p class="lead blog-lead">
+                    Introduce el tema principal aquí. Este es el gancho para que el lector siga leyendo.
+                    Usa negritas para destacar la <strong>idea clave</strong>.
                 </p>
 
-                <h2>El problema de la visibilidad nocturna</h2>
                 <p>
-                    La mayoría de las personas que buscan vivienda pasan por delante de las inmobiliarias fuera del
-                    horario
-                    de oficina. Ya sea volviendo del trabajo, paseando por la zona o explorando el barrio en fin de
-                    semana,
-                    estos potenciales clientes no pueden ver tus ofertas si tu escaparate no está adecuadamente
-                    iluminado.
+                    Contenido general del artículo. Párrafos cortos y fáciles de leer.
                 </p>
 
-                <h3>Estadísticas reveladoras</h3>
-                <ul>
-                    <li>El 60% de las búsquedas de vivienda se realizan fuera del horario laboral</li>
-                    <li>Un escaparate bien iluminado puede aumentar las consultas hasta un 40%</li>
-                    <li>La primera impresión se forma en menos de 7 segundos</li>
-                </ul>
-
-                <h2>Soluciones de iluminación LED</h2>
+                <h2>Subtítulo de Sección</h2>
                 <p>
-                    La tecnología LED ha revolucionado la forma en que las inmobiliarias presentan sus inmuebles.
-                    Las carpetas retroiluminadas LED ofrecen múltiples ventajas:
+                    Explicación detallada del punto. Usa clases de `main.css` para elementos especiales.
                 </p>
 
-                <h3>Ventajas de las carpetas LED</h3>
-                <ol>
-                    <li><strong>Visibilidad 24/7:</strong> Tus inmuebles destacan día y noche con iluminación uniforme
-                    </li>
-                    <li><strong>Bajo consumo:</strong> Tecnología LED eficiente que no dispara tu factura eléctrica</li>
-                    <li><strong>Aspecto profesional:</strong> Transmite seriedad y modernidad a tus clientes</li>
-                    <li><strong>Fácil mantenimiento:</strong> Larga duración y mínimo mantenimiento</li>
-                </ol>
-
-                <h2>Mejores prácticas para escaparates iluminados</h2>
-
-                <h3>1. Distribución estratégica</h3>
-                <p>
-                    Utiliza el simulador para calcular la distribución óptima de carpetas en tu escaparate.
-                    Mantén márgenes adecuados y asegura que todas las fichas sean visibles desde la calle.
-                </p>
-
-                <h3>2. Jerarquía visual</h3>
-                <p>
-                    Coloca los inmuebles más destacados a la altura de los ojos. Las propiedades premium
-                    deben ocupar las posiciones centrales y más visibles.
-                </p>
-
-                <h3>3. Actualización constante</h3>
-                <p>
-                    Un escaparate desactualizado transmite dejadez. Actualiza regularmente las fichas
-                    para mostrar que tu agencia está activa y tiene ofertas frescas.
-                </p>
-
-                <h3>4. Información clara</h3>
-                <p>
-                    Asegúrate de que la información esencial (precio, ubicación, características)
-                    sea legible desde la distancia, incluso de noche.
-                </p>
-
-                <h2>ROI de la inversión en iluminación LED</h2>
-                <p>
-                    La inversión en carpetas LED se amortiza rápidamente. Considerando:
-                </p>
-                <ul>
-                    <li>Aumento de consultas y visitas</li>
-                    <li>Ahorro en consumo eléctrico vs. iluminación tradicional</li>
-                    <li>Reducción de costes de mantenimiento</li>
-                    <li>Mejora de la imagen de marca</li>
-                </ul>
-                <p>
-                    La mayoría de inmobiliarias recuperan su inversión en menos de 6 meses.
+                <!-- Ejemplo de nota destacada (Opcional) -->
+                <p class="privacy-note">
+                    <strong>Nota Importante:</strong> Usa esta clase `.privacy-note` para destacar información
+                    relevante, avisos legales o tips pro.
                 </p>
 
                 <h2>Conclusión</h2>
                 <p>
-                    Mejorar la visibilidad nocturna de tu escaparate no es un lujo, es una necesidad en el
-                    mercado inmobiliario actual. Las carpetas LED retroiluminadas representan una solución
-                    profesional, eficiente y rentable que trabaja para ti las 24 horas del día.
-                </p>
-                <p>
-                    ¿Listo para dar el siguiente paso? Utiliza nuestro simulador gratuito para calcular
-                    la configuración perfecta para tu escaparate.
+                    Resumen final y transición al Call to Action.
                 </p>
 
-                <div class="blog-cta-box">
-                    <h3 style="margin-bottom: var(--spacing-md);">¿Quieres mejorar tu escaparate?</h3>
-                    <a href="simulador.html" class="btn btn-primary btn-large"
-                        style="color: white; border-bottom: none;">Probar Simulador Gratis</a>
+                <!-- CTA Final Estándar (Estilo Azul) -->
+                <section class="cta-box mt-5">
+                    <h2 class="text-white mb-3">
+                        ¿Título del CTA?
+                    </h2>
+                    <p class="text-lg mb-5" style="color: rgba(255,255,255,0.9);">
+                        Texto persuasivo invitando a la acción.
+                    </p>
+                    <a href="presupuesto.html" class="btn btn-white btn-large">
+                        Texto del Botón
+                    </a>
+                </section>
+
+                <!-- Alternativa: CTA Simple (Estilo Texto) -->
+                <!--
+                <div class="faq-footer-box">
+                    <h3 style="color: var(--color-primary); margin-bottom: 1rem;">¿Pregunta de cierre?</h3>
+                    <p class="text-light mb-4">
+                        Texto explicativo breve.
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="contacto.html" class="btn btn-primary">Botón Principal</a>
+                    </div>
                 </div>
+                -->
 
             </div>
+        </article>
+    </main>
 
-            <!-- Posts Relacionados -->
-            <div style="margin-top: var(--spacing-2xl);">
-                <h2 class="mb-4">Artículos Relacionados</h2>
-                <div class="related-posts-grid">
-
-                    <div class="related-post-card">
-                        <div class="related-post-thumb bg-gradient-purple">
-                            ✨
-                        </div>
-                        <div style="padding: var(--spacing-md);">
-                            <h4 style="margin-bottom: var(--spacing-xs);">
-                                <a href="blog-post.html" class="text-secondary">Tendencias en diseño de
-                                    escaparates 2024</a>
-                            </h4>
-                            <a href="blog-post.html" class="btn btn-secondary"
-                                style="margin-top: var(--spacing-sm);">Leer más</a>
-                        </div>
-                    </div>
-
-                    <div class="related-post-card">
-                        <div class="related-post-thumb bg-gradient-pink">
-                            📊
-                        </div>
-                        <div style="padding: var(--spacing-md);">
-                            <h4 style="margin-bottom: var(--spacing-xs);">
-                                <a href="blog-post.html" class="text-secondary">ROI de la iluminación
-                                    LED</a>
-                            </h4>
-                            <a href="blog-post.html" class="btn btn-secondary"
-                                style="margin-top: var(--spacing-sm);">Leer más</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </article>
-
-    <!-- Pie de página -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>LED<span style="color: var(--color-primary);">Escaparate</span></h4>
                     <p style="color: rgba(255,255,255,0.8);">Soluciones profesionales de iluminación LED para
-                        escaparates de inmobiliarias en toda España.</p>
+                        escaparates de
+                        inmobiliarias en toda España.</p>
                 </div>
 
                 <div class="footer-section">
@@ -426,7 +184,7 @@ IMPORTANTE:
     </footer>
 
     <!-- Scripts -->
-    <script src="js/main.js" defer></script>
+    <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js"></script>
     <script src="js/cookie-consent-init.js"></script>
 </body>

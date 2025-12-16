@@ -97,9 +97,7 @@
                       - O modifica los colores del gradiente:
                         Ejemplos de gradientes:
                         * linear-gradient(135deg, var(--color-primary), var(--color-primary-light))
-                        * linear-gradient(135deg, #667eea, #764ba2)
-                        * linear-gradient(135deg, #f093fb, #f5576c)
-                        * linear-gradient(135deg, #4facfe, #00f2fe)
+                        * bg-gradient-purple, bg-gradient-cyan, bg-gradient-pink (Clases en main.css)
                    
                    b) FECHA:
                       - Cambia "15 Nov 2024" por la fecha del post
@@ -115,17 +113,43 @@
                    e) ENLACE:
                       - Cambia href="blog-post.html" por href="blog-nombre-descriptivo.html"
                       - Usa nombres descriptivos separados por guiones
-                      - Ejemplos: blog-visibilidad-nocturna.html, blog-tendencias-2024.html
                       - Asegúrate de cambiar el href en AMBOS enlaces (título y botón "Leer más")
 
-                IMPORTANTE:
-                - Usa H3 para los títulos de las tarjetas (el H1 ya está usado en el título de la página)
-                - Mantén el extracto breve (2-3 líneas máximo)
-                - El archivo del post debe existir (usa blog-post.html como plantilla)
-                - Mantén la clase "product-card" para heredar los estilos correctos
+                IMPORTANTE - REGLAS DE ESTILO (2025):
+                - ⛔️ PROHIBIDO usar estilos inline (`style="..."`).
+                - ✅ USA SIEMPRE clases de `css/main.css`:
+                    - `.blog-lead` para la introducción.
+                    - `.privacy-note` para notas destacadas.
+                    - `.faq-footer-box` o `.cta-box` para el cierre.
+                - 📄 REFERENCIA: Usa `blog-nuevo-simulador-hibrido.html` como modelo visual correcto.
+                - 📄 PLANTILLA: Copia `blog-post.html` para empezar con la estructura limpia correcta.
+                - Mantén la clase "product-card" para heredar los estilos correctos en el índice.
 
                 ═══════════════════════════════════════════════════════════════════════════════
                 -->
+
+                <!-- Blog Post Nuevo - Simulador V2 (16 Dic 2025) -->
+                <article class="product-card">
+                    <div class="blog-card-thumb bg-gradient-purple">
+                        🚀
+                    </div>
+                    <div class="product-content">
+                        <div class="blog-date">
+                            16 Dic 2025
+                        </div>
+                        <h3 class="product-title">
+                            <a href="blog-nuevo-simulador-hibrido.html" class="blog-title-link">
+                                Revoluciona tu Escaparate: Nuevo Simulador Híbrido V2
+                            </a>
+                        </h3>
+                        <p class="product-description">
+                            Sube una foto real de tu fachada y combina carpetas A3/A4 libremente. La herramienta
+                            definitiva con visualización nocturna para inmobiliarias.
+                        </p>
+                        <a href="blog-nuevo-simulador-hibrido.html" class="btn btn-secondary">Leer
+                            más</a>
+                    </div>
+                </article>
 
                 <!-- Blog Post 1 - Manual Técnico Instalación (MÁS RECIENTE - 12 Dic 2025) -->
                 <article class="product-card">

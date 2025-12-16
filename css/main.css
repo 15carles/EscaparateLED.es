@@ -2965,3 +2965,35 @@ I need to differentiate them or make .info-box generic and .info-box-error speci
   color: var(--color-text-lighter);
   text-align: center;
 }
+
+/* ========================================
+   Blog Post Specific Helpers
+   ======================================== */
+.blog-lead {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.privacy-note {
+  background-color: var(--color-background-alt);
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9em;
+  margin-top: 1rem;
+  border-left: 3px solid var(--color-secondary);
+}
+
+/* Ensure CTA title fits well */
+.cta-box h2 {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .cta-box h2 {
+    white-space: nowrap;
+    font-size: 2.2rem;
+  }
+}
