@@ -2825,9 +2825,88 @@ I need to differentiate them or make .info-box generic and .info-box-error speci
 }
 
 /* ========================================
+   Cookie Consent Banner (AEPD Compliance)
+   ======================================== */
+:root {
+  /* Overrides for vanilla-cookieconsent */
+  --cc-font-family: var(--font-primary);
+  --cc-bg: #fff;
+  --cc-text: var(--color-text);
+  --cc-btn-primary-bg: var(--color-primary);
+  --cc-btn-primary-text: #fff;
+  --cc-btn-primary-hover-bg: var(--color-primary-dark);
+  --cc-btn-secondary-bg: var(--color-background-alt);
+  --cc-btn-secondary-text: var(--color-text);
+  --cc-btn-secondary-hover-bg: #e2e8f0;
+  --cc-toggle-on-bg: var(--color-success);
+  --cc-toggle-off-bg: var(--color-text-lighter);
+  --cc-toggle-on-knob-bg: #fff;
+  --cc-toggle-off-knob-bg: #fff;
+  --cc-block-text: var(--color-text);
+  --cc-cookie-category-block-bg: var(--color-background-alt);
+  --cc-cookie-category-block-bg-hover: #e2e8f0;
+  --cc-section-category-title: var(--color-primary);
+  --cc-wrapper-max-width: 100% !important;
+}
+
+#cc-main .cm {
+  border-top: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xl);
+}
+
+#cc-main .cm__btn {
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+  font-size: var(--font-size-sm);
+}
+
+#cc-main .cm__btn:hover {
+  transform: translateY(-1px);
+}
+
+#cc-main .cm__title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+#cc-main .cm__desc {
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+#cc-main .cm__footer {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+#cc-main .cm__footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+#cc-main .cm__footer a:hover {
+  text-decoration: underline;
+}
+
+/* Ensure buttons have equal visual weight for AEPD compliance if desired,
+   though currently primary vs secondary is standard.
+   AEPD requires 'equal prominence' for options.
+   We can make secondary buttons look more like primary outline buttons. */
+#cc-main .cm__btn--secondary {
+  border: 1px solid var(--color-border);
+  background-color: white;
+}
+
+/* ========================================
    Humans.html specific styles
    ======================================== */
 .humans-main {
+
   max-width: 900px;
   margin: 0 auto;
   padding: var(--spacing-2xl) var(--spacing-md);
