@@ -12,88 +12,102 @@ const URL_PRIVACY = 'legal/politica-privacidad.html';
 // Comprobar si la librería CookieConsent está cargada
 console.log('Iniciando script de cookies...');
 
-if (typeof CookieConsent === 'undefined') {
-    console.error('¡La librería CookieConsent no está cargada!');
-} else {
-    console.log('CookieConsent cargado correctamente.');
-    CookieConsent.run({
+window.addEventListener('load', function () {
+
+    // Crear instancia
+    var cc = initCookieConsent();
+
+    // Configuración y ejecución
+    cc.run({
+        current_lang: 'es',
+        autoclear_cookies: true,                   // Limpiar cookies si el usuario cambia preferencias
+        page_scripts: true,                        // Gestionar scripts de la página
+        // force_consent: true,                   // Forzar banner (opcional)
+
+        // Modo 'opt-in' explícito (GDPR)
+        mode: 'opt-in',
+        delay: 0,                                  // Sin retraso
+
+        // Configuración de la interfaz
         gui_options: {
             consent_modal: {
-                layout: 'box',
-                position: 'bottom right',
-                equal_weight_buttons: true,
-                flip_buttons: false
+                layout: 'cloud',               // 'cloud', 'box', 'bar'
+                position: 'bottom center',     // 'bottom left', 'bottom right', etc.
+                transition: 'slide'            // 'slide', 'zoom'
             },
-            preferences_modal: {
-                layout: 'box',
-                position: 'right',
-                equal_weight_buttons: true,
-                flip_buttons: false
+            settings_modal: {
+                layout: 'box',                 // 'box', 'bar'
+                transition: 'slide'            // 'slide', 'zoom'
             }
         },
 
-        categories: {
-            necessary: {
-                readOnly: true,
-                enabled: true
-            },
-            analytics: {
-                enabled: false, // Desactivado por defecto (Opt-in)
-                autoClear: {
-                    cookies: [
+        // Idiomas y textos
+        languages: {
+            'es': {
+                consent_modal: {
+                    title: 'Uso de Cookies',
+                    description: 'Utilizamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico. Puedes aceptar todas o configurar tus preferencias. <button type="button" data-cc="c-settings" class="cc-link">Configurar</button>',
+                    primary_btn: {
+                        text: 'Aceptar todo',
+                        role: 'accept_all'              // 'accept_selected' or 'accept_all'
+                    },
+                    secondary_btn: {
+                        text: 'Rechazar todo',
+                        role: 'accept_necessary'        // 'settings' or 'accept_necessary'
+                    }
+                },
+                settings_modal: {
+                    title: 'Preferencias de Cookies',
+                    save_settings_btn: 'Guardar preferencias',
+                    accept_all_btn: 'Aceptar todo',
+                    reject_all_btn: 'Rechazar todo',
+                    close_btn_label: 'Cerrar',
+                    cookie_table_headers: [
+                        { col1: 'Nombre' },
+                        { col2: 'Dominio' },
+                        { col3: 'Expiración' },
+                        { col4: 'Descripción' }
+                    ],
+                    blocks: [
                         {
-                            name: /^_ga/,   // Regex: coincide con todas las cookies que empiezan por '_ga'
+                            title: 'Uso de Cookies',
+                            description: 'Utilizamos cookies para garantizar las funcionalidades básicas del sitio web y para mejorar su experiencia en línea. Puede elegir, para cada categoría, optar por participar o no cuando lo desee.'
                         },
                         {
-                            name: '_gid',
+                            title: 'Estrictamente necesarias',
+                            description: 'Estas cookies son esenciales para el correcto funcionamiento de mi sitio web. Sin estas cookies, el sitio web no funcionaría correctamente.',
+                            toggle: {
+                                value: 'necessary',
+                                enabled: true,
+                                readonly: true          // El usuario no puede desactivarlas
+                            }
+                        },
+                        {
+                            title: 'Rendimiento y Analíticas',
+                            description: 'Estas cookies permiten al sitio web recordar las elecciones que ha realizado en el pasado.',
+                            toggle: {
+                                value: 'analytics',     // Nombre de la categoría
+                                enabled: false,         // Desactivado por defecto (GDPR)
+                                readonly: false         // El usuario puede activarlas
+                            },
+                            cookie_table: [             // Lista de cookies (opcional pero recomendada)
+                                {
+                                    col1: '^_ga',       // Regex
+                                    col2: 'google.com',
+                                    col3: '2 años',
+                                    col4: 'Google Analytics'
+                                },
+                                {
+                                    col1: '_gid',
+                                    col2: 'google.com',
+                                    col3: '1 día',
+                                    col4: 'Google Analytics'
+                                }
+                            ]
                         }
                     ]
                 }
             }
-        },
-
-        language: {
-            default: 'es',
-            translations: {
-                es: {
-                    consent_modal: {
-                        title: 'Uso de Cookies',
-                        description: 'Utilizamos cookies propias y de terceros para garantizar el funcionamiento correcto del sitio web y mejorar tu experiencia. Puedes configurar tus preferencias o aceptarlas todas. Más información en nuestra <a href="' + URL_COOKIES + '" target="_blank">Política de Cookies</a>.',
-                        primary_btn: {
-                            text: 'Aceptar todo',
-                            role: 'accept_all'
-                        },
-                        secondary_btn: {
-                            text: 'Rechazar todo',
-                            role: 'accept_necessary'
-                        },
-                        footer: '<a href="' + URL_PRIVACY + '" target="_blank">Política de Privacidad</a>'
-                    },
-                    preferences_modal: {
-                        title: 'Centro de Preferencias de Cookies',
-                        accept_all_btn: 'Aceptar todo',
-                        accept_necessary_btn: 'Rechazar todo',
-                        save_preferences_btn: 'Guardar preferencias',
-                        close_btn_label: 'Cerrar',
-                        sections: [
-                            {
-                                title: 'Uso de Cookies',
-                                description: 'Aquí puedes elegir qué categorías de cookies deseas habilitar. Las cookies necesarias no se pueden desactivar ya que son fundamentales para que el sitio funcione.'
-                            },
-                            {
-                                title: 'Estrictamente Necesarias',
-                                description: 'Estas cookies son esenciales para el funcionamiento del sitio web (navegación, seguridad, acceso a áreas seguras). No se pueden desactivar.',
-                                linked_category: 'necessary'
-                            },
-                            {
-                                title: 'Rendimiento y Analíticas',
-                                description: 'Nos permiten contar las visitas y fuentes de tráfico para medir y mejorar el rendimiento de nuestro sitio. Toda la información que recogen estas cookies es agregada y, por lo tanto, anónima.',
-                                linked_category: 'analytics'
-                            }
-                        ]
-                    }
-                }
-            }
         }
     });
-}
+});
