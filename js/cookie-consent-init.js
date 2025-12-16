@@ -9,12 +9,13 @@ const URL_COOKIES = 'legal/politica-cookies.html';
 const URL_PRIVACY = 'legal/politica-privacidad.html';
 
 // Comprobar si la librería CookieConsent está cargada
-window.addEventListener('load', function () {
-    if (typeof CookieConsent === 'undefined') {
-        console.error('¡La librería CookieConsent no está cargada!');
-        return;
-    }
+// Comprobar si la librería CookieConsent está cargada
+console.log('Iniciando script de cookies...');
 
+if (typeof CookieConsent === 'undefined') {
+    console.error('¡La librería CookieConsent no está cargada!');
+} else {
+    console.log('CookieConsent cargado correctamente.');
     CookieConsent.run({
         gui_options: {
             consent_modal: {
@@ -95,4 +96,4 @@ window.addEventListener('load', function () {
             }
         }
     });
-});
+}
