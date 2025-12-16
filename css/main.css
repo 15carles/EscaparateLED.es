@@ -994,11 +994,24 @@ p {
 /* ========================================
    Footer
    ======================================== */
+/* ========================================
+   Footer
+   ======================================== */
 .footer {
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
+  background-color: var(--color-secondary);
+  /* Reverted to dark */
+  color: white;
+  /* Reverted to white */
   padding: var(--spacing-xl) 0 var(--spacing-lg);
   margin-top: auto;
+}
+
+/* Make footer wider on desktop */
+.footer .container {
+  max-width: 1400px;
+  /* Wider than standard container */
+  padding-left: var(--spacing-xl);
+  padding-right: var(--spacing-xl);
 }
 
 .footer-content {
@@ -1009,7 +1022,8 @@ p {
 }
 
 .footer-section h4 {
-  color: var(--color-text);
+  color: white;
+  /* Reverted */
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: var(--spacing-md);
@@ -1026,21 +1040,25 @@ p {
 }
 
 .footer-links a {
-  color: var(--color-text-light);
+  color: rgba(255, 255, 255, 0.8);
+  /* Reverted */
   text-decoration: none;
   transition: color var(--transition-base);
   font-size: 0.9rem;
 }
 
 .footer-links a:hover {
-  color: var(--color-primary);
+  color: white;
+  /* Reverted */
 }
 
 .footer-bottom {
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /* Reverted */
   padding-top: var(--spacing-lg);
   text-align: center;
-  color: var(--color-text-light);
+  color: rgba(255, 255, 255, 0.6);
+  /* Reverted */
   font-size: 0.875rem;
 }
 
