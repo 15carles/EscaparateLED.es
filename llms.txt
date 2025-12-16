@@ -9,9 +9,12 @@ LEDescaparate.es ofrece información clara, actualizada y útil sobre:
 - Pantallas LED orientadas a escaparates y anuncios.
 - Sistemas de iluminación para destacar cartelería física.
 - Instalación práctica, consejos y configuraciones reales.
-- Un simulador único para calcular cuántas carpetas LED o pantallas LED caben en un escaparate según medidas reales.
+- Un simulador único (V2 Híbrido) para calcular combinaciones de carpetas A4 y A3.
 
 El objetivo del sitio es ayudar a empresas y profesionales a elegir la solución más adecuada para mejorar la presentación de su escaparate.
+Recursos clave:
+- Simulador Interactivo: https://ledescaparate.es/simulador
+- Blog y Guías: https://ledescaparate.es/blog
 
 ---
 
@@ -98,6 +101,10 @@ https://ledescaparate.es/contacto
 ### FAQ
 https://ledescaparate.es/simulador (más abajo está la sección "Preguntas Frecuentes sobre Carpetas LED para Escaparates"
 
+
+### Blog y Guías Técnicas
+https://ledescaparate.es/blog
+(Incluye comparativas 2025 y tutoriales de instalación)
 
 ### Legal
 https://ledescaparate.es/legal/aviso-legal
