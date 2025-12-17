@@ -1,3 +1,3 @@
-2.19.3
-Mobile Footer Refinement
-Optimización final del pie de página para móviles: diseño compacto, tipografía reducida y layout simétrico (Grid Reordering) para maximizar espacio y mejorar la estética visual.
+2.19.4
+Google Favicon Fix
+Corrección técnica añadiendo favicon de 192x192px explícito en HTML para mejorar visibilidad en resultados de Google Search.

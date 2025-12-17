@@ -1,6 +1,12 @@
 # 📋 CHANGELOG - LED Escaparate Website
 
-## [2.17.1] - 2025-12-16
+## [2.19.4] - 2025-12-17
+
+### 🔧 Fix SEO: Google Favicon
+- ✅ **Visibilidad en Búsqueda de Google**: Añadida referencia explícita al favicon de 192x192px en todos los archivos HTML.
+- ✅ **Optimización**: Soluciona el problema donde Google Search ignoraba los iconos pequeños (16/32px).
+
+## [2.19.3] - 2025-12-17
 
 ### 🚀 SEO & GEO Polish
 - ✅ **Schema FAQPage en Home**: Integradas preguntas frecuentes (envíos, garantía, precio) en `index.html` para Rich Snippets.
