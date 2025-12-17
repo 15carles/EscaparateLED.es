@@ -642,6 +642,21 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 
 ## 📝 Changelog
 
+### Versión 2.19.5 (Diciembre 2025)
+
+#### Reordenación Home
+- 🔄 **Swap de Secciones**: La "Galería de Casos de Éxito" ahora aparece justo después del Hero, intercambiando posición y estilos con la sección de "Beneficios" para mayor impacto visual.
+- 📱 **Carrusel Móvil**: Nueva vista en carrusel swipe horizontal para la galería en dispositivos móviles (<768px).
+
+---
+
+### Versión 2.19.4 (Diciembre 2025)
+
+#### Corrección Técnica
+- 🔧 **Favicon Fix**: Añadido favicon de 192x192px explícito en HTML para mejorar visibilidad en resultados de Google Search.
+
+---
+
 ### Versión 2.19.2 (Diciembre 2025)
 
 #### Mejoras UX/UI Móvil (Full-Width)
