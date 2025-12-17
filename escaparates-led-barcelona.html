@@ -55,7 +55,7 @@
         "name": "Barcelona"
       },
       "description": "Envío urgente de sistemas de iluminación LED para inmobiliarias y comercios en Barcelona.",
-            "offers": {
+      "offers": {
         "@type": "AggregateOffer",
         "lowPrice": "38.50",
         "priceCurrency": "EUR",
@@ -68,7 +68,42 @@
             "price": "38.50",
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition"
+            "itemCondition": "https://schema.org/NewCondition",
+            "hasMerchantReturnPolicy": {
+              "@type": "MerchantReturnPolicy",
+              "applicableCountry": "ES",
+              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+              "merchantReturnDays": "14",
+              "returnMethod": "https://schema.org/ReturnByMail",
+              "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+            },
+            "shippingDetails": {
+              "@type": "OfferShippingDetails",
+              "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0",
+                "currency": "EUR"
+              },
+              "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": "ES"
+              },
+              "deliveryTime": {
+                "@type": "ShippingDeliveryTime",
+                "handlingTime": {
+                  "@type": "QuantitativeValue",
+                  "minValue": 0,
+                  "maxValue": 1,
+                  "unitCode": "DAY"
+                },
+                "transitTime": {
+                  "@type": "QuantitativeValue",
+                  "minValue": 1,
+                  "maxValue": 2,
+                  "unitCode": "DAY"
+                }
+              }
+            }
           },
           {
             "@type": "Offer",
@@ -76,7 +111,42 @@
             "price": "38.50",
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition"
+            "itemCondition": "https://schema.org/NewCondition",
+            "hasMerchantReturnPolicy": {
+               "@type": "MerchantReturnPolicy",
+               "applicableCountry": "ES",
+               "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+               "merchantReturnDays": "14",
+               "returnMethod": "https://schema.org/ReturnByMail",
+               "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+            },
+            "shippingDetails": {
+              "@type": "OfferShippingDetails",
+              "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0",
+                "currency": "EUR"
+              },
+              "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": "ES"
+              },
+              "deliveryTime": {
+                "@type": "ShippingDeliveryTime",
+                "handlingTime": {
+                  "@type": "QuantitativeValue",
+                  "minValue": 0,
+                  "maxValue": 1,
+                  "unitCode": "DAY"
+                },
+                "transitTime": {
+                  "@type": "QuantitativeValue",
+                  "minValue": 1,
+                  "maxValue": 2,
+                  "unitCode": "DAY"
+                }
+              }
+            }
           }
         ]
       }
@@ -214,7 +284,7 @@
 
                 <div class="footer-section">
                     <h4>Envíos 24h</h4>
-          <ul class="footer-links geo-columns">
+                    <ul class="footer-links geo-columns">
                         <li><a href="escaparates-led-madrid.html">Madrid</a></li>
                         <li><a href="escaparates-led-barcelona.html">Barcelona</a></li>
                         <li><a href="escaparates-led-valencia.html">Valencia</a></li>

@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website Oficial
 
-![Version](https://img.shields.io/badge/version-2.18.0-blue)
+![Version](https://img.shields.io/badge/version-2.19.1-blue)
 ![Status](https://img.shields.io/badge/status-production-success)
 ![Mobile](https://img.shields.io/badge/mobile-optimized-green)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -641,6 +641,17 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 ---
 
 ## 📝 Changelog
+
+### Versión 2.19.1 (Diciembre 2025)
+
+#### Corregido
+- 🐛 **Schema.org en Landing Pages GEO**
+  * Corrección de advertencias "Improve item appearance" (missing deliveryTime, returnFees)
+  * Añadidas políticas de devolución explícitas (14 días, coste cliente)
+  * Definidos tiempos de manipulación (0-1 día) y tránsito (1-2 días)
+  * Actualizado en las 10 páginas de capitales (Madrid, BCN, Valencia, etc.)
+
+---
 
 ### Versión 2.16.0 (Diciembre 2025)
 
