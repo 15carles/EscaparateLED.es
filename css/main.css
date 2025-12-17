@@ -1648,24 +1648,18 @@ p {
   text-align: center;
 }
 
-/* Responsivo: 2 columnas en tablets */
-@media (max-width: 768px) {
+/* Responsivo: 1 columna grande en Tablets y Móviles (Petición Cliente: "Una encima de otra") */
+@media (max-width: 1023px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px;
+    grid-template-columns: 1fr;
+    /* Una sola columna para máximo tamaño */
+    gap: 24px;
+    /* Separación clara */
   }
 
   .gallery-caption {
-    font-size: 0.875rem;
-    padding: 12px 8px 8px;
-  }
-}
-
-/* Responsivo: 2 columnas fijas en móviles */
-@media (max-width: 480px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    font-size: 1rem;
+    padding: 16px;
   }
 }
 
@@ -3039,5 +3033,272 @@ I need to differentiate them or make .info-box generic and .info-box-error speci
   .cta-box h2 {
     white-space: nowrap;
     font-size: 2.2rem;
+  }
+}
+
+/* ========================================
+   MOBILE FULL-WIDTH & UX OPTIMIZATIONS (2025)
+/* ========================================
+   RESPONSIVE REFINEMENTS (2025)
+   Golden Rule: Fluidity > Rigid Breakpoints
+   ======================================== */
+
+/* TABLET & MOBILE SHARED STYLES (< 1024px) */
+/* El menú de escritorio NO cabe en 768px, así que mantenemos hamburguesa hasta 1024px */
+@media (max-width: 1023px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    /* Altura aprox del header */
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-150%);
+    /* Oculto por defecto */
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+    gap: 16px;
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+  }
+
+  .nav-toggle {
+    display: flex;
+    /* Mostrar hamburguesa en Tablet */
+  }
+
+  .container {
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* MOBILE SPECIFIC OPTIMIZATIONS (< 768px) */
+@media (max-width: 767px) {
+
+  /* 1. ESTRATEGIA FULL-WIDTH */
+  .container,
+  .wrapper {
+    padding-left: 16px;
+    /* Restaurado a 16px (estándar seguro) */
+    padding-right: 16px;
+    width: 100%;
+  }
+
+  /* 2. RITMO VERTICAL (Compacto pero funcional) */
+  /* 24px era demasiado agresivo y causaba overlaps. Usamos 36px. */
+  .section {
+    padding: 36px 0;
+  }
+
+  /* Márgenes más respirables pero controlados */
+  .mb-5,
+  .my-5 {
+    margin-bottom: 32px !important;
+    margin-top: 32px !important;
+  }
+
+  .mb-4,
+  .my-4 {
+    margin-bottom: 24px !important;
+    margin-top: 24px !important;
+  }
+
+  .mb-3,
+  .my-3 {
+    margin-bottom: 16px !important;
+    margin-top: 16px !important;
+  }
+
+  /* 3. GALERÍA & IMÁGENES (Usa estilos de escritorio por defecto) */
+  /* El usuario prefiere la estética original de altura fija 250px */
+
+
+  /* Imágenes genéricas (blog, etc) */
+  .blog-post-thumb,
+  .hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+  }
+
+  /* 4. NAVEGACIÓN (Fix: "Boton que despliega el menu") */
+  /* Asegurar que el toggle sea visible y tenga tamaño correcto */
+  .nav-toggle {
+    display: flex;
+    /* Asegurar visibilidad flex */
+    padding: 8px;
+    /* Padding interno para hit area */
+    border: 1px solid var(--color-border);
+    /* Borde sutil para identificarlo */
+    border-radius: 4px;
+    position: relative;
+    z-index: 1001;
+    /* Encima de todo */
+    background-color: white;
+    /* Evitar transparencia confusa */
+    min-height: 44px;
+    /* Apple standard */
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* Reset de span dentro del toggle */
+  .nav-toggle span {
+    margin: 0;
+    /* Quitar margen anterior que rompía el centrado */
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-secondary);
+  }
+
+  /* 5. FOOTER COMPACTADO (Safe Mode) */
+  .footer {
+    padding: 32px 0 24px;
+    text-align: center;
+  }
+
+  .footer-links,
+  .footer-links.geo-columns {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 16px;
+    /* Más aire horizontal */
+    text-align: left;
+  }
+
+  /* 6. TIPOGRAFÍA REAJUSTADA */
+  h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Asegurar legibilidad base */
+
+  /* GRID SAFE FALLBACK */
+  .products-grid,
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* 1 col simple */
+    gap: 24px;
+  }
+
+  /* TOUCH TARGETS (Sin romper botones específicos) */
+  .btn,
+  button,
+  input[type="submit"] {
+    min-height: 48px;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  /* EXCEPCIÓN CLAVE: Controles de UI (Flechas y Puntos) */
+  /* Deben ignorar las reglas de "Botón gigante" y mantener sus formas geométricas exactas */
+
+  .nav-toggle {
+    width: auto !important;
+    margin-bottom: 0 !important;
+  }
+
+  .gallery-nav {
+    width: 40px !important;
+    /* Círculo perfecto */
+    height: 40px !important;
+    min-height: 40px !important;
+    /* Sobrescribir min-height del btn global */
+    border-radius: 50% !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    /* Para centrar la flecha */
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+  }
+
+  .indicator {
+    width: 8px !important;
+    /* Círculo fijo inactivo */
+    height: 8px !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 50% !important;
+    border: 2px solid white !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+    display: inline-block !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .indicator.active {
+    width: 24px !important;
+    /* Pill ancha activo */
+    background: white !important;
+    border-radius: 4px !important;
+  }
+
+  /* ========================================
+     Fix Cookie Banner Mobile
+     ======================================== */
+  #cc--main .cm {
+    width: 90% !important;
+    /* Evitar que toque los bordes */
+    max-width: 400px !important;
+    left: 5% !important;
+    /* Centrado: 5% + 90% + 5% */
+    right: 5% !important;
+    bottom: 20px !important;
+    /* Separado del bottom */
+    border-radius: 12px !important;
+    padding: 20px !important;
+    flex-direction: column;
+  }
+
+  #cc--main .cm__title {
+    font-size: 1.1rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  #cc--main .cm__desc {
+    font-size: 0.9rem !important;
+    margin-bottom: 16px !important;
+  }
+
+  #cc--main .cm__btns {
+    flex-direction: column;
+    /* Botones uno debajo de otro */
+    gap: 10px;
+    width: 100%;
+  }
+
+  #cc--main .cm__btn {
+    width: 100%;
+    margin: 0 !important;
+    min-height: 44px;
+    /* Touch friendly */
+    font-size: 0.95rem !important;
   }
 }

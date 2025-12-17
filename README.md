@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website Oficial
 
-![Version](https://img.shields.io/badge/version-2.19.1-blue)
+![Version](https://img.shields.io/badge/version-2.19.2-blue)
 ![Status](https://img.shields.io/badge/status-production-success)
 ![Mobile](https://img.shields.io/badge/mobile-optimized-green)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -641,6 +641,17 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 ---
 
 ## 📝 Changelog
+
+### Versión 2.19.2 (Diciembre 2025)
+
+#### Mejoras UX/UI Móvil (Full-Width)
+- 📱 **Estrategia Full-Width**: Eliminado el "efecto túnel" en móviles (<768px). Contenedores ahora usan el 100% del ancho con padding mínimo (12px).
+- 📐 **Ritmo Compacto**: Reducción del 50% en espaciados verticales (`--spacing-xl`) y gaps de grid para minimizar scroll.
+- 👆 **Touch Targets Optimizado**: Botones CTA y campos de formulario con altura mínima garantizada de 48px y ancho completo.
+- 🔡 **Tipografía**: Ajustados tamaños y line-heights de H1/H2 para evitar saltos de línea excesivos. Inputs forzados a 16px para evitar zoom en iOS.
+- 📱 **Compatibilidad**: Verificado para iPhone 14/15/16 y Androids modernos (360px - 430px).
+
+---
 
 ### Versión 2.19.1 (Diciembre 2025)
 

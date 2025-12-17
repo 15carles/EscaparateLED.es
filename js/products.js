@@ -249,8 +249,8 @@ function renderProductGrid(containerId, filterFeatured = false) {
         // Desktop: muestra todos los productos featured (3)
     }
 
-    // Determinar si usar modo compacto (móvil)
-    const isMobile = window.innerWidth <= 768;
+    // Determinar si usar modo compacto (móvil y tablet)
+    const isMobile = window.innerWidth < 1024;
     const useCompact = isMobile && filterFeatured;
 
     container.innerHTML = products.map(product => renderProductCard(product, useCompact)).join('');
