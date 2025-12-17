@@ -3077,6 +3077,12 @@ I need to differentiate them or make .info-box generic and .info-box-error speci
     padding-left: 24px;
     padding-right: 24px;
   }
+
+  /* Footer Tablet Defensivo */
+  .footer .container {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
 }
 
 /* MOBILE SPECIFIC OPTIMIZATIONS (< 768px) */
@@ -3163,17 +3169,118 @@ I need to differentiate them or make .info-box generic and .info-box-error speci
 
   /* 5. FOOTER COMPACTADO (Safe Mode) */
   .footer {
-    padding: 32px 0 24px;
+    padding: 24px 0 16px;
+    /* Aún más compacto verticalmente */
     text-align: center;
   }
 
-  .footer-links,
-  .footer-links.geo-columns {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px 16px;
-    /* Más aire horizontal */
-    text-align: left;
+  /* Padding seguro y ancho completo */
+  .footer .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* --- REFINAMIENTO ESTÉTICO (Simetría & Orden) --- */
+
+  /* 1. Logo Section -> Full Width & Centered */
+  .footer-section:nth-child(1) {
+    grid-column: 1 / -1;
+    text-align: center;
+    order: 1;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 12px !important;
+  }
+
+  .footer-section:nth-child(1) h4 {
+    margin-top: 0 !important;
+  }
+
+  /* 2. Enlaces -> Columna Izquierda */
+  .footer-section:nth-child(2) {
+    order: 2;
+    text-align: center;
+  }
+
+  .footer-section:nth-child(2) .footer-links {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  /* 3. Legal -> Columna Derecha (Movido de pos 4) */
+  .footer-section:nth-child(4) {
+    order: 3;
+    text-align: center;
+  }
+
+  .footer-section:nth-child(4) .footer-links {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  /* 4. Envíos -> Full Width (Movido de pos 3) */
+  .footer-section:nth-child(3) {
+    order: 4;
+    grid-column: 1 / -1;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 16px;
+    margin-top: 12px;
+  }
+
+  /* Grid de ciudades compacto (3 columnas) */
+  .footer-section:nth-child(3) .footer-links.geo-columns {
+    grid-template-columns: repeat(3, 1fr) !important;
+    font-size: 0.75rem !important;
+    text-align: center;
+    gap: 8px 4px;
+  }
+
+  /* 5. Contacto -> Full Width Bottom */
+  .footer-section:nth-child(5) {
+    order: 5;
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .footer-section:nth-child(5) .footer-links {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Refinamiento general de Textos */
+  .footer-section h4 {
+    font-size: 0.95rem !important;
+    text-align: center !important;
+    margin-bottom: 12px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-links a,
+  .footer p,
+  .footer li {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  /* Copyright minimalista */
+  .footer-bottom {
+    font-size: 0.75rem !important;
+    /* 12px */
+    padding-top: 16px !important;
+    margin-top: 16px !important;
+    border-top-color: rgba(255, 255, 255, 0.1);
   }
 
   /* 6. TIPOGRAFÍA REAJUSTADA */
