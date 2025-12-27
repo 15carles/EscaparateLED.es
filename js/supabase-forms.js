@@ -96,8 +96,7 @@ function attachSupabaseFormHandler(formId, statusId, formType) {
             // Insertar en Supabase
             const { data, error } = await supabaseClient
                 .from('form_submissions')
-                .insert([payload])
-                .select();
+                .insert([payload]);
 
             if (error) {
                 console.error('Supabase error:', error);
