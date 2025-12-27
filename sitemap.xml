@@ -17,26 +17,6 @@
     <priority>0.9</priority>
   </url>
 
-  <url>
-    <loc>https://ledescaparate.es/simulador</loc>
-    <lastmod>2025-12-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://ledescaparate.es/instalacion</loc>
-    <lastmod>2025-12-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://ledescaparate.es/faq</loc>
-    <lastmod>2025-12-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
 
   <!-- Formularios -->
   <url>
@@ -48,7 +28,7 @@
 
   <url>
     <loc>https://ledescaparate.es/contacto</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2025-12-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -67,6 +47,78 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>https://ledescaparate.es/blog-5-ideas-mejorar-escaparate-inmobiliaria.html</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://ledescaparate.es/blog-carpetas-led-vs-escaparates-tradicionales.html</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://ledescaparate.es/blog-mejorar-luminosidad-de-escaparate.html</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://ledescaparate.es/blog-mejores-sistemas-iluminacion-2025.html</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://ledescaparate.es/guia-instalacion-carpetas-led.html</loc>
+    <lastmod>2025-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Páginas de utilidad -->
+  <url>
+    <loc>https://ledescaparate.es/simulador.html</loc>
+    <lastmod>2025-12-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ledescaparate.es/faq.html</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://ledescaparate.es/instalacion.html</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ledescaparate.es/gracias.html</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://ledescaparate.es/error-formulario.html</loc>
+    <lastmod>2025-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 
   <!-- Páginas legales -->
   <url>
@@ -141,7 +193,7 @@
   </url>
   <url>
     <loc>https://ledescaparate.es/nosotros.html</loc>
-    <lastmod>2024-12-03</lastmod>
+    <lastmod>2025-12-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
