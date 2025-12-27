@@ -1,5 +1,30 @@
 # 📋 CHANGELOG - LED Escaparate Website
 
+## [2.20.0] - 2025-12-27
+
+### 🌍 SEO: Personalización de contenido local para las 10 páginas GEO
+- ✅ **Madrid**: Mención a alta competitividad en Salamanca, Chamberí y Retiro
+- ✅ **Barcelona**: Referencia a L'Eixample, Gràcia y Sarrià con enfoque en elegancia
+- ✅ **Valencia**: Destacado brillo de 5000 nits para el sol mediterráneo, Ruzafa y Ciutat Vella
+- ✅ **Sevilla**: Enfoque en visibilidad bajo el sol intenso de Andalucía, Nervión y Los Remedios
+- ✅ **Bilbao**: Escaparates luminosos en días grises del Cantábrico, Abando e Indautxu
+- ✅ **Málaga**: Luz de la Costa del Sol y Calle Larios
+- ✅ **Zaragoza**: Robustez frente al cierzo y Paseo de la Independencia
+- ✅ **Alicante**: Enfoque en turismo, la Explanada y centro tradicional
+- ✅ **Murcia**: Luminosidad para tardes soleadas y Gran Vía
+- ✅ **Palma**: Elegancia para el casco antiguo y zonas exclusivas
+
+#### Beneficios SEO
+- Contenido único por ciudad evita penalizaciones por contenido duplicado
+- Mejora relevancia local en búsquedas geográficas
+- Meta descriptions y OG tags personalizados por ciudad
+- Mención a barrios y zonas específicas aumenta autoridad local
+
+#### Cambios Técnicos
+- Eliminados estilos en línea en favor de clase `.text-intro-centered` en `main.css`
+- Comentarios en español en todas las modificaciones
+
+
 ## [2.19.4] - 2025-12-17
 
 ### 🔧 Fix SEO: Google Favicon

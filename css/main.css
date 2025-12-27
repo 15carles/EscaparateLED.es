@@ -1933,6 +1933,12 @@ p {
   font-size: var(--font-size-lg);
 }
 
+/* Clase para párrafos introductorios centrados */
+.text-intro-centered {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .text-xl {
   font-size: var(--font-size-xl);
 }
