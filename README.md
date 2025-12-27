@@ -914,3 +914,21 @@ Ver [CHANGELOG.md](CHANGELOG.md) para historial completo de versiones anteriores
 **Desarrollado con ❤️ en Valencia, España**
 
 *LED Escaparate - Iluminando el futuro de los escaparates inmobiliarios*
+
+## 🛡️ Auditoría de Integridad (QA)
+
+**Fecha:** 27-12-2025
+**Versión:** 2.20.1
+
+Se ha realizado una auditoría completa de enlaces internos y referencias a recursos (imágenes, scripts) utilizando un script automatizado en Python.
+
+**Resultados:**
+- **Archivos escaneados:** 32 archivos HTML.
+- **Enlaces verificados:** >500 enlaces internos.
+- **Enlaces rotos:** 0 encontrados.
+- **Acciones:**
+    - Verificación cruzada de todas las páginas GEO.
+    - Optimización de `404.html` para usar rutas absolutas y ofrecer navegación rápida a ciudades.
+
+---
+
