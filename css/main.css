@@ -563,6 +563,189 @@ p {
 }
 
 /* ========================================
+   Gallery Grid - Traditional (nosotros.html)
+   ======================================== */
+/* Mobile: Horizontal slider with peek effect */
+@media (max-width: 767px) {
+  .gallery-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+    margin-left: calc(var(--container-padding) * -1);
+    margin-right: calc(var(--container-padding) * -1);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    padding-bottom: var(--spacing-sm);
+  }
+
+  .gallery-grid::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Edge */
+  }
+
+  .gallery-grid .gallery-item {
+    flex: 0 0 85%;
+    min-width: 85%;
+    scroll-snap-align: center;
+  }
+}
+
+/* Desktop: Grid layout (default) */
+@media (min-width: 768px) {
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+  }
+}
+
+.gallery-item {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base);
+  margin: 0;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-caption {
+  padding: var(--spacing-sm);
+  background: white;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+/* Hide captions on mobile for cleaner slider experience */
+@media (max-width: 767px) {
+  .gallery-caption {
+    display: none;
+  }
+}
+
+/* ========================================
+   Gallery Slider - Horizontal (index.html)
+   ======================================== */
+.gallery-grid-slider {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  gap: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  /* Firefox */
+  margin: 0 calc(var(--container-padding) * -1);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.gallery-grid-slider::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
+}
+
+.gallery-grid-slider .gallery-item {
+  /* Mobile: Show mostly one image with a peek at the next (85%) */
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+}
+
+@media (min-width: 768px) {
+  .gallery-grid-slider {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden;
+    /* Ocultar scroll en desktop, controlado por JS */
+  }
+
+  .gallery-grid-slider .gallery-item {
+    /* Desktop: Show exactly 3 items. 
+       Formula: (100% width - 2 spaces) / 3 items */
+    flex: 0 0 calc((100% - (var(--spacing-md) * 2)) / 3);
+    min-width: calc((100% - (var(--spacing-md) * 2)) / 3);
+    max-width: calc((100% - (var(--spacing-md) * 2)) / 3);
+    scroll-snap-align: start;
+  }
+}
+
+/* ========================================
+   Gallery Navigation Arrows
+   ======================================== */
+.gallery-arrow {
+  display: none;
+  /* Hidden on mobile, touch scrolling preferred */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: all var(--transition-base);
+  z-index: 10;
+  color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  min-height: auto;
+  /* Override global button min-height */
+  padding: 0;
+}
+
+.gallery-container:hover .gallery-arrow {
+  opacity: 1;
+}
+
+.gallery-arrow:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-arrow:active {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.gallery-arrow-left {
+  left: -24px;
+}
+
+.gallery-arrow-right {
+  right: -24px;
+}
+
+@media (min-width: 768px) {
+  .gallery-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ========================================
    Product Gallery (Multi-Image Carousel)
    ======================================== */
 .product-gallery {
@@ -883,13 +1066,20 @@ p {
 
   /* Optimizar tabla para móvil */
   .table-corporate {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    /* Reducido de 0.85rem para mejor uso del espacio */
   }
 
   .table-corporate th,
   .table-corporate td {
-    padding: 0.5rem 0.75rem;
+    padding: 0.4rem 0.6rem;
+    /* Reducido para maximizar espacio horizontal */
     white-space: nowrap;
+  }
+
+  /* Mejorar legibilidad en tablas pequeñas */
+  .table-corporate tbody th {
+    font-size: 0.75rem;
   }
 }
 
@@ -1134,6 +1324,26 @@ p {
   margin-right: auto !important;
 }
 
+.max-w-1200 {
+  max-width: 1200px !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.gallery-container {
+  position: relative;
+  padding: 0 var(--container-padding);
+}
+
+@media (min-width: 768px) {
+  .gallery-container {
+    padding: 0;
+    /* Sin padding en desktop para respetar max-width */
+  }
+}
+
 /* Visualmente oculto pero accesible para lectores de pantalla */
 .visually-hidden {
   position: absolute;
@@ -1186,9 +1396,14 @@ p {
     --font-size-5xl: 2rem;
     --font-size-4xl: 1.75rem;
     --font-size-3xl: 1.5rem;
+    --font-size-2xl: 1.35rem;
+    /* Mejorado para mejor jerarquía */
+    --font-size-xl: 1.2rem;
+    /* Mejorado para mejor legibilidad */
     --spacing-2xl: 2.5rem;
     --spacing-3xl: 2.5rem;
-    --container-padding: 0.75rem;
+    --container-padding: 1rem;
+    /* Aumentado de 0.75rem para mejor uso del espacio */
   }
 
   .nav-menu {
@@ -3456,5 +3671,66 @@ I need to differentiate them or make .info-box generic and .info-box-error speci
     width: 100%;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-sm);
+  }
+}
+
+/* ========================================
+   Mobile Optimizations - Nosotros Page
+   ======================================== */
+@media (max-width: 768px) {
+
+  /* Reduce padding in content cards for better space usage */
+  .philosophy-card,
+  .comparison-card,
+  .feature-card {
+    padding: var(--spacing-md) !important;
+    /* Reduced from --spacing-lg to avoid double padding */
+  }
+
+  /* Improve text readability */
+  .philosophy-card p,
+  .comparison-card p {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Better section spacing */
+  .mb-5 {
+    margin-bottom: var(--spacing-xl) !important;
+  }
+}
+
+/* ========================================
+   Mobile: Remove Double Padding in Content Boxes
+   ======================================== */
+@media (max-width: 768px) {
+
+  /* Blog content boxes - remove internal padding on mobile */
+  .blog-content-box {
+    padding: var(--spacing-md) !important;
+    /* Reduced from --spacing-xl to avoid double padding */
+  }
+
+  /* Blog CTA boxes */
+  .blog-cta-box {
+    padding: var(--spacing-md) !important;
+  }
+
+  /* Container-sm should not add extra constraints on mobile */
+  .container-sm {
+    max-width: 100% !important;
+    padding: 0 var(--container-padding) !important;
+  }
+
+  /* Other content boxes that might have double padding */
+  .content-box,
+  .card-content {
+    padding: var(--spacing-md) !important;
+  }
+
+  /* Contact page cards - reduce padding on mobile */
+  .contact-info-card {
+    padding: var(--spacing-md) !important;
+    /* Reduced from --spacing-lg to avoid double padding */
   }
 }

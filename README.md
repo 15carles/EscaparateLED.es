@@ -642,6 +642,15 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 
 ## 📝 Changelog
 
+### Versión 2.19.6 (Diciembre 2025)
+
+#### Contenido
+- 📸 **Galería Home**: Añadida foto "RS Homes Interior" en primera posición para completar el grid de 4 destacados.
+- 📸 **Galería Nosotros**: Ampliada con 3 nuevas referencias reales (InmoSingular, Habitale, Puerta Cristal) para un total de 7 instalaciones.
+- 💅 **Grid Responsivo**: Verificado comportamiento del grid con elementos impares (7 items).
+
+---
+
 ### Versión 2.19.5 (Diciembre 2025)
 
 #### Reordenación Home

@@ -493,14 +493,19 @@
 
     <!-- Galería de Casos de Éxito -->
     <section class="section">
-      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <div class="gallery-container text-center max-w-1200 mx-auto">
         <h2 class="mb-2">Transformamos fachadas en toda España</h2>
-        <p class="mb-5" style="color: #666;">Ejemplos reales de inmobiliarias que ya destacan 24h.</p>
+        <p class="mb-5 text-light">Ejemplos reales de inmobiliarias que ya destacan 24h.</p>
 
-        <div class="gallery-grid">
+        <button class="gallery-arrow gallery-arrow-left" aria-label="Ver imágenes anteriores">‹</button>
+        <div class="gallery-grid-slider">
           <figure class="gallery-item">
-            <img src="images/escaparate-inmobiliaria-real-villas.webp"
-              alt="Fachada completa de inmobiliaria Real Villas con carpetas LED A3 y A4 en Alicante" loading="lazy">
+            <img src="images/montaje-interior-oficina.webp" alt="Interior oficina RS Homes con carpetas LED"
+              loading="lazy">
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/escaparate-inmobiliaria-real-villas.webp" alt="Fachada Real Villas con tensores LED"
+              loading="lazy">
           </figure>
           <figure class="gallery-item">
             <img src="images/iluminacion-led-escaparate-noche.webp"
@@ -511,9 +516,10 @@
               alt="Instalación estándar de carpetas LED para oficina de franquicia RE/MAX" loading="lazy">
           </figure>
         </div>
+        <button class="gallery-arrow gallery-arrow-right" aria-label="Ver imágenes siguientes">›</button>
 
         <div class="mt-5">
-          <a href="nosotros.html" class="btn btn-primary btn-large">Ver galería completa y detalles</a>
+          <a href="nosotros.html#galeria-nosotros" class="btn btn-primary btn-large">Ver galería completa</a>
         </div>
       </div>
     </section>

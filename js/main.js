@@ -165,3 +165,43 @@ window.carpetasLED = {
     showError,
     clearError
 };
+
+// ========================================
+// Gallery Slider Navigation
+// ========================================
+document.addEventListener('DOMContentLoaded', function () {
+    const galleryGrid = document.querySelector('.gallery-grid-slider');
+    const leftArrow = document.querySelector('.gallery-arrow-left');
+    const rightArrow = document.querySelector('.gallery-arrow-right');
+
+    if (galleryGrid && leftArrow && rightArrow) {
+        // Function to scroll the gallery
+        function scrollGallery(direction) {
+            const galleryItem = galleryGrid.querySelector('.gallery-item');
+            if (!galleryItem) return;
+
+            // Get the width of one item plus gap
+            const itemWidth = galleryItem.offsetWidth;
+            const computedStyle = window.getComputedStyle(galleryGrid);
+            const gap = parseInt(computedStyle.gap) || 0;
+
+            // Scroll by the width of one item plus gap
+            const scrollAmount = itemWidth + gap;
+            const scrollDistance = direction === 'left' ? -scrollAmount : scrollAmount;
+
+            galleryGrid.scrollBy({
+                left: scrollDistance,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add click event listeners
+        leftArrow.addEventListener('click', function () {
+            scrollGallery('left');
+        });
+
+        rightArrow.addEventListener('click', function () {
+            scrollGallery('right');
+        });
+    }
+});
