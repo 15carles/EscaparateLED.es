@@ -1,6 +1,6 @@
 # 🌟 LED Escaparate - Website Oficial
 
-![Version](https://img.shields.io/badge/version-2.19.6-blue)
+![Version](https://img.shields.io/badge/version-2.19.7-blue)
 ![Status](https://img.shields.io/badge/status-production-success)
 ![Mobile](https://img.shields.io/badge/mobile-optimized-green)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
@@ -641,6 +641,24 @@ Este proyecto es propiedad de LED Escaparate y está protegido por las leyes de 
 ---
 
 ## 📝 Changelog
+
+### Versión 2.19.7 (Diciembre 2025)
+
+#### Corregido
+- 🐛 **Sintaxis JSON-LD en blog.html**
+  * Eliminada coma extra en bloque `geographicArea` que causaba error de validación en Google Search Console
+  * JSON-LD ahora pasa validación sin errores
+
+#### Añadido
+- ✅ **Ampliación de Catálogo con Productos A3**
+  * Añadidos productos A3 Vertical y A3 Horizontal (55.00 EUR) al schema Product
+  * Actualizado `AggregateOffer` con `lowPrice: 38.50` y `highPrice: 55.00`
+  * Incrementado `offerCount` de 2 a 4 productos
+  * Políticas completas de devolución (14 días, coste cliente) y envío (gratis, 0-1 día handling, 1-2 días tránsito)
+  * Aplicado en `productos.html` y las 10 páginas GEO (Madrid, Barcelona, Valencia, Sevilla, Málaga, Alicante, Bilbao, Zaragoza, Palma, Murcia)
+  * Resuelve advertencia de Google Search Console sobre falta de `highPrice`
+
+---
 
 ### Versión 2.19.6 (Diciembre 2025)
 
